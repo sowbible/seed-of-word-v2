@@ -1,0 +1,57 @@
+{
+  "book": "john",
+  "chapter": 1,
+  "version": "1.0",
+  "passageRef": "요한복음 1:1–18",
+  "prompts": [
+    {
+      "id": "verse-and-god",
+      "icon": "💛",
+      "title": "마음에 남은 말씀과 그 말씀에서 만난 하나님",
+      "guide": "어떤 말씀이 마음에 와닿았나요? 그 말씀에서 하나님은 어떤 분으로 느껴졌나요?",
+      "required": true,
+      "shareable": true,
+      "input": {
+        "type": "text",
+        "voiceInput": true,
+        "placeholder": ""
+      }
+    },
+    {
+      "id": "life-today",
+      "icon": "🌿",
+      "title": "오늘 나는 이렇게 살아갈래요",
+      "guide": "이 말씀을 기억하며 오늘 나는 어떻게 살아가고 싶나요?",
+      "required": true,
+      "input": {
+        "type": "text",
+        "voiceInput": true,
+        "placeholder": ""
+      }
+    },
+    {
+      "id": "thanks",
+      "icon": "🙏",
+      "title": "하나님께 감사해요",
+      "guide": "오늘 하나님께 감사하고 싶은 일을 적어 보세요.",
+      "required": true,
+      "input": {
+        "type": "text",
+        "voiceInput": true,
+        "placeholder": ""
+      }
+    },
+    {
+      "id": "prayer",
+      "icon": "🤲",
+      "title": "하나님께 기도해요",
+      "guide": "오늘 하나님께 드리고 싶은 기도를 적어 보세요.",
+      "required": true,
+      "input": {
+        "type": "text",
+        "voiceInput": true,
+        "placeholder": ""
+      }
+    }
+  ]
+}

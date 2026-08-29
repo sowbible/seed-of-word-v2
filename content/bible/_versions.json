@@ -1,0 +1,13 @@
+{
+  "_note": "성경 본문 전문은 저작권이 있는 번역본이라 자체 호스팅하지 않고, godpia.com으로 열람만 연결한다 (SOW_구조설계.md 원칙 6 참고). 레거시 코드(sow-platform.js)에서 이미 검증된 3개 역본을 그대로 이관.",
+  "provider": {
+    "name": "godpia",
+    "baseUrl": "https://www.godpia.com/read/reading.asp",
+    "urlPattern": "{baseUrl}?ver={versionCode}&vol={godpiaVol}&chap={chapter}"
+  },
+  "versions": [
+    { "id": "saenew", "order": 1, "default": true, "label": { "ko": "새번역", "en": "Saeneun" } },
+    { "id": "gae", "order": 2, "label": { "ko": "개역개정 4판", "en": "Gaeyeok Gaejeong 4th Ed." } },
+    { "id": "easy", "order": 3, "label": { "ko": "쉬운성경", "en": "Easy Version" } }
+  ]
+}

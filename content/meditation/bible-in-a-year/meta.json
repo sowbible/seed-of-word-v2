@@ -1,0 +1,11 @@
+{
+  "id": "bible-in-a-year",
+  "totalSteps": 365,
+  "yearPlan": true,
+  "totalChapters": 1189,
+  "startBook": "genesis",
+  "description": {
+    "ko": "성경 66권 전체(1189장)를 365일로 정확히 나눠서 하루 3~4장씩 읽는 코스. 하루한장 코스와 같은 정경 순서·같은 공용 4문항 템플릿을 쓰지만, 하루 분량이 1장이 아니라 그날 몫만큼(보통 3장, 가끔 4장) 여러 장을 한 번에 보여준다. 콘텐츠를 미리 만들어두지 않고 날짜(걸음)에 맞춰 계산해서 보여준다.",
+    "en": "All 1,189 chapters spread evenly across 365 days (3–4 chapters/day), reusing the same canonical order and shared 4-question template as the daily-chapter course."
+  }
+}

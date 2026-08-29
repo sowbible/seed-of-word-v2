@@ -1,0 +1,44 @@
+{
+  "book": "john",
+  "chapter": 1,
+  "version": "1.0",
+  "language": "en",
+  "levels": [
+    {
+      "id": "sprout",
+      "icon": "🌱",
+      "label": "새싹 · 핵심 1문장",
+      "sentences": [
+        { "id": "en-1-1", "text": "Jesus is the Word." }
+      ]
+    },
+    {
+      "id": "tree",
+      "icon": "🌳",
+      "label": "나무 · 핵심 4문장",
+      "sentences": [
+        { "id": "en-1-1", "text": "Jesus is the Word." },
+        { "id": "en-1-2", "text": "" },
+        { "id": "en-1-3", "text": "" },
+        { "id": "en-1-4", "text": "" }
+      ]
+    },
+    {
+      "id": "fruit",
+      "icon": "🍎",
+      "label": "열매 · 핵심 7문장",
+      "sentences": []
+    },
+    {
+      "id": "forest",
+      "icon": "⛰️",
+      "label": "숲 · 핵심 10문장",
+      "sentences": []
+    }
+  ],
+  "quizzes": [
+    { "id": "quiz-word", "title": "QUIZ 1 · 단어", "questions": [] },
+    { "id": "quiz-sentence", "title": "QUIZ 2 · 문장", "questions": [] }
+  ],
+  "_note": "levels 안 sentences는 사이트에서 'Jesus is the Word.' 한 문장만 확인됨. 나머지는 실제 콘텐츠로 채워야 함."
+}

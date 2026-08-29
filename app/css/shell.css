@@ -1,0 +1,280 @@
+/* =========================================================
+   SOW 공용 셸 스타일 — 모든 걸음 페이지가 공유하는 단 하나의 CSS
+   디자인 방향: "씨앗/새싹" 브랜드를 파인그린 + 세이지 + 클레이 톤으로.
+   원형 아이콘 배지를 시그니처 요소로 — 이모지가 텍스트 사이에 둥둥 떠있는
+   느낌 대신, 은은한 세이지 톤 원 안에 담아 카드마다 일관된 언어로 통일.
+   ========================================================= */
+:root{
+  /* ---- 색상 ---- */
+  --paper:#F6F4EE;
+  --card:#FFFFFF;
+  --ink:#1D3A2C;          /* 짙은 파인그린 — 본문/헤딩 */
+  --ink-soft:#4B6B58;     /* 보조 텍스트 */
+  --sprout:#78A768;       /* 새싹 그린 — 포인트/성공 */
+  --sprout-tint:#EAF1E6;  /* 아이콘 배지 배경 */
+  --amber:#C89238;        /* 골드 — 강조 텍스트 */
+  --amber-tint:#FAF2DF;
+  --clay:#A85C3F;         /* 클레이(테라코타보다 차분한 톤) — 경고/필수/CTA */
+  --clay-tint:#F5E7DF;
+  --line:#E4DFD2;
+  --line-soft:#EDEAE0;
+
+  /* ---- 반경/그림자 ---- */
+  --radius-lg:20px;
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow-sm:0 1px 2px rgba(29,58,44,0.05);
+  --shadow-md:0 6px 20px rgba(29,58,44,0.07);
+  --shadow-lift:0 14px 32px rgba(29,58,44,0.12);
+
+  --nav-h:60px;
+
+  /* 이전 버전과의 호환 별칭 (JS는 안 건드림) */
+  --forest:var(--ink);
+  --forest-soft:var(--ink-soft);
+  --gold:var(--amber);
+  --rust:var(--clay);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Pretendard', system-ui, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:-0.01em;
+}
+h1,h2,h3,.serif{font-family:'Noto Serif KR', serif; letter-spacing:-0.01em;}
+button,input,textarea,select{font-family:inherit;}
+:focus-visible{outline:2px solid var(--sprout);outline-offset:2px;border-radius:4px;}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+}
+
+/* ---------- 아이콘 배지 (시그니처 요소) — 이모지를 원 안에 통일감 있게 ---------- */
+.icon-row .emoji,
+.sow-track-icon,
+.sow-item-card > .e,
+.sow-word-chip > .e{
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+  border-radius:50%;background:var(--sprout-tint);
+}
+.icon-row .emoji{width:36px;height:36px;font-size:16px;}
+.sow-track-icon{width:52px;height:52px;font-size:23px;margin-bottom:12px;}
+.sow-item-card > .e{width:42px;height:42px;font-size:18px;}
+.sow-word-chip > .e{width:34px;height:34px;font-size:15px;margin:0 auto 8px;}
+
+/* ---------- 상단 모듈 네비 (레지스트리 기반) ---------- */
+nav.sow-modules{
+  position:sticky;top:0;z-index:10;height:var(--nav-h);
+  display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap;
+  background:rgba(246,244,238,0.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav.sow-modules button{
+  font-family:inherit;font-size:14px;font-weight:600;
+  padding:9px 18px;border-radius:99px;border:1px solid transparent;
+  background:transparent;color:var(--ink-soft);cursor:pointer;
+  display:flex;align-items:center;gap:7px;transition:background .18s,color .18s;
+}
+nav.sow-modules button.active{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm);}
+nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
+
+/* ---------- 서브탭 (korean / world-languages / explore 공용) ---------- */
+.sow-subtabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
+.sow-subtabs button{
+  font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  padding:8px 16px;border-radius:99px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink-soft);transition:.18s;
+}
+.sow-subtabs button.active{border-color:var(--ink);color:var(--ink);background:var(--sprout-tint);}
+.sow-subtabs button:hover:not(.active){border-color:var(--ink-soft);}
+
+/* ---------- 레이아웃 ---------- */
+main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
+.sow-passage-ref{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:6px;}
+.sow-section-title{font-size:22px;margin:0 0 22px;font-weight:700;line-height:1.4;}
+.sow-loading{padding:48px 0;text-align:center;color:#9A8F6E;font-size:13.5px;}
+
+/* ---------- 1년1독 코스: 오늘 읽을 범위 칩 ---------- */
+.sow-year-plan-list{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.sow-year-plan-chip{font-size:12.5px;font-weight:600;padding:7px 12px;background:var(--sprout-tint);border-radius:99px;color:var(--ink);}
+
+/* ---------- 카드 공통 ---------- */
+.sow-card{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:22px 24px;margin-bottom:16px;transition:box-shadow .2s;}
+
+/* ---------- 프롬프트 카드 (묵상/표현하기/토론/글쓰기 공용) ---------- */
+.sow-prompt .icon-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.sow-prompt h4{margin:0;font-size:15.5px;font-weight:700;}
+.sow-required{font-size:10.5px;font-weight:700;color:var(--clay);background:var(--clay-tint);padding:3px 9px;border-radius:99px;margin-left:auto;letter-spacing:.02em;}
+.sow-prompt p{margin:0 0 14px;font-size:13.5px;color:var(--ink-soft);line-height:1.65;}
+.sow-share-toggle{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--sprout);margin-top:10px;cursor:pointer;}
+.sow-share-toggle input{accent-color:var(--sprout);width:15px;height:15px;cursor:pointer;}
+
+/* ---------- 한자/어휘 ---------- */
+.sow-hanja-card{display:flex;gap:22px;align-items:flex-start;}
+.sow-hanja-char{font-family:'Noto Serif KR',serif;font-size:52px;font-weight:700;color:var(--ink);background:var(--sprout-tint);width:92px;height:92px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
+.sow-hanja-reading{font-weight:700;font-size:15px;margin-bottom:6px;}
+.sow-hanja-tags{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
+.sow-hanja-card p{margin:0 0 6px;font-size:13.5px;line-height:1.65;color:var(--ink-soft);}
+.sow-hanja-card .bible-note{color:var(--clay);font-weight:600;}
+.sow-word-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:18px;}
+.sow-word-chip{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:14px 12px;text-align:center;transition:border-color .18s,box-shadow .18s;}
+.sow-word-chip:hover{border-color:var(--sprout);box-shadow:var(--shadow-sm);}
+.sow-word-chip .w{font-weight:700;font-size:14px;margin-bottom:2px;}
+.sow-word-chip .d{font-size:11.5px;color:var(--ink-soft);line-height:1.4;}
+
+/* ---------- 세계 언어 ---------- */
+.sow-level-block{margin-bottom:18px;}
+.sow-level-label{font-size:13.5px;font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:7px;}
+.sow-sentence-list{list-style:none;margin:0;padding:0;}
+.sow-sentence-list li{font-size:14px;padding:10px 14px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);margin-bottom:7px;}
+
+/* ---------- 탐험 / 인물 / 지도 ---------- */
+.sow-item-card{display:flex;gap:16px;align-items:flex-start;}
+.sow-item-card h4{margin:0 0 2px;font-size:15px;font-weight:700;}
+.sow-item-card .sub{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:6px;}
+.sow-item-card p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.65;}
+
+/* ---------- 빈 상태 ---------- */
+.sow-empty-note{font-size:13px;color:#9A8F6E;font-style:italic;padding:11px 14px;background:var(--line-soft);border-radius:var(--radius-sm);border:1px dashed var(--line);}
+
+/* ---------- 자유코스: 본문 직접 선택 ---------- */
+/* ---------- 본문 바로 가기 (구약/신약 탭 + 책/장 선택) — 자유코스/하루한장/1년1독 공용 ---------- */
+.sow-jumper{margin-bottom:14px;padding:14px 16px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);}
+.sow-jumper label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:9px;}
+.sow-jumper-testament{display:flex;gap:6px;margin-bottom:10px;}
+.sow-jumper-testament button{font-family:inherit;font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:.18s;}
+.sow-jumper-testament button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.sow-jumper-row{display:flex;gap:8px;}
+.sow-jumper-book,.sow-jumper-chapter{font-family:inherit;font-size:13.5px;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
+.sow-jumper-book{flex:1.4;}
+.sow-jumper-chapter{flex:1;}
+
+/* ---------- 걸음 이전/다음 이동 바 ---------- */
+.sow-step-nav-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;padding:10px 16px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);}
+.sow-step-nav-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:99px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-step-nav-btn:disabled{opacity:.35;cursor:not-allowed;border-color:var(--line);color:var(--ink-soft);}
+.sow-step-nav-btn:not(:disabled):hover{background:var(--ink);color:#fff;}
+.sow-step-nav-count{font-size:12.5px;font-weight:700;color:var(--ink-soft);}
+
+/* ---------- 입력 저장/초기화 바 ---------- */
+.sow-persist-bar{display:flex;align-items:center;gap:12px;margin-top:8px;min-height:16px;}
+.sow-persist-status{font-size:11px;color:var(--sprout);font-weight:700;}
+.sow-persist-reset{font-family:inherit;font-size:11px;background:none;border:none;color:#9A8F6E;cursor:pointer;text-decoration:underline;padding:0;}
+.sow-persist-reset:hover{color:var(--clay);}
+
+/* ---------- 성경 보기 위젯: 직접 범위 입력 (항상 노출) ---------- */
+.sow-bible-free-range{margin-top:8px;display:flex;gap:8px;}
+.sow-free-range-input{flex:1;font-family:inherit;font-size:13px;padding:9px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);}
+.sow-free-range-input:focus{border-color:var(--sprout);}
+.sow-free-range-go{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;white-space:nowrap;transition:.18s;}
+.sow-free-range-go:hover{border-color:var(--sprout);background:var(--sprout-tint);}
+.sow-free-range-msg{font-size:11.5px;color:var(--clay);margin-top:7px;min-height:14px;}
+
+/* ---------- 코스(트랙) 선택 화면 ---------- */
+.sow-track-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
+.sow-track-card{text-align:left;font-family:inherit;cursor:pointer;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px;transition:box-shadow .2s,transform .2s,border-color .2s;}
+.sow-track-card:hover{border-color:var(--sprout);box-shadow:var(--shadow-lift);transform:translateY(-3px);}
+.sow-track-card.soon{opacity:.68;}
+.sow-track-label{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:700;margin-bottom:2px;}
+.sow-track-subtitle{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:9px;}
+.sow-track-desc{font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:16px;min-height:42px;}
+.sow-track-cta{font-size:12.5px;font-weight:700;color:var(--clay);}
+.sow-track-card.soon .sow-track-cta{color:#9A8F6E;}
+.sow-track-change-bar{margin-bottom:16px;}
+.sow-track-change-btn{font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:.18s;}
+.sow-track-change-btn:hover{border-color:var(--ink);color:var(--ink);}
+.sow-follow-badge{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px;padding:9px 16px;background:var(--clay-tint);border:1px solid #EAD9CD;border-radius:99px;font-size:12.5px;}
+.sow-follow-badge b{color:var(--clay);}
+.sow-follow-hint{font-size:11px;color:#9A8F6E;}
+
+/* ---------- 그룹 관리 폼 (그룹 만들기 / 이메일 초대) ---------- */
+.sow-group-form-row{display:flex;gap:8px;margin-top:10px;}
+.sow-group-form-row input{flex:1;font-family:inherit;font-size:13.5px;padding:9px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
+.sow-group-form-row input:disabled{opacity:.55;cursor:not-allowed;}
+.sow-group-form-row button:disabled{opacity:.55;cursor:not-allowed;}
+
+/* ---------- 우리의 성경읽기: 진도판 미리보기 ---------- */
+.sow-board-preview{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.sow-board-row{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:8px;align-items:center;padding:9px 12px;background:var(--paper);border-radius:var(--radius-sm);font-size:12.5px;}
+.sow-board-name{font-weight:700;}
+.sow-board-course{color:var(--ink-soft);}
+.sow-board-progress{text-align:right;font-weight:700;color:var(--sprout);}
+
+/* ---------- 성경 보기 위젯 (역본 선택 + godpia 연동) ---------- */
+.sow-bible-widget{margin-bottom:18px;}
+.sow-bible-widget-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);padding:11px 14px;}
+.sow-bible-current{font-size:13.5px;font-weight:700;margin-right:auto;}
+.sow-version-select{font-family:inherit;font-size:12.5px;padding:7px 9px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
+.sow-bible-view-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:.18s;}
+.sow-bible-view-btn:hover{background:var(--sprout);border-color:var(--sprout);}
+
+@media (max-width: 560px){
+  .sow-bible-widget-row{gap:6px;}
+  .sow-bible-current{width:100%;order:-1;margin-right:0;}
+  .sow-bible-free-range{flex-direction:column;}
+}
+
+/* ---------- 나의 성경읽기 (달력 / 저장 / 새로고침 묶음) ---------- */
+.sow-my-reading-head{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;margin-bottom:12px;}
+.sow-session-toolbar{display:flex;gap:8px;margin-bottom:12px;}
+.sow-toolbar-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);transition:.18s;}
+.sow-toolbar-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
+.sow-record-tabs{display:flex;gap:6px;margin-bottom:10px;}
+.sow-record-tabs button{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:.18s;}
+.sow-record-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+/* ---------- 모달 공통 (재사용) ---------- */
+.sow-modal-overlay{position:fixed;inset:0;z-index:80;background:rgba(29,58,44,0.28);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;padding:20px;}
+.sow-modal-card{background:var(--card);border-radius:var(--radius-lg);box-shadow:var(--shadow-lift);padding:22px;max-width:340px;width:100%;}
+.sow-modal-head{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;margin-bottom:16px;}
+.sow-modal-head button{font-family:inherit;font-size:12px;background:none;border:none;color:var(--ink-soft);cursor:pointer;}
+
+/* ---------- 달력 / 성경지도 공용 카드 ---------- */
+.sow-cal-inline{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px;margin-bottom:18px;}
+.sow-cal-head{display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:12px;}
+.sow-cal-nav{font-family:inherit;font-size:16px;background:var(--sprout-tint);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;color:var(--ink);}
+.sow-cal-nav:hover{background:var(--sprout);color:#fff;}
+.sow-cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;}
+.sow-cal-weekdays span{text-align:center;font-size:11px;color:var(--ink-soft);font-weight:600;}
+.sow-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.sow-cal-cell{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12.5px;border-radius:8px;color:var(--ink);transition:.15s;}
+.sow-cal-cell.empty{visibility:hidden;}
+.sow-cal-cell.today{border:1px solid var(--clay);font-weight:700;}
+.sow-cal-cell.done{background:var(--sprout-tint);font-weight:700;}
+.sow-cal-cell.clickable{cursor:pointer;}
+.sow-cal-cell.clickable:hover{background:var(--sprout);color:#fff;}
+.sow-cal-cell.clickable:hover .sow-cal-dot{background:#fff;}
+.sow-cal-dot{position:absolute;bottom:3px;width:4px;height:4px;border-radius:50%;background:var(--sprout);}
+.sow-cal-legend{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-soft);margin:14px 0 0;}
+.sow-cal-legend .sow-cal-dot{position:static;}
+
+/* ---------- 성경지도 ---------- */
+.sow-map-summary{font-size:13px;color:var(--ink-soft);margin:0 0 14px;}
+.sow-map-summary b{color:var(--sprout);}
+.sow-map-section h5{font-size:12.5px;font-weight:700;color:var(--ink-soft);margin:0 0 10px;letter-spacing:.02em;}
+.sow-map-section{margin-bottom:18px;}
+.sow-map-grid{display:flex;flex-direction:column;gap:8px;}
+.sow-map-book{}
+.sow-map-book-head{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:700;margin-bottom:4px;}
+.sow-map-book-count{font-size:10.5px;font-weight:600;color:var(--ink-soft);}
+.sow-map-cells{display:flex;flex-wrap:wrap;gap:2px;}
+.sow-map-cell{width:9px;height:9px;border-radius:2px;background:var(--line-soft);cursor:pointer;transition:.15s;}
+.sow-map-cell:hover{transform:scale(1.4);}
+.sow-map-cell.read{background:var(--sprout);}
+
+/* ---------- 토스트 알림 (저장 완료 등) ---------- */
+.sow-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,12px);z-index:90;
+  background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:11px 20px;border-radius:99px;
+  box-shadow:var(--shadow-lift);opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;}
+.sow-toast.show{opacity:1;transform:translate(-50%,0);}
+
+/* ---------- VoiceTextInput (음성 녹음 → 텍스트 입력) ---------- */
+.sow-voice-field-wrap{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 11px;transition:border-color .18s;}
+.sow-voice-field-wrap:focus-within{border-color:var(--sprout);}
+.sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:13.5px;color:var(--ink);outline:none;resize:vertical;}
+.sow-voice-btn{flex:none;padding:8px 14px;border-radius:99px;border:none;cursor:pointer;background:var(--clay);color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;transition:.18s;}
+.sow-voice-btn:hover{filter:brightness(1.08);}
+.sow-voice-btn.listening{background:#C4432E;animation:sow-pulse 1s infinite;}
+.sow-voice-btn:disabled{background:#B8AF95;cursor:not-allowed;}
+.sow-voice-unsupported{font-size:11.5px;color:var(--clay);margin-top:4px;}
+@keyframes sow-pulse{0%{box-shadow:0 0 0 0 rgba(196,67,46,.5);}70%{box-shadow:0 0 0 9px rgba(196,67,46,0);}100%{box-shadow:0 0 0 0 rgba(196,67,46,0);}}

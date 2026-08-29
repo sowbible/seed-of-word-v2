@@ -1,0 +1,9 @@
+{
+  "_note": "기도 제목은 개인적이라 그룹 공유 대상에서 뺐다(v4.1) — 대신 '찾은 하나님' 탭. '그룹 현황'은 '우리의 성경읽기'로 재정의(v4.5) — 누가 어디까지 읽었는지 보여주는 진도판 개념. '찾은 하나님' + '우리의 성경읽기'가 한 쌍으로 '우리의 성경읽기' 영역을 이룬다.",
+  "submodules": [
+    { "id": "overview", "order": 1, "icon": "🗺️", "label": { "ko": "우리의 성경읽기", "en": "Our Bible Reading" } },
+    { "id": "found-god", "order": 2, "icon": "💛", "label": { "ko": "찾은 하나님", "en": "God I Found" } },
+    { "id": "blessing", "order": 3, "icon": "🙏", "label": { "ko": "축복의 말", "en": "Blessing Words" } },
+    { "id": "manage", "order": 4, "icon": "⚙️", "label": { "ko": "그룹 관리", "en": "Manage Groups" } }
+  ]
+}

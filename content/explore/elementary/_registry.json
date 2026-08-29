@@ -1,0 +1,7 @@
+{
+  "submodules": [
+    { "id": "era", "order": 1, "icon": "🏛️", "label": { "ko": "시대 탐험", "en": "Era" } },
+    { "id": "people", "order": 2, "icon": "👤", "label": { "ko": "인물 탐험", "en": "People" } },
+    { "id": "map", "order": 3, "icon": "🗺️", "label": { "ko": "성경 여행 지도", "en": "Map" } }
+  ]
+}

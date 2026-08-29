@@ -1,0 +1,10 @@
+{
+  "id": "daily-chapter",
+  "totalSteps": 1189,
+  "generated": true,
+  "startBook": "genesis",
+  "description": {
+    "ko": "성경 66권을 창세기 1장부터 요한계시록 22장까지, 실제 정경 순서 그대로 하루 한 장씩 걷는 코스. 콘텐츠를 걸음마다 미리 만들어둔 게 아니라, 자유코스와 같은 공용 4문항 템플릿을 그날의 장에 맞춰 자동으로 보여준다 — 그래서 1189걸음 전체가 처음부터 다 열려있다.",
+    "en": "One chapter a day through all 66 books, Genesis 1 to Revelation 22, in canonical order. Uses the same shared 4-question template as the free course, applied to each day's chapter automatically."
+  }
+}

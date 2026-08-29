@@ -1,0 +1,38 @@
+{
+  "_note": "메인 화면 4개 모듈. 성경묵상만 자체 코스 선택 화면을 가진다(hasTracks). 국어/언어/성경관련 지식은 'followsTrackOf'로 성경묵상이 지금 고른 코스를 그대로 따라간다 — 자체 코스 선택 UI가 없다. 이렇게 한 이유: PROPOSAL_BEST_STRUCTURE.md 제안 2 / SOW_구조설계.md 13절 참고.",
+  "modules": [
+    {
+      "id": "meditation",
+      "order": 1,
+      "icon": "💛",
+      "route": "/meditation",
+      "label": { "ko": "성경묵상", "en": "Bible Meditation" },
+      "hasTracks": true,
+      "trackRegistryPath": "content/meditation/_track-registry.json"
+    },
+    {
+      "id": "korean",
+      "order": 2,
+      "icon": "🔥",
+      "route": "/korean",
+      "label": { "ko": "국어", "en": "Korean" },
+      "followsTrackOf": "meditation"
+    },
+    {
+      "id": "world-languages",
+      "order": 3,
+      "icon": "🌍",
+      "route": "/world-languages",
+      "label": { "ko": "언어", "en": "Language" },
+      "followsTrackOf": "meditation"
+    },
+    {
+      "id": "explore",
+      "order": 4,
+      "icon": "🎒",
+      "route": "/explore",
+      "label": { "ko": "성경관련 지식", "en": "Bible Knowledge" },
+      "followsTrackOf": "meditation"
+    }
+  ]
+}

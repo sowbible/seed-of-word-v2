@@ -1,0 +1,38 @@
+{
+  "_note": "특정 걸음(step)에 종속되지 않는 공용 묵상 4문항. 자유코스(free)는 미리 정해진 본문이 없으므로 이 템플릿을 그대로 쓴다. 초등학생 코스 등 걸음별 콘텐츠와 문구가 같다 — CONTENT_GUIDE.md에서도 이미 '모든 걸음에서 동일'하다고 안내하고 있다.",
+  "prompts": [
+    {
+      "id": "verse-and-god",
+      "icon": "💛",
+      "title": "마음에 남은 말씀과 그 말씀에서 만난 하나님",
+      "guide": "어떤 말씀이 마음에 와닿았나요? 그 말씀에서 하나님은 어떤 분으로 느껴졌나요?",
+      "required": true,
+      "shareable": true,
+      "input": { "type": "text", "voiceInput": true, "placeholder": "" }
+    },
+    {
+      "id": "life-today",
+      "icon": "🌿",
+      "title": "오늘 나는 이렇게 살아갈래요",
+      "guide": "이 말씀을 기억하며 오늘 나는 어떻게 살아가고 싶나요?",
+      "required": true,
+      "input": { "type": "text", "voiceInput": true, "placeholder": "" }
+    },
+    {
+      "id": "thanks",
+      "icon": "🙏",
+      "title": "하나님께 감사해요",
+      "guide": "오늘 하나님께 감사하고 싶은 일을 적어 보세요.",
+      "required": true,
+      "input": { "type": "text", "voiceInput": true, "placeholder": "" }
+    },
+    {
+      "id": "prayer",
+      "icon": "🤲",
+      "title": "하나님께 기도해요",
+      "guide": "오늘 하나님께 드리고 싶은 기도를 적어 보세요.",
+      "required": true,
+      "input": { "type": "text", "voiceInput": true, "placeholder": "" }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "submodules": [
+    { "id": "en", "order": 1, "icon": "🇺🇸", "label": { "ko": "영어", "en": "English" } },
+    { "id": "zh", "order": 2, "icon": "🇨🇳", "label": { "ko": "중국어", "en": "Chinese" } },
+    { "id": "ja", "order": 3, "icon": "🇯🇵", "label": { "ko": "일본어", "en": "Japanese" } },
+    { "id": "ko-for-foreigners", "order": 4, "icon": "🇰🇷", "label": { "ko": "외국인을 위한 한국어", "en": "Korean for Foreigners" } }
+  ]
+}

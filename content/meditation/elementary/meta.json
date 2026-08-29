@@ -1,0 +1,10 @@
+{
+  "id": "elementary",
+  "book": "john",
+  "totalSteps": 42,
+  "description": {
+    "ko": "요한복음을 42개의 짧은 본문(하루 5~15절 내외)으로 나눠, 초등학생과 가족이 하루 한 걸음씩 걷는 트랙. 묵상 질문 4개 + 국어(어휘/토론/글쓰기) + 언어(영어/중국어/외국인을 위한 한국어) + 성경 지식(시대상/지도/인물) + 우리 가족(기도정원/축복의 말)이 한 세트로 묶여 있다.",
+    "en": "John's Gospel split into 42 short daily passages for elementary students and families, each bundled with meditation, Korean, world-language, and Bible-knowledge companions plus family sharing."
+  },
+  "companionModules": ["korean", "world-languages", "explore", "family"]
+}

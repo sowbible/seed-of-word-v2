@@ -1,0 +1,47 @@
+{
+  "_note": "성경묵상의 코스 선택 화면에 쓰이는 데이터. 트랙이 2개 이상이면 shell.js가 자동으로 선택 화면을 보여준다. 'free' 코스는 stepless:true라 걸음 번호가 없고, 콘텐츠를 미리 안 만들어도 되므로 바로 status:active.",
+  "tracks": [
+    {
+      "id": "free",
+      "order": 1,
+      "status": "active",
+      "stepless": true,
+      "icon": "🕊️",
+      "label": { "ko": "자유코스", "en": "Free Course" },
+      "subtitle": { "ko": "원하는 본문 직접 선택", "en": "Choose any passage" },
+      "description": { "ko": "그날그날 읽고 싶은 책과 장을 직접 골라서, 같은 4가지 질문으로 묵상해요", "en": "Pick any book and chapter to meditate on today" }
+    },
+    {
+      "id": "daily-chapter",
+      "order": 2,
+      "status": "active",
+      "generated": true,
+      "icon": "📖",
+      "label": { "ko": "하루한장 코스", "en": "1 Chapter Course" },
+      "subtitle": { "ko": "성경 전체 1189장 · 창세기 1장부터 순서대로", "en": "All 1,189 chapters, in order from Genesis 1" },
+      "description": { "ko": "성경 66권 전체를 창세기 1장부터 순서대로 하루 한 장씩. 오늘 시작한 장을 기준으로 다음 걸음이 자동으로 다음 장이 돼요", "en": "One chapter a day through the whole Bible, starting from Genesis 1" },
+      "metaPath": "content/meditation/daily-chapter/meta.json"
+    },
+    {
+      "id": "bible-in-a-year",
+      "order": 3,
+      "status": "active",
+      "yearPlan": true,
+      "icon": "🗓️",
+      "label": { "ko": "1년 1독 코스", "en": "Bible in a Year" },
+      "subtitle": { "ko": "365일 · 하루 3~4장씩", "en": "365 days · 3–4 chapters a day" },
+      "description": { "ko": "성경 66권 전체(1189장)를 365일로 정확히 나눠서, 창세기 1장부터 순서대로 하루 3~4장씩 읽어요", "en": "All 1,189 chapters spread evenly across 365 days, starting from Genesis 1" },
+      "metaPath": "content/meditation/bible-in-a-year/meta.json"
+    },
+    {
+      "id": "elementary",
+      "order": 4,
+      "status": "active",
+      "icon": "🌱",
+      "label": { "ko": "어린이 1~20절 코스", "en": "Kids 1–20 Verse Course" },
+      "subtitle": { "ko": "초등학생 · 짧은 본문", "en": "Elementary · short passages" },
+      "description": { "ko": "하루 5~15절 내외, 초등학생과 가족이 함께 걷기 좋은 분량", "en": "5–15 verses a day, sized for elementary students and families" },
+      "metaPath": "content/meditation/elementary/meta.json"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "book": "john",
+  "chapter": 1,
+  "version": "1.0",
+  "_note": "신규 서브모듈 스캐폴드 - 아직 콘텐츠 미작성. 이 파일 구조를 참고해 prompt를 채워 넣으세요.",
+  "writingPrompt": {
+    "title": "",
+    "guide": "",
+    "input": {
+      "type": "text",
+      "voiceInput": true,
+      "placeholder": ""
+    }
+  }
+}

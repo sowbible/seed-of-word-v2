@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="sow-title">SOW · 성경묵상</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app/css/shell.css">
+</head>
+<body>
+  <nav class="sow-modules" id="sow-nav"></nav>
+  <main class="sow-main" id="sow-main"></main>
+
+  <script>
+    /* 걸음마다 파일을 새로 만들지 않고, 이 페이지 하나가 모든 걸음을 담당한다.
+       어떤 책/걸음인지는 주소의 쿼리로 받는다 (예: ?book=john&step=5).
+       쿼리가 없으면 요한복음 1걸음을 기본값으로 보여준다.
+       (SOW_구조설계.md 12절 참고) */
+    var params = new URLSearchParams(location.search);
+    window.SOW_CONTEXT = {
+      book: params.get('book') || 'john',
+      step: Number(params.get('step')) || 1
+    };
+    document.getElementById('sow-title').textContent =
+      'SOW · ' + window.SOW_CONTEXT.book + ' ' + window.SOW_CONTEXT.step + '걸음';
+  </script>
+  <script src="/app/js/voice-text-input.js"></script>
+  <script src="/app/js/session-toolbar.js"></script>
+  <script src="/app/js/reading-map.js"></script>
+  <script src="/app/js/persist.js"></script>
+  <script src="/app/js/bible-link.js"></script>
+  <script src="/app/js/shell.js"></script>
+</body>
+</html>

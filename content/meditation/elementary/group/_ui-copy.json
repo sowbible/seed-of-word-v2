@@ -1,0 +1,57 @@
+{
+  "_note": "이 파일은 book/chapter에 종속되지 않는 고정 UI 문구다. 실제 그룹·공유 내용·축복 메시지·완료 기록은 DB(Supabase)에서 읽어온다. v4.1: 기도정원을 없애고 '찾은 하나님' 공유로 대체 — 기도 제목은 개인적이라 공유 대상에서 뺐고, 매일 쓰는 필수 질문 1번(그날 만난 하나님) 답변만 본인이 원할 때 그룹에 공유한다. 공유 토글은 shell.js의 묵상 화면 자체에 붙어있다(그 답변 바로 아래 '✨ 이 답변, 그룹에 공유하기').",
+
+  "groupSwitcher": {
+    "label": { "ko": "지금 그룹", "en": "Current group" },
+    "createButton": { "ko": "+ 새 그룹 만들기", "en": "+ Create group" },
+    "emptyState": { "ko": "아직 속한 그룹이 없어요. 그룹을 만들거나 초대를 받아보세요.", "en": "You're not in any group yet. Create one or accept an invite." }
+  },
+
+  "manage": {
+    "title": { "ko": "그룹 관리", "en": "Manage Groups" },
+    "createTitle": { "ko": "새 그룹 만들기", "en": "Create a new group" },
+    "groupNamePlaceholder": { "ko": "그룹 이름 (예: 우리 가족, 주일학교 5반)", "en": "Group name" },
+    "createButton": { "ko": "그룹 만들기", "en": "Create" },
+    "inviteTitle": { "ko": "이메일로 초대하기", "en": "Invite by email" },
+    "inviteEmailPlaceholder": { "ko": "이메일 주소", "en": "Email address" },
+    "inviteButton": { "ko": "초대 보내기", "en": "Send invite" },
+    "pendingLabel": { "ko": "초대 중 (수락 대기)", "en": "Invited (pending)" },
+    "memberLabel": { "ko": "멤버", "en": "Members" },
+    "leaveButton": { "ko": "그룹 나가기", "en": "Leave group" },
+    "ownerBadge": { "ko": "만든 사람", "en": "Owner" }
+  },
+
+  "found-god": {
+    "title": { "ko": "우리 그룹이 찾은 하나님", "en": "The God Our Group Found" },
+    "intro": { "ko": "매일 묵상의 1번 질문 답변 중, 각자 공유하기로 한 것만 여기 모여요. 기도 제목처럼 개인적인 내용이 아니라, '오늘 이 말씀에서 만난 하나님'만 나눠요.", "en": "Only the answers people chose to share from today's first question appear here — not prayer requests, just what each person found about God today." },
+    "shareHint": { "ko": "공유하고 싶으면, 묵상 화면 1번 질문 답변 아래 '✨ 이 답변, 그룹에 공유하기'를 눌러보세요.", "en": "To share, check '✨ Share this with the group' under your answer to question 1." },
+    "emptyState": { "ko": "아직 공유된 게 없어요. 오늘 만난 하나님을 나눠보는 건 어때요? 🌱", "en": "Nothing shared yet. Want to share what you found today? 🌱" }
+  },
+
+  "blessing": {
+    "title": { "ko": "고마움과 축복의 말", "en": "Words of Thanks & Blessing" },
+    "optionalTag": { "ko": "선택 기능", "en": "Optional" },
+    "intro": { "ko": "오늘 그룹 멤버에게 전하고 싶은 고마움과 축복의 말을 남겨 보세요.", "en": "Leave a word of thanks or blessing for someone in this group today." },
+    "targetLabel": { "ko": "받는 사람", "en": "To" },
+    "targetAllOption": { "ko": "그룹 전체", "en": "Everyone in the group" },
+    "placeholderExample": { "ko": "오늘 네가 끝까지 노력하는 모습이 참 고마웠어. 하나님께서 너를 사랑하시고 언제나 함께하시길 축복해.", "en": "" },
+    "sendButton": { "ko": "고마움과 축복 보내기", "en": "Send blessing" },
+    "sentSectionTitle": { "ko": "보낸 말", "en": "Sent" },
+    "emptyState": { "ko": "아직 보낸 말이 없어요.", "en": "No messages sent yet." }
+  },
+
+  "overview": {
+    "title": { "ko": "우리의 성경읽기", "en": "Our Bible Reading" },
+    "toneBadge": { "ko": "비교 없이 기록만 쌓아요", "en": "No comparisons — just gentle records" },
+    "intro": { "ko": "그룹 멤버들이 각자 어떤 코스로 어디까지 읽었는지 한눈에 볼 수 있는 자리예요. 등수나 속도를 겨루는 게 아니라, 오늘 누가 함께했는지 담백하게 보여줘요.", "en": "See at a glance which course each group member is on and how far they've read. Not a race — just a gentle record of who showed up today." },
+    "previewNote": { "ko": "실제로 연동되면 이런 모습이에요:", "en": "Once connected, it will look like this:" },
+    "sampleMembers": [
+      { "name": "나", "course": "어린이 1~20절 코스", "progress": "3/42걸음" },
+      { "name": "OO", "course": "하루한장 코스", "progress": "17/1189장" },
+      { "name": "OO", "course": "1년1독 코스", "progress": "5/365일" }
+    ],
+    "statusDone": { "ko": "오늘 말씀여행 완료", "en": "Today's journey complete" },
+    "statusPending": { "ko": "말씀여행 이어가기", "en": "Continue today's journey" },
+    "newBlessingBadge": { "ko": "💛 새 축복", "en": "💛 New blessing" }
+  }
+}

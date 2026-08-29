@@ -1,0 +1,549 @@
+{
+  "_note": "레거시 SEED-OF-WORD-main(sow-platform.js)의 BIBLE_LIBRARY + GODPIA_VOL을 이관. 지금은 요한복음(john)만 status:available, 나머지는 status:coming(추후 콘텐츠 채워지면 available로 변경).",
+  "oldTestament": {
+    "id": "ot",
+    "label": {
+      "ko": "구약",
+      "en": "Old Testament"
+    },
+    "books": [
+      {
+        "id": "genesis",
+        "chapters": 50,
+        "status": "coming",
+        "shortKo": "창세기",
+        "shortEn": "Gen",
+        "godpiaVol": "gen"
+      },
+      {
+        "id": "exodus",
+        "chapters": 40,
+        "status": "coming",
+        "shortKo": "출애굽기",
+        "shortEn": "Exod",
+        "godpiaVol": "exo"
+      },
+      {
+        "id": "leviticus",
+        "chapters": 27,
+        "status": "coming",
+        "shortKo": "레위기",
+        "shortEn": "Lev",
+        "godpiaVol": "lev"
+      },
+      {
+        "id": "numbers",
+        "chapters": 36,
+        "status": "coming",
+        "shortKo": "민수기",
+        "shortEn": "Num",
+        "godpiaVol": "num"
+      },
+      {
+        "id": "deuteronomy",
+        "chapters": 34,
+        "status": "coming",
+        "shortKo": "신명기",
+        "shortEn": "Deut",
+        "godpiaVol": "deu"
+      },
+      {
+        "id": "joshua",
+        "chapters": 24,
+        "status": "coming",
+        "shortKo": "여호수아",
+        "shortEn": "Josh",
+        "godpiaVol": "jos"
+      },
+      {
+        "id": "judges",
+        "chapters": 21,
+        "status": "coming",
+        "shortKo": "사사기",
+        "shortEn": "Judg",
+        "godpiaVol": "jdg"
+      },
+      {
+        "id": "ruth",
+        "chapters": 4,
+        "status": "coming",
+        "shortKo": "룻기",
+        "shortEn": "Ruth",
+        "godpiaVol": "rut"
+      },
+      {
+        "id": "1samuel",
+        "chapters": 31,
+        "status": "coming",
+        "shortKo": "삼상",
+        "shortEn": "1Sam",
+        "godpiaVol": "1sa"
+      },
+      {
+        "id": "2samuel",
+        "chapters": 24,
+        "status": "coming",
+        "shortKo": "삼하",
+        "shortEn": "2Sam",
+        "godpiaVol": "2sa"
+      },
+      {
+        "id": "1kings",
+        "chapters": 22,
+        "status": "coming",
+        "shortKo": "왕상",
+        "shortEn": "1Kgs",
+        "godpiaVol": "1ki"
+      },
+      {
+        "id": "2kings",
+        "chapters": 25,
+        "status": "coming",
+        "shortKo": "왕하",
+        "shortEn": "2Kgs",
+        "godpiaVol": "2ki"
+      },
+      {
+        "id": "1chronicles",
+        "chapters": 29,
+        "status": "coming",
+        "shortKo": "대상",
+        "shortEn": "1Chr",
+        "godpiaVol": "1ch"
+      },
+      {
+        "id": "2chronicles",
+        "chapters": 36,
+        "status": "coming",
+        "shortKo": "대하",
+        "shortEn": "2Chr",
+        "godpiaVol": "2ch"
+      },
+      {
+        "id": "ezra",
+        "chapters": 10,
+        "status": "coming",
+        "shortKo": "에스라",
+        "shortEn": "Ezra",
+        "godpiaVol": "ezr"
+      },
+      {
+        "id": "nehemiah",
+        "chapters": 13,
+        "status": "coming",
+        "shortKo": "느헤미야",
+        "shortEn": "Neh",
+        "godpiaVol": "neh"
+      },
+      {
+        "id": "esther",
+        "chapters": 10,
+        "status": "coming",
+        "shortKo": "에스더",
+        "shortEn": "Esth",
+        "godpiaVol": "est"
+      },
+      {
+        "id": "job",
+        "chapters": 42,
+        "status": "coming",
+        "shortKo": "욥기",
+        "shortEn": "Job",
+        "godpiaVol": "job"
+      },
+      {
+        "id": "psalms",
+        "chapters": 150,
+        "status": "coming",
+        "shortKo": "시편",
+        "shortEn": "Ps",
+        "godpiaVol": "psa"
+      },
+      {
+        "id": "proverbs",
+        "chapters": 31,
+        "status": "coming",
+        "shortKo": "잠언",
+        "shortEn": "Prov",
+        "godpiaVol": "pro"
+      },
+      {
+        "id": "ecclesiastes",
+        "chapters": 12,
+        "status": "coming",
+        "shortKo": "전도서",
+        "shortEn": "Eccl",
+        "godpiaVol": "ecc"
+      },
+      {
+        "id": "songofsolomon",
+        "chapters": 8,
+        "status": "coming",
+        "shortKo": "아가",
+        "shortEn": "Song",
+        "godpiaVol": "sng"
+      },
+      {
+        "id": "isaiah",
+        "chapters": 66,
+        "status": "coming",
+        "shortKo": "이사야",
+        "shortEn": "Isa",
+        "godpiaVol": "isa"
+      },
+      {
+        "id": "jeremiah",
+        "chapters": 52,
+        "status": "coming",
+        "shortKo": "예레미야",
+        "shortEn": "Jer",
+        "godpiaVol": "jer"
+      },
+      {
+        "id": "lamentations",
+        "chapters": 5,
+        "status": "coming",
+        "shortKo": "애가",
+        "shortEn": "Lam",
+        "godpiaVol": "lam"
+      },
+      {
+        "id": "ezekiel",
+        "chapters": 48,
+        "status": "coming",
+        "shortKo": "에스겔",
+        "shortEn": "Ezek",
+        "godpiaVol": "ezk"
+      },
+      {
+        "id": "daniel",
+        "chapters": 12,
+        "status": "coming",
+        "shortKo": "다니엘",
+        "shortEn": "Dan",
+        "godpiaVol": "dan"
+      },
+      {
+        "id": "hosea",
+        "chapters": 14,
+        "status": "coming",
+        "shortKo": "호세아",
+        "shortEn": "Hos",
+        "godpiaVol": "hos"
+      },
+      {
+        "id": "joel",
+        "chapters": 3,
+        "status": "coming",
+        "shortKo": "요엘",
+        "shortEn": "Joel",
+        "godpiaVol": "jol"
+      },
+      {
+        "id": "amos",
+        "chapters": 9,
+        "status": "coming",
+        "shortKo": "아모스",
+        "shortEn": "Amos",
+        "godpiaVol": "amo"
+      },
+      {
+        "id": "obadiah",
+        "chapters": 1,
+        "status": "coming",
+        "shortKo": "오바댜",
+        "shortEn": "Obad",
+        "godpiaVol": "oba"
+      },
+      {
+        "id": "jonah",
+        "chapters": 4,
+        "status": "coming",
+        "shortKo": "요나",
+        "shortEn": "Jonah",
+        "godpiaVol": "jon"
+      },
+      {
+        "id": "micah",
+        "chapters": 7,
+        "status": "coming",
+        "shortKo": "미가",
+        "shortEn": "Mic",
+        "godpiaVol": "mic"
+      },
+      {
+        "id": "nahum",
+        "chapters": 3,
+        "status": "coming",
+        "shortKo": "나훔",
+        "shortEn": "Nah",
+        "godpiaVol": "nam"
+      },
+      {
+        "id": "habakkuk",
+        "chapters": 3,
+        "status": "coming",
+        "shortKo": "하박국",
+        "shortEn": "Hab",
+        "godpiaVol": "hab"
+      },
+      {
+        "id": "zephaniah",
+        "chapters": 3,
+        "status": "coming",
+        "shortKo": "스바냐",
+        "shortEn": "Zeph",
+        "godpiaVol": "zep"
+      },
+      {
+        "id": "haggai",
+        "chapters": 2,
+        "status": "coming",
+        "shortKo": "학개",
+        "shortEn": "Hag",
+        "godpiaVol": "hag"
+      },
+      {
+        "id": "zechariah",
+        "chapters": 14,
+        "status": "coming",
+        "shortKo": "스가랴",
+        "shortEn": "Zech",
+        "godpiaVol": "zec"
+      },
+      {
+        "id": "malachi",
+        "chapters": 4,
+        "status": "coming",
+        "shortKo": "말라기",
+        "shortEn": "Mal",
+        "godpiaVol": "mal"
+      }
+    ]
+  },
+  "newTestament": {
+    "id": "nt",
+    "label": {
+      "ko": "신약",
+      "en": "New Testament"
+    },
+    "books": [
+      {
+        "id": "matthew",
+        "chapters": 28,
+        "status": "coming",
+        "shortKo": "마태",
+        "shortEn": "Matt",
+        "godpiaVol": "mat"
+      },
+      {
+        "id": "mark",
+        "chapters": 16,
+        "status": "coming",
+        "shortKo": "마가",
+        "shortEn": "Mark",
+        "godpiaVol": "mrk"
+      },
+      {
+        "id": "luke",
+        "chapters": 24,
+        "status": "coming",
+        "shortKo": "누가",
+        "shortEn": "Luke",
+        "godpiaVol": "luk"
+      },
+      {
+        "id": "john",
+        "chapters": 21,
+        "status": "available",
+        "shortKo": "요한",
+        "shortEn": "John",
+        "godpiaVol": "jhn"
+      },
+      {
+        "id": "acts",
+        "chapters": 28,
+        "status": "coming",
+        "shortKo": "사도행전",
+        "shortEn": "Acts",
+        "godpiaVol": "act"
+      },
+      {
+        "id": "romans",
+        "chapters": 16,
+        "status": "coming",
+        "shortKo": "로마서",
+        "shortEn": "Rom",
+        "godpiaVol": "rom"
+      },
+      {
+        "id": "1corinthians",
+        "chapters": 16,
+        "status": "coming",
+        "shortKo": "고전",
+        "shortEn": "1Cor",
+        "godpiaVol": "1co"
+      },
+      {
+        "id": "2corinthians",
+        "chapters": 13,
+        "status": "coming",
+        "shortKo": "고후",
+        "shortEn": "2Cor",
+        "godpiaVol": "2co"
+      },
+      {
+        "id": "galatians",
+        "chapters": 6,
+        "status": "coming",
+        "shortKo": "갈라디아",
+        "shortEn": "Gal",
+        "godpiaVol": "gal"
+      },
+      {
+        "id": "ephesians",
+        "chapters": 6,
+        "status": "coming",
+        "shortKo": "에베소",
+        "shortEn": "Eph",
+        "godpiaVol": "eph"
+      },
+      {
+        "id": "philippians",
+        "chapters": 4,
+        "status": "coming",
+        "shortKo": "빌립보",
+        "shortEn": "Phil",
+        "godpiaVol": "php"
+      },
+      {
+        "id": "colossians",
+        "chapters": 4,
+        "status": "coming",
+        "shortKo": "골로새",
+        "shortEn": "Col",
+        "godpiaVol": "col"
+      },
+      {
+        "id": "1thessalonians",
+        "chapters": 5,
+        "status": "coming",
+        "shortKo": "살전",
+        "shortEn": "1Th",
+        "godpiaVol": "1th"
+      },
+      {
+        "id": "2thessalonians",
+        "chapters": 3,
+        "status": "coming",
+        "shortKo": "살후",
+        "shortEn": "2Th",
+        "godpiaVol": "2th"
+      },
+      {
+        "id": "1timothy",
+        "chapters": 6,
+        "status": "coming",
+        "shortKo": "딤전",
+        "shortEn": "1Tim",
+        "godpiaVol": "1ti"
+      },
+      {
+        "id": "2timothy",
+        "chapters": 4,
+        "status": "coming",
+        "shortKo": "딤후",
+        "shortEn": "2Tim",
+        "godpiaVol": "2ti"
+      },
+      {
+        "id": "titus",
+        "chapters": 3,
+        "status": "coming",
+        "shortKo": "디도서",
+        "shortEn": "Titus",
+        "godpiaVol": "tit"
+      },
+      {
+        "id": "philemon",
+        "chapters": 1,
+        "status": "coming",
+        "shortKo": "빌레몬",
+        "shortEn": "Phlm",
+        "godpiaVol": "phm"
+      },
+      {
+        "id": "hebrews",
+        "chapters": 13,
+        "status": "coming",
+        "shortKo": "히브리",
+        "shortEn": "Heb",
+        "godpiaVol": "heb"
+      },
+      {
+        "id": "james",
+        "chapters": 5,
+        "status": "coming",
+        "shortKo": "야고보",
+        "shortEn": "Jas",
+        "godpiaVol": "jas"
+      },
+      {
+        "id": "1peter",
+        "chapters": 5,
+        "status": "coming",
+        "shortKo": "벧전",
+        "shortEn": "1Pet",
+        "godpiaVol": "1pe"
+      },
+      {
+        "id": "2peter",
+        "chapters": 3,
+        "status": "coming",
+        "shortKo": "벧후",
+        "shortEn": "2Pet",
+        "godpiaVol": "2pe"
+      },
+      {
+        "id": "1john",
+        "chapters": 5,
+        "status": "coming",
+        "shortKo": "요일",
+        "shortEn": "1Jn",
+        "godpiaVol": "1jn"
+      },
+      {
+        "id": "2john",
+        "chapters": 1,
+        "status": "coming",
+        "shortKo": "요이",
+        "shortEn": "2Jn",
+        "godpiaVol": "2jn"
+      },
+      {
+        "id": "3john",
+        "chapters": 1,
+        "status": "coming",
+        "shortKo": "요삼",
+        "shortEn": "3Jn",
+        "godpiaVol": "3jn"
+      },
+      {
+        "id": "jude",
+        "chapters": 1,
+        "status": "coming",
+        "shortKo": "유다서",
+        "shortEn": "Jude",
+        "godpiaVol": "jud"
+      },
+      {
+        "id": "revelation",
+        "chapters": 22,
+        "status": "coming",
+        "shortKo": "계시록",
+        "shortEn": "Rev",
+        "godpiaVol": "rev"
+      }
+    ]
+  }
+}

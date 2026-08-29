@@ -1,0 +1,14 @@
+{
+  "book": "john",
+  "chapter": 1,
+  "version": "1.0",
+  "language": "zh",
+  "levels": [
+    { "id": "sprout", "icon": "🌱", "label": "새싹 · 핵심 1문장", "sentences": [] },
+    { "id": "tree", "icon": "🌳", "label": "나무 · 핵심 4문장", "sentences": [] },
+    { "id": "fruit", "icon": "🍎", "label": "열매 · 핵심 7문장", "sentences": [] },
+    { "id": "forest", "icon": "⛰️", "label": "숲 · 핵심 10문장", "sentences": [] }
+  ],
+  "quizzes": [],
+  "_note": "콘텐츠 미작성 스캐폴드"
+}
