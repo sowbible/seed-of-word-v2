@@ -9,6 +9,7 @@
 </head>
 <body>
   <nav class="sow-modules" id="sow-nav"></nav>
+  <div id="sow-auth" class="sow-auth-slot"></div>
   <main class="sow-main" id="sow-main"></main>
 
   <script>
@@ -24,11 +25,19 @@
     document.getElementById('sow-title').textContent =
       'SOW · ' + window.SOW_CONTEXT.book + ' ' + window.SOW_CONTEXT.step + '걸음';
   </script>
+  <!-- Supabase 연동 (SUPABASE_SETUP.md 참고) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="/app/js/supabase-client.js"></script>
+  <script src="/app/js/auth-widget.js"></script>
+
   <script src="/app/js/voice-text-input.js"></script>
   <script src="/app/js/session-toolbar.js"></script>
   <script src="/app/js/reading-map.js"></script>
   <script src="/app/js/persist.js"></script>
   <script src="/app/js/bible-link.js"></script>
   <script src="/app/js/shell.js"></script>
+  <script>
+    window.SOWAuthWidget && window.SOWAuthWidget.render(document.getElementById('sow-auth'));
+  </script>
 </body>
 </html>

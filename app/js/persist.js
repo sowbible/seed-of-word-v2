@@ -77,6 +77,13 @@
         // 성경지도(reading-map.js)가 "지금 화면에 뜬 실제 장이 방금 저장됐다"는 걸 알 수 있게 신호만 보낸다.
         // 어떤 장인지는 각 렌더러가 미리 SOWReadingMap.setCurrentChapters()로 등록해둔다.
         document.dispatchEvent(new CustomEvent('sow:saved'));
+        // 로그인 상태면 Supabase에도 같이 저장 (SUPABASE_SETUP.md 연동 후 활성화됨).
+        // 로그인 안 했으면 SOWSyncEntry 내부에서 조용히 스킵 — 로컬 저장은 이미 됐으니 문제없음.
+        if(parts.length >= 5 && parts[0] === 'meditation' && window.SOWSyncEntry){
+          let shareable = false;
+          try{ shareable = localStorage.getItem('sow.share.' + key) === '1'; }catch(_){}
+          window.SOWSyncEntry(parts, el.value, shareable);
+        }
       }
     }
     const debouncedWrite = debounce(writeNow, 500);
