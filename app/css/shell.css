@@ -42,7 +42,7 @@ body{
   -webkit-font-smoothing:antialiased;
   letter-spacing:-0.01em;
 }
-h1,h2,h3,.serif{font-family:'Noto Serif KR', serif; letter-spacing:-0.01em;}
+h1,h2,h3,.serif{font-family:'Pretendard', system-ui, sans-serif; font-weight:600; letter-spacing:-0.01em;}
 button,input,textarea,select{font-family:inherit;}
 :focus-visible{outline:2px solid var(--sprout);outline-offset:2px;border-radius:4px;}
 @media (prefers-reduced-motion: reduce){
@@ -62,66 +62,78 @@ button,input,textarea,select{font-family:inherit;}
 .sow-item-card > .e{width:42px;height:42px;font-size:18px;}
 .sow-word-chip > .e{width:34px;height:34px;font-size:15px;margin:0 auto 8px;}
 
-/* ---------- 상단 모듈 네비 (레지스트리 기반) ---------- */
+/* ---------- 모듈 네비 겸 드로어 메뉴 (레지스트리 기반) ----------
+   1023px 이하(모바일/태블릿): 기본은 화면 왼쪽 밖에 숨어있다가, 상단 햄버거
+   버튼을 누르면 슬라이드인하는 드로어 메뉴(참고 이미지의 Zero ERP 패턴).
+   1024px 이상(데스크톱): 늘 보이는 왼쪽 고정 사이드바로 바뀐다.
+   로그인 위젯과 "나의 성경읽기/우리 그룹" 바로가기도 이 nav 안에서
+   shell.js가 같이 그려준다 — 그래서 드로어를 열면(모바일) 또는 항상
+   보이는 사이드바 안에(데스크톱) 로그인/달력/그룹이 늘 함께 있다. */
 nav.sow-modules{
-  position:sticky;top:0;z-index:10;height:var(--nav-h);
-  display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap;
+  position:fixed;top:0;left:0;bottom:0;width:82%;max-width:320px;height:100vh;
+  transform:translateX(-100%);transition:transform .25s ease;
+  display:flex;flex-direction:column;align-items:stretch;gap:4px;
+  padding:24px 14px 16px;overflow-y:auto;
+  background:var(--paper);border-right:1px solid var(--line);
+  box-shadow:var(--shadow-lift);z-index:60;
+}
+nav.sow-modules::before{
+  content:'SOW';font-family:'Pretendard',sans-serif;font-weight:700;font-size:16px;
+  color:var(--ink);padding:0 10px 18px;letter-spacing:.01em;
+}
+body.sow-drawer-open nav.sow-modules{ transform:translateX(0); }
+
+nav.sow-modules button{
+  font-family:inherit;font-size:14.5px;font-weight:600;
+  padding:11px 12px;border-radius:12px;border:1px solid transparent;
+  background:transparent;color:var(--ink-soft);cursor:pointer;
+  display:flex;align-items:center;gap:12px;justify-content:flex-start;width:100%;
+  transition:background .18s,color .18s;
+}
+nav.sow-modules button span:first-child{font-size:17px;flex:none;}
+nav.sow-modules button.active{background:var(--ink);color:#fff;}
+nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
+
+.sow-nav-divider{height:1px;background:var(--line);margin:10px 4px;flex:none;}
+
+/* 드로어 뒤 배경 어둡게(오버레이) — 모바일/태블릿에서만 의미있음, 데스크톱에선 숨김 */
+.sow-drawer-overlay{
+  position:fixed;inset:0;background:rgba(29,58,44,.35);opacity:0;pointer-events:none;
+  transition:opacity .25s ease;z-index:55;
+}
+body.sow-drawer-open .sow-drawer-overlay{opacity:1;pointer-events:auto;}
+
+/* 상단 앱바 — 햄버거 + 로고 (데스크톱에선 숨김, 사이드바가 항상 보이니까) */
+.sow-topbar{
+  position:sticky;top:0;z-index:30;height:56px;
+  display:flex;align-items:center;gap:12px;padding:0 16px;
   background:rgba(246,244,238,0.92);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
-nav.sow-modules button{
-  font-family:inherit;font-size:14px;font-weight:600;
-  padding:9px 18px;border-radius:99px;border:1px solid transparent;
-  background:transparent;color:var(--ink-soft);cursor:pointer;
-  display:flex;align-items:center;gap:7px;transition:background .18s,color .18s;
+.sow-hamburger{
+  font-size:20px;line-height:1;background:none;border:none;color:var(--ink);
+  cursor:pointer;padding:6px;border-radius:8px;
 }
-nav.sow-modules button.active{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm);}
-nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
+.sow-hamburger:hover{background:rgba(29,58,44,.07);}
+.sow-topbar-title{font-family:'Pretendard',sans-serif;font-weight:700;font-size:16px;color:var(--ink);}
 
-/* ---------- 모바일: 하단 탭바로 전환 (앱 느낌) ---------- */
-@media (max-width: 640px){
-  nav.sow-modules{
-    position:fixed;top:auto;bottom:0;left:0;right:0;height:auto;width:100%;
-    justify-content:space-around;gap:0;flex-wrap:nowrap;
-    padding:6px 4px calc(6px + env(safe-area-inset-bottom));
-    border-bottom:none;border-top:1px solid var(--line);
-    box-shadow:0 -6px 20px rgba(29,58,44,0.08);
-    z-index:40;
-  }
-  nav.sow-modules button{
-    flex:1;min-width:0;flex-direction:column;gap:2px;
-    padding:6px 2px;border-radius:12px;font-size:10.5px;
-  }
-  nav.sow-modules button span:first-child{font-size:19px;}
-  nav.sow-modules button.active{background:var(--sprout-tint);color:var(--ink);box-shadow:none;}
-  /* 하단 탭바에 콘텐츠가 안 가려지도록 여백 확보 */
-  main.sow-main{padding-bottom:calc(84px + env(safe-area-inset-bottom));}
-  .sow-auth-slot{padding:10px 16px 0;}
-}
+/* ---------- 로그인 위젯 (nav 맨 아래에 함께 렌더링됨) ---------- */
+#sow-auth{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);}
+.sow-auth-bar{display:flex;flex-direction:column;align-items:stretch;gap:8px;font-size:12.5px;}
+.sow-auth-user{font-weight:700;color:var(--ink);}
+.sow-auth-email{width:100%;font-family:inherit;font-size:12.5px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
+.sow-auth-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 12px;border-radius:10px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:.18s;width:100%;}
+.sow-auth-btn:hover{background:var(--sprout);border-color:var(--sprout);}
+.sow-auth-msg{font-size:11px;color:var(--sprout);font-weight:600;}
 
-/* ---------- 데스크톱(넓은 화면): 좌측 세로 사이드바 + 넓어진 본문 ----------
-   웹은 가로 폭을 그냥 놀리지 않도록, 상단 가로 탭 대신 왼쪽에 고정된
-   세로 사이드바를 쓰고, 본문 최대폭도 760px→900px로 넓힌다.
-   HTML/JS는 그대로 두고 CSS 배치만 바꾼 것 — 콘텐츠·기능은 동일. */
+/* ---------- 데스크톱(1024px 이상): 늘 보이는 좌측 사이드바 + 넓어진 본문 ---------- */
 @media (min-width: 1024px){
-  :root{ --sidebar-w:232px; }
+  :root{ --sidebar-w:240px; }
+  .sow-topbar, .sow-drawer-overlay{ display:none; }
   nav.sow-modules{
-    position:fixed; top:0; left:0; bottom:0; width:var(--sidebar-w); height:100vh;
-    flex-direction:column; align-items:stretch; justify-content:flex-start;
-    gap:4px; padding:28px 14px; overflow-y:auto;
-    border-bottom:none; border-right:1px solid var(--line);
-    background:var(--paper); backdrop-filter:none;
+    width:var(--sidebar-w);max-width:none;transform:none;transition:none;
+    box-shadow:none;padding:28px 14px 20px;
   }
-  nav.sow-modules::before{
-    content:'SOW'; font-family:'Noto Serif KR',serif; font-weight:700; font-size:15px;
-    color:var(--ink); padding:0 14px 20px; letter-spacing:.02em;
-  }
-  nav.sow-modules button{
-    justify-content:flex-start; gap:12px; padding:12px 14px; font-size:14px; width:100%;
-  }
-  nav.sow-modules button span:first-child{ font-size:17px; }
-
-  .sow-auth-slot{ margin-left:var(--sidebar-w); max-width:900px; }
   main.sow-main{ margin-left:var(--sidebar-w); max-width:900px; padding:40px 44px 90px; }
 
   /* "나의 성경읽기" 툴바 안에서도 가로 공간을 더 쓰도록 저장/새로고침과
@@ -136,15 +148,6 @@ nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
   .sow-map-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
 }
 
-/* ---------- 로그인 바 (이메일 매직링크) ---------- */
-.sow-auth-slot{max-width:760px;margin:0 auto;padding:10px 20px 0;}
-.sow-auth-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;}
-.sow-auth-user{font-weight:700;color:var(--ink);}
-.sow-auth-email{flex:1;min-width:160px;font-family:inherit;font-size:12.5px;padding:7px 10px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
-.sow-auth-btn{font-family:inherit;font-size:12px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:.18s;}
-.sow-auth-btn:hover{background:var(--sprout);border-color:var(--sprout);}
-.sow-auth-msg{font-size:11px;color:var(--sprout);font-weight:600;}
-
 /* ---------- 서브탭 (korean / world-languages / explore 공용) ---------- */
 .sow-subtabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
 .sow-subtabs button{
@@ -156,7 +159,7 @@ nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
 .sow-subtabs button:hover:not(.active){border-color:var(--ink-soft);}
 
 /* ---------- 레이아웃 ---------- */
-main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
+main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-passage-ref{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:6px;}
 .sow-section-title{font-size:22px;margin:0 0 22px;font-weight:700;line-height:1.4;}
 .sow-loading{padding:48px 0;text-align:center;color:#9A8F6E;font-size:13.5px;}
@@ -178,7 +181,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
 
 /* ---------- 한자/어휘 ---------- */
 .sow-hanja-card{display:flex;gap:22px;align-items:flex-start;}
-.sow-hanja-char{font-family:'Noto Serif KR',serif;font-size:52px;font-weight:700;color:var(--ink);background:var(--sprout-tint);width:92px;height:92px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
+.sow-hanja-char{font-family:'Pretendard', sans-serif;font-size:52px;font-weight:700;color:var(--ink);background:var(--sprout-tint);width:92px;height:92px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
 .sow-hanja-reading{font-weight:700;font-size:15px;margin-bottom:6px;}
 .sow-hanja-tags{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
 .sow-hanja-card p{margin:0 0 6px;font-size:13.5px;line-height:1.65;color:var(--ink-soft);}
@@ -242,7 +245,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
 .sow-track-card{text-align:left;font-family:inherit;cursor:pointer;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px;transition:box-shadow .2s,transform .2s,border-color .2s;}
 .sow-track-card:hover{border-color:var(--sprout);box-shadow:var(--shadow-lift);transform:translateY(-3px);}
 .sow-track-card.soon{opacity:.68;}
-.sow-track-label{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:700;margin-bottom:2px;}
+.sow-track-label{font-family:'Pretendard', sans-serif;font-size:17px;font-weight:700;margin-bottom:2px;}
 .sow-track-subtitle{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:9px;}
 .sow-track-desc{font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:16px;min-height:42px;}
 .sow-track-cta{font-size:12.5px;font-weight:700;color:var(--clay);}
@@ -282,7 +285,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
 }
 
 /* ---------- 나의 성경읽기 (달력 / 저장 / 새로고침 묶음) ---------- */
-.sow-my-reading-head{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;margin-bottom:12px;}
+.sow-my-reading-head{font-family:'Pretendard', sans-serif;font-size:16px;font-weight:700;margin-bottom:12px;}
 .sow-session-toolbar{display:flex;gap:8px;margin-bottom:12px;}
 .sow-toolbar-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);transition:.18s;}
 .sow-toolbar-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}

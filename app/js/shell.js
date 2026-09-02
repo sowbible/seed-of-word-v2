@@ -696,11 +696,18 @@
     </div>`;
   }
 
-  /* ---------- 상단 네비 ---------- */
+  /* ---------- 상단 네비 겸 드로어(모바일)/사이드바(데스크톱) ---------- */
   async function init(){
     const nav = document.getElementById('sow-nav');
     const main = document.getElementById('sow-main');
     if(!nav || !main){ console.error('[SOW Shell] #sow-nav / #sow-main 요소가 필요합니다.'); return; }
+
+    function closeDrawer(){ document.body.classList.remove('sow-drawer-open'); }
+    document.getElementById('sow-hamburger')?.addEventListener('click', () => {
+      document.body.classList.toggle('sow-drawer-open');
+    });
+    document.getElementById('sow-drawer-overlay')?.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeDrawer(); });
 
     const registry = await fetchJSON('/content/_module-registry.json');
     state.moduleRegistry = registry.modules.sort((a,b)=>a.order-b.order);
@@ -709,22 +716,46 @@
       ? urlModule
       : state.moduleRegistry[0].id;
 
+    function goTo(moduleId, activeSub){
+      state.activeModule = moduleId;
+      if(activeSub !== undefined) state.activeSub[moduleId] = activeSub;
+      const url = new URL(location.href);
+      url.searchParams.set('module', moduleId);
+      history.replaceState(null, '', url);
+      renderNav();
+      renderModulePanel(main);
+      closeDrawer();
+    }
+
     function renderNav(){
       nav.innerHTML = '';
+
       state.moduleRegistry.forEach(m => {
         const btn = document.createElement('button');
         btn.className = m.id === state.activeModule ? 'active' : '';
         btn.innerHTML = `<span>${m.icon}</span><span>${pickLabel(m.label)}</span>`;
-        btn.onclick = () => {
-          state.activeModule = m.id;
-          const url = new URL(location.href);
-          url.searchParams.set('module', m.id);
-          history.replaceState(null, '', url);
-          renderNav();
-          renderModulePanel(main);
-        };
+        btn.onclick = () => goTo(m.id);
         nav.appendChild(btn);
       });
+
+      const divider = document.createElement('div');
+      divider.className = 'sow-nav-divider';
+      nav.appendChild(divider);
+
+      const calBtn = document.createElement('button');
+      calBtn.innerHTML = `<span>📅</span><span>나의 성경읽기</span>`;
+      calBtn.onclick = () => goTo('meditation');
+      nav.appendChild(calBtn);
+
+      const groupBtn = document.createElement('button');
+      groupBtn.innerHTML = `<span>👥</span><span>우리 그룹</span>`;
+      groupBtn.onclick = () => goTo('meditation', 'overview');
+      nav.appendChild(groupBtn);
+
+      const authWrap = document.createElement('div');
+      authWrap.id = 'sow-auth';
+      nav.appendChild(authWrap);
+      window.SOWAuthWidget?.render(authWrap);
     }
 
     renderNav();

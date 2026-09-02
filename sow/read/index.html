@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="SOW">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
   /* basePath를 사람이 직접 안 정해도 되게, 이 페이지 자신의 주소에서
      "/sow/read/index.html" 앞부분을 잘라내 자동으로 계산한다.
@@ -29,8 +29,14 @@
 </script>
 </head>
 <body>
+  <!-- 1023px 이하(모바일/태블릿)에서만 보이는 상단 앱바 — 햄버거로 드로어 메뉴를 연다.
+       데스크톱(1024px 이상)에서는 CSS로 숨겨지고, nav가 항상 보이는 사이드바가 된다. -->
+  <div class="sow-topbar">
+    <button type="button" class="sow-hamburger" id="sow-hamburger" aria-label="메뉴 열기">☰</button>
+    <span class="sow-topbar-title">SOW</span>
+  </div>
+  <div class="sow-drawer-overlay" id="sow-drawer-overlay"></div>
   <nav class="sow-modules" id="sow-nav"></nav>
-  <div id="sow-auth" class="sow-auth-slot"></div>
   <main class="sow-main" id="sow-main"></main>
 
   <script>
@@ -62,9 +68,6 @@
     SOW_SCRIPTS.forEach(function(src){
       document.write('<script src="' + src + '"><\/script>');
     });
-  </script>
-  <script>
-    window.SOWAuthWidget && window.SOWAuthWidget.render(document.getElementById('sow-auth'));
   </script>
 </body>
 </html>
