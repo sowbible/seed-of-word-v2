@@ -90,7 +90,13 @@
 
   /* ---------- 코스(트랙) 선택 화면 — 트랙이 2개 이상인 모듈에서만 자동 노출 ---------- */
   function renderTrackSelector(main, moduleId, tracks){
-    main.innerHTML = `<h2 class="sow-section-title serif">어떤 코스로 걸을까요?</h2>
+    main.innerHTML = '';
+    const toolbarWrap = document.createElement('div');
+    main.appendChild(toolbarWrap);
+    if(moduleId === 'meditation') window.SOWSessionToolbar?.render(toolbarWrap);
+
+    const body = document.createElement('div');
+    body.innerHTML = `<h2 class="sow-section-title serif">어떤 코스로 걸을까요?</h2>
       <div class="sow-track-grid">` +
       tracks.map(tr => `<button class="sow-track-card ${tr.status!=='active' ? 'soon' : ''}" data-track="${tr.id}">
           <div class="sow-track-icon">${tr.icon || '📖'}</div>
@@ -100,6 +106,7 @@
           <div class="sow-track-cta">${tr.status==='active' ? '시작하기 →' : '준비중 · 미리보기'}</div>
         </button>`).join('') +
       `</div>`;
+    main.appendChild(body);
     main.querySelectorAll('[data-track]').forEach(btn => {
       btn.onclick = () => {
         const trackId = btn.dataset.track;

@@ -2,10 +2,31 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title id="sow-title">SOW · 성경묵상</title>
+<meta name="theme-color" content="#1D3A2C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SOW">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/app/css/shell.css">
+<script>
+  /* basePath를 사람이 직접 안 정해도 되게, 이 페이지 자신의 주소에서
+     "/sow/read/index.html" 앞부분을 잘라내 자동으로 계산한다.
+     그래서 로컬(http://localhost:8000/)이든, GitHub Pages 기본 주소
+     (https://sowbible.github.io/seed-of-word-v2/)든, 나중에 커스텀 도메인
+     (https://seedofword.org/)이든 코드를 안 고쳐도 알아서 맞는다.
+     (SOW_구조설계.md 21-5절 참고) */
+  var SOW_SUFFIX = '/sow/read/index.html';
+  var SOW_PATH = location.pathname;
+  window.SOW_BASE_PATH = SOW_PATH.indexOf(SOW_SUFFIX) > -1 ? SOW_PATH.slice(0, SOW_PATH.indexOf(SOW_SUFFIX)) : '';
+  document.write('<link rel="stylesheet" href="' + window.SOW_BASE_PATH + '/app/css/shell.css">');
+  /* PWA — 홈 화면에 설치하면 앱처럼 아이콘/전체화면으로 열리게 하는 설정들 (22절) */
+  document.write('<link rel="manifest" href="' + window.SOW_BASE_PATH + '/manifest.json">');
+  document.write('<link rel="apple-touch-icon" href="' + window.SOW_BASE_PATH + '/app/icons/apple-touch-icon.png">');
+  document.write('<link rel="icon" type="image/png" sizes="32x32" href="' + window.SOW_BASE_PATH + '/app/icons/favicon-32.png">');
+  document.write('<link rel="icon" type="image/png" sizes="16x16" href="' + window.SOW_BASE_PATH + '/app/icons/favicon-16.png">');
+</script>
 </head>
 <body>
   <nav class="sow-modules" id="sow-nav"></nav>
@@ -20,22 +41,28 @@
     var params = new URLSearchParams(location.search);
     window.SOW_CONTEXT = {
       book: params.get('book') || 'john',
-      step: Number(params.get('step')) || 1
+      step: Number(params.get('step')) || 1,
+      basePath: window.SOW_BASE_PATH
     };
     document.getElementById('sow-title').textContent =
       'SOW · ' + window.SOW_CONTEXT.book + ' ' + window.SOW_CONTEXT.step + '걸음';
-  </script>
-  <!-- Supabase 연동 (SUPABASE_SETUP.md 참고) -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-  <script src="/app/js/supabase-client.js"></script>
-  <script src="/app/js/auth-widget.js"></script>
 
-  <script src="/app/js/voice-text-input.js"></script>
-  <script src="/app/js/session-toolbar.js"></script>
-  <script src="/app/js/reading-map.js"></script>
-  <script src="/app/js/persist.js"></script>
-  <script src="/app/js/bible-link.js"></script>
-  <script src="/app/js/shell.js"></script>
+    /* 앱 자체 스크립트들도 basePath를 붙여서 불러온다 (서브경로 배포 대응) */
+    var SOW_SCRIPTS = [
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js', // 외부 CDN — basePath 안 붙임
+      window.SOW_BASE_PATH + '/app/js/supabase-client.js',
+      window.SOW_BASE_PATH + '/app/js/auth-widget.js',
+      window.SOW_BASE_PATH + '/app/js/voice-text-input.js',
+      window.SOW_BASE_PATH + '/app/js/session-toolbar.js',
+      window.SOW_BASE_PATH + '/app/js/reading-map.js',
+      window.SOW_BASE_PATH + '/app/js/persist.js',
+      window.SOW_BASE_PATH + '/app/js/bible-link.js',
+      window.SOW_BASE_PATH + '/app/js/shell.js'
+    ];
+    SOW_SCRIPTS.forEach(function(src){
+      document.write('<script src="' + src + '"><\/script>');
+    });
+  </script>
   <script>
     window.SOWAuthWidget && window.SOWAuthWidget.render(document.getElementById('sow-auth'));
   </script>

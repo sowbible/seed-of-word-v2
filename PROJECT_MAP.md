@@ -14,6 +14,7 @@
 | **Supabase 연동 실제로 하는 법(SQL 포함)** | `SUPABASE_SETUP.md` | 위와 동일 |
 | GitHub 저장소에 어떻게 올리는지 | `GITHUB_CONNECT.md` | 콘텐츠, 구조는 그대로 |
 | 도메인 연결, GitHub Pages 설정 | `DEPLOY.md` | 위와 동일 |
+| **Private 유지하면서 무료 배포(Netlify)** | `NETLIFY_SETUP.md` | 위와 동일 |
 | Windows에서 로컬 미리보기 방법 | `WINDOWS_PREVIEW.md` | 위와 동일 |
 | 과거에 뭘 진단했고 뭘 측정했는지(참고용, 지금 안 씀) | `HISTORY.md` | 지금 구조와 무관 — 안 봐도 됨 |
 | 전체 훑어보기 / 처음 오는 사람 안내 | `README.md` | 요약만, 상세 내용은 위 파일들로 링크 |
