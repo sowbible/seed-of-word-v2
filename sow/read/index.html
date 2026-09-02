@@ -2,8 +2,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title id="sow-title">SOW · 성경묵상</title>
+<meta name="theme-color" content="#1D3A2C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SOW">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
   /* basePath를 사람이 직접 안 정해도 되게, 이 페이지 자신의 주소에서
@@ -16,6 +21,11 @@
   var SOW_PATH = location.pathname;
   window.SOW_BASE_PATH = SOW_PATH.indexOf(SOW_SUFFIX) > -1 ? SOW_PATH.slice(0, SOW_PATH.indexOf(SOW_SUFFIX)) : '';
   document.write('<link rel="stylesheet" href="' + window.SOW_BASE_PATH + '/app/css/shell.css">');
+  /* PWA — 홈 화면에 설치하면 앱처럼 아이콘/전체화면으로 열리게 하는 설정들 (22절) */
+  document.write('<link rel="manifest" href="' + window.SOW_BASE_PATH + '/manifest.json">');
+  document.write('<link rel="apple-touch-icon" href="' + window.SOW_BASE_PATH + '/app/icons/apple-touch-icon.png">');
+  document.write('<link rel="icon" type="image/png" sizes="32x32" href="' + window.SOW_BASE_PATH + '/app/icons/favicon-32.png">');
+  document.write('<link rel="icon" type="image/png" sizes="16x16" href="' + window.SOW_BASE_PATH + '/app/icons/favicon-16.png">');
 </script>
 </head>
 <body>

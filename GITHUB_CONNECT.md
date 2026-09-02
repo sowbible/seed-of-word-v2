@@ -132,6 +132,27 @@ git push origin sow-structure-v2
 
 ---
 
+## 이후 업데이트하는 법 (파일이 바뀔 때마다)
+
+처음엔 저장소가 비어있어서 "Clone"부터 했지만, **한 번 clone해두면 그 다음부터는 훨씬 짧아요.** 새 버전 zip을 받을 때마다 이 순서만 반복하시면 돼요.
+
+1. 새 zip 파일(예: `sow-app-v5.0.zip`) 다운로드 → 압축 풀기
+2. GitHub Desktop 실행 → 왼쪽 위 저장소 이름이 `seed-of-word-v2`인지 확인
+3. 메뉴바 **Repository → Show in Explorer**(윈도우) / **Show in Finder**(맥) 클릭 → 예전에 clone했던 그 폴더가 열림 (이번엔 안이 비어있지 않고 지난번에 올린 파일들이 이미 들어있을 거예요)
+4. **창 2개 나란히 놓기**: 방금 연 저장소 폴더(창 B) + 새로 압축 푼 폴더(창 A)
+5. 창 A에서 전체 선택(Ctrl+A) → 복사(Ctrl+C)
+6. 창 B(저장소 폴더)에 붙여넣기(Ctrl+V)
+7. 이번엔 **"이미 있는 파일을 바꾸시겠습니까?"** 확인창이 뜰 거예요 (지난번과 달리 이번엔 파일이 이미 있어서) → **"파일 및 폴더 바꾸기"**(윈도우) / **"Replace"**(맥) 선택, 가능하면 "모두 적용" 체크
+8. GitHub Desktop으로 돌아오면 왼쪽 **"Changes"** 탭에 **바뀐 파일만** 나열됨 (예: `app/js/supabase-client.js` 같은 신규 파일, `SOW_구조설계.md` 같은 수정된 파일) — 안 바뀐 파일은 목록에 안 뜨는 게 정상이에요
+9. **Summary** 칸에 메시지 입력 — 예: `SOW v5.0 - Supabase 연동 (로그인, entries 저장)`
+10. **"Commit to main"** 클릭
+11. 이번엔 버튼이 "Publish branch"가 아니라 **"Push origin"**으로 뜰 거예요 (이미 한 번 올렸던 저장소라서) → 클릭
+12. `https://github.com/sowbible/seed-of-word-v2` 새로고침해서 확인 — 왼쪽 "N Commits" 숫자가 늘어나 있으면 성공
+
+> 💾 참고: 압축 풀어둔 예전 버전 폴더(`sow-app-v4.6` 등)는 이제 지우셔도 돼요 — GitHub에 커밋 이력으로 다 남아있어서, git에 익숙해지면 나중에 언제든 "그때 버전"으로 되돌아볼 수 있어요.
+
+---
+
 ## 다음 단계
 
 - [x] 저장소 주소 확정: `sowbible/seed-of-word-v2`

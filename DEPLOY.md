@@ -27,9 +27,14 @@
 
 ## 2. GitHub Pages 켜기
 
-1. 저장소 **Settings → Pages**
-2. Source: `Deploy from a branch` → `main` 브랜치, 루트(`/`) 선택
-3. 저장하면 `https://sowbible.github.io/seed-of-word-v2/` 으로 우선 배포됨 — 이때 정상적으로 뜨는지 먼저 확인
+1. https://github.com/sowbible/seed-of-word-v2 접속 → 상단 **Settings** 탭 클릭
+2. 왼쪽 메뉴에서 **Pages** 클릭
+3. **Source** 드롭다운에서 **"Deploy from a branch"** 선택
+4. 그 아래 브랜치 선택 드롭다운에서 **`main`**, 폴더는 **`/ (root)`** 선택 → **Save**
+5. 몇 분 기다리면 페이지 상단에 **"Your site is live at https://sowbible.github.io/seed-of-word-v2/"** 라는 초록 안내가 뜬다
+6. 이 주소를 브라우저에서 열면, 저장소 루트의 `index.html`이 자동으로 `sow/read/index.html`로 이동시켜준다 — 바로 성경묵상 화면이 보이면 성공
+
+> **참고**: v5.0부터 `sow/read/index.html`이 자기 주소를 보고 `basePath`(예: `/seed-of-word-v2`)를 자동으로 계산해서 CSS/JS를 불러온다(`SOW_구조설계.md` 21-5절). 그래서 서브경로(`/seed-of-word-v2/...`)로 배포되든, 이후 3절에서 커스텀 도메인(`seedofword.org`, 루트)으로 배포되든 **코드를 따로 안 고쳐도 그대로 동작한다.**
 
 ## 3. 도메인 연결 (seedofword.org 등록업체에서 설정)
 

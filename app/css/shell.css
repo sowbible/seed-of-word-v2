@@ -78,6 +78,27 @@ nav.sow-modules button{
 nav.sow-modules button.active{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm);}
 nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
 
+/* ---------- 모바일: 하단 탭바로 전환 (앱 느낌) ---------- */
+@media (max-width: 640px){
+  nav.sow-modules{
+    position:fixed;top:auto;bottom:0;left:0;right:0;height:auto;width:100%;
+    justify-content:space-around;gap:0;flex-wrap:nowrap;
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+    border-bottom:none;border-top:1px solid var(--line);
+    box-shadow:0 -6px 20px rgba(29,58,44,0.08);
+    z-index:40;
+  }
+  nav.sow-modules button{
+    flex:1;min-width:0;flex-direction:column;gap:2px;
+    padding:6px 2px;border-radius:12px;font-size:10.5px;
+  }
+  nav.sow-modules button span:first-child{font-size:19px;}
+  nav.sow-modules button.active{background:var(--sprout-tint);color:var(--ink);box-shadow:none;}
+  /* 하단 탭바에 콘텐츠가 안 가려지도록 여백 확보 */
+  main.sow-main{padding-bottom:calc(84px + env(safe-area-inset-bottom));}
+  .sow-auth-slot{padding:10px 16px 0;}
+}
+
 /* ---------- 로그인 바 (이메일 매직링크) ---------- */
 .sow-auth-slot{max-width:760px;margin:0 auto;padding:10px 20px 0;}
 .sow-auth-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;}
