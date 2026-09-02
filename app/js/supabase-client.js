@@ -6,7 +6,7 @@
    로그인은 이메일 매직링크 방식 — 비밀번호 없이 메일의 링크만 누르면 로그인된다.
    ========================================================= */
 (function(){
-  const SUPABASE_URL = 'https://hzjfwqawdncdjteczcooa.supabase.co';
+  const SUPABASE_URL = 'https://hzjfwqawdncdjtezcooa.supabase.co';
   const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_pL4PTpJrSLn8D9RuHhoUDA_CR7nFEIO';
 
   if(!window.supabase || !window.supabase.createClient){
