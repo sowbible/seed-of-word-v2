@@ -99,6 +99,43 @@ nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
   .sow-auth-slot{padding:10px 16px 0;}
 }
 
+/* ---------- 데스크톱(넓은 화면): 좌측 세로 사이드바 + 넓어진 본문 ----------
+   웹은 가로 폭을 그냥 놀리지 않도록, 상단 가로 탭 대신 왼쪽에 고정된
+   세로 사이드바를 쓰고, 본문 최대폭도 760px→900px로 넓힌다.
+   HTML/JS는 그대로 두고 CSS 배치만 바꾼 것 — 콘텐츠·기능은 동일. */
+@media (min-width: 1024px){
+  :root{ --sidebar-w:232px; }
+  nav.sow-modules{
+    position:fixed; top:0; left:0; bottom:0; width:var(--sidebar-w); height:100vh;
+    flex-direction:column; align-items:stretch; justify-content:flex-start;
+    gap:4px; padding:28px 14px; overflow-y:auto;
+    border-bottom:none; border-right:1px solid var(--line);
+    background:var(--paper); backdrop-filter:none;
+  }
+  nav.sow-modules::before{
+    content:'SOW'; font-family:'Noto Serif KR',serif; font-weight:700; font-size:15px;
+    color:var(--ink); padding:0 14px 20px; letter-spacing:.02em;
+  }
+  nav.sow-modules button{
+    justify-content:flex-start; gap:12px; padding:12px 14px; font-size:14px; width:100%;
+  }
+  nav.sow-modules button span:first-child{ font-size:17px; }
+
+  .sow-auth-slot{ margin-left:var(--sidebar-w); max-width:900px; }
+  main.sow-main{ margin-left:var(--sidebar-w); max-width:900px; padding:40px 44px 90px; }
+
+  /* "나의 성경읽기" 툴바 안에서도 가로 공간을 더 쓰도록 저장/새로고침과
+     달력·성경지도 탭을 한 줄로 배치 */
+  .sow-my-reading{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
+  .sow-my-reading-head{ width:100%; margin-bottom:2px; }
+  .sow-session-toolbar{ margin-bottom:0; }
+  .sow-record-tabs{ margin-bottom:0; }
+  .sow-cal-inline{ width:100%; }
+
+  /* 성경지도 안 66권 그리드도 넓은 화면에서 2열로 나눠 가로를 활용 */
+  .sow-map-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
+}
+
 /* ---------- 로그인 바 (이메일 매직링크) ---------- */
 .sow-auth-slot{max-width:760px;margin:0 auto;padding:10px 20px 0;}
 .sow-auth-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;}
