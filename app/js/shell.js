@@ -91,11 +91,8 @@
   /* ---------- 코스(트랙) 선택 화면 — 트랙이 2개 이상인 모듈에서만 자동 노출 ---------- */
   function renderTrackSelector(main, moduleId, tracks){
     main.innerHTML = '';
-    const toolbarWrap = document.createElement('div');
-    main.appendChild(toolbarWrap);
-    if(moduleId === 'meditation') window.SOWSessionToolbar?.render(toolbarWrap);
-
     const body = document.createElement('div');
+    main.appendChild(body);
     body.innerHTML = `<h2 class="sow-section-title serif">어떤 코스로 걸을까요?</h2>
       <div class="sow-track-grid">` +
       tracks.map(tr => `<button class="sow-track-card ${tr.status!=='active' ? 'soon' : ''}" data-track="${tr.id}">
@@ -204,18 +201,32 @@
   /* ---------- 공용: 구약/신약 탭이 맨 앞에 오는 "본문 바로 가기" 컴포넌트 ---------- */
   function renderChapterJumper(container, opts){
     const library = opts.library;
+    let expanded = false;
     let testament = library.oldTestament.books.some(b => b.id === opts.initialBookId) ? 'ot' : 'nt';
     let bookId = opts.initialBookId;
     let chapter = opts.initialChapter || 1;
 
     function books(){ return testament === 'ot' ? library.oldTestament.books : library.newTestament.books; }
+    function currentBookLabel(){
+      const all = [...library.oldTestament.books, ...library.newTestament.books];
+      const b = all.find(x => x.id === bookId);
+      return b ? `${b.shortKo} ${chapter}장` : '';
+    }
 
     function draw(){
+      if(!expanded){
+        container.innerHTML = `<button type="button" class="sow-jumper-toggle">🔎 본문 바로 가기 <span class="sow-jumper-toggle-current">${currentBookLabel()}</span></button>`;
+        container.querySelector('.sow-jumper-toggle').onclick = () => { expanded = true; draw(); };
+        return;
+      }
       if(!books().some(b => b.id === bookId)) bookId = books()[0].id;
       const book = books().find(b => b.id === bookId);
       if(chapter > book.chapters) chapter = book.chapters;
       container.innerHTML = `<div class="sow-jumper">
-        <label>${opts.label}</label>
+        <div class="sow-jumper-head">
+          <label>${opts.label}</label>
+          <button type="button" class="sow-jumper-collapse">접기 ▲</button>
+        </div>
         <div class="sow-jumper-testament">
           <button type="button" data-t="ot" class="${testament==='ot'?'active':''}">구약</button>
           <button type="button" data-t="nt" class="${testament==='nt'?'active':''}">신약</button>
@@ -225,6 +236,7 @@
           <select class="sow-jumper-chapter">${Array.from({length: book.chapters}, (_, i) => i+1).map(n => `<option value="${n}" ${n===chapter?'selected':''}>${n}장</option>`).join('')}</select>
         </div>
       </div>`;
+      container.querySelector('.sow-jumper-collapse').onclick = () => { expanded = false; draw(); };
       container.querySelectorAll('[data-t]').forEach(btn => {
         btn.onclick = () => { testament = btn.dataset.t; draw(); };
       });
@@ -581,6 +593,14 @@
     const moduleId = state.activeModule;
     const modMeta = state.moduleRegistry.find(m => m.id === moduleId);
 
+    /* "나의 성경읽기" 전용 화면 — 코스 선택/진행 상태와 완전히 무관한 독립 화면.
+       nav의 "📅 나의 성경읽기" 바로가기가 goTo('meditation','myReading')로 여기로 보낸다. */
+    if(moduleId === 'meditation' && state.activeSub.meditation === 'myReading'){
+      main.innerHTML = '';
+      window.SOWSessionToolbar?.render(main);
+      return;
+    }
+
     let tracks, trackId, trackMeta;
 
     if(modMeta && modMeta.followsTrackOf){
@@ -626,7 +646,6 @@
     if(moduleId === 'meditation'){
       const bodyWrap = document.createElement('div');
       main.appendChild(bodyWrap);
-      window.SOWSessionToolbar?.render(bodyWrap);
       const activeSub = state.activeSub.meditation || 'steps';
       state.activeSub.meditation = activeSub;
       if(activeSub === 'steps'){
@@ -727,28 +746,88 @@
       closeDrawer();
     }
 
+    /* 메뉴 안에서 "성경묵상" 옆 화살표를 누르면 그 아래 코스 목록(자유코스/하루한장/1년1독/어린이 코스)을
+       바로 펼쳐서 보여준다 — 코스 선택 화면(main 영역)까지 안 가도 메뉴에서 바로 고를 수 있게. */
+    async function renderCourseSublist(sublistEl, moduleId){
+      const tracks = await getTrackRegistry(moduleId);
+      let currentTrackId = state.activeTrack[moduleId];
+      if(currentTrackId === undefined){
+        try{ currentTrackId = localStorage.getItem(`sow.track.${moduleId}`); }catch(_){ currentTrackId = null; }
+      }
+      sublistEl.innerHTML = tracks.map(tr => `<button type="button" class="sow-nav-sub-btn ${tr.id===currentTrackId?'active':''}" data-track="${tr.id}">
+          <span>${tr.icon || '📖'}</span><span>${pickLabel(tr.label)}</span>
+        </button>`).join('');
+      sublistEl.querySelectorAll('[data-track]').forEach(b => {
+        b.onclick = (e) => {
+          e.stopPropagation();
+          const trackId = b.dataset.track;
+          state.activeTrack[moduleId] = trackId;
+          try{ localStorage.setItem(`sow.track.${moduleId}`, trackId); }catch(_){}
+          goTo(moduleId, moduleId === 'meditation' ? 'steps' : undefined);
+        };
+      });
+    }
+
     function renderNav(){
       nav.innerHTML = '';
 
       state.moduleRegistry.forEach(m => {
+        const row = document.createElement('div');
+        row.className = 'sow-nav-item';
+
+        const btnRow = document.createElement('div');
+        btnRow.className = 'sow-nav-btn-row';
+
         const btn = document.createElement('button');
-        btn.className = m.id === state.activeModule ? 'active' : '';
+        btn.className = 'sow-nav-btn' + (m.id === state.activeModule ? ' active' : '');
         btn.innerHTML = `<span>${m.icon}</span><span>${pickLabel(m.label)}</span>`;
-        btn.onclick = () => goTo(m.id);
-        nav.appendChild(btn);
+        btn.onclick = () => goTo(m.id, m.id === 'meditation' ? 'steps' : undefined);
+        btnRow.appendChild(btn);
+
+        let sublist = null;
+        if(m.hasTracks){
+          const isOpen = m.id === state.activeModule; // 지금 보고 있는 모듈이면 코스 목록을 기본으로 펼쳐둔다
+          const chevron = document.createElement('button');
+          chevron.type = 'button';
+          chevron.className = 'sow-nav-chevron';
+          chevron.setAttribute('aria-label', '코스 목록 펼치기/접기');
+          chevron.textContent = isOpen ? '▾' : '▸';
+          btnRow.appendChild(chevron);
+
+          sublist = document.createElement('div');
+          sublist.className = 'sow-nav-sublist';
+          sublist.hidden = !isOpen;
+          if(isOpen) renderCourseSublist(sublist, m.id);
+
+          chevron.onclick = (e) => {
+            e.stopPropagation();
+            const willOpen = sublist.hidden;
+            sublist.hidden = !willOpen;
+            chevron.textContent = willOpen ? '▾' : '▸';
+            if(willOpen) renderCourseSublist(sublist, m.id);
+          };
+        }
+
+        row.appendChild(btnRow);
+        if(sublist) row.appendChild(sublist);
+        nav.appendChild(row);
       });
 
       const divider = document.createElement('div');
       divider.className = 'sow-nav-divider';
       nav.appendChild(divider);
 
-      const calBtn = document.createElement('button');
-      calBtn.innerHTML = `<span>📅</span><span>나의 성경읽기</span>`;
-      calBtn.onclick = () => goTo('meditation');
-      nav.appendChild(calBtn);
+      // "나의 성경읽기"는 이제 전용 화면이 있다(달력/지도 + 오늘의 활동 요약) —
+      // 코스 카드나 묵상 질문 없이 이것만 딱 보여주는 화면으로 이동한다.
+      const myReadingBtn = document.createElement('button');
+      myReadingBtn.className = 'sow-nav-btn';
+      myReadingBtn.innerHTML = `<span>📅</span><span>나의 성경읽기</span>`;
+      myReadingBtn.onclick = () => goTo('meditation', 'myReading');
+      nav.appendChild(myReadingBtn);
 
       const groupBtn = document.createElement('button');
-      groupBtn.innerHTML = `<span>👥</span><span>우리 그룹</span>`;
+      groupBtn.className = 'sow-nav-btn';
+      groupBtn.innerHTML = `<span>🗺️</span><span>우리의 성경읽기</span>`;
       groupBtn.onclick = () => goTo('meditation', 'overview');
       nav.appendChild(groupBtn);
 

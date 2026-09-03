@@ -66,9 +66,9 @@ button,input,textarea,select{font-family:inherit;}
    1023px 이하(모바일/태블릿): 기본은 화면 왼쪽 밖에 숨어있다가, 상단 햄버거
    버튼을 누르면 슬라이드인하는 드로어 메뉴(참고 이미지의 Zero ERP 패턴).
    1024px 이상(데스크톱): 늘 보이는 왼쪽 고정 사이드바로 바뀐다.
-   로그인 위젯과 "나의 성경읽기/우리 그룹" 바로가기도 이 nav 안에서
-   shell.js가 같이 그려준다 — 그래서 드로어를 열면(모바일) 또는 항상
-   보이는 사이드바 안에(데스크톱) 로그인/달력/그룹이 늘 함께 있다. */
+   성경묵상처럼 코스가 여러 개인 모듈은 화살표를 눌러 그 아래 코스 목록을
+   바로 펼쳐볼 수 있다(아코디언). 로그인 위젯과 "우리의 성경읽기" 바로가기도
+   이 nav 안에서 shell.js가 같이 그려준다. */
 nav.sow-modules{
   position:fixed;top:0;left:0;bottom:0;width:82%;max-width:320px;height:100vh;
   transform:translateX(-100%);transition:transform .25s ease;
@@ -83,16 +83,38 @@ nav.sow-modules::before{
 }
 body.sow-drawer-open nav.sow-modules{ transform:translateX(0); }
 
-nav.sow-modules button{
+.sow-nav-item{ display:flex; flex-direction:column; }
+.sow-nav-btn-row{ display:flex; align-items:stretch; gap:2px; }
+
+.sow-nav-btn{
   font-family:inherit;font-size:14.5px;font-weight:600;
   padding:11px 12px;border-radius:12px;border:1px solid transparent;
   background:transparent;color:var(--ink-soft);cursor:pointer;
   display:flex;align-items:center;gap:12px;justify-content:flex-start;width:100%;
   transition:background .18s,color .18s;
 }
-nav.sow-modules button span:first-child{font-size:17px;flex:none;}
-nav.sow-modules button.active{background:var(--ink);color:#fff;}
-nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
+.sow-nav-btn-row .sow-nav-btn{ flex:1; min-width:0; }
+.sow-nav-btn > span:first-child{font-size:17px;flex:none;}
+.sow-nav-btn.active{background:var(--ink);color:#fff;}
+.sow-nav-btn:hover:not(.active){background:rgba(29,58,44,0.07);}
+
+/* 코스 아코디언: 화살표 + 펼쳐지는 코스 목록 */
+.sow-nav-chevron{
+  flex:none;width:34px;display:flex;align-items:center;justify-content:center;
+  font-size:12px;background:none;border:none;color:var(--ink-soft);
+  cursor:pointer;border-radius:10px;transition:background .18s;
+}
+.sow-nav-chevron:hover{background:rgba(29,58,44,0.07);}
+.sow-nav-sublist{display:flex;flex-direction:column;gap:2px;padding:2px 0 6px 28px;}
+.sow-nav-sub-btn{
+  display:flex;align-items:center;gap:9px;text-align:left;
+  font-family:inherit;font-size:13px;font-weight:600;
+  padding:9px 10px;border-radius:10px;border:none;
+  background:none;color:var(--ink-soft);cursor:pointer;transition:background .18s,color .18s;
+}
+.sow-nav-sub-btn > span:first-child{font-size:14px;flex:none;}
+.sow-nav-sub-btn:hover{background:rgba(29,58,44,0.06);}
+.sow-nav-sub-btn.active{background:var(--sprout-tint);color:var(--ink);font-weight:700;}
 
 .sow-nav-divider{height:1px;background:var(--line);margin:10px 4px;flex:none;}
 
@@ -207,10 +229,22 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 /* ---------- 빈 상태 ---------- */
 .sow-empty-note{font-size:13px;color:#9A8F6E;font-style:italic;padding:11px 14px;background:var(--line-soft);border-radius:var(--radius-sm);border:1px dashed var(--line);}
 
-/* ---------- 자유코스: 본문 직접 선택 ---------- */
-/* ---------- 본문 바로 가기 (구약/신약 탭 + 책/장 선택) — 자유코스/하루한장/1년1독 공용 ---------- */
+/* ---------- 본문 바로 가기 (구약/신약 탭 + 책/장 선택) — 자유코스/하루한장/1년1독 공용 ----------
+   기본은 접힌 상태(작은 버튼 하나)로 시작해서 공간을 안 차지한다. 눌러야 펼쳐진다. */
+.sow-jumper-toggle{
+  display:flex;align-items:center;gap:8px;width:100%;margin-bottom:14px;
+  font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-soft);
+  padding:10px 14px;border-radius:99px;border:1px solid var(--line);
+  background:var(--card);cursor:pointer;transition:.18s;
+}
+.sow-jumper-toggle:hover{border-color:var(--sprout);color:var(--ink);}
+.sow-jumper-toggle-current{margin-left:auto;color:var(--sprout);font-weight:700;}
+
 .sow-jumper{margin-bottom:14px;padding:14px 16px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);}
-.sow-jumper label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:9px;}
+.sow-jumper-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+.sow-jumper-head label{font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:0;}
+.sow-jumper-collapse{font-family:inherit;font-size:11.5px;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;padding:0;}
+.sow-jumper-collapse:hover{color:var(--ink);}
 .sow-jumper-testament{display:flex;gap:6px;margin-bottom:10px;}
 .sow-jumper-testament button{font-family:inherit;font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:.18s;}
 .sow-jumper-testament button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
@@ -284,8 +318,26 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
   .sow-bible-free-range{flex-direction:column;}
 }
 
-/* ---------- 나의 성경읽기 (달력 / 저장 / 새로고침 묶음) ---------- */
-.sow-my-reading-head{font-family:'Pretendard', sans-serif;font-size:16px;font-weight:700;margin-bottom:12px;}
+/* ---------- 나의 성경읽기 — 전용 화면 (인사말 + 오늘의 활동 요약 + 달력/지도) ---------- */
+.sow-my-reading-head{font-family:'Pretendard', sans-serif;font-size:19px;font-weight:700;margin-bottom:4px;}
+.sow-my-reading-greeting{font-size:13px;color:var(--ink-soft);margin:0 0 18px;}
+
+/* 참고 이미지(TellmeNow 대시보드)의 통계 카드 줄 스타일을 우리 팔레트로 재구성 */
+.sow-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:20px;}
+.sow-stat-card{
+  display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+  padding:14px 16px;border-radius:var(--radius);border:1px solid var(--line-soft);
+  background:var(--card);box-shadow:var(--shadow-sm);
+}
+.sow-stat-icon{font-size:18px;margin-bottom:4px;}
+.sow-stat-num{font-size:20px;font-weight:700;color:var(--ink);}
+.sow-stat-label{font-size:11.5px;color:var(--ink-soft);font-weight:600;}
+.sow-stat-card.sow-stat-good{background:var(--sprout-tint);border-color:transparent;}
+.sow-stat-card.sow-stat-warn{background:var(--amber-tint);border-color:transparent;}
+.sow-stat-card.sow-stat-sprout .sow-stat-num{color:var(--sprout);}
+.sow-stat-card.sow-stat-amber .sow-stat-num{color:var(--amber);}
+.sow-stat-card.sow-stat-clay .sow-stat-num{color:var(--clay);}
+
 .sow-session-toolbar{display:flex;gap:8px;margin-bottom:12px;}
 .sow-toolbar-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);transition:.18s;}
 .sow-toolbar-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
