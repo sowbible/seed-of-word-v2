@@ -2,14 +2,10 @@
   "book": "john",
   "chapter": 1,
   "version": "1.0",
-  "_note": "신규 서브모듈 스캐폴드 - 아직 콘텐츠 미작성. 이 파일 구조를 참고해 prompt를 채워 넣으세요.",
   "writingPrompt": {
-    "title": "",
-    "guide": "",
-    "input": {
-      "type": "text",
-      "voiceInput": true,
-      "placeholder": ""
-    }
+    "title": "오늘 배운 말씀 나누기",
+    "guide": "오늘 배운 한자나 단어 중 하나를 넣어서, 하나님께 하고 싶은 말을 자유롭게 써 보세요.",
+    "required": true,
+    "input": { "type": "text", "voiceInput": true, "placeholder": "" }
   }
 }

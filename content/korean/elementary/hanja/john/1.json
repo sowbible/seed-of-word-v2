@@ -1,0 +1,14 @@
+{
+  "book": "john",
+  "chapter": 1,
+  "version": "1.0",
+  "hanja": {
+    "character": "言",
+    "reading": "말씀 언",
+    "meaningTags": ["말씀", "말", "이야기"],
+    "explanation": "\"言\"은 마음속 생각을 말로 전하는 모습을 나타내는 글자예요. '말씀, 말'이라는 뜻이 있어요.",
+    "bibleNote": "예수님은 하나님의 말씀이세요.",
+    "hasAnimation": true,
+    "hasWritingPractice": true
+  }
+}

@@ -519,31 +519,37 @@
   /* ---------- 국어: 어휘 ---------- */
   async function renderKoreanVocab(container, trackId){
     const data = await fetchJSON(`/content/korean/${trackId}/vocab/${BOOK}/${STEP}.json`);
-    const h = data.hanja;
-    let html = `<div class="sow-card sow-hanja-card">
-      <div class="sow-hanja-char">${h.character}</div>
-      <div>
-        <div class="sow-hanja-reading">${h.reading}</div>
-        <div class="sow-hanja-tags">${h.meaningTags.join(' · ')}</div>
-        <p>${h.explanation}</p>
-        <p class="bible-note">📖 ${h.bibleNote}</p>
-      </div></div>
+    container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
       <div class="sow-word-grid">` +
       data.relatedWords.map(w => `<div class="sow-word-chip"><div class="e">${w.icon}</div><div class="w">${w.word}</div><div class="d">${w.shortDesc}</div></div>`).join('') +
       `</div>`;
-    if(data.expressionPrompt){
-      html += `<div class="sow-card sow-prompt" style="margin-top:14px;">
-        <div class="icon-row"><span class="emoji">✏️</span><h4>${data.expressionPrompt.title}</h4><span class="sow-required">${L().required}</span></div>
-        <p>${data.expressionPrompt.guide}</p>
-        <div><input type="text" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(data.expressionPrompt.input)} ${persistAttr(`korean:${trackId}:${BOOK}:${STEP}:expression`)}></div>
-      </div>`;
-    }
-    container.innerHTML = html;
   }
 
-  async function renderKoreanEmpty(container, trackId, submoduleId){
-    const data = await fetchJSON(`/content/korean/${trackId}/${submoduleId}/${BOOK}/${STEP}.json`);
-    container.innerHTML = data._note ? `<div class="sow-empty-note">🚧 ${data._note}</div>` : `<div class="sow-empty-note">${L().empty}</div>`;
+  async function renderKoreanHanja(container, trackId){
+    const data = await fetchJSON(`/content/korean/${trackId}/hanja/${BOOK}/${STEP}.json`);
+    const h = data.hanja;
+    container.innerHTML = `<h2 class="sow-section-title serif">오늘의 한자</h2>
+      <div class="sow-card sow-hanja-card">
+        <div class="sow-hanja-char">${h.character}</div>
+        <div>
+          <div class="sow-hanja-reading">${h.reading}</div>
+          <div class="sow-hanja-tags">${h.meaningTags.join(' · ')}</div>
+          <p>${h.explanation}</p>
+          <p class="bible-note">📖 ${h.bibleNote}</p>
+        </div>
+      </div>`;
+  }
+
+  async function renderKoreanWriting(container, trackId){
+    const data = await fetchJSON(`/content/korean/${trackId}/writing/${BOOK}/${STEP}.json`);
+    const p = data.writingPrompt;
+    if(!p || !p.title){ container.innerHTML = `<div class="sow-empty-note">${L().empty}</div>`; return; }
+    container.innerHTML = `<h2 class="sow-section-title serif">나눔</h2>
+      <div class="sow-card sow-prompt">
+        <div class="icon-row"><span class="emoji">✏️</span><h4>${p.title}</h4>${p.required ? `<span class="sow-required">${L().required}</span>` : ''}</div>
+        <p>${p.guide}</p>
+        <div><textarea rows="2" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(p.input)} ${persistAttr(`korean:${trackId}:${BOOK}:${STEP}:writing`)}></textarea></div>
+      </div>`;
   }
 
   /* ---------- 언어 ---------- */
@@ -583,7 +589,7 @@
   }
 
   const SUB_RENDERERS = {
-    korean: { vocab: renderKoreanVocab, discussion: (c,tid) => renderKoreanEmpty(c,tid,'discussion'), writing: (c,tid) => renderKoreanEmpty(c,tid,'writing') },
+    korean: { vocab: renderKoreanVocab, hanja: renderKoreanHanja, writing: renderKoreanWriting },
     'world-languages': null, // 언어 코드 자체가 submodule id라 동적으로 처리
     explore: { era: (c,tid) => renderExplore(c,tid,'era'), people: (c,tid) => renderExplore(c,tid,'people'), map: (c,tid) => renderExplore(c,tid,'map') }
   };
