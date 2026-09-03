@@ -57,7 +57,7 @@ button,input,textarea,select{font-family:inherit;}
   display:inline-flex;align-items:center;justify-content:center;flex:none;
   border-radius:50%;background:var(--sprout-tint);
 }
-.icon-row .emoji{width:36px;height:36px;font-size:16px;}
+.icon-row .emoji{width:40px;height:40px;font-size:18px;}
 .sow-track-icon{width:52px;height:52px;font-size:23px;margin-bottom:12px;}
 .sow-item-card > .e{width:42px;height:42px;font-size:18px;}
 .sow-word-chip > .e{width:34px;height:34px;font-size:15px;margin:0 auto 8px;}
@@ -182,8 +182,8 @@ body.sow-drawer-open .sow-drawer-overlay{opacity:1;pointer-events:auto;}
 
 /* ---------- 레이아웃 ---------- */
 main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
-.sow-passage-ref{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:6px;}
-.sow-section-title{font-size:22px;margin:0 0 22px;font-weight:700;line-height:1.4;}
+.sow-passage-ref{font-size:14.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:8px;}
+.sow-section-title{font-size:23px;margin:0 0 22px;font-weight:700;line-height:1.4;}
 .sow-loading{padding:48px 0;text-align:center;color:#9A8F6E;font-size:13.5px;}
 
 /* ---------- 1년1독 코스: 오늘 읽을 범위 칩 ---------- */
@@ -195,9 +195,9 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 
 /* ---------- 프롬프트 카드 (묵상/표현하기/토론/글쓰기 공용) ---------- */
 .sow-prompt .icon-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.sow-prompt h4{margin:0;font-size:15.5px;font-weight:700;}
-.sow-required{font-size:10.5px;font-weight:700;color:var(--clay);background:var(--clay-tint);padding:3px 9px;border-radius:99px;margin-left:auto;letter-spacing:.02em;}
-.sow-prompt p{margin:0 0 14px;font-size:13.5px;color:var(--ink-soft);line-height:1.65;}
+.sow-prompt h4{margin:0;font-size:17px;font-weight:700;}
+.sow-required{font-size:11.5px;font-weight:700;color:var(--clay);background:var(--clay-tint);padding:3px 9px;border-radius:99px;margin-left:auto;letter-spacing:.02em;}
+.sow-prompt p{margin:0 0 14px;font-size:15px;color:var(--ink-soft);line-height:1.7;}
 .sow-share-toggle{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--sprout);margin-top:10px;cursor:pointer;}
 .sow-share-toggle input{accent-color:var(--sprout);width:15px;height:15px;cursor:pointer;}
 
@@ -393,7 +393,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 /* ---------- VoiceTextInput (음성 녹음 → 텍스트 입력) ---------- */
 .sow-voice-field-wrap{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 11px;transition:border-color .18s;}
 .sow-voice-field-wrap:focus-within{border-color:var(--sprout);}
-.sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:13.5px;color:var(--ink);outline:none;resize:vertical;}
+.sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink);outline:none;resize:vertical;}
 .sow-voice-btn{flex:none;padding:8px 14px;border-radius:99px;border:none;cursor:pointer;background:var(--clay);color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;transition:.18s;}
 .sow-voice-btn:hover{filter:brightness(1.08);}
 .sow-voice-btn.listening{background:#C4432E;animation:sow-pulse 1s infinite;}
