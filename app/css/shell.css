@@ -204,15 +204,15 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 /* ---------- 한자/어휘 ---------- */
 .sow-hanja-card{display:flex;gap:22px;align-items:flex-start;}
 .sow-hanja-char{font-family:'Pretendard', sans-serif;font-size:52px;font-weight:700;color:var(--ink);background:var(--sprout-tint);width:92px;height:92px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
-.sow-hanja-reading{font-weight:700;font-size:15px;margin-bottom:6px;}
-.sow-hanja-tags{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
-.sow-hanja-card p{margin:0 0 6px;font-size:13.5px;line-height:1.65;color:var(--ink-soft);}
+.sow-hanja-reading{font-weight:700;font-size:17px;margin-bottom:6px;}
+.sow-hanja-tags{font-size:13.5px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
+.sow-hanja-card p{margin:0 0 6px;font-size:15px;line-height:1.7;color:var(--ink-soft);}
 .sow-hanja-card .bible-note{color:var(--clay);font-weight:600;}
 .sow-word-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:18px;}
 .sow-word-chip{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:14px 12px;text-align:center;transition:border-color .18s,box-shadow .18s;}
 .sow-word-chip:hover{border-color:var(--sprout);box-shadow:var(--shadow-sm);}
-.sow-word-chip .w{font-weight:700;font-size:14px;margin-bottom:2px;}
-.sow-word-chip .d{font-size:11.5px;color:var(--ink-soft);line-height:1.4;}
+.sow-word-chip .w{font-weight:700;font-size:16px;margin-bottom:4px;}
+.sow-word-chip .d{font-size:13.5px;color:var(--ink-soft);line-height:1.5;}
 
 /* ---------- 세계 언어 ---------- */
 .sow-level-block{margin-bottom:18px;}

@@ -517,16 +517,16 @@
   }
 
   /* ---------- 국어: 어휘 ---------- */
-  async function renderKoreanVocab(container, trackId){
-    const data = await fetchJSON(`/content/korean/${trackId}/vocab/${BOOK}/${STEP}.json`);
+  async function renderKoreanVocab(container, real){
+    const data = await fetchJSON(`/content/korean/vocab/${real.book}/${real.chapter}.json`);
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
       <div class="sow-word-grid">` +
       data.relatedWords.map(w => `<div class="sow-word-chip"><div class="e">${w.icon}</div><div class="w">${w.word}</div><div class="d">${w.shortDesc}</div></div>`).join('') +
       `</div>`;
   }
 
-  async function renderKoreanHanja(container, trackId){
-    const data = await fetchJSON(`/content/korean/${trackId}/hanja/${BOOK}/${STEP}.json`);
+  async function renderKoreanHanja(container, real){
+    const data = await fetchJSON(`/content/korean/hanja/${real.book}/${real.chapter}.json`);
     const h = data.hanja;
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 한자</h2>
       <div class="sow-card sow-hanja-card">
@@ -540,21 +540,21 @@
       </div>`;
   }
 
-  async function renderKoreanWriting(container, trackId){
-    const data = await fetchJSON(`/content/korean/${trackId}/writing/${BOOK}/${STEP}.json`);
+  async function renderKoreanWriting(container, real){
+    const data = await fetchJSON(`/content/korean/writing/${real.book}/${real.chapter}.json`);
     const p = data.writingPrompt;
     if(!p || !p.title){ container.innerHTML = `<div class="sow-empty-note">${L().empty}</div>`; return; }
     container.innerHTML = `<h2 class="sow-section-title serif">나눔</h2>
       <div class="sow-card sow-prompt">
         <div class="icon-row"><span class="emoji">✏️</span><h4>${p.title}</h4>${p.required ? `<span class="sow-required">${L().required}</span>` : ''}</div>
         <p>${p.guide}</p>
-        <div><textarea rows="2" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(p.input)} ${persistAttr(`korean:${trackId}:${BOOK}:${STEP}:writing`)}></textarea></div>
+        <div><textarea rows="2" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(p.input)} ${persistAttr(`korean:${real.book}:${real.chapter}:writing`)}></textarea></div>
       </div>`;
   }
 
   /* ---------- 언어 ---------- */
-  async function renderWorldLanguages(container, trackId, langId){
-    const data = await fetchJSON(`/content/world-languages/${trackId}/${langId}/${BOOK}/${STEP}.json`);
+  async function renderWorldLanguages(container, trackId, langId, real){
+    const data = await fetchJSON(`/content/world-languages/${langId}/${real.book}/${real.chapter}.json`);
     let html = '';
     (data.levels || []).forEach(lv => {
       const list = (lv.sentences && lv.sentences.length)
@@ -567,8 +567,8 @@
   }
 
   /* ---------- 성경관련 지식 ---------- */
-  async function renderExplore(container, trackId, subId){
-    const data = await fetchJSON(`/content/explore/${trackId}/${subId}/${BOOK}/${STEP}.json`);
+  async function renderExplore(container, real, subId){
+    const data = await fetchJSON(`/content/explore/${subId}/${real.book}/${real.chapter}.json`);
     let html = '';
     if(subId === 'map'){
       html += `<div class="sow-empty-note" style="border-style:solid;font-style:normal;">🗺️ ${data.mapNote || ''}</div>`;
@@ -579,11 +579,45 @@
     container.innerHTML = html;
   }
 
+  /* ---------- 지금 실제로 읽고 있는 책/장 계산 (트랙 종류 무관) ----------
+     국어/언어/성경관련 지식은 이걸로 콘텐츠를 찾는다 — 그래야 어떤 성경묵상
+     코스를 고르든(자유코스/하루한장/1년1독/어린이) 항상 실제 장 기준으로
+     맞는 콘텐츠를 보여줄 수 있다(25-4절). */
+  async function resolveRealChapter(trackId){
+    if(trackId === 'elementary'){
+      try{
+        const data = await fetchJSON(`/content/meditation/elementary/steps/${BOOK}/${STEP}.json`);
+        return { book: data.book || BOOK, chapter: data.chapter || 1 };
+      }catch(_){
+        return { book: BOOK, chapter: 1 };
+      }
+    }
+    if(trackId === 'free'){
+      try{
+        const saved = JSON.parse(localStorage.getItem('sow.free.passage') || 'null');
+        if(saved && saved.book) return { book: saved.book, chapter: saved.chapter || 1 };
+      }catch(_){}
+      return { book: BOOK, chapter: STEP || 1 };
+    }
+    // daily-chapter, bible-in-a-year 둘 다 성경 전체 장 순서를 계산해서 쓰는 코스라 같은 라이브러리가 필요
+    const library = await fetchJSON('/content/bible/_library.json');
+    if(trackId === 'bible-in-a-year'){
+      const { start } = resolveYearPlanRange(STEP);
+      const groups = groupYearPlanPassages(library, start, start);
+      return { book: groups[0].book.id, chapter: groups[0].fromChapter };
+    }
+    // daily-chapter (기본값)
+    const { book, chapter } = resolveDailyChapterPassage(library, STEP);
+    return { book: book.id, chapter };
+  }
+
   /* ---------- 서브탭 + 모듈 오케스트레이션 ---------- */
   async function getSubRegistry(moduleId, trackId){
+    // 국어/언어/성경관련 지식은 어떤 성경묵상 코스를 따라가든(자유코스든 하루한장이든)
+    // 서브탭 구성 자체(어휘/한자/나눔 등)는 항상 같다 — 트랙별로 안 나뉜다(25-4절).
     const key = moduleId + '/' + trackId;
     if(state.subRegistryCache[key]) return state.subRegistryCache[key];
-    const reg = await fetchJSON(`/content/${moduleId}/${trackId}/_registry.json`);
+    const reg = await fetchJSON(`/content/${moduleId}/_registry.json`);
     state.subRegistryCache[key] = reg.submodules;
     return reg.submodules;
   }
@@ -591,7 +625,7 @@
   const SUB_RENDERERS = {
     korean: { vocab: renderKoreanVocab, hanja: renderKoreanHanja, writing: renderKoreanWriting },
     'world-languages': null, // 언어 코드 자체가 submodule id라 동적으로 처리
-    explore: { era: (c,tid) => renderExplore(c,tid,'era'), people: (c,tid) => renderExplore(c,tid,'people'), map: (c,tid) => renderExplore(c,tid,'map') }
+    explore: { era: (c,real) => renderExplore(c,real,'era'), people: (c,real) => renderExplore(c,real,'people'), map: (c,real) => renderExplore(c,real,'map') }
   };
 
   async function renderModulePanel(main){
@@ -701,10 +735,14 @@
     main.appendChild(body);
 
     try{
+      // 지금 실제로 읽고 있는 책/장(트랙 종류 무관) — 국어가 이걸 기준으로 콘텐츠를 찾는다(25-4절)
+      const real = await resolveRealChapter(trackId);
       if(moduleId === 'world-languages'){
-        await renderWorldLanguages(body, trackId, activeSub);
+        await renderWorldLanguages(body, trackId, activeSub, real);
+      } else if(moduleId === 'korean'){
+        await SUB_RENDERERS.korean[activeSub](body, real);
       } else {
-        await SUB_RENDERERS[moduleId][activeSub](body, trackId);
+        await SUB_RENDERERS[moduleId][activeSub](body, real);
       }
     }catch(_){
       renderStepNotReady(body);
@@ -774,6 +812,27 @@
       });
     }
 
+    /* 국어/언어/성경관련 지식처럼 자체 코스는 없지만 서브탭(어휘/한자/나눔 등)이 있는
+       모듈은, 그 서브탭 목록을 메뉴에서 바로 펼쳐볼 수 있게 한다. */
+    async function renderSubmoduleSublist(sublistEl, moduleId){
+      let trackId = state.activeTrack[moduleId];
+      if(trackId === undefined){
+        try{ trackId = localStorage.getItem(`sow.track.${moduleId}`); }catch(_){ trackId = null; }
+      }
+      if(!trackId) trackId = 'elementary'; // 아직 코스를 안 골랐으면 기본값으로 미리보기
+      const submodules = await getSubRegistry(moduleId, trackId);
+      const currentSub = state.activeSub[moduleId];
+      sublistEl.innerHTML = submodules.map(s => `<button type="button" class="sow-nav-sub-btn ${s.id===currentSub && moduleId===state.activeModule?'active':''}" data-sub="${s.id}">
+          <span>${s.icon || '📖'}</span><span>${pickLabel(s.label)}</span>
+        </button>`).join('');
+      sublistEl.querySelectorAll('[data-sub]').forEach(b => {
+        b.onclick = (e) => {
+          e.stopPropagation();
+          goTo(moduleId, b.dataset.sub);
+        };
+      });
+    }
+
     function renderNav(){
       nav.innerHTML = '';
 
@@ -791,26 +850,30 @@
         btnRow.appendChild(btn);
 
         let sublist = null;
-        if(m.hasTracks){
-          const isOpen = m.id === state.activeModule; // 지금 보고 있는 모듈이면 코스 목록을 기본으로 펼쳐둔다
+        const accordionKind = m.hasTracks ? 'tracks' : (m.followsTrackOf ? 'submodules' : null);
+        if(accordionKind){
+          const isOpen = m.id === state.activeModule; // 지금 보고 있는 모듈이면 목록을 기본으로 펼쳐둔다
           const chevron = document.createElement('button');
           chevron.type = 'button';
           chevron.className = 'sow-nav-chevron';
-          chevron.setAttribute('aria-label', '코스 목록 펼치기/접기');
+          chevron.setAttribute('aria-label', '목록 펼치기/접기');
           chevron.textContent = isOpen ? '▾' : '▸';
           btnRow.appendChild(chevron);
 
           sublist = document.createElement('div');
           sublist.className = 'sow-nav-sublist';
           sublist.hidden = !isOpen;
-          if(isOpen) renderCourseSublist(sublist, m.id);
+          const fillSublist = () => accordionKind === 'tracks'
+            ? renderCourseSublist(sublist, m.id)
+            : renderSubmoduleSublist(sublist, m.id);
+          if(isOpen) fillSublist();
 
           chevron.onclick = (e) => {
             e.stopPropagation();
             const willOpen = sublist.hidden;
             sublist.hidden = !willOpen;
             chevron.textContent = willOpen ? '▾' : '▸';
-            if(willOpen) renderCourseSublist(sublist, m.id);
+            if(willOpen) fillSublist();
           };
         }
 
