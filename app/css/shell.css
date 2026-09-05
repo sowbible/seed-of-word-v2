@@ -42,7 +42,7 @@ body{
   -webkit-font-smoothing:antialiased;
   letter-spacing:-0.01em;
 }
-h1,h2,h3,.serif{font-family:'Noto Serif KR', serif; letter-spacing:-0.01em;}
+h1,h2,h3,.serif{font-family:'Pretendard', system-ui, sans-serif; font-weight:600; letter-spacing:-0.01em;}
 button,input,textarea,select{font-family:inherit;}
 :focus-visible{outline:2px solid var(--sprout);outline-offset:2px;border-radius:4px;}
 @media (prefers-reduced-motion: reduce){
@@ -57,56 +57,118 @@ button,input,textarea,select{font-family:inherit;}
   display:inline-flex;align-items:center;justify-content:center;flex:none;
   border-radius:50%;background:var(--sprout-tint);
 }
-.icon-row .emoji{width:36px;height:36px;font-size:16px;}
+.icon-row .emoji{width:40px;height:40px;font-size:18px;}
 .sow-track-icon{width:52px;height:52px;font-size:23px;margin-bottom:12px;}
 .sow-item-card > .e{width:42px;height:42px;font-size:18px;}
 .sow-word-chip > .e{width:34px;height:34px;font-size:15px;margin:0 auto 8px;}
 
-/* ---------- 상단 모듈 네비 (레지스트리 기반) ---------- */
+/* ---------- 모듈 네비 겸 드로어 메뉴 (레지스트리 기반) ----------
+   1023px 이하(모바일/태블릿): 기본은 화면 왼쪽 밖에 숨어있다가, 상단 햄버거
+   버튼을 누르면 슬라이드인하는 드로어 메뉴(참고 이미지의 Zero ERP 패턴).
+   1024px 이상(데스크톱): 늘 보이는 왼쪽 고정 사이드바로 바뀐다.
+   성경묵상처럼 코스가 여러 개인 모듈은 화살표를 눌러 그 아래 코스 목록을
+   바로 펼쳐볼 수 있다(아코디언). 로그인 위젯과 "우리의 성경읽기" 바로가기도
+   이 nav 안에서 shell.js가 같이 그려준다. */
 nav.sow-modules{
-  position:sticky;top:0;z-index:10;height:var(--nav-h);
-  display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap;
+  position:fixed;top:0;left:0;bottom:0;width:82%;max-width:320px;height:100vh;
+  transform:translateX(-100%);transition:transform .25s ease;
+  display:flex;flex-direction:column;align-items:stretch;gap:4px;
+  padding:24px 14px 16px;overflow-y:auto;
+  background:var(--paper);border-right:1px solid var(--line);
+  box-shadow:var(--shadow-lift);z-index:60;
+}
+nav.sow-modules::before{
+  content:'SOW';font-family:'Pretendard',sans-serif;font-weight:700;font-size:16px;
+  color:var(--ink);padding:0 10px 18px;letter-spacing:.01em;
+}
+body.sow-drawer-open nav.sow-modules{ transform:translateX(0); }
+
+.sow-nav-item{ display:flex; flex-direction:column; }
+.sow-nav-btn-row{ display:flex; align-items:stretch; gap:2px; }
+
+.sow-nav-btn{
+  font-family:inherit;font-size:14.5px;font-weight:600;
+  padding:11px 12px;border-radius:12px;border:1px solid transparent;
+  background:transparent;color:var(--ink-soft);cursor:pointer;
+  display:flex;align-items:center;gap:12px;justify-content:flex-start;width:100%;
+  transition:background .18s,color .18s;
+}
+.sow-nav-btn-row .sow-nav-btn{ flex:1; min-width:0; }
+.sow-nav-btn > span:first-child{font-size:17px;flex:none;}
+.sow-nav-btn.active{background:var(--ink);color:#fff;}
+.sow-nav-btn:hover:not(.active){background:rgba(29,58,44,0.07);}
+
+/* 코스 아코디언: 화살표 + 펼쳐지는 코스 목록 */
+.sow-nav-chevron{
+  flex:none;width:34px;display:flex;align-items:center;justify-content:center;
+  font-size:12px;background:none;border:none;color:var(--ink-soft);
+  cursor:pointer;border-radius:10px;transition:background .18s;
+}
+.sow-nav-chevron:hover{background:rgba(29,58,44,0.07);}
+.sow-nav-sublist{display:flex;flex-direction:column;gap:2px;padding:2px 0 6px 28px;}
+.sow-nav-sub-btn{
+  display:flex;align-items:center;gap:9px;text-align:left;
+  font-family:inherit;font-size:13px;font-weight:600;
+  padding:9px 10px;border-radius:10px;border:none;
+  background:none;color:var(--ink-soft);cursor:pointer;transition:background .18s,color .18s;
+}
+.sow-nav-sub-btn > span:first-child{font-size:14px;flex:none;}
+.sow-nav-sub-btn:hover{background:rgba(29,58,44,0.06);}
+.sow-nav-sub-btn.active{background:var(--sprout-tint);color:var(--ink);font-weight:700;}
+
+.sow-nav-divider{height:1px;background:var(--line);margin:10px 4px;flex:none;}
+
+/* 드로어 뒤 배경 어둡게(오버레이) — 모바일/태블릿에서만 의미있음, 데스크톱에선 숨김 */
+.sow-drawer-overlay{
+  position:fixed;inset:0;background:rgba(29,58,44,.35);opacity:0;pointer-events:none;
+  transition:opacity .25s ease;z-index:55;
+}
+body.sow-drawer-open .sow-drawer-overlay{opacity:1;pointer-events:auto;}
+
+/* 상단 앱바 — 햄버거 + 로고 (데스크톱에선 숨김, 사이드바가 항상 보이니까) */
+.sow-topbar{
+  position:sticky;top:0;z-index:30;height:56px;
+  display:flex;align-items:center;gap:12px;padding:0 16px;
   background:rgba(246,244,238,0.92);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
-nav.sow-modules button{
-  font-family:inherit;font-size:14px;font-weight:600;
-  padding:9px 18px;border-radius:99px;border:1px solid transparent;
-  background:transparent;color:var(--ink-soft);cursor:pointer;
-  display:flex;align-items:center;gap:7px;transition:background .18s,color .18s;
+.sow-hamburger{
+  font-size:20px;line-height:1;background:none;border:none;color:var(--ink);
+  cursor:pointer;padding:6px;border-radius:8px;
 }
-nav.sow-modules button.active{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm);}
-nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
+.sow-hamburger:hover{background:rgba(29,58,44,.07);}
+.sow-topbar-title{font-family:'Pretendard',sans-serif;font-weight:700;font-size:16px;color:var(--ink);}
 
-/* ---------- 모바일: 하단 탭바로 전환 (앱 느낌) ---------- */
-@media (max-width: 640px){
-  nav.sow-modules{
-    position:fixed;top:auto;bottom:0;left:0;right:0;height:auto;width:100%;
-    justify-content:space-around;gap:0;flex-wrap:nowrap;
-    padding:6px 4px calc(6px + env(safe-area-inset-bottom));
-    border-bottom:none;border-top:1px solid var(--line);
-    box-shadow:0 -6px 20px rgba(29,58,44,0.08);
-    z-index:40;
-  }
-  nav.sow-modules button{
-    flex:1;min-width:0;flex-direction:column;gap:2px;
-    padding:6px 2px;border-radius:12px;font-size:10.5px;
-  }
-  nav.sow-modules button span:first-child{font-size:19px;}
-  nav.sow-modules button.active{background:var(--sprout-tint);color:var(--ink);box-shadow:none;}
-  /* 하단 탭바에 콘텐츠가 안 가려지도록 여백 확보 */
-  main.sow-main{padding-bottom:calc(84px + env(safe-area-inset-bottom));}
-  .sow-auth-slot{padding:10px 16px 0;}
-}
-
-/* ---------- 로그인 바 (이메일 매직링크) ---------- */
-.sow-auth-slot{max-width:760px;margin:0 auto;padding:10px 20px 0;}
-.sow-auth-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;}
+/* ---------- 로그인 위젯 (nav 맨 아래에 함께 렌더링됨) ---------- */
+#sow-auth{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);}
+.sow-auth-bar{display:flex;flex-direction:column;align-items:stretch;gap:8px;font-size:12.5px;}
 .sow-auth-user{font-weight:700;color:var(--ink);}
-.sow-auth-email{flex:1;min-width:160px;font-family:inherit;font-size:12.5px;padding:7px 10px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
-.sow-auth-btn{font-family:inherit;font-size:12px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:.18s;}
+.sow-auth-email{width:100%;font-family:inherit;font-size:12.5px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
+.sow-auth-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 12px;border-radius:10px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:.18s;width:100%;}
 .sow-auth-btn:hover{background:var(--sprout);border-color:var(--sprout);}
 .sow-auth-msg{font-size:11px;color:var(--sprout);font-weight:600;}
+
+/* ---------- 데스크톱(1024px 이상): 늘 보이는 좌측 사이드바 + 넓어진 본문 ---------- */
+@media (min-width: 1024px){
+  :root{ --sidebar-w:240px; }
+  .sow-topbar, .sow-drawer-overlay{ display:none; }
+  nav.sow-modules{
+    width:var(--sidebar-w);max-width:none;transform:none;transition:none;
+    box-shadow:none;padding:28px 14px 20px;
+  }
+  main.sow-main{ margin-left:var(--sidebar-w); max-width:900px; padding:40px 44px 90px; }
+
+  /* "나의 성경읽기" 툴바 안에서도 가로 공간을 더 쓰도록 저장/새로고침과
+     달력·성경지도 탭을 한 줄로 배치 */
+  .sow-my-reading{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
+  .sow-my-reading-head{ width:100%; margin-bottom:2px; }
+  .sow-session-toolbar{ margin-bottom:0; }
+  .sow-record-tabs{ margin-bottom:0; }
+  .sow-cal-inline{ width:100%; }
+
+  /* 성경지도 안 66권 그리드도 넓은 화면에서 2열로 나눠 가로를 활용 */
+  .sow-map-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
+}
 
 /* ---------- 서브탭 (korean / world-languages / explore 공용) ---------- */
 .sow-subtabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
@@ -119,9 +181,9 @@ nav.sow-modules button:hover:not(.active){background:rgba(29,58,44,0.07);}
 .sow-subtabs button:hover:not(.active){border-color:var(--ink-soft);}
 
 /* ---------- 레이아웃 ---------- */
-main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
-.sow-passage-ref{font-size:12.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:6px;}
-.sow-section-title{font-size:22px;margin:0 0 22px;font-weight:700;line-height:1.4;}
+main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
+.sow-passage-ref{font-size:14.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:8px;}
+.sow-section-title{font-size:23px;margin:0 0 22px;font-weight:700;line-height:1.4;}
 .sow-loading{padding:48px 0;text-align:center;color:#9A8F6E;font-size:13.5px;}
 
 /* ---------- 1년1독 코스: 오늘 읽을 범위 칩 ---------- */
@@ -133,24 +195,63 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
 
 /* ---------- 프롬프트 카드 (묵상/표현하기/토론/글쓰기 공용) ---------- */
 .sow-prompt .icon-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.sow-prompt h4{margin:0;font-size:15.5px;font-weight:700;}
-.sow-required{font-size:10.5px;font-weight:700;color:var(--clay);background:var(--clay-tint);padding:3px 9px;border-radius:99px;margin-left:auto;letter-spacing:.02em;}
-.sow-prompt p{margin:0 0 14px;font-size:13.5px;color:var(--ink-soft);line-height:1.65;}
+.sow-prompt h4{margin:0;font-size:17px;font-weight:700;}
+.sow-required{font-size:11.5px;font-weight:700;color:var(--clay);background:var(--clay-tint);padding:3px 9px;border-radius:99px;margin-left:auto;letter-spacing:.02em;}
+.sow-prompt p{margin:0 0 14px;font-size:15px;color:var(--ink-soft);line-height:1.7;}
 .sow-share-toggle{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--sprout);margin-top:10px;cursor:pointer;}
 .sow-share-toggle input{accent-color:var(--sprout);width:15px;height:15px;cursor:pointer;}
 
 /* ---------- 한자/어휘 ---------- */
 .sow-hanja-card{display:flex;gap:22px;align-items:flex-start;}
-.sow-hanja-char{font-family:'Noto Serif KR',serif;font-size:52px;font-weight:700;color:var(--ink);background:var(--sprout-tint);width:92px;height:92px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
-.sow-hanja-reading{font-weight:700;font-size:15px;margin-bottom:6px;}
-.sow-hanja-tags{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
-.sow-hanja-card p{margin:0 0 6px;font-size:13.5px;line-height:1.65;color:var(--ink-soft);}
+.sow-hanja-char{font-family:'Pretendard', sans-serif;font-size:52px;font-weight:700;color:var(--ink);background:var(--sprout-tint);width:92px;height:92px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
+.sow-hanja-reading{font-weight:700;font-size:17px;margin-bottom:6px;}
+.sow-hanja-tags{font-size:13.5px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
+.sow-hanja-card p{margin:0 0 6px;font-size:15px;line-height:1.7;color:var(--ink-soft);}
 .sow-hanja-card .bible-note{color:var(--clay);font-weight:600;}
-.sow-word-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:18px;}
-.sow-word-chip{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:14px 12px;text-align:center;transition:border-color .18s,box-shadow .18s;}
-.sow-word-chip:hover{border-color:var(--sprout);box-shadow:var(--shadow-sm);}
-.sow-word-chip .w{font-weight:700;font-size:14px;margin-bottom:2px;}
-.sow-word-chip .d{font-size:11.5px;color:var(--ink-soft);line-height:1.4;}
+.sow-hanja-card .origin{background:var(--sprout-tint);padding:10px 12px;border-radius:var(--radius-sm);}
+.sow-hanja-meta{font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-bottom:8px;}
+
+/* ---------- 한자 획순 보기 / 써보기 (HanziWriter) ---------- */
+.sow-hanzi-writer-card{margin-top:14px;text-align:center;}
+.sow-hanzi-writer-card h4{margin:0 0 12px;font-size:16px;font-weight:700;}
+.sow-hanzi-canvas{display:flex;justify-content:center;margin-bottom:12px;}
+.sow-hanzi-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-hanzi-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
+.sow-hanzi-quiz-msg{margin-top:10px;font-size:14px;font-weight:700;color:var(--sprout);min-height:20px;}
+
+/* ---------- 낱말 퀴즈 (오늘의 어휘 재활용, 새 콘텐츠 불필요) ---------- */
+.sow-quiz-toggle{
+  margin-top:18px;font-family:inherit;font-size:13px;font-weight:700;
+  padding:10px 18px;border-radius:99px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);cursor:pointer;transition:.18s;
+}
+.sow-quiz-toggle:hover{border-color:var(--sprout);background:var(--sprout-tint);}
+.sow-quiz-card{margin-top:18px;padding:20px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow-sm);}
+.sow-quiz-progress{font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:10px;}
+.sow-quiz-question{font-size:15px;color:var(--ink);line-height:1.6;margin:0 0 16px;}
+.sow-quiz-options{display:flex;flex-wrap:wrap;gap:8px;}
+.sow-quiz-opt{font-family:inherit;font-size:14px;font-weight:600;padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-quiz-opt:hover:not(:disabled){border-color:var(--sprout);}
+.sow-quiz-opt.correct{background:var(--sprout);border-color:var(--sprout);color:#fff;}
+.sow-quiz-opt.wrong{background:var(--clay-tint);border-color:var(--clay);color:var(--clay);}
+.sow-quiz-opt:disabled{cursor:default;}
+.sow-quiz-feedback{margin-top:14px;font-size:13.5px;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.sow-quiz-next{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
+.sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:15px;font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
+/* ---------- 오늘의 어휘: 한 줄에 하나씩 (가독성 우선) ---------- */
+.sow-word-list{display:flex;flex-direction:column;gap:2px;margin-top:16px;}
+.sow-word-row{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding:16px 14px;background:var(--card);border-bottom:1px solid var(--line-soft);
+  transition:background .15s;
+}
+.sow-word-row:first-child{border-top:1px solid var(--line-soft);border-radius:var(--radius-sm) var(--radius-sm) 0 0;}
+.sow-word-row:last-child{border-radius:0 0 var(--radius-sm) var(--radius-sm);}
+.sow-word-row:hover{background:var(--sprout-tint);}
+.sow-word-row .e{font-size:20px;flex:none;align-self:center;}
+.sow-word-row .w{font-weight:700;font-size:18px;color:var(--ink);flex:none;white-space:nowrap;}
+.sow-word-row .w .hanja{font-weight:500;font-size:14px;color:var(--sprout);margin-left:3px;}
+.sow-word-row .d{font-size:14.5px;color:var(--ink-soft);line-height:1.6;flex:1;min-width:160px;}
 
 /* ---------- 세계 언어 ---------- */
 .sow-level-block{margin-bottom:18px;}
@@ -167,10 +268,22 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
 /* ---------- 빈 상태 ---------- */
 .sow-empty-note{font-size:13px;color:#9A8F6E;font-style:italic;padding:11px 14px;background:var(--line-soft);border-radius:var(--radius-sm);border:1px dashed var(--line);}
 
-/* ---------- 자유코스: 본문 직접 선택 ---------- */
-/* ---------- 본문 바로 가기 (구약/신약 탭 + 책/장 선택) — 자유코스/하루한장/1년1독 공용 ---------- */
+/* ---------- 본문 바로 가기 (구약/신약 탭 + 책/장 선택) — 자유코스/하루한장/1년1독 공용 ----------
+   기본은 접힌 상태(작은 버튼 하나)로 시작해서 공간을 안 차지한다. 눌러야 펼쳐진다. */
+.sow-jumper-toggle{
+  display:flex;align-items:center;gap:8px;width:100%;margin-bottom:14px;
+  font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-soft);
+  padding:10px 14px;border-radius:99px;border:1px solid var(--line);
+  background:var(--card);cursor:pointer;transition:.18s;
+}
+.sow-jumper-toggle:hover{border-color:var(--sprout);color:var(--ink);}
+.sow-jumper-toggle-current{margin-left:auto;color:var(--sprout);font-weight:700;}
+
 .sow-jumper{margin-bottom:14px;padding:14px 16px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);}
-.sow-jumper label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:9px;}
+.sow-jumper-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+.sow-jumper-head label{font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:0;}
+.sow-jumper-collapse{font-family:inherit;font-size:11.5px;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;padding:0;}
+.sow-jumper-collapse:hover{color:var(--ink);}
 .sow-jumper-testament{display:flex;gap:6px;margin-bottom:10px;}
 .sow-jumper-testament button{font-family:inherit;font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:.18s;}
 .sow-jumper-testament button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
@@ -205,7 +318,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
 .sow-track-card{text-align:left;font-family:inherit;cursor:pointer;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px;transition:box-shadow .2s,transform .2s,border-color .2s;}
 .sow-track-card:hover{border-color:var(--sprout);box-shadow:var(--shadow-lift);transform:translateY(-3px);}
 .sow-track-card.soon{opacity:.68;}
-.sow-track-label{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:700;margin-bottom:2px;}
+.sow-track-label{font-family:'Pretendard', sans-serif;font-size:17px;font-weight:700;margin-bottom:2px;}
 .sow-track-subtitle{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:9px;}
 .sow-track-desc{font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:16px;min-height:42px;}
 .sow-track-cta{font-size:12.5px;font-weight:700;color:var(--clay);}
@@ -244,8 +357,26 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
   .sow-bible-free-range{flex-direction:column;}
 }
 
-/* ---------- 나의 성경읽기 (달력 / 저장 / 새로고침 묶음) ---------- */
-.sow-my-reading-head{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;margin-bottom:12px;}
+/* ---------- 나의 성경읽기 — 전용 화면 (인사말 + 오늘의 활동 요약 + 달력/지도) ---------- */
+.sow-my-reading-head{font-family:'Pretendard', sans-serif;font-size:19px;font-weight:700;margin-bottom:4px;}
+.sow-my-reading-greeting{font-size:13px;color:var(--ink-soft);margin:0 0 18px;}
+
+/* 참고 이미지(TellmeNow 대시보드)의 통계 카드 줄 스타일을 우리 팔레트로 재구성 */
+.sow-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:20px;}
+.sow-stat-card{
+  display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+  padding:14px 16px;border-radius:var(--radius);border:1px solid var(--line-soft);
+  background:var(--card);box-shadow:var(--shadow-sm);
+}
+.sow-stat-icon{font-size:18px;margin-bottom:4px;}
+.sow-stat-num{font-size:20px;font-weight:700;color:var(--ink);}
+.sow-stat-label{font-size:11.5px;color:var(--ink-soft);font-weight:600;}
+.sow-stat-card.sow-stat-good{background:var(--sprout-tint);border-color:transparent;}
+.sow-stat-card.sow-stat-warn{background:var(--amber-tint);border-color:transparent;}
+.sow-stat-card.sow-stat-sprout .sow-stat-num{color:var(--sprout);}
+.sow-stat-card.sow-stat-amber .sow-stat-num{color:var(--amber);}
+.sow-stat-card.sow-stat-clay .sow-stat-num{color:var(--clay);}
+
 .sow-session-toolbar{display:flex;gap:8px;margin-bottom:12px;}
 .sow-toolbar-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);transition:.18s;}
 .sow-toolbar-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
@@ -301,7 +432,21 @@ main.sow-main{max-width:760px;margin:0 auto;padding:36px 20px 90px;}
 /* ---------- VoiceTextInput (음성 녹음 → 텍스트 입력) ---------- */
 .sow-voice-field-wrap{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 11px;transition:border-color .18s;}
 .sow-voice-field-wrap:focus-within{border-color:var(--sprout);}
-.sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:13.5px;color:var(--ink);outline:none;resize:vertical;}
+.sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink);outline:none;resize:vertical;}
+
+/* ---------- 글쓰기 & 토론: 질문 선택 목록 + 넓은 입력칸 ---------- */
+.sow-discussion-list{display:flex;flex-direction:column;gap:8px;margin:12px 0 14px;}
+.sow-discussion-item{
+  display:flex;align-items:flex-start;gap:10px;padding:12px 14px;
+  border:1px solid var(--line-soft);border-radius:var(--radius-sm);
+  background:var(--paper);cursor:pointer;transition:.18s;
+}
+.sow-discussion-item:hover{border-color:var(--sprout);}
+.sow-discussion-item.active{background:var(--sprout-tint);border-color:var(--sprout);}
+.sow-discussion-item input[type="radio"]{margin-top:3px;flex:none;accent-color:var(--sprout);width:16px;height:16px;cursor:pointer;}
+.sow-discussion-item span{font-size:14.5px;line-height:1.6;color:var(--ink);}
+.sow-discussion-guide{font-size:13px;color:var(--ink-soft);font-style:italic;margin:0 0 10px;}
+.sow-writing-textarea{min-height:140px;}
 .sow-voice-btn{flex:none;padding:8px 14px;border-radius:99px;border:none;cursor:pointer;background:var(--clay);color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;transition:.18s;}
 .sow-voice-btn:hover{filter:brightness(1.08);}
 .sow-voice-btn.listening{background:#C4432E;animation:sow-pulse 1s infinite;}

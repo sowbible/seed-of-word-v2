@@ -1,0 +1,17 @@
+{
+  "book": "john",
+  "chapter": 1,
+  "version": "1.0",
+  "hanja": {
+    "character": "言",
+    "reading": "말씀 언",
+    "radical": "言 (말씀언부, 214개 부수 중 149번째)",
+    "strokeCount": 7,
+    "meaningTags": ["말씀", "말", "이야기"],
+    "origin": "혀(舌) 위에 소리가 나가는 모습을 본떠 만든 글자예요. 입에서 나온 말이 퍼져나가는 모습을 그린 상형문자에서 시작됐어요.",
+    "explanation": "\"言\"은 마음속 생각을 말로 전하는 모습을 나타내는 글자예요. '말씀, 말'이라는 뜻이 있어요.",
+    "bibleNote": "예수님은 하나님의 말씀이세요.",
+    "hasAnimation": true,
+    "hasWritingPractice": true
+  }
+}

@@ -91,11 +91,8 @@
   /* ---------- 코스(트랙) 선택 화면 — 트랙이 2개 이상인 모듈에서만 자동 노출 ---------- */
   function renderTrackSelector(main, moduleId, tracks){
     main.innerHTML = '';
-    const toolbarWrap = document.createElement('div');
-    main.appendChild(toolbarWrap);
-    if(moduleId === 'meditation') window.SOWSessionToolbar?.render(toolbarWrap);
-
     const body = document.createElement('div');
+    main.appendChild(body);
     body.innerHTML = `<h2 class="sow-section-title serif">어떤 코스로 걸을까요?</h2>
       <div class="sow-track-grid">` +
       tracks.map(tr => `<button class="sow-track-card ${tr.status!=='active' ? 'soon' : ''}" data-track="${tr.id}">
@@ -130,10 +127,21 @@
   }
 
   /* ---------- followsTrackOf 모듈용 안내 배지 — "성경묵상 코스를 따라가고 있어요" ---------- */
-  function renderFollowBadge(main, parentModuleId, trackMeta){
+  async function renderFollowBadge(main, parentModuleId, trackMeta, real){
+    let rangeText = '';
+    if(real){
+      let shortKo = real.book;
+      try{
+        const library = await fetchJSON('/content/bible/_library.json');
+        const all = [...library.oldTestament.books, ...library.newTestament.books];
+        const book = all.find(b => b.id === real.book);
+        if(book) shortKo = book.shortKo;
+      }catch(_){}
+      rangeText = ` · <b>${shortKo} ${real.chapter}장</b>`;
+    }
     const bar = document.createElement('div');
     bar.className = 'sow-follow-badge';
-    bar.innerHTML = `<span>📖 지금 코스: <b>${pickLabel(trackMeta.label)}</b></span><span class="sow-follow-hint">성경묵상 탭에서 바꿀 수 있어요</span>`;
+    bar.innerHTML = `<span>📖 지금 코스: <b>${pickLabel(trackMeta.label)}</b>${rangeText}</span><span class="sow-follow-hint">성경묵상 탭에서 바꿀 수 있어요</span>`;
     main.appendChild(bar);
   }
 
@@ -204,18 +212,32 @@
   /* ---------- 공용: 구약/신약 탭이 맨 앞에 오는 "본문 바로 가기" 컴포넌트 ---------- */
   function renderChapterJumper(container, opts){
     const library = opts.library;
+    let expanded = false;
     let testament = library.oldTestament.books.some(b => b.id === opts.initialBookId) ? 'ot' : 'nt';
     let bookId = opts.initialBookId;
     let chapter = opts.initialChapter || 1;
 
     function books(){ return testament === 'ot' ? library.oldTestament.books : library.newTestament.books; }
+    function currentBookLabel(){
+      const all = [...library.oldTestament.books, ...library.newTestament.books];
+      const b = all.find(x => x.id === bookId);
+      return b ? `${b.shortKo} ${chapter}장` : '';
+    }
 
     function draw(){
+      if(!expanded){
+        container.innerHTML = `<button type="button" class="sow-jumper-toggle">🔎 본문 바로 가기 <span class="sow-jumper-toggle-current">${currentBookLabel()}</span></button>`;
+        container.querySelector('.sow-jumper-toggle').onclick = () => { expanded = true; draw(); };
+        return;
+      }
       if(!books().some(b => b.id === bookId)) bookId = books()[0].id;
       const book = books().find(b => b.id === bookId);
       if(chapter > book.chapters) chapter = book.chapters;
       container.innerHTML = `<div class="sow-jumper">
-        <label>${opts.label}</label>
+        <div class="sow-jumper-head">
+          <label>${opts.label}</label>
+          <button type="button" class="sow-jumper-collapse">접기 ▲</button>
+        </div>
         <div class="sow-jumper-testament">
           <button type="button" data-t="ot" class="${testament==='ot'?'active':''}">구약</button>
           <button type="button" data-t="nt" class="${testament==='nt'?'active':''}">신약</button>
@@ -225,6 +247,7 @@
           <select class="sow-jumper-chapter">${Array.from({length: book.chapters}, (_, i) => i+1).map(n => `<option value="${n}" ${n===chapter?'selected':''}>${n}장</option>`).join('')}</select>
         </div>
       </div>`;
+      container.querySelector('.sow-jumper-collapse').onclick = () => { expanded = false; draw(); };
       container.querySelectorAll('[data-t]').forEach(btn => {
         btn.onclick = () => { testament = btn.dataset.t; draw(); };
       });
@@ -244,11 +267,33 @@
     }
     return idx || 1;
   }
-  function navigateToStep(newStep){
+  function navigateToStep(newStep, moduleId){
     const url = new URL(location.href);
     url.searchParams.set('step', newStep);
-    url.searchParams.set('module', 'meditation');
+    url.searchParams.set('module', moduleId || state.activeModule || 'meditation');
     location.href = url.toString();
+  }
+
+  /* "🔎 본문 바로 가기"를 성경묵상뿐 아니라 국어/언어/성경관련 지식 화면 위에도 똑같이 보여준다.
+     실제 장 개념이 있는 코스(하루한장/1년1독)에서만 뜬다 — 어린이 코스(고정 걸음)나 자유코스
+     (자기 안에서 이미 고르는 UI가 따로 있음)는 대상이 아니다. 어떤 모듈에서 눌러도 지금 보고 있는
+     모듈(국어면 국어) 그대로 유지한 채 장만 이동한다(navigateToStep이 state.activeModule을 따라감). */
+  async function renderSharedChapterJumper(main, trackId, trackMeta){
+    if(!(trackMeta.generated || trackMeta.yearPlan)) return;
+    let real;
+    try{ real = await resolveRealChapter(trackId); }catch(_){ return; }
+    const library = await fetchJSON('/content/bible/_library.json');
+    const jumperSlot = document.createElement('div');
+    main.appendChild(jumperSlot);
+    renderChapterJumper(jumperSlot, {
+      library, initialBookId: real.book, initialChapter: real.chapter,
+      label: '이 장으로 바로 가기',
+      onChange: (newBook, newChapter) => {
+        const flatIdx = flatChapterIndex(library, newBook, newChapter);
+        const targetStep = trackMeta.yearPlan ? yearPlanDayForFlatIndex(flatIdx) : flatIdx;
+        navigateToStep(targetStep);
+      }
+    });
   }
 
   async function renderMeditationFree(container){
@@ -318,8 +363,7 @@
     ]);
     const { book, chapter } = resolveDailyChapterPassage(library, STEP);
 
-    let html = `<div id="sow-daily-jumper-slot"></div>
-      <div class="sow-passage-ref">📖 오늘의 본문 · ${book.shortKo} ${chapter}장 · (${STEP}/1189걸음)</div>
+    let html = `<div class="sow-passage-ref">📖 오늘의 본문 · ${book.shortKo} ${chapter}장 · (${STEP}/1189걸음)</div>
       <div id="sow-daily-bible-widget-slot"></div>
       <h2 class="sow-section-title serif">말씀을 천천히 읽고 내 마음에 남는 것을 찾아보세요</h2>`;
 
@@ -336,12 +380,6 @@
     container.innerHTML = html;
     wireShareToggles(container);
     window.SOWReadingMap?.setCurrentChapters({ book: book.id, chapter });
-
-    renderChapterJumper(container.querySelector('#sow-daily-jumper-slot'), {
-      library, initialBookId: book.id, initialChapter: chapter,
-      label: '이 장으로 바로 가기',
-      onChange: (newBook, newChapter) => navigateToStep(flatChapterIndex(library, newBook, newChapter))
-    });
 
     const slot = container.querySelector('#sow-daily-bible-widget-slot');
     if(slot && window.SOWBibleLink){
@@ -399,8 +437,7 @@
     const firstBook = groups[0].book;
     const firstChapter = groups[0].fromChapter;
 
-    let html = `<div id="sow-year-jumper-slot"></div>
-      <div class="sow-passage-ref">🗓️ ${STEP}일차 · (${STEP}/365일)</div>
+    let html = `<div class="sow-passage-ref">🗓️ ${STEP}일차 · (${STEP}/365일)</div>
       <h2 class="sow-section-title serif">${formatYearPlanRef(groups)}</h2>
       <div class="sow-year-plan-list">` +
       groups.map(g => `<div class="sow-year-plan-chip">📖 ${g.book.shortKo} ${g.fromChapter === g.toChapter ? `${g.fromChapter}장` : `${g.fromChapter}~${g.toChapter}장`}</div>`).join('') +
@@ -427,15 +464,6 @@
         return list;
       })
     );
-
-    renderChapterJumper(container.querySelector('#sow-year-jumper-slot'), {
-      library, initialBookId: firstBook.id, initialChapter: firstChapter,
-      label: '이 장으로 바로 가기',
-      onChange: (newBook, newChapter) => {
-        const flatIdx = flatChapterIndex(library, newBook, newChapter);
-        navigateToStep(yearPlanDayForFlatIndex(flatIdx));
-      }
-    });
 
     const slot = container.querySelector('#sow-year-bible-widget-slot');
     if(slot && window.SOWBibleLink){
@@ -505,38 +533,182 @@
   }
 
   /* ---------- 국어: 어휘 ---------- */
-  async function renderKoreanVocab(container, trackId){
-    const data = await fetchJSON(`/content/korean/${trackId}/vocab/${BOOK}/${STEP}.json`);
-    const h = data.hanja;
-    let html = `<div class="sow-card sow-hanja-card">
-      <div class="sow-hanja-char">${h.character}</div>
-      <div>
-        <div class="sow-hanja-reading">${h.reading}</div>
-        <div class="sow-hanja-tags">${h.meaningTags.join(' · ')}</div>
-        <p>${h.explanation}</p>
-        <p class="bible-note">📖 ${h.bibleNote}</p>
-      </div></div>
-      <div class="sow-word-grid">` +
-      data.relatedWords.map(w => `<div class="sow-word-chip"><div class="e">${w.icon}</div><div class="w">${w.word}</div><div class="d">${w.shortDesc}</div></div>`).join('') +
-      `</div>`;
-    if(data.expressionPrompt){
-      html += `<div class="sow-card sow-prompt" style="margin-top:14px;">
-        <div class="icon-row"><span class="emoji">✏️</span><h4>${data.expressionPrompt.title}</h4><span class="sow-required">${L().required}</span></div>
-        <p>${data.expressionPrompt.guide}</p>
-        <div><input type="text" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(data.expressionPrompt.input)} ${persistAttr(`korean:${trackId}:${BOOK}:${STEP}:expression`)}></div>
-      </div>`;
+  async function renderKoreanVocab(container, real){
+    const data = await fetchJSON(`/content/korean/vocab/${real.book}/${real.chapter}.json`);
+    container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
+      <div class="sow-word-list">` +
+      data.relatedWords.map(w => `<div class="sow-word-row">
+          <span class="e">${w.icon}</span>
+          <span class="w">${w.word}${w.hanja ? `<span class="hanja">(${w.hanja})</span>` : ''}</span>
+          <span class="d">${w.shortDesc}</span>
+        </div>`).join('') +
+      `</div>
+      <div id="sow-vocab-quiz-slot"></div>
+      <div id="sow-vocab-writing-slot"></div>`;
+    renderVocabQuizToggle(container.querySelector('#sow-vocab-quiz-slot'), data.relatedWords);
+    // 어휘 밑에도 그날 나눔(글쓰기) 칸을 바로 보여준다 — 탭을 옮기지 않아도 이어서 쓸 수 있게.
+    // 나눔 탭과 완전히 같은 콘텐츠 파일을 재사용하는 것이라 콘텐츠를 따로 더 안 만들어도 된다.
+    // 나눔 파일이 아직 없어도(404) 이 실패가 어휘 탭 전체를 깨뜨리지 않도록 따로 감싼다.
+    try{
+      await renderKoreanWritingCard(container.querySelector('#sow-vocab-writing-slot'), real);
+    }catch(_){
+      container.querySelector('#sow-vocab-writing-slot').innerHTML = `<div class="sow-empty-note" style="margin-top:20px;">${L().empty}</div>`;
     }
-    container.innerHTML = html;
   }
 
-  async function renderKoreanEmpty(container, trackId, submoduleId){
-    const data = await fetchJSON(`/content/korean/${trackId}/${submoduleId}/${BOOK}/${STEP}.json`);
-    container.innerHTML = data._note ? `<div class="sow-empty-note">🚧 ${data._note}</div>` : `<div class="sow-empty-note">${L().empty}</div>`;
+  /* ---------- 낱말 퀴즈 — 새 콘텐츠 없이 오늘의 어휘 5개를 그대로 재활용 ----------
+     새 단어(정답) + 같은 날 다른 단어 중 2개(오답)를 섞어서 3지선다를 만든다.
+     점수/등수는 안 보여준다 — "비교보다 기록"(1절 원칙 5)과 같은 이유로,
+     맞았는지 틀렸는지 그 자리에서만 확인하고 넘어가는 가벼운 복습용이다. */
+  function renderVocabQuizToggle(container, words){
+    if(!words || words.length < 2){ return; } // 오답을 만들 단어가 부족하면 조용히 생략
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'sow-quiz-toggle';
+    toggle.textContent = '🎯 낱말 퀴즈로 복습하기';
+    container.appendChild(toggle);
+
+    const quizWrap = document.createElement('div');
+    quizWrap.hidden = true;
+    container.appendChild(quizWrap);
+
+    toggle.onclick = () => {
+      toggle.hidden = true;
+      quizWrap.hidden = false;
+      runVocabQuiz(quizWrap, words);
+    };
+  }
+
+  function runVocabQuiz(container, words){
+    let idx = 0;
+    function shuffle(arr){ return arr.map(v => [Math.random(), v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
+
+    function drawQuestion(){
+      if(idx >= words.length){
+        container.innerHTML = `<div class="sow-quiz-done">🌱 오늘 어휘 ${words.length}개 다 풀어봤어요!</div>`;
+        return;
+      }
+      const correct = words[idx];
+      const distractors = shuffle(words.filter(w => w.word !== correct.word)).slice(0, 2);
+      const options = shuffle([correct, ...distractors]);
+
+      container.innerHTML = `<div class="sow-quiz-card">
+        <div class="sow-quiz-progress">${idx+1} / ${words.length}</div>
+        <p class="sow-quiz-question">${correct.shortDesc}</p>
+        <div class="sow-quiz-options">${options.map(o => `<button type="button" class="sow-quiz-opt" data-word="${o.word}">${o.word}</button>`).join('')}</div>
+        <div class="sow-quiz-feedback"></div>
+      </div>`;
+
+      const feedback = container.querySelector('.sow-quiz-feedback');
+      container.querySelectorAll('.sow-quiz-opt').forEach(btn => {
+        btn.onclick = () => {
+          if(btn.disabled) return;
+          container.querySelectorAll('.sow-quiz-opt').forEach(b => b.disabled = true);
+          const isCorrect = btn.dataset.word === correct.word;
+          btn.classList.add(isCorrect ? 'correct' : 'wrong');
+          if(!isCorrect){
+            container.querySelector(`[data-word="${correct.word}"]`)?.classList.add('correct');
+          }
+          feedback.innerHTML = `${isCorrect ? '💛 맞아요!' : '괜찮아요, 정답은 <b>'+correct.word+'</b>예요'}
+            <button type="button" class="sow-quiz-next">다음 →</button>`;
+          feedback.querySelector('.sow-quiz-next').onclick = () => { idx++; drawQuestion(); };
+        };
+      });
+    }
+    drawQuestion();
+  }
+
+  async function renderKoreanHanja(container, real){
+    const data = await fetchJSON(`/content/korean/hanja/${real.book}/${real.chapter}.json`);
+    const h = data.hanja;
+    container.innerHTML = `<h2 class="sow-section-title serif">오늘의 한자</h2>
+      <div class="sow-card sow-hanja-card">
+        <div class="sow-hanja-char">${h.character}</div>
+        <div>
+          <div class="sow-hanja-reading">${h.reading}</div>
+          <div class="sow-hanja-tags">${h.meaningTags.join(' · ')}</div>
+          ${h.radical || h.strokeCount ? `<div class="sow-hanja-meta">${h.radical ? `부수: ${h.radical}` : ''}${h.radical && h.strokeCount ? ' · ' : ''}${h.strokeCount ? `총 ${h.strokeCount}획` : ''}</div>` : ''}
+          <p>${h.explanation}</p>
+          ${h.origin ? `<p class="origin">🌱 <b>유래</b> — ${h.origin}</p>` : ''}
+          <p class="bible-note">📖 ${h.bibleNote}</p>
+        </div>
+      </div>
+      ${h.hasAnimation ? `<div class="sow-card sow-hanzi-writer-card">
+        <h4>🖊️ 획순 보기</h4>
+        <div id="sow-hanzi-anim-target" class="sow-hanzi-canvas"></div>
+        <button type="button" class="sow-hanzi-btn" id="sow-hanzi-replay">↺ 다시보기</button>
+      </div>` : ''}
+      ${h.hasWritingPractice ? `<div class="sow-card sow-hanzi-writer-card">
+        <h4>✍️ 써보기</h4>
+        <div id="sow-hanzi-quiz-target" class="sow-hanzi-canvas"></div>
+        <button type="button" class="sow-hanzi-btn" id="sow-hanzi-retry">↺ 다시 쓰기</button>
+        <p class="sow-hanzi-quiz-msg"></p>
+      </div>` : ''}`;
+
+    if((h.hasAnimation || h.hasWritingPractice) && window.HanziWriter){
+      let animWriter = null, quizWriter = null;
+      if(h.hasAnimation){
+        animWriter = HanziWriter.create('sow-hanzi-anim-target', h.character, {
+          width: 180, height: 180, padding: 8, showOutline: true,
+          strokeAnimationSpeed: 1, delayBetweenStrokes: 300
+        });
+        animWriter.animateCharacter();
+        container.querySelector('#sow-hanzi-replay').onclick = () => animWriter.animateCharacter();
+      }
+      if(h.hasWritingPractice){
+        const msg = container.querySelector('.sow-hanzi-quiz-msg');
+        function startQuiz(){
+          msg.textContent = '';
+          quizWriter = HanziWriter.create('sow-hanzi-quiz-target', h.character, {
+            width: 180, height: 180, padding: 8, showOutline: true
+          });
+          quizWriter.quiz({
+            onComplete: () => { msg.textContent = `참 잘 썼어요, ${h.character}! 🈶`; }
+          });
+        }
+        startQuiz();
+        container.querySelector('#sow-hanzi-retry').onclick = () => {
+          container.querySelector('#sow-hanzi-quiz-target').innerHTML = '';
+          startQuiz();
+        };
+      }
+    }
+  }
+
+  /* 나눔(글쓰기&토론) 카드 하나만 그리는 공용 함수 — "글쓰기&토론" 탭과 "어휘" 탭 맨 아래에서 둘 다 쓴다.
+     콘텐츠 파일은 하나(content/korean/writing/...)뿐이라, 어디서 보든 같은 질문/같은 저장 키를 쓴다
+     (같은 사람이 어휘 탭에서 쓰든 글쓰기&토론 탭에서 쓰든 하나의 답으로 이어진다).
+     질문 3개는 라디오 버튼처럼 하나만 고를 수 있고, 답 입력칸은 질문 개수와 무관하게 하나뿐이다 —
+     아이가 세 질문을 다 채울 필요 없이 마음에 드는 것 하나만 골라 자유롭게 쓰면 된다. */
+  async function renderKoreanWritingCard(container, real){
+    const data = await fetchJSON(`/content/korean/writing/${real.book}/${real.chapter}.json`);
+    const questions = data.discussionQuestions;
+    if(!questions || !questions.length){ container.innerHTML = `<div class="sow-empty-note" style="margin-top:20px;">${L().empty}</div>`; return; }
+    container.innerHTML = `<div class="sow-card sow-prompt" style="margin-top:20px;">
+        <div class="icon-row"><span class="emoji">✏️</span><h4>${pickLabel({ko:'이 중에서 마음에 드는 질문을 하나 골라보세요', en:'Pick a question you like'})}</h4>${data.required ? `<span class="sow-required">${L().required}</span>` : ''}</div>
+        <div class="sow-discussion-list">${questions.map((q, i) => `<label class="sow-discussion-item">
+            <input type="radio" name="sow-discussion-${real.book}-${real.chapter}" value="${i}">
+            <span>${q.text}</span>
+          </label>`).join('')}</div>
+        <p class="sow-discussion-guide">${data.writingGuide || ''}</p>
+        <div><textarea rows="6" class="sow-writing-textarea" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(data.input)} ${persistAttr(`korean:${real.book}:${real.chapter}:writing`)}></textarea></div>
+      </div>`;
+    container.querySelectorAll('.sow-discussion-item input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+        container.querySelectorAll('.sow-discussion-item').forEach(item => item.classList.remove('active'));
+        input.closest('.sow-discussion-item').classList.add('active');
+      });
+    });
+  }
+
+  async function renderKoreanWriting(container, real){
+    container.innerHTML = `<h2 class="sow-section-title serif">글쓰기 & 토론</h2><div id="sow-writing-tab-slot"></div>`;
+    await renderKoreanWritingCard(container.querySelector('#sow-writing-tab-slot'), real);
   }
 
   /* ---------- 언어 ---------- */
-  async function renderWorldLanguages(container, trackId, langId){
-    const data = await fetchJSON(`/content/world-languages/${trackId}/${langId}/${BOOK}/${STEP}.json`);
+  async function renderWorldLanguages(container, trackId, langId, real){
+    const data = await fetchJSON(`/content/world-languages/${langId}/${real.book}/${real.chapter}.json`);
     let html = '';
     (data.levels || []).forEach(lv => {
       const list = (lv.sentences && lv.sentences.length)
@@ -549,8 +721,8 @@
   }
 
   /* ---------- 성경관련 지식 ---------- */
-  async function renderExplore(container, trackId, subId){
-    const data = await fetchJSON(`/content/explore/${trackId}/${subId}/${BOOK}/${STEP}.json`);
+  async function renderExplore(container, real, subId){
+    const data = await fetchJSON(`/content/explore/${subId}/${real.book}/${real.chapter}.json`);
     let html = '';
     if(subId === 'map'){
       html += `<div class="sow-empty-note" style="border-style:solid;font-style:normal;">🗺️ ${data.mapNote || ''}</div>`;
@@ -561,25 +733,67 @@
     container.innerHTML = html;
   }
 
+  /* ---------- 지금 실제로 읽고 있는 책/장 계산 (트랙 종류 무관) ----------
+     국어/언어/성경관련 지식은 이걸로 콘텐츠를 찾는다 — 그래야 어떤 성경묵상
+     코스를 고르든(자유코스/하루한장/1년1독/어린이) 항상 실제 장 기준으로
+     맞는 콘텐츠를 보여줄 수 있다(25-4절). */
+  async function resolveRealChapter(trackId){
+    if(trackId === 'elementary'){
+      try{
+        const data = await fetchJSON(`/content/meditation/elementary/steps/${BOOK}/${STEP}.json`);
+        return { book: data.book || BOOK, chapter: data.chapter || 1 };
+      }catch(_){
+        return { book: BOOK, chapter: 1 };
+      }
+    }
+    if(trackId === 'free'){
+      try{
+        const saved = JSON.parse(localStorage.getItem('sow.free.passage') || 'null');
+        if(saved && saved.book) return { book: saved.book, chapter: saved.chapter || 1 };
+      }catch(_){}
+      return { book: BOOK, chapter: STEP || 1 };
+    }
+    // daily-chapter, bible-in-a-year 둘 다 성경 전체 장 순서를 계산해서 쓰는 코스라 같은 라이브러리가 필요
+    const library = await fetchJSON('/content/bible/_library.json');
+    if(trackId === 'bible-in-a-year'){
+      const { start } = resolveYearPlanRange(STEP);
+      const groups = groupYearPlanPassages(library, start, start);
+      return { book: groups[0].book.id, chapter: groups[0].fromChapter };
+    }
+    // daily-chapter (기본값)
+    const { book, chapter } = resolveDailyChapterPassage(library, STEP);
+    return { book: book.id, chapter };
+  }
+
   /* ---------- 서브탭 + 모듈 오케스트레이션 ---------- */
   async function getSubRegistry(moduleId, trackId){
+    // 국어/언어/성경관련 지식은 어떤 성경묵상 코스를 따라가든(자유코스든 하루한장이든)
+    // 서브탭 구성 자체(어휘/한자/나눔 등)는 항상 같다 — 트랙별로 안 나뉜다(25-4절).
     const key = moduleId + '/' + trackId;
     if(state.subRegistryCache[key]) return state.subRegistryCache[key];
-    const reg = await fetchJSON(`/content/${moduleId}/${trackId}/_registry.json`);
+    const reg = await fetchJSON(`/content/${moduleId}/_registry.json`);
     state.subRegistryCache[key] = reg.submodules;
     return reg.submodules;
   }
 
   const SUB_RENDERERS = {
-    korean: { vocab: renderKoreanVocab, discussion: (c,tid) => renderKoreanEmpty(c,tid,'discussion'), writing: (c,tid) => renderKoreanEmpty(c,tid,'writing') },
+    korean: { vocab: renderKoreanVocab, hanja: renderKoreanHanja, writing: renderKoreanWriting },
     'world-languages': null, // 언어 코드 자체가 submodule id라 동적으로 처리
-    explore: { era: (c,tid) => renderExplore(c,tid,'era'), people: (c,tid) => renderExplore(c,tid,'people'), map: (c,tid) => renderExplore(c,tid,'map') }
+    explore: { era: (c,real) => renderExplore(c,real,'era'), people: (c,real) => renderExplore(c,real,'people'), map: (c,real) => renderExplore(c,real,'map') }
   };
 
   async function renderModulePanel(main){
     main.innerHTML = `<div class="sow-loading">${L().loading}</div>`;
     const moduleId = state.activeModule;
     const modMeta = state.moduleRegistry.find(m => m.id === moduleId);
+
+    /* "나의 성경읽기" 전용 화면 — 코스 선택/진행 상태와 완전히 무관한 독립 화면.
+       nav의 "📅 나의 성경읽기" 바로가기가 goTo('meditation','myReading')로 여기로 보낸다. */
+    if(moduleId === 'meditation' && state.activeSub.meditation === 'myReading'){
+      main.innerHTML = '';
+      window.SOWSessionToolbar?.render(main);
+      return;
+    }
 
     let tracks, trackId, trackMeta;
 
@@ -594,7 +808,10 @@
       if(!trackId) trackId = resolveActiveTrackId(tracks); // 아직 안 골랐으면 조용히 기본값 — 선택화면 강제 안 함
       trackMeta = tracks.find(tr => tr.id === trackId) || tracks[0];
       main.innerHTML = '';
-      renderFollowBadge(main, parentId, trackMeta);
+      // 성경묵상처럼 "지금 실제로 몇 장을 보고 있는지"를 배지에 같이 보여준다.
+      let followReal = null;
+      try{ followReal = await resolveRealChapter(trackId); }catch(_){}
+      await renderFollowBadge(main, parentId, trackMeta, followReal);
     } else {
       tracks = await getTrackRegistry(moduleId);
       trackId = state.activeTrack[moduleId];
@@ -622,11 +839,11 @@
     }
 
     if(!trackMeta.stepless) await renderStepNavBar(main, trackId);
+    await renderSharedChapterJumper(main, trackId, trackMeta);
 
     if(moduleId === 'meditation'){
       const bodyWrap = document.createElement('div');
       main.appendChild(bodyWrap);
-      window.SOWSessionToolbar?.render(bodyWrap);
       const activeSub = state.activeSub.meditation || 'steps';
       state.activeSub.meditation = activeSub;
       if(activeSub === 'steps'){
@@ -640,12 +857,38 @@
           } else {
             await renderMeditationSteps(bodyWrap, trackId);
           }
+          const linkRow = document.createElement('div');
+          linkRow.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;';
+          bodyWrap.appendChild(linkRow);
+
           const groupLink = document.createElement('button');
           groupLink.className = 'sow-voice-btn';
-          groupLink.style.cssText = 'margin-top:10px;background:var(--sprout);';
+          groupLink.style.cssText = 'background:var(--sprout);';
           groupLink.textContent = '🌳 우리 그룹 보러가기';
           groupLink.onclick = () => { state.activeSub.meditation = 'overview'; renderModulePanel(main); };
-          bodyWrap.appendChild(groupLink);
+          linkRow.appendChild(groupLink);
+
+          // 지금 보고 있는 책/장을 그대로 유지한 채, 국어/언어 화면으로 바로 넘어간다.
+          [
+            { id: 'korean', icon: '🔥', label: '국어' },
+            { id: 'world-languages', icon: '🌍', label: '언어' }
+          ].forEach(m => {
+            const meta = state.moduleRegistry.find(x => x.id === m.id);
+            if(!meta) return;
+            const btn = document.createElement('button');
+            btn.className = 'sow-voice-btn';
+            btn.style.cssText = 'background:var(--clay);';
+            btn.textContent = `${m.icon} ${m.label} 보러가기`;
+            btn.onclick = () => {
+              state.activeModule = m.id;
+              const url = new URL(location.href);
+              url.searchParams.set('module', m.id);
+              history.replaceState(null, '', url);
+              window.SOWRenderNav?.();
+              renderModulePanel(main);
+            };
+            linkRow.appendChild(btn);
+          });
         }catch(_){
           renderStepNotReady(bodyWrap);
         }
@@ -676,10 +919,14 @@
     main.appendChild(body);
 
     try{
+      // 지금 실제로 읽고 있는 책/장(트랙 종류 무관) — 국어가 이걸 기준으로 콘텐츠를 찾는다(25-4절)
+      const real = await resolveRealChapter(trackId);
       if(moduleId === 'world-languages'){
-        await renderWorldLanguages(body, trackId, activeSub);
+        await renderWorldLanguages(body, trackId, activeSub, real);
+      } else if(moduleId === 'korean'){
+        await SUB_RENDERERS.korean[activeSub](body, real);
       } else {
-        await SUB_RENDERERS[moduleId][activeSub](body, trackId);
+        await SUB_RENDERERS[moduleId][activeSub](body, real);
       }
     }catch(_){
       renderStepNotReady(body);
@@ -696,11 +943,18 @@
     </div>`;
   }
 
-  /* ---------- 상단 네비 ---------- */
+  /* ---------- 상단 네비 겸 드로어(모바일)/사이드바(데스크톱) ---------- */
   async function init(){
     const nav = document.getElementById('sow-nav');
     const main = document.getElementById('sow-main');
     if(!nav || !main){ console.error('[SOW Shell] #sow-nav / #sow-main 요소가 필요합니다.'); return; }
+
+    function closeDrawer(){ document.body.classList.remove('sow-drawer-open'); }
+    document.getElementById('sow-hamburger')?.addEventListener('click', () => {
+      document.body.classList.toggle('sow-drawer-open');
+    });
+    document.getElementById('sow-drawer-overlay')?.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeDrawer(); });
 
     const registry = await fetchJSON('/content/_module-registry.json');
     state.moduleRegistry = registry.modules.sort((a,b)=>a.order-b.order);
@@ -709,23 +963,134 @@
       ? urlModule
       : state.moduleRegistry[0].id;
 
-    function renderNav(){
-      nav.innerHTML = '';
-      state.moduleRegistry.forEach(m => {
-        const btn = document.createElement('button');
-        btn.className = m.id === state.activeModule ? 'active' : '';
-        btn.innerHTML = `<span>${m.icon}</span><span>${pickLabel(m.label)}</span>`;
-        btn.onclick = () => {
-          state.activeModule = m.id;
-          const url = new URL(location.href);
-          url.searchParams.set('module', m.id);
-          history.replaceState(null, '', url);
-          renderNav();
-          renderModulePanel(main);
+    function goTo(moduleId, activeSub){
+      state.activeModule = moduleId;
+      if(activeSub !== undefined) state.activeSub[moduleId] = activeSub;
+      const url = new URL(location.href);
+      url.searchParams.set('module', moduleId);
+      history.replaceState(null, '', url);
+      renderNav();
+      renderModulePanel(main);
+      closeDrawer();
+    }
+
+    /* 메뉴 안에서 "성경묵상" 옆 화살표를 누르면 그 아래 코스 목록(자유코스/하루한장/1년1독/어린이 코스)을
+       바로 펼쳐서 보여준다 — 코스 선택 화면(main 영역)까지 안 가도 메뉴에서 바로 고를 수 있게. */
+    async function renderCourseSublist(sublistEl, moduleId){
+      const tracks = await getTrackRegistry(moduleId);
+      let currentTrackId = state.activeTrack[moduleId];
+      if(currentTrackId === undefined){
+        try{ currentTrackId = localStorage.getItem(`sow.track.${moduleId}`); }catch(_){ currentTrackId = null; }
+      }
+      sublistEl.innerHTML = tracks.map(tr => `<button type="button" class="sow-nav-sub-btn ${tr.id===currentTrackId?'active':''}" data-track="${tr.id}">
+          <span>${tr.icon || '📖'}</span><span>${pickLabel(tr.label)}</span>
+        </button>`).join('');
+      sublistEl.querySelectorAll('[data-track]').forEach(b => {
+        b.onclick = (e) => {
+          e.stopPropagation();
+          const trackId = b.dataset.track;
+          state.activeTrack[moduleId] = trackId;
+          try{ localStorage.setItem(`sow.track.${moduleId}`, trackId); }catch(_){}
+          goTo(moduleId, moduleId === 'meditation' ? 'steps' : undefined);
         };
-        nav.appendChild(btn);
       });
     }
+
+    /* 국어/언어/성경관련 지식처럼 자체 코스는 없지만 서브탭(어휘/한자/나눔 등)이 있는
+       모듈은, 그 서브탭 목록을 메뉴에서 바로 펼쳐볼 수 있게 한다. */
+    async function renderSubmoduleSublist(sublistEl, moduleId){
+      let trackId = state.activeTrack[moduleId];
+      if(trackId === undefined){
+        try{ trackId = localStorage.getItem(`sow.track.${moduleId}`); }catch(_){ trackId = null; }
+      }
+      if(!trackId) trackId = 'elementary'; // 아직 코스를 안 골랐으면 기본값으로 미리보기
+      const submodules = await getSubRegistry(moduleId, trackId);
+      const currentSub = state.activeSub[moduleId];
+      sublistEl.innerHTML = submodules.map(s => `<button type="button" class="sow-nav-sub-btn ${s.id===currentSub && moduleId===state.activeModule?'active':''}" data-sub="${s.id}">
+          <span>${s.icon || '📖'}</span><span>${pickLabel(s.label)}</span>
+        </button>`).join('');
+      sublistEl.querySelectorAll('[data-sub]').forEach(b => {
+        b.onclick = (e) => {
+          e.stopPropagation();
+          goTo(moduleId, b.dataset.sub);
+        };
+      });
+    }
+
+    function renderNav(){
+      nav.innerHTML = '';
+
+      state.moduleRegistry.forEach(m => {
+        const row = document.createElement('div');
+        row.className = 'sow-nav-item';
+
+        const btnRow = document.createElement('div');
+        btnRow.className = 'sow-nav-btn-row';
+
+        const btn = document.createElement('button');
+        btn.className = 'sow-nav-btn' + (m.id === state.activeModule ? ' active' : '');
+        btn.innerHTML = `<span>${m.icon}</span><span>${pickLabel(m.label)}</span>`;
+        btn.onclick = () => goTo(m.id, m.id === 'meditation' ? 'steps' : undefined);
+        btnRow.appendChild(btn);
+
+        let sublist = null;
+        const accordionKind = m.hasTracks ? 'tracks' : (m.followsTrackOf ? 'submodules' : null);
+        if(accordionKind){
+          const isOpen = m.id === state.activeModule; // 지금 보고 있는 모듈이면 목록을 기본으로 펼쳐둔다
+          const chevron = document.createElement('button');
+          chevron.type = 'button';
+          chevron.className = 'sow-nav-chevron';
+          chevron.setAttribute('aria-label', '목록 펼치기/접기');
+          chevron.textContent = isOpen ? '▾' : '▸';
+          btnRow.appendChild(chevron);
+
+          sublist = document.createElement('div');
+          sublist.className = 'sow-nav-sublist';
+          sublist.hidden = !isOpen;
+          const fillSublist = () => accordionKind === 'tracks'
+            ? renderCourseSublist(sublist, m.id)
+            : renderSubmoduleSublist(sublist, m.id);
+          if(isOpen) fillSublist();
+
+          chevron.onclick = (e) => {
+            e.stopPropagation();
+            const willOpen = sublist.hidden;
+            sublist.hidden = !willOpen;
+            chevron.textContent = willOpen ? '▾' : '▸';
+            if(willOpen) fillSublist();
+          };
+        }
+
+        row.appendChild(btnRow);
+        if(sublist) row.appendChild(sublist);
+        nav.appendChild(row);
+      });
+
+      const divider = document.createElement('div');
+      divider.className = 'sow-nav-divider';
+      nav.appendChild(divider);
+
+      // "나의 성경읽기"는 이제 전용 화면이 있다(달력/지도 + 오늘의 활동 요약) —
+      // 코스 카드나 묵상 질문 없이 이것만 딱 보여주는 화면으로 이동한다.
+      const myReadingBtn = document.createElement('button');
+      myReadingBtn.className = 'sow-nav-btn';
+      myReadingBtn.innerHTML = `<span>📅</span><span>나의 성경읽기</span>`;
+      myReadingBtn.onclick = () => goTo('meditation', 'myReading');
+      nav.appendChild(myReadingBtn);
+
+      const groupBtn = document.createElement('button');
+      groupBtn.className = 'sow-nav-btn';
+      groupBtn.innerHTML = `<span>🗺️</span><span>우리의 성경읽기</span>`;
+      groupBtn.onclick = () => goTo('meditation', 'overview');
+      nav.appendChild(groupBtn);
+
+      const authWrap = document.createElement('div');
+      authWrap.id = 'sow-auth';
+      nav.appendChild(authWrap);
+      window.SOWAuthWidget?.render(authWrap);
+    }
+
+    window.SOWRenderNav = renderNav; // renderModulePanel(다른 스코프)에서도 메뉴 활성 표시를 갱신할 수 있게
 
     renderNav();
     await renderModulePanel(main);

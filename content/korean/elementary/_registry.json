@@ -1,7 +1,0 @@
-{
-  "submodules": [
-    { "id": "vocab", "order": 1, "icon": "📖", "label": { "ko": "어휘·한자", "en": "Vocabulary & Hanja" } },
-    { "id": "discussion", "order": 2, "icon": "💬", "label": { "ko": "토론", "en": "Discussion" } },
-    { "id": "writing", "order": 3, "icon": "✏️", "label": { "ko": "글쓰기", "en": "Writing" } }
-  ]
-}

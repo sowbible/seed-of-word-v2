@@ -158,11 +158,71 @@
     setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 1800);
   }
 
+  /* ---------- 오늘의 활동 요약 (통계 카드) ---------- */
+  function computeStats(){
+    const activity = readActivity();
+    const dateKeys = Object.keys(activity).sort();
+    const todayStr = dateKey(new Date());
+    const todayDone = !!activity[todayStr];
+
+    // 연속 기록일(streak) — 오늘(또는 어제까지)부터 거꾸로 며칠 연속인지
+    let streak = 0;
+    let cursor = new Date();
+    if(!todayDone) cursor.setDate(cursor.getDate() - 1); // 오늘 아직이면 어제부터 세기 시작
+    while(activity[dateKey(cursor)]){
+      streak++;
+      cursor.setDate(cursor.getDate() - 1);
+    }
+
+    // 이번 달 기록일수
+    const now = new Date();
+    const monthPrefix = `${now.getFullYear()}-${pad2(now.getMonth()+1)}`;
+    const thisMonthCount = dateKeys.filter(k => k.startsWith(monthPrefix)).length;
+
+    // 전체 읽은 장 수 (성경지도 데이터에서 합산)
+    const readMap = window.SOWReadingMap?.readMap() || {};
+    const totalChaptersRead = Object.values(readMap).reduce((sum, arr) => sum + arr.length, 0);
+
+    return { todayDone, streak, thisMonthCount, totalChaptersRead };
+  }
+
+  function buildStatsHtml(){
+    const s = computeStats();
+    return `<div class="sow-stats-grid">
+      <div class="sow-stat-card ${s.todayDone ? 'sow-stat-good' : 'sow-stat-warn'}">
+        <span class="sow-stat-icon">${s.todayDone ? '✅' : '⏳'}</span>
+        <span class="sow-stat-num">${s.todayDone ? '완료' : '아직'}</span>
+        <span class="sow-stat-label">오늘 기록</span>
+      </div>
+      <div class="sow-stat-card sow-stat-sprout">
+        <span class="sow-stat-icon">🔥</span>
+        <span class="sow-stat-num">${s.streak}일</span>
+        <span class="sow-stat-label">연속 기록</span>
+      </div>
+      <div class="sow-stat-card sow-stat-amber">
+        <span class="sow-stat-icon">🗓️</span>
+        <span class="sow-stat-num">${s.thisMonthCount}일</span>
+        <span class="sow-stat-label">이번 달 기록</span>
+      </div>
+      <div class="sow-stat-card sow-stat-clay">
+        <span class="sow-stat-icon">📖</span>
+        <span class="sow-stat-num">${s.totalChaptersRead}장</span>
+        <span class="sow-stat-label">전체 읽은 장</span>
+      </div>
+    </div>`;
+  }
+
   function render(container){
     const wrap = document.createElement('div');
     wrap.className = 'sow-my-reading';
-    wrap.innerHTML = `<div class="sow-my-reading-head">📖 나의 성경읽기</div>`;
+    wrap.innerHTML = `
+      <div class="sow-my-reading-head">📖 나의 성경읽기</div>
+      <p class="sow-my-reading-greeting">오늘도 씨앗 하나 심으러 오셨네요 🌱</p>`;
     container.appendChild(wrap);
+
+    const statsWrap = document.createElement('div');
+    statsWrap.innerHTML = buildStatsHtml();
+    wrap.appendChild(statsWrap);
 
     const bar = document.createElement('div');
     bar.className = 'sow-session-toolbar';
@@ -204,6 +264,7 @@
       const n = window.SOWPersist?.flush ? window.SOWPersist.flush() : 0;
       showToast(n > 0 ? `오늘 기록 ${n}개를 저장했어요 💾` : '아직 저장할 내용이 없어요');
       if(n > 0){
+        statsWrap.innerHTML = buildStatsHtml();
         if(currentView === 'calendar'){ cal.refresh(); }
         else if(library){ buildInlineMap(viewWrap, library); }
       }
