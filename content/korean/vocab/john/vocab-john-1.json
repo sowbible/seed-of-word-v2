@@ -1,0 +1,12 @@
+{
+  "book": "john",
+  "chapter": 1,
+  "version": "1.0",
+  "relatedWords": [
+    { "order": 1, "icon": "🌅", "word": "태초", "shortDesc": "세상이 처음 시작될 때 (1절 '태초에 말씀이 계시니라')" },
+    { "order": 2, "icon": "👑", "word": "독생자", "shortDesc": "하나님의 하나뿐인 아들, 예수님을 가리키는 말 (14절)" },
+    { "order": 3, "icon": "🗝️", "word": "권세", "shortDesc": "무엇을 할 수 있는 힘이나 자격 (12절 '하나님의 자녀가 되는 권세')" },
+    { "order": 4, "icon": "💛", "word": "은혜", "shortDesc": "받을 자격이 없는데도 거저 받는 사랑 (16절)" },
+    { "order": 5, "icon": "🎯", "word": "진리", "shortDesc": "참되고 거짓 없는 것 (17절)" }
+  ]
+}
