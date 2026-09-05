@@ -523,8 +523,17 @@
       <div class="sow-word-grid">` +
       data.relatedWords.map(w => `<div class="sow-word-chip"><div class="e">${w.icon}</div><div class="w">${w.word}</div><div class="d">${w.shortDesc}</div></div>`).join('') +
       `</div>
-      <div id="sow-vocab-quiz-slot"></div>`;
+      <div id="sow-vocab-quiz-slot"></div>
+      <div id="sow-vocab-writing-slot"></div>`;
     renderVocabQuizToggle(container.querySelector('#sow-vocab-quiz-slot'), data.relatedWords);
+    // 어휘 밑에도 그날 나눔(글쓰기) 칸을 바로 보여준다 — 탭을 옮기지 않아도 이어서 쓸 수 있게.
+    // 나눔 탭과 완전히 같은 콘텐츠 파일을 재사용하는 것이라 콘텐츠를 따로 더 안 만들어도 된다.
+    // 나눔 파일이 아직 없어도(404) 이 실패가 어휘 탭 전체를 깨뜨리지 않도록 따로 감싼다.
+    try{
+      await renderKoreanWritingCard(container.querySelector('#sow-vocab-writing-slot'), real);
+    }catch(_){
+      container.querySelector('#sow-vocab-writing-slot').innerHTML = `<div class="sow-empty-note" style="margin-top:20px;">${L().empty}</div>`;
+    }
   }
 
   /* ---------- 낱말 퀴즈 — 새 콘텐츠 없이 오늘의 어휘 5개를 그대로 재활용 ----------
@@ -604,16 +613,23 @@
       </div>`;
   }
 
-  async function renderKoreanWriting(container, real){
+  /* 나눔(글쓰기) 카드 하나만 그리는 공용 함수 — "나눔" 탭과 "어휘" 탭 맨 아래에서 둘 다 쓴다.
+     콘텐츠 파일은 하나(content/korean/writing/...)뿐이라, 어디서 보든 같은 질문/같은 저장 키를 쓴다
+     (같은 사람이 어휘 탭에서 쓰든 나눔 탭에서 쓰든 하나의 답으로 이어진다). */
+  async function renderKoreanWritingCard(container, real){
     const data = await fetchJSON(`/content/korean/writing/${real.book}/${real.chapter}.json`);
     const p = data.writingPrompt;
-    if(!p || !p.title){ container.innerHTML = `<div class="sow-empty-note">${L().empty}</div>`; return; }
-    container.innerHTML = `<h2 class="sow-section-title serif">나눔</h2>
-      <div class="sow-card sow-prompt">
+    if(!p || !p.title){ container.innerHTML = `<div class="sow-empty-note" style="margin-top:20px;">${L().empty}</div>`; return; }
+    container.innerHTML = `<div class="sow-card sow-prompt" style="margin-top:20px;">
         <div class="icon-row"><span class="emoji">✏️</span><h4>${p.title}</h4>${p.required ? `<span class="sow-required">${L().required}</span>` : ''}</div>
         <p>${p.guide}</p>
         <div><textarea rows="2" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(p.input)} ${persistAttr(`korean:${real.book}:${real.chapter}:writing`)}></textarea></div>
       </div>`;
+  }
+
+  async function renderKoreanWriting(container, real){
+    container.innerHTML = `<h2 class="sow-section-title serif">나눔</h2><div id="sow-writing-tab-slot"></div>`;
+    await renderKoreanWritingCard(container.querySelector('#sow-writing-tab-slot'), real);
   }
 
   /* ---------- 언어 ---------- */
