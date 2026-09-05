@@ -56,6 +56,7 @@
     /* 앱 자체 스크립트들도 basePath를 붙여서 불러온다 (서브경로 배포 대응) */
     var SOW_SCRIPTS = [
       'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js', // 외부 CDN — basePath 안 붙임
+      'https://cdn.jsdelivr.net/npm/hanzi-writer@3/dist/hanzi-writer.min.js', // 외부 CDN — 한자 획순/써보기(28-1절)
       window.SOW_BASE_PATH + '/app/js/supabase-client.js',
       window.SOW_BASE_PATH + '/app/js/auth-widget.js',
       window.SOW_BASE_PATH + '/app/js/voice-text-input.js',

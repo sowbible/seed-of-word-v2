@@ -208,6 +208,16 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanja-tags{font-size:13.5px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
 .sow-hanja-card p{margin:0 0 6px;font-size:15px;line-height:1.7;color:var(--ink-soft);}
 .sow-hanja-card .bible-note{color:var(--clay);font-weight:600;}
+.sow-hanja-card .origin{background:var(--sprout-tint);padding:10px 12px;border-radius:var(--radius-sm);}
+.sow-hanja-meta{font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-bottom:8px;}
+
+/* ---------- 한자 획순 보기 / 써보기 (HanziWriter) ---------- */
+.sow-hanzi-writer-card{margin-top:14px;text-align:center;}
+.sow-hanzi-writer-card h4{margin:0 0 12px;font-size:16px;font-weight:700;}
+.sow-hanzi-canvas{display:flex;justify-content:center;margin-bottom:12px;}
+.sow-hanzi-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-hanzi-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
+.sow-hanzi-quiz-msg{margin-top:10px;font-size:14px;font-weight:700;color:var(--sprout);min-height:20px;}
 
 /* ---------- 낱말 퀴즈 (오늘의 어휘 재활용, 새 콘텐츠 불필요) ---------- */
 .sow-quiz-toggle{
@@ -423,6 +433,20 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-voice-field-wrap{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 11px;transition:border-color .18s;}
 .sow-voice-field-wrap:focus-within{border-color:var(--sprout);}
 .sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink);outline:none;resize:vertical;}
+
+/* ---------- 글쓰기 & 토론: 질문 선택 목록 + 넓은 입력칸 ---------- */
+.sow-discussion-list{display:flex;flex-direction:column;gap:8px;margin:12px 0 14px;}
+.sow-discussion-item{
+  display:flex;align-items:flex-start;gap:10px;padding:12px 14px;
+  border:1px solid var(--line-soft);border-radius:var(--radius-sm);
+  background:var(--paper);cursor:pointer;transition:.18s;
+}
+.sow-discussion-item:hover{border-color:var(--sprout);}
+.sow-discussion-item.active{background:var(--sprout-tint);border-color:var(--sprout);}
+.sow-discussion-item input[type="radio"]{margin-top:3px;flex:none;accent-color:var(--sprout);width:16px;height:16px;cursor:pointer;}
+.sow-discussion-item span{font-size:14.5px;line-height:1.6;color:var(--ink);}
+.sow-discussion-guide{font-size:13px;color:var(--ink-soft);font-style:italic;margin:0 0 10px;}
+.sow-writing-textarea{min-height:140px;}
 .sow-voice-btn{flex:none;padding:8px 14px;border-radius:99px;border:none;cursor:pointer;background:var(--clay);color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;transition:.18s;}
 .sow-voice-btn:hover{filter:brightness(1.08);}
 .sow-voice-btn.listening{background:#C4432E;animation:sow-pulse 1s infinite;}

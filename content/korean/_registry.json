@@ -1,7 +1,7 @@
 {
   "submodules": [
     { "id": "vocab", "order": 1, "icon": "📖", "label": { "ko": "어휘", "en": "Vocabulary" } },
-    { "id": "hanja", "order": 2, "icon": "🈶", "label": { "ko": "한자", "en": "Hanja" } },
-    { "id": "writing", "order": 3, "icon": "✏️", "label": { "ko": "나눔", "en": "Sharing" } }
+    { "id": "hanja", "order": 2, "icon": "🈶", "label": { "ko": "한자 배우기", "en": "Learn Hanja" } },
+    { "id": "writing", "order": 3, "icon": "✏️", "label": { "ko": "글쓰기 & 토론", "en": "Writing & Discussion" } }
   ]
 }

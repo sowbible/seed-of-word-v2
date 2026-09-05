@@ -622,28 +622,82 @@
         <div>
           <div class="sow-hanja-reading">${h.reading}</div>
           <div class="sow-hanja-tags">${h.meaningTags.join(' · ')}</div>
+          ${h.radical || h.strokeCount ? `<div class="sow-hanja-meta">${h.radical ? `부수: ${h.radical}` : ''}${h.radical && h.strokeCount ? ' · ' : ''}${h.strokeCount ? `총 ${h.strokeCount}획` : ''}</div>` : ''}
           <p>${h.explanation}</p>
+          ${h.origin ? `<p class="origin">🌱 <b>유래</b> — ${h.origin}</p>` : ''}
           <p class="bible-note">📖 ${h.bibleNote}</p>
         </div>
-      </div>`;
+      </div>
+      ${h.hasAnimation ? `<div class="sow-card sow-hanzi-writer-card">
+        <h4>🖊️ 획순 보기</h4>
+        <div id="sow-hanzi-anim-target" class="sow-hanzi-canvas"></div>
+        <button type="button" class="sow-hanzi-btn" id="sow-hanzi-replay">↺ 다시보기</button>
+      </div>` : ''}
+      ${h.hasWritingPractice ? `<div class="sow-card sow-hanzi-writer-card">
+        <h4>✍️ 써보기</h4>
+        <div id="sow-hanzi-quiz-target" class="sow-hanzi-canvas"></div>
+        <button type="button" class="sow-hanzi-btn" id="sow-hanzi-retry">↺ 다시 쓰기</button>
+        <p class="sow-hanzi-quiz-msg"></p>
+      </div>` : ''}`;
+
+    if((h.hasAnimation || h.hasWritingPractice) && window.HanziWriter){
+      let animWriter = null, quizWriter = null;
+      if(h.hasAnimation){
+        animWriter = HanziWriter.create('sow-hanzi-anim-target', h.character, {
+          width: 180, height: 180, padding: 8, showOutline: true,
+          strokeAnimationSpeed: 1, delayBetweenStrokes: 300
+        });
+        animWriter.animateCharacter();
+        container.querySelector('#sow-hanzi-replay').onclick = () => animWriter.animateCharacter();
+      }
+      if(h.hasWritingPractice){
+        const msg = container.querySelector('.sow-hanzi-quiz-msg');
+        function startQuiz(){
+          msg.textContent = '';
+          quizWriter = HanziWriter.create('sow-hanzi-quiz-target', h.character, {
+            width: 180, height: 180, padding: 8, showOutline: true
+          });
+          quizWriter.quiz({
+            onComplete: () => { msg.textContent = `참 잘 썼어요, ${h.character}! 🈶`; }
+          });
+        }
+        startQuiz();
+        container.querySelector('#sow-hanzi-retry').onclick = () => {
+          container.querySelector('#sow-hanzi-quiz-target').innerHTML = '';
+          startQuiz();
+        };
+      }
+    }
   }
 
-  /* 나눔(글쓰기) 카드 하나만 그리는 공용 함수 — "나눔" 탭과 "어휘" 탭 맨 아래에서 둘 다 쓴다.
+  /* 나눔(글쓰기&토론) 카드 하나만 그리는 공용 함수 — "글쓰기&토론" 탭과 "어휘" 탭 맨 아래에서 둘 다 쓴다.
      콘텐츠 파일은 하나(content/korean/writing/...)뿐이라, 어디서 보든 같은 질문/같은 저장 키를 쓴다
-     (같은 사람이 어휘 탭에서 쓰든 나눔 탭에서 쓰든 하나의 답으로 이어진다). */
+     (같은 사람이 어휘 탭에서 쓰든 글쓰기&토론 탭에서 쓰든 하나의 답으로 이어진다).
+     질문 3개는 라디오 버튼처럼 하나만 고를 수 있고, 답 입력칸은 질문 개수와 무관하게 하나뿐이다 —
+     아이가 세 질문을 다 채울 필요 없이 마음에 드는 것 하나만 골라 자유롭게 쓰면 된다. */
   async function renderKoreanWritingCard(container, real){
     const data = await fetchJSON(`/content/korean/writing/${real.book}/${real.chapter}.json`);
-    const p = data.writingPrompt;
-    if(!p || !p.title){ container.innerHTML = `<div class="sow-empty-note" style="margin-top:20px;">${L().empty}</div>`; return; }
+    const questions = data.discussionQuestions;
+    if(!questions || !questions.length){ container.innerHTML = `<div class="sow-empty-note" style="margin-top:20px;">${L().empty}</div>`; return; }
     container.innerHTML = `<div class="sow-card sow-prompt" style="margin-top:20px;">
-        <div class="icon-row"><span class="emoji">✏️</span><h4>${p.title}</h4>${p.required ? `<span class="sow-required">${L().required}</span>` : ''}</div>
-        <p>${p.guide}</p>
-        <div><textarea rows="2" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(p.input)} ${persistAttr(`korean:${real.book}:${real.chapter}:writing`)}></textarea></div>
+        <div class="icon-row"><span class="emoji">✏️</span><h4>${pickLabel({ko:'이 중에서 마음에 드는 질문을 하나 골라보세요', en:'Pick a question you like'})}</h4>${data.required ? `<span class="sow-required">${L().required}</span>` : ''}</div>
+        <div class="sow-discussion-list">${questions.map((q, i) => `<label class="sow-discussion-item">
+            <input type="radio" name="sow-discussion-${real.book}-${real.chapter}" value="${i}">
+            <span>${q.text}</span>
+          </label>`).join('')}</div>
+        <p class="sow-discussion-guide">${data.writingGuide || ''}</p>
+        <div><textarea rows="6" class="sow-writing-textarea" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(data.input)} ${persistAttr(`korean:${real.book}:${real.chapter}:writing`)}></textarea></div>
       </div>`;
+    container.querySelectorAll('.sow-discussion-item input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+        container.querySelectorAll('.sow-discussion-item').forEach(item => item.classList.remove('active'));
+        input.closest('.sow-discussion-item').classList.add('active');
+      });
+    });
   }
 
   async function renderKoreanWriting(container, real){
-    container.innerHTML = `<h2 class="sow-section-title serif">나눔</h2><div id="sow-writing-tab-slot"></div>`;
+    container.innerHTML = `<h2 class="sow-section-title serif">글쓰기 & 토론</h2><div id="sow-writing-tab-slot"></div>`;
     await renderKoreanWritingCard(container.querySelector('#sow-writing-tab-slot'), real);
   }
 
