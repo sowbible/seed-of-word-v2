@@ -12,6 +12,13 @@
     "explanation": "\"言\"은 마음속 생각을 말로 전하는 모습을 나타내는 글자예요. '말씀, 말'이라는 뜻이 있어요.",
     "bibleNote": "예수님은 하나님의 말씀이세요.",
     "hasAnimation": true,
-    "hasWritingPractice": true
+    "hasWritingPractice": true,
+    "relatedWords": [
+      { "word": "언어", "hanja": "言語", "meaning": "생각과 마음을 전하는 말" },
+      { "word": "발언", "hanja": "發言", "meaning": "사람들 앞에서 의견을 말함" },
+      { "word": "유언", "hanja": "遺言", "meaning": "세상을 떠나기 전에 남기는 말" },
+      { "word": "증언", "hanja": "證言", "meaning": "어떤 사실을 그대로 말해서 밝힘" },
+      { "word": "명언", "hanja": "名言", "meaning": "오래 기억할 만한 좋은 말" }
+    ]
   }
 }

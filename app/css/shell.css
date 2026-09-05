@@ -203,7 +203,8 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 
 /* ---------- 한자/어휘 ---------- */
 .sow-hanja-card{display:flex;gap:22px;align-items:flex-start;}
-.sow-hanja-char{font-family:'Pretendard', sans-serif;font-size:52px;font-weight:700;color:var(--ink);background:var(--sprout-tint);width:92px;height:92px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
+.sow-hanja-char-big{background:var(--sprout-tint);width:224px;height:224px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
+.sow-hanja-char-fallback{font-family:'Pretendard', sans-serif;font-size:150px;font-weight:700;color:var(--ink);}
 .sow-hanja-reading{font-weight:700;font-size:17px;margin-bottom:6px;}
 .sow-hanja-tags{font-size:13.5px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
 .sow-hanja-card p{margin:0 0 6px;font-size:15px;line-height:1.7;color:var(--ink-soft);}
@@ -212,12 +213,16 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanja-meta{font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-bottom:8px;}
 
 /* ---------- 한자 획순 보기 / 써보기 (HanziWriter) ---------- */
-.sow-hanzi-writer-card{margin-top:14px;text-align:center;}
+.sow-hanzi-row{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;}
+.sow-hanzi-row .sow-hanzi-writer-card{flex:1;min-width:200px;margin-top:0;}
+.sow-hanzi-writer-card{text-align:center;}
 .sow-hanzi-writer-card h4{margin:0 0 12px;font-size:16px;font-weight:700;}
 .sow-hanzi-canvas{display:flex;justify-content:center;margin-bottom:12px;}
 .sow-hanzi-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
 .sow-hanzi-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
 .sow-hanzi-quiz-msg{margin-top:10px;font-size:14px;font-weight:700;color:var(--sprout);min-height:20px;}
+.sow-hanja-related{margin-top:14px;}
+.sow-hanja-related h4{margin:0 0 10px;font-size:15px;font-weight:700;}
 
 /* ---------- 낱말 퀴즈 (오늘의 어휘 재활용, 새 콘텐츠 불필요) ---------- */
 .sow-quiz-toggle{
@@ -250,6 +255,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-word-row:hover{background:var(--sprout-tint);}
 .sow-word-row .e{font-size:20px;flex:none;align-self:center;}
 .sow-word-row .w{font-weight:700;font-size:18px;color:var(--ink);flex:none;white-space:nowrap;}
+.sow-word-row .w mark{background:var(--amber-tint);color:var(--ink);padding:1px 5px;border-radius:5px;}
 .sow-word-row .w .hanja{font-weight:500;font-size:14px;color:var(--sprout);margin-left:3px;}
 .sow-word-row .d{font-size:14.5px;color:var(--ink-soft);line-height:1.6;flex:1;min-width:160px;}
 

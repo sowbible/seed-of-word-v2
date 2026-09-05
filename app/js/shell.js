@@ -539,21 +539,12 @@
       <div class="sow-word-list">` +
       data.relatedWords.map(w => `<div class="sow-word-row">
           <span class="e">${w.icon}</span>
-          <span class="w">${w.word}${w.hanja ? `<span class="hanja">(${w.hanja})</span>` : ''}</span>
+          <span class="w"><mark>${w.word}</mark>${w.hanja ? `<span class="hanja">(${w.hanja})</span>` : ''}</span>
           <span class="d">${w.shortDesc}</span>
         </div>`).join('') +
       `</div>
-      <div id="sow-vocab-quiz-slot"></div>
-      <div id="sow-vocab-writing-slot"></div>`;
+      <div id="sow-vocab-quiz-slot"></div>`;
     renderVocabQuizToggle(container.querySelector('#sow-vocab-quiz-slot'), data.relatedWords);
-    // 어휘 밑에도 그날 나눔(글쓰기) 칸을 바로 보여준다 — 탭을 옮기지 않아도 이어서 쓸 수 있게.
-    // 나눔 탭과 완전히 같은 콘텐츠 파일을 재사용하는 것이라 콘텐츠를 따로 더 안 만들어도 된다.
-    // 나눔 파일이 아직 없어도(404) 이 실패가 어휘 탭 전체를 깨뜨리지 않도록 따로 감싼다.
-    try{
-      await renderKoreanWritingCard(container.querySelector('#sow-vocab-writing-slot'), real);
-    }catch(_){
-      container.querySelector('#sow-vocab-writing-slot').innerHTML = `<div class="sow-empty-note" style="margin-top:20px;">${L().empty}</div>`;
-    }
   }
 
   /* ---------- 낱말 퀴즈 — 새 콘텐츠 없이 오늘의 어휘 5개를 그대로 재활용 ----------
@@ -623,7 +614,7 @@
     const h = data.hanja;
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 한자</h2>
       <div class="sow-card sow-hanja-card">
-        <div class="sow-hanja-char">${h.character}</div>
+        <div id="sow-hanja-header-target" class="sow-hanja-char-big"><span class="sow-hanja-char-fallback">${h.character}</span></div>
         <div>
           <div class="sow-hanja-reading">${h.reading}</div>
           <div class="sow-hanja-tags">${h.meaningTags.join(' · ')}</div>
@@ -633,22 +624,40 @@
           <p class="bible-note">📖 ${h.bibleNote}</p>
         </div>
       </div>
-      ${h.hasAnimation ? `<div class="sow-card sow-hanzi-writer-card">
-        <h4>🖊️ 획순 보기</h4>
-        <div id="sow-hanzi-anim-target" class="sow-hanzi-canvas"></div>
-        <button type="button" class="sow-hanzi-btn" id="sow-hanzi-replay">↺ 다시보기</button>
-      </div>` : ''}
-      ${h.hasWritingPractice ? `<div class="sow-card sow-hanzi-writer-card">
-        <h4>✍️ 써보기</h4>
-        <div id="sow-hanzi-quiz-target" class="sow-hanzi-canvas"></div>
-        <button type="button" class="sow-hanzi-btn" id="sow-hanzi-retry">↺ 다시 쓰기</button>
-        <p class="sow-hanzi-quiz-msg"></p>
+      <div class="sow-hanzi-row">
+        ${h.hasAnimation ? `<div class="sow-card sow-hanzi-writer-card">
+          <h4>🖊️ 획순 보기</h4>
+          <div id="sow-hanzi-anim-target" class="sow-hanzi-canvas"></div>
+          <button type="button" class="sow-hanzi-btn" id="sow-hanzi-replay">↺ 다시보기</button>
+        </div>` : ''}
+        ${h.hasWritingPractice ? `<div class="sow-card sow-hanzi-writer-card">
+          <h4>✍️ 써보기</h4>
+          <div id="sow-hanzi-quiz-target" class="sow-hanzi-canvas"></div>
+          <button type="button" class="sow-hanzi-btn" id="sow-hanzi-retry">↺ 다시 쓰기</button>
+          <p class="sow-hanzi-quiz-msg"></p>
+        </div>` : ''}
+      </div>
+      ${h.relatedWords && h.relatedWords.length ? `<div class="sow-card sow-hanja-related">
+        <h4>📖 "${h.character}"이(가) 들어간 낱말</h4>
+        <div class="sow-word-list">${h.relatedWords.map(w => `<div class="sow-word-row">
+            <span class="w"><mark>${w.word}</mark><span class="hanja">(${w.hanja})</span></span>
+            <span class="d">${w.meaning}</span>
+          </div>`).join('')}</div>
       </div>` : ''}`;
 
-    if((h.hasAnimation || h.hasWritingPractice) && window.HanziWriter){
-      let animWriter = null, quizWriter = null;
+    if(window.HanziWriter){
+      // 상단 큰 한자도 애니메이션과 완전히 같은 렌더링 방식(HanziWriter)으로 그려서 글자체를 통일한다.
+      const headerTarget = container.querySelector('#sow-hanja-header-target');
+      headerTarget.innerHTML = '';
+      try{
+        const headerWriter = HanziWriter.create(headerTarget, h.character, {
+          width: 208, height: 208, padding: 6, showOutline: true
+        });
+        headerWriter.showCharacter();
+      }catch(_){ headerTarget.innerHTML = `<span class="sow-hanja-char-fallback">${h.character}</span>`; }
+
       if(h.hasAnimation){
-        animWriter = HanziWriter.create('sow-hanzi-anim-target', h.character, {
+        const animWriter = HanziWriter.create('sow-hanzi-anim-target', h.character, {
           width: 180, height: 180, padding: 8, showOutline: true,
           strokeAnimationSpeed: 1, delayBetweenStrokes: 300
         });
@@ -659,7 +668,7 @@
         const msg = container.querySelector('.sow-hanzi-quiz-msg');
         function startQuiz(){
           msg.textContent = '';
-          quizWriter = HanziWriter.create('sow-hanzi-quiz-target', h.character, {
+          const quizWriter = HanziWriter.create('sow-hanzi-quiz-target', h.character, {
             width: 180, height: 180, padding: 8, showOutline: true
           });
           quizWriter.quiz({
