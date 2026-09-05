@@ -520,8 +520,12 @@
   async function renderKoreanVocab(container, real){
     const data = await fetchJSON(`/content/korean/vocab/${real.book}/${real.chapter}.json`);
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
-      <div class="sow-word-grid">` +
-      data.relatedWords.map(w => `<div class="sow-word-chip"><div class="e">${w.icon}</div><div class="w">${w.word}</div><div class="d">${w.shortDesc}</div></div>`).join('') +
+      <div class="sow-word-list">` +
+      data.relatedWords.map(w => `<div class="sow-word-row">
+          <span class="e">${w.icon}</span>
+          <span class="w">${w.word}${w.hanja ? `<span class="hanja">(${w.hanja})</span>` : ''}</span>
+          <span class="d">${w.shortDesc}</span>
+        </div>`).join('') +
       `</div>
       <div id="sow-vocab-quiz-slot"></div>
       <div id="sow-vocab-writing-slot"></div>`;

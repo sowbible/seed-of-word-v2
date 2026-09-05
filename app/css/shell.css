@@ -208,7 +208,6 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanja-tags{font-size:13.5px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
 .sow-hanja-card p{margin:0 0 6px;font-size:15px;line-height:1.7;color:var(--ink-soft);}
 .sow-hanja-card .bible-note{color:var(--clay);font-weight:600;}
-.sow-word-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:18px;}
 
 /* ---------- 낱말 퀴즈 (오늘의 어휘 재활용, 새 콘텐츠 불필요) ---------- */
 .sow-quiz-toggle{
@@ -229,10 +228,20 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-quiz-feedback{margin-top:14px;font-size:13.5px;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
 .sow-quiz-next{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
 .sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:15px;font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
-.sow-word-chip{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:14px 12px;text-align:center;transition:border-color .18s,box-shadow .18s;}
-.sow-word-chip:hover{border-color:var(--sprout);box-shadow:var(--shadow-sm);}
-.sow-word-chip .w{font-weight:700;font-size:16px;margin-bottom:4px;}
-.sow-word-chip .d{font-size:13.5px;color:var(--ink-soft);line-height:1.5;}
+/* ---------- 오늘의 어휘: 한 줄에 하나씩 (가독성 우선) ---------- */
+.sow-word-list{display:flex;flex-direction:column;gap:2px;margin-top:16px;}
+.sow-word-row{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding:16px 14px;background:var(--card);border-bottom:1px solid var(--line-soft);
+  transition:background .15s;
+}
+.sow-word-row:first-child{border-top:1px solid var(--line-soft);border-radius:var(--radius-sm) var(--radius-sm) 0 0;}
+.sow-word-row:last-child{border-radius:0 0 var(--radius-sm) var(--radius-sm);}
+.sow-word-row:hover{background:var(--sprout-tint);}
+.sow-word-row .e{font-size:20px;flex:none;align-self:center;}
+.sow-word-row .w{font-weight:700;font-size:18px;color:var(--ink);flex:none;white-space:nowrap;}
+.sow-word-row .w .hanja{font-weight:500;font-size:14px;color:var(--sprout);margin-left:3px;}
+.sow-word-row .d{font-size:14.5px;color:var(--ink-soft);line-height:1.6;flex:1;min-width:160px;}
 
 /* ---------- 세계 언어 ---------- */
 .sow-level-block{margin-bottom:18px;}
