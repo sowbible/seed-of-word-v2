@@ -127,10 +127,21 @@
   }
 
   /* ---------- followsTrackOf 모듈용 안내 배지 — "성경묵상 코스를 따라가고 있어요" ---------- */
-  function renderFollowBadge(main, parentModuleId, trackMeta){
+  async function renderFollowBadge(main, parentModuleId, trackMeta, real){
+    let rangeText = '';
+    if(real){
+      let shortKo = real.book;
+      try{
+        const library = await fetchJSON('/content/bible/_library.json');
+        const all = [...library.oldTestament.books, ...library.newTestament.books];
+        const book = all.find(b => b.id === real.book);
+        if(book) shortKo = book.shortKo;
+      }catch(_){}
+      rangeText = ` · <b>${shortKo} ${real.chapter}장</b>`;
+    }
     const bar = document.createElement('div');
     bar.className = 'sow-follow-badge';
-    bar.innerHTML = `<span>📖 지금 코스: <b>${pickLabel(trackMeta.label)}</b></span><span class="sow-follow-hint">성경묵상 탭에서 바꿀 수 있어요</span>`;
+    bar.innerHTML = `<span>📖 지금 코스: <b>${pickLabel(trackMeta.label)}</b>${rangeText}</span><span class="sow-follow-hint">성경묵상 탭에서 바꿀 수 있어요</span>`;
     main.appendChild(bar);
   }
 
@@ -738,7 +749,10 @@
       if(!trackId) trackId = resolveActiveTrackId(tracks); // 아직 안 골랐으면 조용히 기본값 — 선택화면 강제 안 함
       trackMeta = tracks.find(tr => tr.id === trackId) || tracks[0];
       main.innerHTML = '';
-      renderFollowBadge(main, parentId, trackMeta);
+      // 성경묵상처럼 "지금 실제로 몇 장을 보고 있는지"를 배지에 같이 보여준다.
+      let followReal = null;
+      try{ followReal = await resolveRealChapter(trackId); }catch(_){}
+      await renderFollowBadge(main, parentId, trackMeta, followReal);
     } else {
       tracks = await getTrackRegistry(moduleId);
       trackId = state.activeTrack[moduleId];
