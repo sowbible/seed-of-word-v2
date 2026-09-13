@@ -1,0 +1,12 @@
+{
+  "book": "john",
+  "chapter": 2,
+  "version": "1.0",
+  "relatedWords": [
+    { "order": 1, "icon": "💍", "word": "혼인잔치", "hanja": "婚姻잔치", "shortDesc": "결혼을 축하하며 여는 잔치 (1절, 가나에서 열린 혼인잔치)" },
+    { "order": 2, "icon": "✨", "word": "표적", "hanja": "表蹟", "shortDesc": "하나님의 능력을 보여주는 특별한 일 (11절, 물을 포도주로 바꾸신 첫 표적)" },
+    { "order": 3, "icon": "🏛️", "word": "성전", "hanja": "聖殿", "shortDesc": "하나님께 예배드리는 거룩한 곳 (14절)" },
+    { "order": 4, "icon": "🔥", "word": "열심", "hanja": "熱心", "shortDesc": "뜨거운 마음으로 힘을 다함 (17절, 성전을 사모하는 열심)" },
+    { "order": 5, "icon": "🏺", "word": "정결예식", "hanja": "淨潔禮式", "shortDesc": "몸과 물건을 깨끗하게 하는 유대인의 전통 의식 (6절)" }
+  ]
+}
