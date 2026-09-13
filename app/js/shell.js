@@ -537,16 +537,16 @@
     const data = await fetchJSON(`/content/korean/vocab/${real.book}/${real.chapter}.json`);
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
       <div class="sow-word-list">` +
-      data.relatedWords.map(w => `<div class="sow-word-row sow-word-row-v2">
-          <span class="e">${w.icon}</span>
-          <div class="sow-word-main">
-            <div class="sow-word-line1">
-              <span class="w"><mark>${w.word}</mark></span>
-              ${w.hanja ? `<span class="sow-hanja-badge">${w.hanja}</span>` : ''}
-            </div>
-            ${w.hanjaNote ? `<div class="sow-hanja-note">${w.hanjaNote}</div>` : ''}
-            <span class="d">${w.shortDesc}</span>
+      data.relatedWords.map(w => `<div class="sow-word-row">
+          <div class="sow-word-header">
+            <span class="e">${w.icon}</span>
+            <span class="w"><mark>${w.word}</mark></span>
+            ${w.hanja ? `<span class="sow-hanja-pill">
+                <span class="sow-hanja-char">${w.hanja}</span>
+                ${w.hanjaNote ? `<span class="sow-hanja-note">${w.hanjaNote}</span>` : ''}
+              </span>` : ''}
           </div>
+          <div class="sow-word-desc-callout">${w.shortDesc}</div>
         </div>`).join('') +
       `</div>
       <div id="sow-vocab-quiz-slot"></div>`;
@@ -636,13 +636,11 @@
       ${h.relatedWords && h.relatedWords.length ? `<div class="sow-card sow-hanja-related">
         <h4>📖 "${h.character}"이(가) 들어간 낱말</h4>
         <div class="sow-word-list">${h.relatedWords.map(w => `<div class="sow-word-row">
-            <div class="sow-word-main">
-              <div class="sow-word-line1">
-                <span class="w"><mark>${w.word}</mark></span>
-                <span class="sow-hanja-badge">${w.hanja}</span>
-              </div>
-              <span class="d">${w.meaning}</span>
+            <div class="sow-word-header">
+              <span class="w"><mark>${w.word}</mark></span>
+              <span class="sow-hanja-pill"><span class="sow-hanja-char">${w.hanja}</span></span>
             </div>
+            <div class="sow-word-desc-callout">${w.meaning}</div>
           </div>`).join('')}</div>
       </div>` : ''}`;
 
