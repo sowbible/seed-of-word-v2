@@ -1,0 +1,12 @@
+{
+  "book": "john",
+  "chapter": 3,
+  "version": "1.0",
+  "relatedWords": [
+    { "order": 1, "icon": "🌱", "word": "거듭나다", "shortDesc": "물과 성령으로 새 사람이 되는 것 (3절, 7절, 니고데모에게 하신 말씀)" },
+    { "order": 2, "icon": "♾️", "word": "영생", "hanja": "永生", "hanjaNote": "永(길 영) · 生(날 생)", "shortDesc": "하나님과 함께 영원히 사는 생명 (15~16절)" },
+    { "order": 3, "icon": "💔", "word": "멸망", "hanja": "滅亡", "hanjaNote": "滅(멸할 멸) · 亡(망할 망)", "shortDesc": "완전히 무너져 없어짐 (16절, '멸망하지 않고 영생을 얻게')" },
+    { "order": 4, "icon": "⚖️", "word": "심판", "hanja": "審判", "hanjaNote": "審(살필 심) · 判(판단할 판)", "shortDesc": "옳고 그름을 판단해서 벌을 내림 (17~19절)" },
+    { "order": 5, "icon": "🤵", "word": "신랑", "hanja": "新郎", "hanjaNote": "新(새 신) · 郎(사내 랑)", "shortDesc": "결혼식에서 신부와 짝이 되는 남자 (29절, 세례 요한이 자신을 신랑의 친구로 비유함)" }
+  ]
+}

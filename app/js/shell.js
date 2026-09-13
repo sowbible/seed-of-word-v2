@@ -537,68 +537,64 @@
     const data = await fetchJSON(`/content/korean/vocab/${real.book}/${real.chapter}.json`);
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
       <div class="sow-word-list">` +
-      data.relatedWords.map(w => `<div class="sow-word-row">
+      data.relatedWords.map(w => `<div class="sow-word-row sow-word-row-v2">
           <span class="e">${w.icon}</span>
-          <span class="w"><mark>${w.word}</mark>${w.hanja ? `<span class="hanja">(${w.hanja})</span>` : ''}</span>
-          <span class="d">${w.shortDesc}</span>
+          <div class="sow-word-main">
+            <div class="sow-word-line1">
+              <span class="w"><mark>${w.word}</mark></span>
+              ${w.hanja ? `<span class="sow-hanja-badge">${w.hanja}</span>` : ''}
+            </div>
+            ${w.hanjaNote ? `<div class="sow-hanja-note">${w.hanjaNote}</div>` : ''}
+            <span class="d">${w.shortDesc}</span>
+          </div>
         </div>`).join('') +
       `</div>
       <div id="sow-vocab-quiz-slot"></div>`;
-    renderVocabQuizToggle(container.querySelector('#sow-vocab-quiz-slot'), data.relatedWords);
+    // 퀴즈는 누르지 않아도 바로 보인다 — 어휘 목록을 본 다음 자연스럽게 이어서 복습하도록.
+    runVocabQuiz(container.querySelector('#sow-vocab-quiz-slot'), data.relatedWords);
   }
 
   /* ---------- 낱말 퀴즈 — 새 콘텐츠 없이 오늘의 어휘 5개를 그대로 재활용 ----------
      새 단어(정답) + 같은 날 다른 단어 중 2개(오답)를 섞어서 3지선다를 만든다.
      점수/등수는 안 보여준다 — "비교보다 기록"(1절 원칙 5)과 같은 이유로,
      맞았는지 틀렸는지 그 자리에서만 확인하고 넘어가는 가벼운 복습용이다. */
-  function renderVocabQuizToggle(container, words){
+  function runVocabQuiz(container, words){
     if(!words || words.length < 2){ return; } // 오답을 만들 단어가 부족하면 조용히 생략
-    const toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'sow-quiz-toggle';
-    toggle.textContent = '🎯 낱말 퀴즈로 복습하기';
-    container.appendChild(toggle);
-
+    const heading = document.createElement('h2');
+    heading.className = 'sow-section-title serif';
+    heading.textContent = '낱말 퀴즈로 복습하기';
+    container.appendChild(heading);
     const quizWrap = document.createElement('div');
-    quizWrap.hidden = true;
     container.appendChild(quizWrap);
 
-    toggle.onclick = () => {
-      toggle.hidden = true;
-      quizWrap.hidden = false;
-      runVocabQuiz(quizWrap, words);
-    };
-  }
-
-  function runVocabQuiz(container, words){
     let idx = 0;
     function shuffle(arr){ return arr.map(v => [Math.random(), v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]); }
 
     function drawQuestion(){
       if(idx >= words.length){
-        container.innerHTML = `<div class="sow-quiz-done">🌱 오늘 어휘 ${words.length}개 다 풀어봤어요!</div>`;
+        quizWrap.innerHTML = `<div class="sow-quiz-done">🌱 오늘 어휘 ${words.length}개 다 풀어봤어요!</div>`;
         return;
       }
       const correct = words[idx];
       const distractors = shuffle(words.filter(w => w.word !== correct.word)).slice(0, 2);
       const options = shuffle([correct, ...distractors]);
 
-      container.innerHTML = `<div class="sow-quiz-card">
+      quizWrap.innerHTML = `<div class="sow-quiz-card">
         <div class="sow-quiz-progress">${idx+1} / ${words.length}</div>
         <p class="sow-quiz-question">${correct.shortDesc}</p>
         <div class="sow-quiz-options">${options.map(o => `<button type="button" class="sow-quiz-opt" data-word="${o.word}">${o.word}</button>`).join('')}</div>
         <div class="sow-quiz-feedback"></div>
       </div>`;
 
-      const feedback = container.querySelector('.sow-quiz-feedback');
-      container.querySelectorAll('.sow-quiz-opt').forEach(btn => {
+      const feedback = quizWrap.querySelector('.sow-quiz-feedback');
+      quizWrap.querySelectorAll('.sow-quiz-opt').forEach(btn => {
         btn.onclick = () => {
           if(btn.disabled) return;
-          container.querySelectorAll('.sow-quiz-opt').forEach(b => b.disabled = true);
+          quizWrap.querySelectorAll('.sow-quiz-opt').forEach(b => b.disabled = true);
           const isCorrect = btn.dataset.word === correct.word;
           btn.classList.add(isCorrect ? 'correct' : 'wrong');
           if(!isCorrect){
-            container.querySelector(`[data-word="${correct.word}"]`)?.classList.add('correct');
+            quizWrap.querySelector(`[data-word="${correct.word}"]`)?.classList.add('correct');
           }
           feedback.innerHTML = `${isCorrect ? '💛 맞아요!' : '괜찮아요, 정답은 <b>'+correct.word+'</b>예요'}
             <button type="button" class="sow-quiz-next">다음 →</button>`;
@@ -640,8 +636,13 @@
       ${h.relatedWords && h.relatedWords.length ? `<div class="sow-card sow-hanja-related">
         <h4>📖 "${h.character}"이(가) 들어간 낱말</h4>
         <div class="sow-word-list">${h.relatedWords.map(w => `<div class="sow-word-row">
-            <span class="w"><mark>${w.word}</mark><span class="hanja">(${w.hanja})</span></span>
-            <span class="d">${w.meaning}</span>
+            <div class="sow-word-main">
+              <div class="sow-word-line1">
+                <span class="w"><mark>${w.word}</mark></span>
+                <span class="sow-hanja-badge">${w.hanja}</span>
+              </div>
+              <span class="d">${w.meaning}</span>
+            </div>
           </div>`).join('')}</div>
       </div>` : ''}`;
 
