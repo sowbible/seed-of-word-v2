@@ -238,12 +238,17 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-quiz-next{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
 .sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:15px;font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
 
-/* ---------- 오늘의 어휘: 카드형 + 한자는 알약 배지로 크게, 뜻은 색띠 콜아웃으로 ---------- */
+/* ---------- 오늘의 어휘: 카드형 + 한자는 알약 배지로 크게, 뜻은 색띠 콜아웃으로 ----------
+   카드마다 좌측 띠 색이 초록→금색→테라코타 순으로 돌아간다(순수 CSS nth-child라
+   JS는 몇 번째 단어인지 신경 안 써도 됨) — 여러 단어를 훑어볼 때 서로 잘 구분되도록. */
 .sow-word-list{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
 .sow-word-row{
-  background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);
+  background:var(--card);border:1px solid var(--line-soft);border-left:5px solid var(--sprout);
+  border-radius:var(--radius-sm);
   padding:18px 16px;box-shadow:var(--shadow-sm);transition:box-shadow .15s;
 }
+.sow-word-list .sow-word-row:nth-child(3n+2){border-left-color:var(--amber);}
+.sow-word-list .sow-word-row:nth-child(3n){border-left-color:var(--clay);}
 .sow-word-row:hover{box-shadow:0 4px 14px rgba(29,58,44,0.09);}
 .sow-word-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
 .sow-word-header .e{font-size:24px;flex:none;}
@@ -259,10 +264,12 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 }
 .sow-hanja-note{font-size:12px;color:var(--sprout);font-weight:600;}
 .sow-word-desc-callout{
-  background:var(--paper);border-left:4px solid var(--amber);
+  background:var(--sprout-tint);border-left:4px solid var(--sprout);
   border-radius:0 8px 8px 0;padding:12px 14px;
   font-size:16px;color:var(--ink);font-weight:500;line-height:1.6;
 }
+.sow-word-list .sow-word-row:nth-child(3n+2) .sow-word-desc-callout{background:var(--amber-tint);border-left-color:var(--amber);}
+.sow-word-list .sow-word-row:nth-child(3n) .sow-word-desc-callout{background:var(--clay-tint);border-left-color:var(--clay);}
 
 /* ---------- 세계 언어 ---------- */
 .sow-level-block{margin-bottom:18px;}
