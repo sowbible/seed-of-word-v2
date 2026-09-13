@@ -264,12 +264,12 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 }
 .sow-hanja-note{font-size:12px;color:var(--sprout);font-weight:600;}
 .sow-word-desc-callout{
-  background:var(--sprout-tint);border-left:4px solid var(--sprout);
-  border-radius:0 8px 8px 0;padding:12px 14px;
-  font-size:16px;color:var(--ink);font-weight:500;line-height:1.6;
+  background:none;border-left:4px solid var(--sprout);
+  padding:8px 0 8px 14px;
+  font-size:16px;color:var(--ink);font-weight:700;line-height:1.6;
 }
-.sow-word-list .sow-word-row:nth-child(3n+2) .sow-word-desc-callout{background:var(--amber-tint);border-left-color:var(--amber);}
-.sow-word-list .sow-word-row:nth-child(3n) .sow-word-desc-callout{background:var(--clay-tint);border-left-color:var(--clay);}
+.sow-word-list .sow-word-row:nth-child(3n+2) .sow-word-desc-callout{border-left-color:var(--amber);}
+.sow-word-list .sow-word-row:nth-child(3n) .sow-word-desc-callout{border-left-color:var(--clay);}
 
 /* ---------- 세계 언어 ---------- */
 .sow-level-block{margin-bottom:18px;}
