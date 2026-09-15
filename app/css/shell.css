@@ -225,48 +225,48 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanja-related h4{margin:0 0 10px;font-size:15px;font-weight:700;}
 
 /* ---------- 낱말 퀴즈 (오늘의 어휘 재활용, 새 콘텐츠 불필요 — 이제 토글 없이 바로 보임) ---------- */
-.sow-quiz-card{margin-top:18px;padding:20px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow-sm);}
-.sow-quiz-progress{font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:10px;}
-.sow-quiz-question{font-size:15px;color:var(--ink);line-height:1.6;margin:0 0 16px;}
-.sow-quiz-options{display:flex;flex-wrap:wrap;gap:8px;}
-.sow-quiz-opt{font-family:inherit;font-size:14px;font-weight:600;padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-quiz-card{margin-top:10px;padding:14px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow-sm);}
+.sow-quiz-progress{font-size:11px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;}
+.sow-quiz-question{font-size:13.5px;color:var(--ink);line-height:1.5;margin:0 0 10px;}
+.sow-quiz-options{display:flex;flex-wrap:wrap;gap:6px;}
+.sow-quiz-opt{font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
 .sow-quiz-opt:hover:not(:disabled){border-color:var(--sprout);}
 .sow-quiz-opt.correct{background:var(--sprout);border-color:var(--sprout);color:#fff;}
 .sow-quiz-opt.wrong{background:var(--clay-tint);border-color:var(--clay);color:var(--clay);}
 .sow-quiz-opt:disabled{cursor:default;}
-.sow-quiz-feedback{margin-top:14px;font-size:13.5px;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.sow-quiz-next{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
+.sow-quiz-feedback{margin-top:10px;font-size:12px;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.sow-quiz-next{font-family:inherit;font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
 .sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:15px;font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
 
 /* ---------- 오늘의 어휘: 카드형 + 한자는 알약 배지로 크게, 뜻은 색띠 콜아웃으로 ----------
    카드마다 좌측 띠 색이 초록→금색→테라코타 순으로 돌아간다(순수 CSS nth-child라
    JS는 몇 번째 단어인지 신경 안 써도 됨) — 여러 단어를 훑어볼 때 서로 잘 구분되도록. */
-.sow-word-list{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
+.sow-word-list{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
 .sow-word-row{
   background:var(--card);border:1px solid var(--line-soft);border-left:5px solid var(--sprout);
   border-radius:var(--radius-sm);
-  padding:18px 16px;box-shadow:var(--shadow-sm);transition:box-shadow .15s;
+  padding:12px 14px;box-shadow:var(--shadow-sm);transition:box-shadow .15s;
 }
 .sow-word-list .sow-word-row:nth-child(3n+2){border-left-color:var(--amber);}
 .sow-word-list .sow-word-row:nth-child(3n){border-left-color:var(--clay);}
 .sow-word-row:hover{box-shadow:0 4px 14px rgba(29,58,44,0.09);}
-.sow-word-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
-.sow-word-header .e{font-size:24px;flex:none;}
-.sow-word-row .w{font-weight:800;font-size:26px;color:var(--ink);}
-.sow-word-row .w mark{background:var(--amber-tint);color:var(--ink);padding:2px 8px;border-radius:8px;}
+.sow-word-header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.sow-word-header .e{font-size:19px;flex:none;}
+.sow-word-row .w{font-weight:800;font-size:19px;color:var(--ink);}
+.sow-word-row .w mark{background:var(--amber-tint);color:var(--ink);padding:1px 6px;border-radius:6px;}
 .sow-hanja-pill{
-  display:flex;align-items:baseline;gap:6px;background:var(--sprout-tint);
-  border-radius:10px;padding:6px 12px;
+  display:flex;align-items:baseline;gap:5px;background:var(--sprout-tint);
+  border-radius:8px;padding:3px 9px;
 }
 .sow-hanja-char{
-  font-family:'Pretendard', sans-serif;font-size:20px;font-weight:700;
+  font-family:'Pretendard', sans-serif;font-size:15px;font-weight:700;
   color:var(--ink);letter-spacing:.02em;
 }
-.sow-hanja-note{font-size:12px;color:var(--sprout);font-weight:600;}
+.sow-hanja-note{font-size:10.5px;color:var(--sprout);font-weight:600;}
 .sow-word-desc-callout{
-  background:none;border-left:4px solid var(--sprout);
-  padding:8px 0 8px 14px;
-  font-size:16px;color:var(--ink);font-weight:700;line-height:1.6;
+  background:none;border-left:3px solid var(--sprout);
+  padding:5px 0 5px 10px;
+  font-size:13px;color:var(--ink);font-weight:700;line-height:1.45;
 }
 .sow-word-list .sow-word-row:nth-child(3n+2) .sow-word-desc-callout{border-left-color:var(--amber);}
 .sow-word-list .sow-word-row:nth-child(3n) .sow-word-desc-callout{border-left-color:var(--clay);}
