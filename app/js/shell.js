@@ -538,15 +538,12 @@
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
       <div class="sow-word-list">` +
       data.relatedWords.map(w => `<div class="sow-word-row">
-          <div class="sow-word-header">
-            <span class="e">${w.icon}</span>
+          <div class="sow-word-top">
             <span class="w"><mark>${w.word}</mark></span>
-            ${w.hanja ? `<span class="sow-hanja-pill">
-                <span class="sow-hanja-char">${w.hanja}</span>
-                ${w.hanjaNote ? `<span class="sow-hanja-note">${w.hanjaNote}</span>` : ''}
-              </span>` : ''}
+            ${w.hanja ? `<span class="sow-hanja-inline">${w.hanja}</span>` : ''}
           </div>
-          <div class="sow-word-desc-callout">${w.shortDesc}</div>
+          ${w.hanjaNote ? `<div class="sow-hanja-note">${w.hanjaNote}</div>` : ''}
+          <div class="sow-word-desc-callout"><span class="sow-word-desc-icon">${w.icon}</span> ${w.shortDesc}</div>
         </div>`).join('') +
       `</div>
       <div id="sow-vocab-quiz-slot"></div>`;
@@ -560,11 +557,12 @@
      맞았는지 틀렸는지 그 자리에서만 확인하고 넘어가는 가벼운 복습용이다. */
   function runVocabQuiz(container, words){
     if(!words || words.length < 2){ return; } // 오답을 만들 단어가 부족하면 조용히 생략
-    const heading = document.createElement('h2');
-    heading.className = 'sow-section-title serif';
-    heading.textContent = '낱말 퀴즈로 복습하기';
+    const heading = document.createElement('div');
+    heading.className = 'sow-quiz-heading';
+    heading.innerHTML = '🎯 낱말 퀴즈로 복습하기';
     container.appendChild(heading);
     const quizWrap = document.createElement('div');
+    quizWrap.className = 'sow-quiz-wrap';
     container.appendChild(quizWrap);
 
     let idx = 0;
@@ -636,9 +634,9 @@
       ${h.relatedWords && h.relatedWords.length ? `<div class="sow-card sow-hanja-related">
         <h4>📖 "${h.character}"이(가) 들어간 낱말</h4>
         <div class="sow-word-list">${h.relatedWords.map(w => `<div class="sow-word-row">
-            <div class="sow-word-header">
+            <div class="sow-word-top">
               <span class="w"><mark>${w.word}</mark></span>
-              <span class="sow-hanja-pill"><span class="sow-hanja-char">${w.hanja}</span></span>
+              <span class="sow-hanja-inline">${w.hanja}</span>
             </div>
             <div class="sow-word-desc-callout">${w.meaning}</div>
           </div>`).join('')}</div>
