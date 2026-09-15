@@ -1,0 +1,5 @@
+{"book":"john","chapter":3,"version":"1.0","discussionQuestions":[
+{"text":"'거듭난다'는 게 무슨 뜻일까요? 사람이 어떻게 새로운 사람이 될 수 있을까요?"},
+{"text":"요한복음 3장 16절처럼, 하나님이 우리를 사랑하셔서 하신 일은 무엇인가요?"},
+{"text":"오늘 배운 '영생'이라는 단어를 넣어서, 하나님께 감사한 마음을 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}

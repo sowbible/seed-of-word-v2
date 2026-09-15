@@ -1,0 +1,5 @@
+{"book":"john","chapter":21,"version":"1.0","discussionQuestions":[
+{"text":"예수님은 베드로에게 세 번 '내 양을 먹이라'고 하셨어요. 이건 어떤 부탁일까요?"},
+{"text":"실수했던 베드로를 다시 사용하신 예수님을 보면서, 우리도 실수해도 괜찮다는 걸 느낄 수 있을까요?"},
+{"text":"오늘 배운 '목자'라는 단어를 넣어서, 내가 앞으로 어떻게 살고 싶은지 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}

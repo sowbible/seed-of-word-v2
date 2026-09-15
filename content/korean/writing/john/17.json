@@ -1,0 +1,5 @@
+{"book":"john","chapter":17,"version":"1.0","discussionQuestions":[
+{"text":"예수님이 우리를 위해 기도하셨다는 게 어떤 마음이 드나요?"},
+{"text":"예수님은 우리가 '하나'가 되기를 기도하셨어요. 우리는 어떻게 서로 하나 될 수 있을까요?"},
+{"text":"오늘 배운 '거룩'이라는 단어를 넣어서, 예수님께 기도문을 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}

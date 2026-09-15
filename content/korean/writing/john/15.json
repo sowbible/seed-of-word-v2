@@ -1,0 +1,5 @@
+{"book":"john","chapter":15,"version":"1.0","discussionQuestions":[
+{"text":"예수님은 포도나무, 우리는 가지라고 하셨어요. 가지가 나무에 붙어있어야 하는 이유는 뭘까요?"},
+{"text":"'친구를 위해 목숨을 버리는 것보다 큰 사랑이 없다'는 말씀에서 예수님의 사랑을 느껴볼까요?"},
+{"text":"오늘 배운 '친구'라는 단어를 넣어서, 예수님과 나의 관계에 대해 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}

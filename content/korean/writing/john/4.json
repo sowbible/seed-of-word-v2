@@ -1,0 +1,5 @@
+{"book":"john","chapter":4,"version":"1.0","discussionQuestions":[
+{"text":"예수님이 사마리아 여인에게 주신 '생수'는 진짜 물과 어떻게 다를까요?"},
+{"text":"예수님은 '신령과 진정으로' 예배하라고 하셨어요. 우리는 어떤 마음으로 예배드려야 할까요?"},
+{"text":"오늘 배운 '구원'이라는 단어를 넣어서, 예수님께 하고 싶은 말을 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}

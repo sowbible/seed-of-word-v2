@@ -1,0 +1,5 @@
+{"book":"john","chapter":13,"version":"1.0","discussionQuestions":[
+{"text":"예수님이 제자들의 발을 씻겨주신 것을 보면서, 우리는 다른 사람을 어떻게 섬길 수 있을까요?"},
+{"text":"'서로 사랑하라'는 새 계명을 우리는 어떻게 실천할 수 있을까요?"},
+{"text":"오늘 배운 '겸손'이라는 단어를 넣어서, 내가 실천하고 싶은 것을 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}

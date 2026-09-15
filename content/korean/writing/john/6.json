@@ -1,0 +1,5 @@
+{"book":"john","chapter":6,"version":"1.0","discussionQuestions":[
+{"text":"보리떡 다섯 개와 물고기 두 마리로 오천 명이 배불리 먹은 이야기에서, 하나님은 어떤 분이라는 걸 알 수 있나요?"},
+{"text":"예수님은 자신을 '생명의 떡'이라고 하셨어요. 우리에게 정말 필요한 것은 무엇일까요?"},
+{"text":"오늘 배운 '양식'이라는 단어를 넣어서, 예수님께 기도문을 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}

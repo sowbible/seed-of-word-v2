@@ -1,0 +1,5 @@
+{"book":"john","chapter":10,"version":"1.0","discussionQuestions":[
+{"text":"예수님은 '선한 목자'라고 하셨어요. 목자와 양의 관계처럼, 예수님과 우리의 관계는 어떨까요?"},
+{"text":"선한 목자는 양을 위해 목숨을 버린다고 하셨어요. 이 말씀에서 예수님의 사랑을 느껴볼까요?"},
+{"text":"오늘 배운 '목자'라는 단어를 넣어서, 예수님께 편지를 써볼까요?"}
+],"writingGuide":"위 질문 중 마음에 드는 것 하나를 골라 자유롭게 써보세요.","required":true,"input":{"type":"text","voiceInput":true,"placeholder":""}}
