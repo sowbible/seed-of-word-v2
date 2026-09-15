@@ -1,0 +1,7 @@
+{"book":"john","chapter":16,"version":"1.0","relatedWords":[
+{"order":1,"icon":"🌩️","word":"환난","hanja":"患難","hanjaNote":"患(근심 환) · 難(어려울 난)","shortDesc":"어렵고 힘든 고난 (33절, '세상에서는 너희가 환난을 당하나')"},
+{"order":2,"icon":"💪","word":"담대","hanja":"膽大","hanjaNote":"膽(쓸개/담력 담) · 大(큰 대)","shortDesc":"겁내지 않고 용기 있게 (33절)"},
+{"order":3,"icon":"🕊️","word":"성령","hanja":"聖靈","hanjaNote":"聖(거룩할 성) · 靈(영 령)","shortDesc":"하나님의 영, 삼위일체 중 한 분 (13절)"},
+{"order":4,"icon":"😢","word":"근심","shortDesc":"걱정되고 슬픈 마음 (20절, '너희 근심이 도리어 기쁨이 되리라')"},
+{"order":5,"icon":"📖","word":"비유","hanja":"比喩","hanjaNote":"比(견줄 비) · 喩(깨우칠 유)","shortDesc":"빗대어서 하는 말 (25절)"}
+]}

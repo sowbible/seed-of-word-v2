@@ -1,0 +1,7 @@
+{"book":"john","chapter":20,"version":"1.0","relatedWords":[
+{"order":1,"icon":"♾️","word":"부활","hanja":"復活","hanjaNote":"復(다시 부) · 活(살 활)","shortDesc":"죽었다가 다시 살아남 (1절 이하)"},
+{"order":2,"icon":"🤔","word":"의심","hanja":"疑心","hanjaNote":"疑(의심할 의) · 心(마음 심)","shortDesc":"확실히 믿지 못하고 미심쩍어함 (25절, 도마의 의심)"},
+{"order":3,"icon":"🕊️","word":"평강","hanja":"平康","hanjaNote":"平(평평할 평) · 康(편안할 강)","shortDesc":"평안하고 건강함 (19, 21, 26절)"},
+{"order":4,"icon":"✨","word":"성령","hanja":"聖靈","hanjaNote":"聖(거룩할 성) · 靈(영 령)","shortDesc":"하나님의 영, 삼위일체 중 한 분 (22절)"},
+{"order":5,"icon":"🩹","word":"상처","hanja":"傷處","hanjaNote":"傷(다칠 상) · 處(곳 처)","shortDesc":"다치거나 못 박힌 자국 (25절)"}
+]}

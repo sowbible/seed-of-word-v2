@@ -1,0 +1,7 @@
+{"book":"john","chapter":21,"version":"1.0","relatedWords":[
+{"order":1,"icon":"🍳","word":"조반","hanja":"朝飯","hanjaNote":"朝(아침 조) · 飯(밥 반)","shortDesc":"아침밥 (12, 15절, '와서 조반을 먹으라')"},
+{"order":2,"icon":"📣","word":"증언","hanja":"證言","hanjaNote":"證(증거 증) · 言(말씀 언)","shortDesc":"어떤 사실을 그대로 말해서 밝힘 (24절)"},
+{"order":3,"icon":"✍️","word":"기록","hanja":"記錄","hanjaNote":"記(기록할 기) · 錄(기록할 록)","shortDesc":"글로 써서 남김 (24~25절)"},
+{"order":4,"icon":"🎣","word":"어부","hanja":"漁夫","hanjaNote":"漁(고기잡을 어) · 夫(사내 부)","shortDesc":"물고기를 잡는 것을 직업으로 하는 사람 (3절)"},
+{"order":5,"icon":"🐑","word":"목자","hanja":"牧者","hanjaNote":"牧(칠 목) · 者(사람 자)","shortDesc":"양을 돌보고 인도하는 사람 ('내 양을 먹이라')"}
+]}
