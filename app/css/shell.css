@@ -233,6 +233,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
   box-shadow:0 3px 10px rgba(29,58,44,.08);
 }
 .sow-word-head{display:flex;align-items:center;gap:9px;padding:11px 14px;color:#fff;background:var(--sprout);}
+.sow-hanja-related .sow-word-head{background:var(--indigo);}
 .sow-word-icon{font-size:19px;}
 .sow-word-row .w{font-weight:800;font-size:19px;color:#fff;}
 .sow-word-hanja-header{margin-left:auto;font-size:14px;font-weight:700;color:#fff;opacity:.85;}
