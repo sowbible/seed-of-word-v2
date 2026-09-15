@@ -538,12 +538,15 @@
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 어휘</h2>
       <div class="sow-word-list">` +
       data.relatedWords.map(w => `<div class="sow-word-row">
-          <div class="sow-word-top">
-            <span class="w"><mark>${w.word}</mark></span>
-            ${w.hanja ? `<span class="sow-hanja-inline">${w.hanja}</span>` : ''}
+          <div class="sow-word-head">
+            <span class="sow-word-icon">${w.icon}</span>
+            <span class="w">${w.word}</span>
+            ${w.hanja ? `<span class="sow-word-hanja-header">${w.hanja}</span>` : ''}
           </div>
-          ${w.hanjaNote ? `<div class="sow-hanja-note">${w.hanjaNote}</div>` : ''}
-          <div class="sow-word-desc-callout"><span class="sow-word-desc-icon">${w.icon}</span> ${w.shortDesc}</div>
+          <div class="sow-word-body">
+            ${w.hanjaNote ? `<div class="sow-hanja-note">${w.hanjaNote}</div>` : ''}
+            <div class="sow-word-desc-callout">${w.shortDesc}</div>
+          </div>
         </div>`).join('') +
       `</div>
       <div id="sow-vocab-quiz-slot"></div>`;
@@ -555,14 +558,14 @@
      새 단어(정답) + 같은 날 다른 단어 중 2개(오답)를 섞어서 3지선다를 만든다.
      점수/등수는 안 보여준다 — "비교보다 기록"(1절 원칙 5)과 같은 이유로,
      맞았는지 틀렸는지 그 자리에서만 확인하고 넘어가는 가벼운 복습용이다. */
-  function runVocabQuiz(container, words){
+  function runVocabQuiz(container, words, theme){
     if(!words || words.length < 2){ return; } // 오답을 만들 단어가 부족하면 조용히 생략
     const heading = document.createElement('div');
-    heading.className = 'sow-quiz-heading';
+    heading.className = theme === 'blue' ? 'sow-quiz-heading sow-quiz-heading-blue' : 'sow-quiz-heading';
     heading.innerHTML = '🎯 낱말 퀴즈로 복습하기';
     container.appendChild(heading);
     const quizWrap = document.createElement('div');
-    quizWrap.className = 'sow-quiz-wrap';
+    quizWrap.className = theme === 'blue' ? 'sow-quiz-wrap sow-quiz-wrap-blue' : 'sow-quiz-wrap';
     container.appendChild(quizWrap);
 
     let idx = 0;
@@ -634,13 +637,21 @@
       ${h.relatedWords && h.relatedWords.length ? `<div class="sow-card sow-hanja-related">
         <h4>📖 "${h.character}"이(가) 들어간 낱말</h4>
         <div class="sow-word-list">${h.relatedWords.map(w => `<div class="sow-word-row">
-            <div class="sow-word-top">
-              <span class="w"><mark>${w.word}</mark></span>
-              <span class="sow-hanja-inline">${w.hanja}</span>
+            <div class="sow-word-head">
+              <span class="w">${w.word}</span>
+              <span class="sow-word-hanja-header">${w.hanja}</span>
             </div>
-            <div class="sow-word-desc-callout">${w.meaning}</div>
+            <div class="sow-word-body"><div class="sow-word-desc-callout">${w.meaning}</div></div>
           </div>`).join('')}</div>
+        <div id="sow-hanja-quiz-slot"></div>
       </div>` : ''}`;
+
+    if(h.relatedWords && h.relatedWords.length >= 2){
+      // 한자 퀴즈도 어휘 퀴즈랑 똑같은 로직을 재활용한다 — 새 콘텐츠 없이, 이미 있는 관련 어휘로 3지선다를 만든다.
+      // runVocabQuiz는 {word, shortDesc} 모양을 기대하므로, meaning을 shortDesc로 매핑해서 넘긴다.
+      const quizWords = h.relatedWords.map(w => ({ word: w.word, shortDesc: w.meaning }));
+      runVocabQuiz(container.querySelector('#sow-hanja-quiz-slot'), quizWords, 'blue');
+    }
 
     if(window.HanziWriter){
       // 상단 큰 한자도 애니메이션과 완전히 같은 렌더링 방식(HanziWriter)으로 그려서 글자체를 통일한다.
@@ -694,10 +705,11 @@
         <div class="icon-row"><span class="emoji">✏️</span><h4>${pickLabel({ko:'이 중에서 마음에 드는 질문을 하나 골라보세요', en:'Pick a question you like'})}</h4>${data.required ? `<span class="sow-required">${L().required}</span>` : ''}</div>
         <div class="sow-discussion-list">${questions.map((q, i) => `<label class="sow-discussion-item">
             <input type="radio" name="sow-discussion-${real.book}-${real.chapter}" value="${i}">
-            <span>${q.text}</span>
+            <span class="sow-discussion-num">${i + 1}</span>
+            <span class="sow-discussion-text">${q.text}</span>
           </label>`).join('')}</div>
         <p class="sow-discussion-guide">${data.writingGuide || ''}</p>
-        <div><textarea rows="6" class="sow-writing-textarea" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(data.input)} ${persistAttr(`korean:${real.book}:${real.chapter}:writing`)}></textarea></div>
+        <div class="sow-discussion-answer-box"><textarea rows="6" class="sow-writing-textarea" placeholder="여기에 적거나 음성으로 말해보세요" ${voiceAttrs(data.input)} ${persistAttr(`korean:${real.book}:${real.chapter}:writing`)}></textarea></div>
       </div>`;
     container.querySelectorAll('.sow-discussion-item input[type="radio"]').forEach(input => {
       input.addEventListener('change', () => {
