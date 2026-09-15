@@ -1,0 +1,13 @@
+{"book":"john","chapter":8,"version":"1.0","hanja":{
+"character":"罪","reading":"허물 죄","radical":"网 (그물망머리)","strokeCount":13,
+"meaningTags":["죄","잘못","허물"],
+"origin":"그물(网)에 걸린 잘못이라는 뜻에서, 법을 어긴 잘못을 나타내는 글자가 됐어요.",
+"explanation":"\"罪\"는 하나님의 뜻을 어기거나 잘못을 저지른 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 죄인을 정죄하지 않으시고, '진리가 너희를 자유롭게 하리라'고 하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"죄인","hanja":"罪人","meaning":"죄를 지은 사람"},
+{"word":"범죄","hanja":"犯罪","meaning":"법이나 규칙을 어기는 나쁜 짓"},
+{"word":"속죄","hanja":"贖罪","meaning":"죄를 대신 갚아 용서받게 함"},
+{"word":"죄책감","hanja":"罪責感","meaning":"잘못했다고 느끼는 마음"}
+]}}

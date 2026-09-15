@@ -1,0 +1,13 @@
+{"book":"john","chapter":12,"version":"1.0","hanja":{
+"character":"榮","reading":"영화 영","radical":"木 (나무목부)","strokeCount":14,
+"meaningTags":["영광","빛남","번영"],
+"origin":"불빛(火)이 나무(木) 위에서 환하게 빛나는 모습에서, '빛나고 존귀하다'는 뜻이 됐어요.",
+"explanation":"\"榮\"은 밝고 빛나며 존귀하게 되는 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 예루살렘에 왕으로 들어가시며 하나님께 영광 돌릴 때가 왔다고 하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"영광","hanja":"榮光","meaning":"빛나고 존귀하게 됨"},
+{"word":"영예","hanja":"榮譽","meaning":"자랑스럽고 명예로움"},
+{"word":"영화","hanja":"榮華","meaning":"몸이 귀하게 되어 이름이 빛남"},
+{"word":"번영","hanja":"繁榮","meaning":"일이 잘 되어 번성함"}
+]}}

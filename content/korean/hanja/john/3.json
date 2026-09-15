@@ -1,0 +1,13 @@
+{"book":"john","chapter":3,"version":"1.0","hanja":{
+"character":"生","reading":"날 생","radical":"生 (날생부)","strokeCount":5,
+"meaningTags":["태어남","생명","살다"],
+"origin":"땅(土) 위로 새싹이 돋아나는 모습을 본뜬 글자예요. 그래서 '태어나다, 살다'라는 뜻이 됐어요.",
+"explanation":"\"生\"은 새로운 생명이 시작되는 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 니고데모에게 '거듭나야(다시 태어나야) 한다'고 말씀하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"생명","hanja":"生命","meaning":"살아있음, 목숨"},
+{"word":"영생","hanja":"永生","meaning":"하나님과 함께 영원히 사는 생명"},
+{"word":"탄생","hanja":"誕生","meaning":"세상에 태어남"},
+{"word":"평생","hanja":"平生","meaning":"세상에 태어나서 죽을 때까지"}
+]}}

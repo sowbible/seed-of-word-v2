@@ -1,0 +1,13 @@
+{"book":"john","chapter":16,"version":"1.0","hanja":{
+"character":"勇","reading":"날랠 용","radical":"力 (힘력부)","strokeCount":9,
+"meaningTags":["용기","씩씩함","담대함"],
+"origin":"힘(力)차게 솟아나는(甬) 기운을 나타내어, '용감하다'는 뜻이 됐어요.",
+"explanation":"\"勇\"은 두려움 없이 씩씩하게 나아가는 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 '세상에서 환난을 당하나 담대하라 내가 세상을 이기었노라'고 하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"용기","hanja":"勇氣","meaning":"두려움 없이 씩씩한 기운"},
+{"word":"용감","hanja":"勇敢","meaning":"씩씩하고 겁이 없음"},
+{"word":"무용","hanja":"武勇","meaning":"군사적으로 용맹함"},
+{"word":"용단","hanja":"勇斷","meaning":"용기 있게 내리는 결단"}
+]}}

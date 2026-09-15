@@ -1,0 +1,13 @@
+{"book":"john","chapter":15,"version":"1.0","hanja":{
+"character":"親","reading":"친할 친","radical":"見 (볼견부)","strokeCount":16,
+"meaningTags":["친하다","가까움","부모"],
+"origin":"나무(木) 위에 서서(立) 멀리 보는(見) 부모의 마음에서, '가깝고 친하다'는 뜻이 됐어요.",
+"explanation":"\"親\"은 가깝고 정든 사이를 나타내는 글자예요.",
+"bibleNote":"예수님은 제자들을 '친구'라고 부르시며, 친구를 위해 목숨을 버리는 사랑을 보여주셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"친구","hanja":"親舊","meaning":"가깝고 정든 사람"},
+{"word":"친절","hanja":"親切","meaning":"다정하고 정성스러움"},
+{"word":"부친","hanja":"父親","meaning":"아버지를 높여 부르는 말"},
+{"word":"친근","hanja":"親近","meaning":"사귀어 지내는 사이가 아주 가까움"}
+]}}

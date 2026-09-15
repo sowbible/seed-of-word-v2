@@ -1,0 +1,13 @@
+{"book":"john","chapter":2,"version":"1.0","hanja":{
+"character":"聖","reading":"거룩할 성","radical":"耳 (귀이부)","strokeCount":13,
+"meaningTags":["거룩함","성스러움","신성함"],
+"origin":"귀(耳)로 잘 듣고 입(口)으로 잘 말하는 지혜로운 사람을 나타내던 글자에서, '거룩하다'는 뜻으로 넓어졌어요.",
+"explanation":"\"聖\"은 세상과 구별된 거룩함, 하나님께 속한 것을 나타내는 글자예요.",
+"bibleNote":"예수님이 성전을 깨끗하게 하신 것처럼, 거룩한 곳은 소중히 여겨야 해요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"성경","hanja":"聖經","meaning":"거룩한 말씀이 담긴 책"},
+{"word":"성전","hanja":"聖殿","meaning":"하나님께 예배드리는 거룩한 곳"},
+{"word":"신성","hanja":"神聖","meaning":"신처럼 거룩하고 존귀함"},
+{"word":"성령","hanja":"聖靈","meaning":"하나님의 영, 삼위일체 중 한 분"}
+]}}

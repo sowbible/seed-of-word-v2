@@ -1,0 +1,13 @@
+{"book":"john","chapter":9,"version":"1.0","hanja":{
+"character":"盲","reading":"소경 맹","radical":"目 (눈목부)","strokeCount":8,
+"meaningTags":["눈이 멀다","보지 못함"],
+"origin":"잃을 망(亡)과 눈 목(目)이 합쳐져서, '눈을 잃다', 즉 앞을 보지 못한다는 뜻이 됐어요.",
+"explanation":"\"盲\"은 눈이 보이지 않는 상태를 나타내는 글자예요.",
+"bibleNote":"예수님은 태어날 때부터 눈이 먼 사람을 고쳐주셔서, 그분이 세상의 빛이심을 보여주셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"맹인","hanja":"盲人","meaning":"눈이 보이지 않는 사람"},
+{"word":"맹목","hanja":"盲目","meaning":"제대로 판단하지 못하고 무작정 따름"},
+{"word":"색맹","hanja":"色盲","meaning":"색을 구별하지 못하는 상태"},
+{"word":"문맹","hanja":"文盲","meaning":"글을 읽거나 쓸 줄 모름"}
+]}}

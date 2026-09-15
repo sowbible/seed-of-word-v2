@@ -1,0 +1,13 @@
+{"book":"john","chapter":11,"version":"1.0","hanja":{
+"character":"復","reading":"다시 부","radical":"彳 (두인변)","strokeCount":12,
+"meaningTags":["다시","돌아오다","회복"],
+"origin":"걸어서(彳) 갔던 곳으로 다시 돌아온다는 뜻에서, '다시, 되풀이하다'라는 뜻이 됐어요.",
+"explanation":"\"復\"은 원래 상태로 다시 돌아가는 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 '나는 부활이요 생명이니'라고 하시며 죽은 나사로를 다시 살리셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"부활","hanja":"復活","meaning":"죽었다가 다시 살아남"},
+{"word":"회복","hanja":"回復","meaning":"원래대로 다시 돌아옴"},
+{"word":"반복","hanja":"反復","meaning":"같은 일을 되풀이함"},
+{"word":"복귀","hanja":"復歸","meaning":"원래 있던 자리로 다시 돌아감"}
+]}}

@@ -1,0 +1,13 @@
+{"book":"john","chapter":4,"version":"1.0","hanja":{
+"character":"水","reading":"물 수","radical":"水 (물수부)","strokeCount":4,
+"meaningTags":["물","액체"],
+"origin":"흐르는 물의 모습을 본떠 만든 상형문자예요.",
+"explanation":"\"水\"는 우리가 마시고 씻는 물을 나타내는 아주 오래된 글자예요.",
+"bibleNote":"예수님은 사마리아 여인에게 '생수'를 주겠다고 하셨어요, 목마르지 않게 하는 물이에요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"생수","hanja":"生水","meaning":"살아있는 물, 솟아나는 맑은 물"},
+{"word":"수도","hanja":"水道","meaning":"물이 흐르도록 만든 관이나 시설"},
+{"word":"홍수","hanja":"洪水","meaning":"비가 많이 와서 물이 크게 넘침"},
+{"word":"온수","hanja":"溫水","meaning":"따뜻한 물"}
+]}}

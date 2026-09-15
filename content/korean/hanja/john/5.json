@@ -1,0 +1,13 @@
+{"book":"john","chapter":5,"version":"1.0","hanja":{
+"character":"活","reading":"살 활","radical":"水 (삼수변)","strokeCount":9,
+"meaningTags":["살다","생동감","활동"],
+"origin":"물(水)이 힘차게 흐르는 소리를 나타내던 글자에서, '살아있다, 생기있다'는 뜻으로 쓰이게 됐어요.",
+"explanation":"\"活\"은 힘차게 살아있는 상태를 나타내는 글자예요.",
+"bibleNote":"예수님은 38년 된 병자를 '일어나 걸어가라'고 하시며 다시 활기차게 살게 하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"부활","hanja":"復活","meaning":"죽었다가 다시 살아남"},
+{"word":"생활","hanja":"生活","meaning":"살아가는 일상"},
+{"word":"활동","hanja":"活動","meaning":"움직이며 어떤 일을 함"},
+{"word":"활기","hanja":"活氣","meaning":"힘차고 생기 있는 기운"}
+]}}

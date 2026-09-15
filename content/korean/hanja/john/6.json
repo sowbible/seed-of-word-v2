@@ -1,0 +1,13 @@
+{"book":"john","chapter":6,"version":"1.0","hanja":{
+"character":"食","reading":"먹을 식","radical":"食 (밥식부)","strokeCount":9,
+"meaningTags":["먹다","음식","양식"],
+"origin":"밥그릇에 뚜껑을 덮은 모습을 본뜬 글자예요, 그래서 '밥, 먹다'라는 뜻이 됐어요.",
+"explanation":"\"食\"은 사람이 먹는 음식이나 먹는 행동을 나타내는 글자예요.",
+"bibleNote":"예수님은 보리떡 다섯 개로 오천 명을 먹이시고, 자신을 '생명의 떡'이라 하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"양식","hanja":"糧食","meaning":"살아가는 데 필요한 먹을 것"},
+{"word":"식사","hanja":"食事","meaning":"음식을 먹는 일"},
+{"word":"음식","hanja":"飮食","meaning":"먹고 마시는 것"},
+{"word":"단식","hanja":"斷食","meaning":"일정 기간 음식을 먹지 않음"}
+]}}

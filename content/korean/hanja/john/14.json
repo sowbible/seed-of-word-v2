@@ -1,0 +1,13 @@
+{"book":"john","chapter":14,"version":"1.0","hanja":{
+"character":"眞","reading":"참 진","radical":"目 (눈목부)","strokeCount":10,
+"meaningTags":["참됨","진실","거짓없음"],
+"origin":"숟가락(匕)에 눈(目)을 그려, 있는 그대로를 정직하게 담는다는 뜻에서 '참되다'는 뜻이 됐어요.",
+"explanation":"\"眞\"은 거짓이 없고 참된 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 '내가 곧 길이요 진리요 생명이니'라고 말씀하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"진리","hanja":"眞理","meaning":"참되고 거짓 없는 것"},
+{"word":"진실","hanja":"眞實","meaning":"거짓이 없이 참됨"},
+{"word":"진심","hanja":"眞心","meaning":"거짓 없는 참된 마음"},
+{"word":"사진","hanja":"寫眞","meaning":"모습을 있는 그대로 옮겨 찍음"}
+]}}

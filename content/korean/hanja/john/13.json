@@ -1,0 +1,13 @@
+{"book":"john","chapter":13,"version":"1.0","hanja":{
+"character":"愛","reading":"사랑 애","radical":"心 (마음심부)","strokeCount":13,
+"meaningTags":["사랑","아끼다"],
+"origin":"마음(心)을 다해 누군가를 감싸 안는(爪+冖+夂) 모습을 나타낸 글자예요.",
+"explanation":"\"愛\"는 마음을 다해 누군가를 아끼고 소중히 여기는 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 제자들의 발을 씻기시며 '서로 사랑하라'는 새 계명을 주셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"애국","hanja":"愛國","meaning":"나라를 사랑함"},
+{"word":"애정","hanja":"愛情","meaning":"사랑하는 마음"},
+{"word":"우애","hanja":"友愛","meaning":"형제나 친구 사이의 사랑"},
+{"word":"자애","hanja":"慈愛","meaning":"부모처럼 자비롭게 사랑함"}
+]}}

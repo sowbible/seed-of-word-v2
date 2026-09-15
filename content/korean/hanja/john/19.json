@@ -1,0 +1,13 @@
+{"book":"john","chapter":19,"version":"1.0","hanja":{
+"character":"死","reading":"죽을 사","radical":"歹 (죽을사변)","strokeCount":6,
+"meaningTags":["죽음","생명이 다함"],
+"origin":"뼈만 남은 사람(歹) 옆에 무릎 꿇은 사람(匕)을 그려, 죽음을 애도하는 모습을 나타냈어요.",
+"explanation":"\"死\"는 생명이 끝나는 것, 죽음을 나타내는 글자예요.",
+"bibleNote":"예수님은 우리를 위해 십자가에서 죽으셨어요, 그 사랑을 기억해요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"사망","hanja":"死亡","meaning":"목숨이 끊어짐"},
+{"word":"생사","hanja":"生死","meaning":"삶과 죽음"},
+{"word":"사후","hanja":"死後","meaning":"죽은 뒤"},
+{"word":"필사","hanja":"必死","meaning":"죽을 힘을 다함"}
+]}}

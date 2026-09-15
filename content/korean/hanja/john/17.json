@@ -1,0 +1,13 @@
+{"book":"john","chapter":17,"version":"1.0","hanja":{
+"character":"一","reading":"한 일","radical":"一 (한일부)","strokeCount":1,
+"meaningTags":["하나","하나됨","처음"],
+"origin":"막대기 하나를 옆으로 그은 가장 단순한 모습으로, '하나'라는 숫자를 나타내요.",
+"explanation":"\"一\"은 숫자 1을 나타내며, 하나로 합쳐짐을 뜻하기도 해요.",
+"bibleNote":"예수님은 우리가 아버지와 아들처럼 '하나'가 되게 해달라고 기도하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"일치","hanja":"一致","meaning":"서로 다름없이 꼭 맞음"},
+{"word":"통일","hanja":"統一","meaning":"나뉜 것을 하나로 합침"},
+{"word":"유일","hanja":"唯一","meaning":"오직 하나뿐임"},
+{"word":"일생","hanja":"一生","meaning":"세상에 태어나서 죽을 때까지"}
+]}}

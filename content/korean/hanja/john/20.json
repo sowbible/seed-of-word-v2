@@ -1,0 +1,13 @@
+{"book":"john","chapter":20,"version":"1.0","hanja":{
+"character":"疑","reading":"의심할 의","radical":"疋 (짝필부)","strokeCount":14,
+"meaningTags":["의심","확신하지 못함"],
+"origin":"사람이 갈림길에 서서 지팡이를 짚고 망설이는 모습에서, '의심하다, 망설이다'는 뜻이 됐어요.",
+"explanation":"\"疑\"는 확실히 믿지 못하고 망설이는 마음을 나타내는 글자예요.",
+"bibleNote":"도마는 부활하신 예수님을 직접 보기 전까지 의심했지만, 예수님을 만나고 확신하게 됐어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"의심","hanja":"疑心","meaning":"확실히 믿지 못하고 미심쩍어함"},
+{"word":"의문","hanja":"疑問","meaning":"확실하지 않아 궁금하게 여김"},
+{"word":"의혹","hanja":"疑惑","meaning":"믿지 못해 마음에 걸림"},
+{"word":"질의","hanja":"質疑","meaning":"의심나는 점을 물어봄"}
+]}}

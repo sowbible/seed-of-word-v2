@@ -1,0 +1,13 @@
+{"book":"john","chapter":21,"version":"1.0","hanja":{
+"character":"漁","reading":"고기잡을 어","radical":"水 (삼수변)","strokeCount":14,
+"meaningTags":["물고기를 잡음","어업"],
+"origin":"물(水)에서 물고기(魚)를 잡는 모습을 그대로 나타낸 글자예요.",
+"explanation":"\"漁\"는 물고기를 잡는 일을 나타내는 글자예요.",
+"bibleNote":"부활하신 예수님은 고기 잡던 제자들을 다시 찾아오셔서 '내 양을 먹이라'고 부탁하셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"어부","hanja":"漁夫","meaning":"물고기 잡는 것을 직업으로 하는 사람"},
+{"word":"어선","hanja":"漁船","meaning":"물고기를 잡는 배"},
+{"word":"어촌","hanja":"漁村","meaning":"어업을 하며 사는 마을"},
+{"word":"어업","hanja":"漁業","meaning":"물고기를 잡거나 기르는 일"}
+]}}

@@ -1,0 +1,13 @@
+{"book":"john","chapter":10,"version":"1.0","hanja":{
+"character":"牧","reading":"칠 목","radical":"牛 (소우변)","strokeCount":8,
+"meaningTags":["기르다","돌보다","목자"],
+"origin":"소(牛)를 손에 회초리(攵)를 들고 몰고 다니며 돌보는 모습을 나타낸 글자예요.",
+"explanation":"\"牧\"은 가축이나 사람들을 돌보고 이끄는 것을 나타내는 글자예요.",
+"bibleNote":"예수님은 '나는 선한 목자'라고 하시며, 양을 위해 목숨을 버리는 사랑을 보여주셨어요.",
+"hasAnimation":true,"hasWritingPractice":true,
+"relatedWords":[
+{"word":"목자","hanja":"牧者","meaning":"양을 돌보고 인도하는 사람"},
+{"word":"목장","hanja":"牧場","meaning":"가축을 기르는 넓은 땅"},
+{"word":"목회","hanja":"牧會","meaning":"교회를 돌보고 이끄는 일"},
+{"word":"목사","hanja":"牧師","meaning":"교회를 이끄는 지도자"}
+]}}
