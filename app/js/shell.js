@@ -625,14 +625,12 @@
       ${(h.hasAnimation || h.hasWritingPractice) ? `<div class="sow-hanja-section-label">✍️ 연습</div>` : ''}
       <div class="sow-hanzi-row">
         ${h.hasAnimation ? `<div class="sow-card sow-hanzi-writer-card">
-          <h4>🖊️ 획순 보기</h4>
+          <h4>🖊️ 획순 보기 <button type="button" class="sow-hanzi-icon-btn" id="sow-hanzi-replay" title="다시보기">↺</button></h4>
           <div id="sow-hanzi-anim-target" class="sow-hanzi-canvas"></div>
-          <button type="button" class="sow-hanzi-btn" id="sow-hanzi-replay">↺ 다시보기</button>
         </div>` : ''}
         ${h.hasWritingPractice ? `<div class="sow-card sow-hanzi-writer-card">
-          <h4>✍️ 써보기</h4>
+          <h4>✍️ 써보기 <button type="button" class="sow-hanzi-icon-btn" id="sow-hanzi-retry" title="다시 쓰기">↺</button></h4>
           <div id="sow-hanzi-quiz-target" class="sow-hanzi-canvas"></div>
-          <button type="button" class="sow-hanzi-btn" id="sow-hanzi-retry">↺ 다시 쓰기</button>
           <p class="sow-hanzi-quiz-msg"></p>
         </div>` : ''}
       </div>
@@ -797,8 +795,7 @@
     function sentenceCard(text, rate, big){
       const card = document.createElement('div');
       card.className = 'sow-lang-sentence-card';
-      card.innerHTML = `<p class="sow-lang-sentence-text${big?' big':''}">${wrapWords(text)}</p>
-        <div class="sow-lang-listen-row"><button class="sow-lang-btn-listen">🔊 읽어주기</button></div>`;
+      card.innerHTML = `<p class="sow-lang-sentence-text${big?' big':''}">${wrapWords(text)}<button class="sow-lang-btn-listen">🔊</button></p>`;
       card.querySelector('.sow-lang-btn-listen').onclick = () => readAloudCard(card, text, rate);
       wireWordTaps(card);
       return card;
