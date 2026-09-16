@@ -127,23 +127,59 @@
   }
 
   /* ---------- followsTrackOf 모듈용 안내 배지 — "성경묵상 코스를 따라가고 있어요" ---------- */
-  async function renderFollowBadge(main, parentModuleId, trackMeta, real){
-    let rangeText = '';
-    if(real){
-      let shortKo = real.book;
-      try{
-        const library = await fetchJSON('/content/bible/_library.json');
-        const all = [...library.oldTestament.books, ...library.newTestament.books];
-        const book = all.find(b => b.id === real.book);
-        if(book) shortKo = book.shortKo;
-      }catch(_){}
-      rangeText = ` · <b>${shortKo} ${real.chapter}장</b>`;
-    }
+  /* ---------- 압축된 한 줄 네비게이션 바 ----------
+     예전엔 "지금 코스" 배지 / "이전·다음 걸음" / "본문 바로 가기"가 세 줄로 따로 있었는데,
+     한 줄(◀ · 코스명·책장(진도) · 🔎 · ▶)로 합쳤다. 🔎 누르면 그 아래로 책/장 선택기가 펼쳐진다. */
+  async function renderCompactNavBar(main, trackId, trackMeta){
+    let total = null;
+    try{
+      const meta = await fetchJSON(`/content/meditation/${trackId}/meta.json`);
+      total = meta.totalSteps || null;
+    }catch(_){}
+    let real = null, shortKo = '', library = null;
+    try{
+      real = await resolveRealChapter(trackId);
+      library = await fetchJSON('/content/bible/_library.json');
+      const all = [...library.oldTestament.books, ...library.newTestament.books];
+      const book = all.find(b => b.id === real.book);
+      shortKo = book ? book.shortKo : real.book;
+    }catch(_){}
+
     const bar = document.createElement('div');
-    bar.className = 'sow-follow-badge';
-    bar.innerHTML = `<span>📖 지금 코스: <b>${pickLabel(trackMeta.label)}</b>${rangeText}</span><span class="sow-follow-hint">성경묵상 탭에서 바꿀 수 있어요</span>`;
+    bar.className = 'sow-compact-nav';
+    const prevDisabled = STEP <= 1;
+    const nextDisabled = total ? STEP >= total : false;
+    const showJumperToggle = trackMeta.generated || trackMeta.yearPlan;
+    bar.innerHTML = `
+      <button type="button" class="sow-compact-nav-btn" data-dir="prev" ${prevDisabled ? 'disabled' : ''}>◀</button>
+      <span class="sow-compact-nav-label"><b>${pickLabel(trackMeta.label)}</b>${real ? ` · ${shortKo} ${real.chapter}장` : ''}${total ? ` (${STEP}/${total})` : ''}</span>
+      ${showJumperToggle ? `<button type="button" class="sow-compact-nav-jump" title="본문 바로 가기">🔎</button>` : ''}
+      <button type="button" class="sow-compact-nav-btn" data-dir="next" ${nextDisabled ? 'disabled' : ''}>▶</button>`;
+    bar.querySelectorAll('[data-dir]').forEach(btn => {
+      btn.onclick = () => {
+        const delta = btn.dataset.dir === 'prev' ? -1 : 1;
+        const target = STEP + delta;
+        location.href = `${BASE}/sow/read/index.html?book=${encodeURIComponent(BOOK)}&step=${target}&module=${encodeURIComponent(state.activeModule)}`;
+      };
+    });
     main.appendChild(bar);
+
+    if(showJumperToggle && real && library){
+      const jumperSlot = document.createElement('div');
+      main.appendChild(jumperSlot);
+      const jumper = renderChapterJumper(jumperSlot, {
+        library, initialBookId: real.book, initialChapter: real.chapter,
+        label: '이 장으로 바로 가기', hideOwnToggle: true,
+        onChange: (newBook, newChapter) => {
+          const flatIdx = flatChapterIndex(library, newBook, newChapter);
+          const targetStep = trackMeta.yearPlan ? yearPlanDayForFlatIndex(flatIdx) : flatIdx;
+          navigateToStep(targetStep);
+        }
+      });
+      bar.querySelector('.sow-compact-nav-jump').onclick = () => jumper.toggle();
+    }
   }
+
 
   /* ---------- 아직 콘텐츠 없는 코스(예: 1장 코스, 1년1독) 준비중 화면 ---------- */
   async function renderTrackComingSoon(container, moduleId, trackId, trackMeta){
@@ -157,31 +193,6 @@
       <h4 style="margin:10px 0 6px;">${pickLabel(trackMeta.label)} — 준비중이에요</h4>
       <p style="font-size:13.5px;color:var(--forest-soft);line-height:1.6;">${desc}</p>
     </div>`;
-  }
-
-  /* ---------- 걸음 이전/다음 이동 — 코스(트랙) 공통, 어느 모듈 탭에서든 노출 ---------- */
-  async function renderStepNavBar(main, trackId){
-    let total = null;
-    try{
-      const meta = await fetchJSON(`/content/meditation/${trackId}/meta.json`);
-      total = meta.totalSteps || null;
-    }catch(_){ /* 무시 */ }
-    const bar = document.createElement('div');
-    bar.className = 'sow-step-nav-bar';
-    const prevDisabled = STEP <= 1;
-    const nextDisabled = total ? STEP >= total : false;
-    bar.innerHTML = `
-      <button type="button" class="sow-step-nav-btn" data-dir="prev" ${prevDisabled ? 'disabled' : ''}>◀ 이전 걸음</button>
-      <span class="sow-step-nav-count">${STEP}${total ? ' / ' + total + '걸음' : '걸음'}</span>
-      <button type="button" class="sow-step-nav-btn" data-dir="next" ${nextDisabled ? 'disabled' : ''}>다음 걸음 ▶</button>`;
-    bar.querySelectorAll('[data-dir]').forEach(btn => {
-      btn.onclick = () => {
-        const delta = btn.dataset.dir === 'prev' ? -1 : 1;
-        const target = STEP + delta;
-        location.href = `${BASE}/sow/read/index.html?book=${encodeURIComponent(BOOK)}&step=${target}&module=${encodeURIComponent(state.activeModule)}`;
-      };
-    });
-    main.appendChild(bar);
   }
 
   /* ---------- 성경묵상: 오늘의 말씀(steps) ---------- */
@@ -226,8 +237,9 @@
 
     function draw(){
       if(!expanded){
-        container.innerHTML = `<button type="button" class="sow-jumper-toggle">🔎 본문 바로 가기 <span class="sow-jumper-toggle-current">${currentBookLabel()}</span></button>`;
-        container.querySelector('.sow-jumper-toggle').onclick = () => { expanded = true; draw(); };
+        // hideOwnToggle: 압축 네비바처럼 외부에 이미 토글 아이콘이 있을 때, 여기선 아무것도 안 그린다.
+        container.innerHTML = opts.hideOwnToggle ? '' : `<button type="button" class="sow-jumper-toggle">🔎 본문 바로 가기 <span class="sow-jumper-toggle-current">${currentBookLabel()}</span></button>`;
+        if(!opts.hideOwnToggle) container.querySelector('.sow-jumper-toggle').onclick = () => { expanded = true; draw(); };
         return;
       }
       if(!books().some(b => b.id === bookId)) bookId = books()[0].id;
@@ -247,7 +259,7 @@
           <select class="sow-jumper-chapter">${Array.from({length: book.chapters}, (_, i) => i+1).map(n => `<option value="${n}" ${n===chapter?'selected':''}>${n}장</option>`).join('')}</select>
         </div>
       </div>`;
-      container.querySelector('.sow-jumper-collapse').onclick = () => { expanded = false; draw(); };
+      container.querySelector('.sow-jumper-collapse').onclick = () => { expanded = false; draw(); if(opts.onToggle) opts.onToggle(false); };
       container.querySelectorAll('[data-t]').forEach(btn => {
         btn.onclick = () => { testament = btn.dataset.t; draw(); };
       });
@@ -255,6 +267,9 @@
       container.querySelector('.sow-jumper-chapter').onchange = (e) => { chapter = Number(e.target.value); opts.onChange(bookId, chapter); };
     }
     draw();
+    return {
+      toggle: () => { expanded = !expanded; draw(); if(opts.onToggle) opts.onToggle(expanded); }
+    };
   }
 
   /* 걸음(STEP) ↔ 실제 책/장 상호 변환 — 하루한장/1년1독에서 "이 장으로 바로 가기"에 사용 */
@@ -274,27 +289,7 @@
     location.href = url.toString();
   }
 
-  /* "🔎 본문 바로 가기"를 성경묵상뿐 아니라 국어/언어/성경관련 지식 화면 위에도 똑같이 보여준다.
-     실제 장 개념이 있는 코스(하루한장/1년1독)에서만 뜬다 — 어린이 코스(고정 걸음)나 자유코스
-     (자기 안에서 이미 고르는 UI가 따로 있음)는 대상이 아니다. 어떤 모듈에서 눌러도 지금 보고 있는
-     모듈(국어면 국어) 그대로 유지한 채 장만 이동한다(navigateToStep이 state.activeModule을 따라감). */
-  async function renderSharedChapterJumper(main, trackId, trackMeta){
-    if(!(trackMeta.generated || trackMeta.yearPlan)) return;
-    let real;
-    try{ real = await resolveRealChapter(trackId); }catch(_){ return; }
-    const library = await fetchJSON('/content/bible/_library.json');
-    const jumperSlot = document.createElement('div');
-    main.appendChild(jumperSlot);
-    renderChapterJumper(jumperSlot, {
-      library, initialBookId: real.book, initialChapter: real.chapter,
-      label: '이 장으로 바로 가기',
-      onChange: (newBook, newChapter) => {
-        const flatIdx = flatChapterIndex(library, newBook, newChapter);
-        const targetStep = trackMeta.yearPlan ? yearPlanDayForFlatIndex(flatIdx) : flatIdx;
-        navigateToStep(targetStep);
-      }
-    });
-  }
+  /* "🔎 본문 바로 가기"는 이제 renderCompactNavBar 안에서 한 줄로 같이 처리한다(아래 참고). */
 
   async function renderMeditationFree(container){
     const [library, template] = await Promise.all([
@@ -786,7 +781,10 @@
       u.onboundary = (e) => {
         if(e.name !== 'word') return;
         words.forEach(w => w.classList.remove('speaking'));
-        const idx = text.slice(0, e.charIndex).trim().split(' ').length - 1;
+        // 이 지점(charIndex) 앞에 완성된 단어가 몇 개인지 세면, 그게 바로 "지금 읽는 단어"의 인덱스다.
+        // (예전엔 여기서 -1을 해서 하이라이트가 항상 한 단어씩 뒤에서 따라가는 버그가 있었다)
+        const before = text.slice(0, e.charIndex).trim();
+        const idx = before === '' ? 0 : before.split(/\s+/).length;
         if(words[idx]) words[idx].classList.add('speaking');
       };
       u.onend = () => words.forEach(w => w.classList.remove('speaking'));
@@ -1118,10 +1116,6 @@
       if(!trackId) trackId = resolveActiveTrackId(tracks); // 아직 안 골랐으면 조용히 기본값 — 선택화면 강제 안 함
       trackMeta = tracks.find(tr => tr.id === trackId) || tracks[0];
       main.innerHTML = '';
-      // 성경묵상처럼 "지금 실제로 몇 장을 보고 있는지"를 배지에 같이 보여준다.
-      let followReal = null;
-      try{ followReal = await resolveRealChapter(trackId); }catch(_){}
-      await renderFollowBadge(main, parentId, trackMeta, followReal);
     } else {
       tracks = await getTrackRegistry(moduleId);
       trackId = state.activeTrack[moduleId];
@@ -1148,8 +1142,7 @@
       return;
     }
 
-    if(!trackMeta.stepless) await renderStepNavBar(main, trackId);
-    await renderSharedChapterJumper(main, trackId, trackMeta);
+    if(!trackMeta.stepless) await renderCompactNavBar(main, trackId, trackMeta);
 
     if(moduleId === 'meditation'){
       const bodyWrap = document.createElement('div');
@@ -1214,19 +1207,22 @@
     const activeSub = state.activeSub[moduleId] || submodules[0].id;
     state.activeSub[moduleId] = activeSub;
 
-    const subtabs = document.createElement('div');
-    subtabs.className = 'sow-subtabs';
-    submodules.forEach(s => {
-      const btn = document.createElement('button');
-      btn.className = s.id === activeSub ? 'active' : '';
-      btn.innerHTML = `${s.icon || ''} ${pickLabel(s.label)}`;
-      btn.onclick = () => { state.activeSub[moduleId] = s.id; renderModulePanel(main); };
-      subtabs.appendChild(btn);
-    });
-
     const body = document.createElement('div');
-    main.appendChild(subtabs);
     main.appendChild(body);
+    // 언어(world-languages)는 지금 영어만 콘텐츠가 있어서, 언어 선택 탭 자체를 안 보여준다.
+    // 나중에 다른 언어도 채워지면 이 조건을 없애고 다시 노출하면 된다.
+    if(moduleId !== 'world-languages'){
+      const subtabs = document.createElement('div');
+      subtabs.className = 'sow-subtabs';
+      submodules.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = s.id === activeSub ? 'active' : '';
+        btn.innerHTML = `${s.icon || ''} ${pickLabel(s.label)}`;
+        btn.onclick = () => { state.activeSub[moduleId] = s.id; renderModulePanel(main); };
+        subtabs.appendChild(btn);
+      });
+      main.insertBefore(subtabs, body);
+    }
 
     try{
       // 지금 실제로 읽고 있는 책/장(트랙 종류 무관) — 국어가 이걸 기준으로 콘텐츠를 찾는다(25-4절)
