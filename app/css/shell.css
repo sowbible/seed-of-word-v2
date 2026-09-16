@@ -306,7 +306,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-lang-word.speaking{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
 .sow-lang-btn-listen{display:inline-flex;align-items:center;background:none;color:var(--amber);border:none;font-size:16px;cursor:pointer;padding:0 0 0 6px;vertical-align:middle;}
 
-.sow-lang-helper-box{background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--ink-soft);margin-bottom:10px;}
+.sow-lang-helper-box{background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:11px 13px;font-size:15px;color:var(--ink-soft);margin-bottom:10px;line-height:1.7;}
 .sow-lang-helper-box b{color:var(--amber);}
 
 .sow-lang-quiz-card{background:var(--amber-tint);border:1px solid var(--amber);border-radius:var(--radius);padding:13px;margin-bottom:10px;}
@@ -318,7 +318,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-lang-quiz-opt.correct{background:var(--amber);border-color:var(--amber);color:#fff;}
 .sow-lang-quiz-opt.wrong{background:var(--clay-tint);border-color:var(--clay);color:var(--clay);}
 .sow-lang-quiz-opt.emoji{font-size:22px;padding:10px 16px;display:flex;flex-direction:column;align-items:center;gap:3px;}
-.sow-lang-emoji-kr{font-size:11px;font-weight:700;color:var(--ink-soft);}
+.sow-lang-emoji-kr{font-size:13px;font-weight:700;color:var(--ink-soft);}
 .sow-lang-quiz-opt.emoji.correct .sow-lang-emoji-kr,.sow-lang-quiz-opt.emoji.wrong .sow-lang-emoji-kr{color:#fff;}
 .sow-lang-quiz-done{text-align:center;font-weight:700;color:var(--amber);padding:8px;}
 
@@ -351,7 +351,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-lang-word-popup{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:#fff;padding:16px 18px 20px;border-radius:16px 16px 0 0;box-shadow:0 -6px 24px rgba(0,0,0,.2);transform:translateY(100%);transition:transform .25s;z-index:50;max-width:640px;margin:0 auto;}
 .sow-lang-word-popup.show{transform:translateY(0);}
 .sow-lang-popup-word{font-size:22px;font-weight:800;}
-.sow-lang-popup-mean{font-size:14px;font-weight:600;margin-top:6px;}
+.sow-lang-popup-mean{font-size:19px;font-weight:700;margin-top:8px;}
 .sow-lang-popup-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#B9CCB6;font-size:18px;cursor:pointer;}
 
 /* ---------- 탐험 / 인물 / 지도 ---------- */
