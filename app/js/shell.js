@@ -610,6 +610,7 @@
     const data = await fetchJSON(`/content/korean/hanja/${real.book}/${real.chapter}.json`);
     const h = data.hanja;
     container.innerHTML = `<h2 class="sow-section-title serif">오늘의 한자</h2>
+      <div class="sow-hanja-section-label">🈶 한자 정보</div>
       <div class="sow-card sow-hanja-card">
         <div id="sow-hanja-header-target" class="sow-hanja-char-big"><span class="sow-hanja-char-fallback">${h.character}</span></div>
         <div>
@@ -621,6 +622,7 @@
           <p class="bible-note">📖 ${h.bibleNote}</p>
         </div>
       </div>
+      ${(h.hasAnimation || h.hasWritingPractice) ? `<div class="sow-hanja-section-label">✍️ 연습</div>` : ''}
       <div class="sow-hanzi-row">
         ${h.hasAnimation ? `<div class="sow-card sow-hanzi-writer-card">
           <h4>🖊️ 획순 보기</h4>
@@ -634,8 +636,9 @@
           <p class="sow-hanzi-quiz-msg"></p>
         </div>` : ''}
       </div>
-      ${h.relatedWords && h.relatedWords.length ? `<div class="sow-card sow-hanja-related">
-        <h4>📖 "${h.character}"이(가) 들어간 낱말</h4>
+      ${h.relatedWords && h.relatedWords.length ? `<div class="sow-hanja-section-label">📖 관련 어휘 + 퀴즈</div>
+      <div class="sow-card sow-hanja-related">
+        <h4>"${h.character}"이(가) 들어간 낱말</h4>
         <div class="sow-word-list">${h.relatedWords.map(w => `<div class="sow-word-row">
             <div class="sow-word-head">
               <span class="w">${w.word}</span>
@@ -725,17 +728,309 @@
   }
 
   /* ---------- 언어 ---------- */
+  /* ---------- 언어(세계 언어) ----------
+     탭(왕초급/초급/중급/고급) + "①입력 ②이해확인 ③표현" 3단 구조.
+     단어탭(발음+뜻), 읽어주기(단어별 하이라이트), 통합퀴즈, 순서맞추기, 다중선택,
+     한→영 빈칸, 따라읽기 녹음까지 전부 브라우저 내장 기능(SpeechSynthesis, MediaRecorder)만 쓴다. */
   async function renderWorldLanguages(container, trackId, langId, real){
     const data = await fetchJSON(`/content/world-languages/${langId}/${real.book}/${real.chapter}.json`);
-    let html = '';
-    (data.levels || []).forEach(lv => {
-      const list = (lv.sentences && lv.sentences.length)
-        ? `<ul class="sow-sentence-list">${lv.sentences.map(s => `<li>${typeof s === 'string' ? s : s.text}</li>`).join('')}</ul>`
-        : `<div class="sow-empty-note">${L().empty}</div>`;
-      html += `<div class="sow-level-block"><div class="sow-level-label">${lv.icon} ${lv.label}</div>${list}</div>`;
+    if(!data.levels){ container.innerHTML = `<div class="sow-empty-note">${L().empty}</div>`; return; }
+    const LV = data.levels;
+    const order = ['sprout','tree','fruit','forest'];
+    const meta = { sprout:{icon:'🌱',label:'왕초급'}, tree:{icon:'🌳',label:'초급'}, fruit:{icon:'🍎',label:'중급'}, forest:{icon:'⛰️',label:'고급'} };
+
+    container.innerHTML = `
+      <div class="sow-lang-tabs">${order.filter(k=>LV[k]).map((k,i) => `<div class="sow-lang-tab${i===0?' active':''}" data-lv="${k}">${meta[k].icon} ${meta[k].label}</div>`).join('')}</div>
+      ${order.filter(k=>LV[k]).map((k,i) => `<div class="sow-lang-panel${i===0?' active':''}" data-lv="${k}" id="sow-lang-panel-${k}"></div>`).join('')}
+      <div class="sow-lang-word-popup" id="sow-lang-popup">
+        <button class="sow-lang-popup-close" data-close>✕</button>
+        <div class="sow-lang-popup-word" id="sow-lang-popup-word"></div>
+        <div class="sow-lang-popup-mean" id="sow-lang-popup-mean"></div>
+      </div>`;
+
+    container.querySelectorAll('.sow-lang-tab').forEach(tab => {
+      tab.onclick = () => {
+        container.querySelectorAll('.sow-lang-tab').forEach(t=>t.classList.toggle('active', t===tab));
+        container.querySelectorAll('.sow-lang-panel').forEach(p=>p.classList.toggle('active', p.dataset.lv===tab.dataset.lv));
+      };
     });
-    if(data._note){ html += `<div class="sow-empty-note" style="margin-top:8px;">📝 ${data._note}</div>`; }
-    container.innerHTML = html;
+    container.querySelector('[data-close]').onclick = () => container.querySelector('#sow-lang-popup').classList.remove('show');
+
+    const dict = data.dictionary || {};
+    function wrapWords(text){
+      return text.split(' ').map(w => {
+        const clean = w.replace(/[.,!?"]/g,'').toLowerCase();
+        return `<span class="sow-lang-word" data-w="${clean}">${w}</span>`;
+      }).join(' ');
+    }
+    function speak(text, rate){
+      if(!window.speechSynthesis) return;
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US'; u.rate = rate || 0.6;
+      speechSynthesis.cancel(); speechSynthesis.speak(u);
+    }
+    function wireWordTaps(scopeEl){
+      scopeEl.querySelectorAll('.sow-lang-word').forEach(el => {
+        el.onclick = () => {
+          const w = el.dataset.w;
+          container.querySelector('#sow-lang-popup-word').textContent = w;
+          container.querySelector('#sow-lang-popup-mean').textContent = dict[w] || '(뜻 준비중)';
+          container.querySelector('#sow-lang-popup').classList.add('show');
+          speak(w);
+        };
+      });
+    }
+    function readAloudCard(cardEl, text, rate){
+      const words = cardEl.querySelectorAll('.sow-lang-word');
+      if(!window.speechSynthesis) return;
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US'; u.rate = rate || 0.65;
+      u.onboundary = (e) => {
+        if(e.name !== 'word') return;
+        words.forEach(w => w.classList.remove('speaking'));
+        const idx = text.slice(0, e.charIndex).trim().split(' ').length - 1;
+        if(words[idx]) words[idx].classList.add('speaking');
+      };
+      u.onend = () => words.forEach(w => w.classList.remove('speaking'));
+      speechSynthesis.cancel(); speechSynthesis.speak(u);
+    }
+    function sentenceCard(text, rate, big){
+      const card = document.createElement('div');
+      card.className = 'sow-lang-sentence-card';
+      card.innerHTML = `<p class="sow-lang-sentence-text${big?' big':''}">${wrapWords(text)}</p>
+        <div class="sow-lang-listen-row"><button class="sow-lang-btn-listen">🔊 읽어주기</button></div>`;
+      card.querySelector('.sow-lang-btn-listen').onclick = () => readAloudCard(card, text, rate);
+      wireWordTaps(card);
+      return card;
+    }
+
+    /* ---------- 공용 여러문제 퀴즈 러너 ---------- */
+    function renderMCQuiz(box, questions, emojiMode){
+      let idx = 0;
+      function draw(){
+        if(idx >= questions.length){ box.innerHTML = `<div class="sow-lang-quiz-done">🌱 다 풀었어요!</div>`; return; }
+        const { q, opts, listen } = questions[idx];
+        box.innerHTML = `<div class="sow-lang-quiz-progress">${idx+1} / ${questions.length}</div>
+          <div class="sow-lang-quiz-q">${q}</div>
+          ${listen ? `<button class="sow-lang-btn-listen" style="margin-bottom:8px;">🔊 다시 듣기</button>` : ''}
+          <div class="sow-lang-quiz-opts"></div>`;
+        if(listen) box.querySelector('.sow-lang-btn-listen').onclick = () => speak(listen, 0.6);
+        const wrap = box.querySelector('.sow-lang-quiz-opts');
+        opts.forEach(o => {
+          const b = document.createElement('button');
+          b.className = 'sow-lang-quiz-opt' + (emojiMode ? ' emoji' : '');
+          b.innerHTML = emojiMode && o.kr ? `<span>${o.text}</span><span class="sow-lang-emoji-kr">${o.kr}</span>` : o.text;
+          b.onclick = () => {
+            wrap.querySelectorAll('.sow-lang-quiz-opt').forEach(x=>x.disabled=true);
+            b.classList.add(o.correct?'correct':'wrong');
+            if(!o.correct){ [...wrap.children].find((x,i)=>opts[i].correct).classList.add('correct'); }
+            setTimeout(()=>{ idx++; draw(); }, 800);
+          };
+          wrap.appendChild(b);
+        });
+        if(listen) speak(listen, 0.6);
+      }
+      draw();
+    }
+
+    function shuffleArr(a){ return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]); }
+
+    function stageLabel(text){ const d=document.createElement('div'); d.className='sow-lang-stage-label'; d.textContent=text; return d; }
+    function sectionLabel(text){ const d=document.createElement('div'); d.className='sow-lang-section-label'; d.textContent=text; return d; }
+
+    /* ================= 🌱 왕초급 ================= */
+    if(LV.sprout){
+      const p = container.querySelector('#sow-lang-panel-sprout');
+      p.appendChild(stageLabel('① 입력 — 읽고 들어보세요'));
+      LV.sprout.sentences.forEach(s => p.appendChild(sentenceCard(s, 0.55, true)));
+      if(LV.sprout.quiz && LV.sprout.quiz.length){
+        p.appendChild(stageLabel('② 이해 확인'));
+        p.appendChild(sectionLabel('🎧 듣고 이모지 고르기'));
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card'; p.appendChild(qbox);
+        renderMCQuiz(qbox, LV.sprout.quiz, true);
+      }
+      if(LV.sprout.repeatSentence){
+        p.appendChild(stageLabel('③ 표현 — 따라 말해보세요'));
+        p.appendChild(recordCard('sprout', LV.sprout.repeatSentence));
+      }
+    }
+
+    /* ================= 🌳 초급 ================= */
+    if(LV.tree){
+      const p = container.querySelector('#sow-lang-panel-tree');
+      p.appendChild(stageLabel('① 입력 — 읽고 들어보세요'));
+      LV.tree.sentences.forEach(s => p.appendChild(sentenceCard(s, 0.65)));
+      p.appendChild(stageLabel('② 이해 확인'));
+      if(LV.tree.fillBlank){
+        p.appendChild(sectionLabel('✏️ 빈칸에 단어 넣기'));
+        const fb = LV.tree.fillBlank;
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card';
+        qbox.innerHTML = `<div class="sow-lang-quiz-q">${fb.template}</div><div class="sow-lang-quiz-opts"></div>`;
+        const wrap = qbox.querySelector('.sow-lang-quiz-opts');
+        shuffleArr(fb.options).forEach(o => {
+          const b = document.createElement('button'); b.className='sow-lang-quiz-opt'; b.textContent=o;
+          b.onclick = () => { wrap.querySelectorAll('.sow-lang-quiz-opt').forEach(x=>x.disabled=true); b.classList.add(o===fb.answer?'correct':'wrong'); if(o!==fb.answer) [...wrap.children].find(x=>x.textContent===fb.answer).classList.add('correct'); };
+          wrap.appendChild(b);
+        });
+        p.appendChild(qbox);
+      }
+      if(LV.tree.mixQuiz && LV.tree.mixQuiz.length){
+        p.appendChild(sectionLabel('🎯 어휘·듣기 확인'));
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card'; p.appendChild(qbox);
+        renderMCQuiz(qbox, shuffleArr(LV.tree.mixQuiz));
+      }
+      if(LV.tree.repeatSentence){
+        p.appendChild(stageLabel('③ 표현 — 따라 말해보세요'));
+        p.appendChild(recordCard('tree', LV.tree.repeatSentence));
+      }
+    }
+
+    /* ================= 🍎 중급 ================= */
+    if(LV.fruit){
+      const p = container.querySelector('#sow-lang-panel-fruit');
+      p.appendChild(stageLabel('① 입력 — 문단을 읽고 들어보세요'));
+      if(LV.fruit.helperWords){
+        const hb = document.createElement('div'); hb.className='sow-lang-helper-box';
+        hb.innerHTML = '💡 ' + Object.entries(LV.fruit.helperWords).map(([w,m]) => `<b>${w}</b>(${m})`).join(' · ');
+        p.appendChild(hb);
+      }
+      LV.fruit.sentences.forEach(s => p.appendChild(sentenceCard(s, 0.68)));
+      p.appendChild(stageLabel('② 이해 확인'));
+      if(LV.fruit.orderQuiz && LV.fruit.orderQuiz.length){
+        p.appendChild(sectionLabel('🔀 문장 순서 맞추기'));
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card';
+        qbox.innerHTML = `<div class="sow-lang-quiz-q">원래 순서대로 눌러보세요</div>
+          <div class="sow-lang-order-slot"></div><div class="sow-lang-order-pool"></div>`;
+        const slot = qbox.querySelector('.sow-lang-order-slot'), pool = qbox.querySelector('.sow-lang-order-pool');
+        let placed = [];
+        shuffleArr(LV.fruit.orderQuiz).forEach(s => {
+          const chip = document.createElement('div'); chip.className='sow-lang-order-chip'; chip.textContent = s.slice(0,20)+'...';
+          chip.onclick = () => {
+            if(chip.classList.contains('placed')) return;
+            chip.classList.add('placed');
+            const pc = document.createElement('div'); pc.className='sow-lang-order-chip placed'; pc.textContent = s;
+            slot.appendChild(pc); placed.push(s);
+            if(placed.length === LV.fruit.orderQuiz.length){
+              const ok = placed.every((s,i)=>s===LV.fruit.orderQuiz[i]);
+              slot.style.borderColor = ok ? 'var(--amber)' : 'var(--clay)';
+            }
+          };
+          pool.appendChild(chip);
+        });
+        p.appendChild(qbox);
+      }
+      if(LV.fruit.mixQuiz && LV.fruit.mixQuiz.length){
+        p.appendChild(sectionLabel('🧭 내용 이해 확인'));
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card'; p.appendChild(qbox);
+        renderMCQuiz(qbox, shuffleArr(LV.fruit.mixQuiz));
+      }
+      if(LV.fruit.krEnFill){
+        p.appendChild(stageLabel('③ 표현 — 짧게 써보세요'));
+        p.appendChild(sectionLabel('🇰🇷→🇺🇸 한글 보고 빈칸 채우기'));
+        const kf = LV.fruit.krEnFill;
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card';
+        qbox.innerHTML = `<div class="sow-lang-quiz-q">"${kf.kr}"<br>${kf.template.replace('___', '<input class="sow-lang-fillin">')}</div>
+          <button class="sow-lang-btn-check">확인</button><div class="sow-lang-fillin-result"></div>`;
+        qbox.querySelector('.sow-lang-btn-check').onclick = () => {
+          const val = qbox.querySelector('.sow-lang-fillin').value.trim().toLowerCase();
+          const r = qbox.querySelector('.sow-lang-fillin-result');
+          if(val === kf.answer.toLowerCase()){ r.textContent = '💛 정답이에요!'; r.style.color = 'var(--sage)'; }
+          else { r.textContent = `괜찮아요, 정답은 "${kf.answer}"예요`; r.style.color = 'var(--clay)'; }
+        };
+        p.appendChild(qbox);
+      }
+    }
+
+    /* ================= ⛰️ 고급 ================= */
+    if(LV.forest){
+      const p = container.querySelector('#sow-lang-panel-forest');
+      p.appendChild(stageLabel('① 입력 — 여러 문단을 읽고 들어보세요'));
+      if(LV.forest.helperWords){
+        const hb = document.createElement('div'); hb.className='sow-lang-helper-box';
+        hb.innerHTML = '💡 ' + Object.entries(LV.forest.helperWords).map(([w,m]) => `<b>${w}</b>(${m})`).join(' · ');
+        p.appendChild(hb);
+      }
+      LV.forest.paragraphs.forEach(s => {
+        const card = sentenceCard(s, 0.72);
+        card.querySelector('.sow-lang-sentence-text').style.fontSize = '13.5px';
+        card.querySelector('.sow-lang-sentence-text').style.lineHeight = '1.85';
+        p.appendChild(card);
+      });
+      p.appendChild(stageLabel('② 이해 확인'));
+      if(LV.forest.multiSelect && LV.forest.multiSelect.length){
+        p.appendChild(sectionLabel('☑️ 맞는 문장 모두 고르기'));
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card';
+        const list = document.createElement('div'); list.className='sow-lang-check-list';
+        LV.forest.multiSelect.forEach((o,i) => {
+          const label = document.createElement('label'); label.className='sow-lang-check-item';
+          label.innerHTML = `<input type="checkbox" data-i="${i}"><span>${o.text}</span>`;
+          list.appendChild(label);
+        });
+        const btn = document.createElement('button'); btn.className='sow-lang-btn-submit'; btn.textContent='확인';
+        const result = document.createElement('div'); result.className='sow-lang-fillin-result';
+        btn.onclick = () => {
+          const checked = [...list.querySelectorAll('input:checked')].map(i=>+i.dataset.i);
+          const correctIdx = LV.forest.multiSelect.map((o,i)=>o.correct?i:null).filter(i=>i!==null);
+          const ok = checked.length===correctIdx.length && checked.every(i=>correctIdx.includes(i));
+          result.textContent = ok ? '💛 정확해요!' : '다시 한번 살펴볼까요?';
+          result.style.color = ok ? 'var(--sage)' : 'var(--clay)';
+        };
+        qbox.appendChild(list); qbox.appendChild(btn); qbox.appendChild(result);
+        p.appendChild(qbox);
+      }
+      if(LV.forest.summaryQuiz && LV.forest.summaryQuiz.length){
+        p.appendChild(sectionLabel('📝 문단 요약 고르기'));
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card'; p.appendChild(qbox);
+        renderMCQuiz(qbox, LV.forest.summaryQuiz);
+      }
+      if(LV.forest.essayQuestion){
+        p.appendChild(stageLabel('③ 표현 — 영어로 써보세요'));
+        const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card';
+        qbox.innerHTML = `<div class="sow-lang-quiz-q">${LV.forest.essayQuestion}</div>
+          <textarea class="sow-lang-essay" placeholder="Type your answer here..."></textarea>`;
+        p.appendChild(qbox);
+      }
+    }
+
+    /* ---------- 따라읽기 녹음 카드 (레벨별로 key 구분) ---------- */
+    function recordCard(key, sentText){
+      const card = document.createElement('div'); card.className = 'sow-lang-record-card';
+      card.innerHTML = `<div class="sow-lang-record-title">🎙️ 문장을 듣고 따라 읽어보세요</div>
+        <p class="sow-lang-record-sentence">${sentText}</p>
+        <div class="sow-lang-record-row">
+          <button class="sow-lang-btn-record">🎙️ 녹음 시작</button>
+          <button class="sow-lang-btn-play" disabled>▶️ 내 목소리 듣기</button>
+        </div>
+        <div class="sow-lang-record-status">버튼을 눌러서 녹음을 시작해보세요</div>`;
+      const recBtn = card.querySelector('.sow-lang-btn-record');
+      const playBtn = card.querySelector('.sow-lang-btn-play');
+      const status = card.querySelector('.sow-lang-record-status');
+      let recorder, chunks = [], blobUrl = null, recording = false;
+      recBtn.onclick = async () => {
+        if(!recording){
+          try{
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            chunks = [];
+            recorder = new MediaRecorder(stream);
+            recorder.ondataavailable = e => chunks.push(e.data);
+            recorder.onstop = () => {
+              blobUrl = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' }));
+              playBtn.disabled = false;
+              status.textContent = '녹음 완료! "내 목소리 듣기"를 눌러보세요';
+              stream.getTracks().forEach(t => t.stop());
+            };
+            recorder.start(); recording = true;
+            recBtn.textContent = '⏹️ 녹음 끝내기'; recBtn.classList.add('recording');
+            status.textContent = '녹음 중이에요... 문장을 따라 읽어보세요';
+          }catch(err){ status.textContent = '마이크 권한이 필요해요 — 브라우저에서 허용해주세요'; }
+        } else {
+          recorder.stop(); recording = false;
+          recBtn.textContent = '🎙️ 녹음 시작'; recBtn.classList.remove('recording');
+        }
+      };
+      playBtn.onclick = () => { if(blobUrl) new Audio(blobUrl).play(); };
+      return card;
+    }
   }
 
   /* ---------- 성경관련 지식 ---------- */

@@ -20,6 +20,10 @@
   --indigo-tint:#E3EAF5;
   --sage:#3D7A6B;           /* 어휘 탭 전용 포인트 색 */
   --sage-tint:#DFEBE7;
+  --sage-dark:#1F4A38;      /* 어휘 카드 3톤 그라데이션 — 짙음 */
+  --sage-light:#6BA894;     /* 어휘 카드 3톤 그라데이션 — 옅음 */
+  --indigo-dark:#1E3357;    /* 한자 관련어휘 3톤 — 짙음 */
+  --indigo-light:#5678A8;   /* 한자 관련어휘 3톤 — 옅음 */
   --line:#E4DFD2;
   --line-soft:#EDEAE0;
 
@@ -226,6 +230,8 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanzi-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
 .sow-hanzi-quiz-msg{margin-top:10px;font-size:14px;font-weight:700;color:var(--sprout);min-height:20px;}
 .sow-hanja-related{margin-top:14px;}
+.sow-hanja-section-label{font-size:11px;font-weight:800;color:var(--indigo-tint);background:var(--ink);display:inline-block;padding:5px 12px;border-radius:6px;margin:16px 0 8px;}
+.sow-hanja-section-label:first-of-type{margin-top:0;}
 .sow-hanja-related h4{margin:0 0 10px;font-size:15px;font-weight:700;}
 
 /* ---------- 오늘의 어휘: 컬러 헤더 카드 — 카드 상단 전체가 색블록(초록→금색→테라코타 순환) ---------- */
@@ -234,8 +240,15 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
   background:var(--card);border-radius:var(--radius-sm);overflow:hidden;
   box-shadow:0 3px 10px rgba(29,58,44,.08);
 }
-.sow-word-head{display:flex;align-items:center;gap:9px;padding:11px 14px;color:#fff;background:var(--sage);font-size:13px;font-weight:800;}
+.sow-word-head{display:flex;align-items:center;gap:9px;padding:12px 14px;color:#fff;background:var(--sage);font-size:18px;font-weight:800;}
+/* 어휘 카드 3개마다 짙음→중간→옅음 톤이 순환 — 전부 "초록" 계열이라 정체성은 유지하면서 단조로움만 줄인다 */
+.sow-word-list .sow-word-row:nth-child(3n+1) .sow-word-head{background:var(--sage-dark);}
+.sow-word-list .sow-word-row:nth-child(3n+2) .sow-word-head{background:var(--sage);}
+.sow-word-list .sow-word-row:nth-child(3n) .sow-word-head{background:var(--sage-light);}
 .sow-hanja-related .sow-word-head{background:var(--indigo);}
+.sow-hanja-related .sow-word-list .sow-word-row:nth-child(3n+1) .sow-word-head{background:var(--indigo-dark);}
+.sow-hanja-related .sow-word-list .sow-word-row:nth-child(3n+2) .sow-word-head{background:var(--indigo);}
+.sow-hanja-related .sow-word-list .sow-word-row:nth-child(3n) .sow-word-head{background:var(--indigo-light);}
 .sow-word-icon{font-size:16px;}
 .sow-word-row .w{font-weight:800;font-size:13px;color:#fff;}
 .sow-word-hanja-header{margin-left:auto;font-size:12px;font-weight:700;color:#fff;opacity:.85;}
@@ -269,11 +282,76 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-quiz-next{font-family:inherit;font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
 .sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:15px;font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
 
-/* ---------- 세계 언어 ---------- */
-.sow-level-block{margin-bottom:18px;}
-.sow-level-label{font-size:13.5px;font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:7px;}
-.sow-sentence-list{list-style:none;margin:0;padding:0;}
-.sow-sentence-list li{font-size:14px;padding:10px 14px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);margin-bottom:7px;}
+/* ---------- 세계 언어 (탭+3단구조+단어탭+퀴즈+녹음, 포인트색: 앰버) — 폴더탭(카드스택) 스타일 ---------- */
+.sow-lang-tabs{display:flex;margin-bottom:-1px;position:relative;z-index:1;}
+.sow-lang-tab{
+  flex:1;text-align:center;padding:10px 6px;font-size:12px;font-weight:700;
+  border-radius:12px 12px 0 0;position:relative;top:2px;color:#9C8F7A;background:#EAE4D6;cursor:pointer;
+}
+.sow-lang-tab.active{background:var(--card);color:var(--ink);top:0;box-shadow:0 -3px 8px rgba(0,0,0,.05);}
+.sow-lang-panel{display:none;background:var(--card);border-radius:0 12px 12px 12px;padding:16px;}
+.sow-lang-panel.active{display:block;}
+
+.sow-lang-stage-label{font-size:11px;font-weight:800;color:#F0C875;background:#3D3833;display:inline-block;padding:5px 12px;border-radius:6px;margin:16px 0 8px;letter-spacing:.02em;}
+.sow-lang-stage-label:first-child{margin-top:0;}
+.sow-lang-section-label{font-size:12px;font-weight:800;color:var(--amber);margin:12px 0 6px;}
+
+.sow-lang-sentence-card{background:#FBF9F4;border:1px solid #EDE7D8;border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.sow-lang-sentence-text{font-size:14.5px;line-height:1.85;font-weight:600;margin:0;}
+.sow-lang-sentence-text.big{font-size:16px;}
+.sow-lang-word{cursor:pointer;border-radius:2px;padding:0 1px;border-bottom:2px dotted var(--amber);transition:background .15s;}
+.sow-lang-word:hover{background:var(--amber-tint);}
+.sow-lang-word.speaking{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
+.sow-lang-listen-row{display:flex;justify-content:flex-end;margin-top:4px;}
+.sow-lang-btn-listen{display:inline-flex;align-items:center;gap:4px;background:none;color:var(--amber);border:none;font-size:11.5px;font-weight:700;cursor:pointer;padding:2px;}
+
+.sow-lang-helper-box{background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:9px 11px;font-size:11.5px;color:var(--ink-soft);margin-bottom:10px;}
+.sow-lang-helper-box b{color:var(--amber);}
+
+.sow-lang-quiz-card{background:var(--amber-tint);border:1px solid var(--amber);border-radius:var(--radius);padding:13px;margin-bottom:10px;}
+.sow-lang-quiz-progress{font-size:11px;font-weight:700;color:var(--amber);margin-bottom:6px;}
+.sow-lang-quiz-q{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.5;}
+.sow-lang-quiz-opts{display:flex;flex-wrap:wrap;gap:6px;}
+.sow-lang-quiz-opt{background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;color:var(--ink);}
+.sow-lang-quiz-opt:hover:not(:disabled){border-color:var(--amber);}
+.sow-lang-quiz-opt.correct{background:var(--amber);border-color:var(--amber);color:#fff;}
+.sow-lang-quiz-opt.wrong{background:var(--clay-tint);border-color:var(--clay);color:var(--clay);}
+.sow-lang-quiz-opt.emoji{font-size:22px;padding:10px 16px;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.sow-lang-emoji-kr{font-size:11px;font-weight:700;color:var(--ink-soft);}
+.sow-lang-quiz-opt.emoji.correct .sow-lang-emoji-kr,.sow-lang-quiz-opt.emoji.wrong .sow-lang-emoji-kr{color:#fff;}
+.sow-lang-quiz-done{text-align:center;font-weight:700;color:var(--amber);padding:8px;}
+
+.sow-lang-order-slot{display:flex;flex-direction:column;gap:4px;min-height:32px;background:#fff;border:1px dashed var(--amber);border-radius:8px;padding:6px;margin-bottom:8px;}
+.sow-lang-order-pool{display:flex;flex-wrap:wrap;gap:6px;}
+.sow-lang-order-chip{background:#fff;border:1px solid var(--line);border-radius:7px;padding:6px 10px;font-size:11.5px;font-weight:700;cursor:pointer;}
+.sow-lang-order-chip.placed{background:var(--amber);color:#fff;border-color:var(--amber);}
+
+.sow-lang-fillin{border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-family:inherit;font-size:13px;width:140px;margin:6px 4px;}
+.sow-lang-btn-check,.sow-lang-btn-submit{background:var(--amber);color:#fff;border:none;border-radius:99px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;margin-top:8px;}
+.sow-lang-fillin-result{font-size:12px;font-weight:700;margin-top:8px;}
+
+.sow-lang-check-list{display:flex;flex-direction:column;gap:6px;}
+.sow-lang-check-item{display:flex;align-items:flex-start;gap:8px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:12.5px;cursor:pointer;}
+.sow-lang-check-item input{margin-top:2px;}
+
+.sow-lang-essay{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font-family:inherit;font-size:13px;min-height:60px;resize:vertical;margin-top:4px;}
+
+.sow-lang-record-card{background:var(--amber-tint);border:1px solid var(--amber);border-radius:var(--radius);padding:15px;margin-top:6px;}
+.sow-lang-record-title{font-size:12.5px;font-weight:800;color:var(--amber);margin-bottom:8px;}
+.sow-lang-record-sentence{font-size:13.5px;font-weight:600;margin:0 0 10px;}
+.sow-lang-record-row{display:flex;gap:8px;margin-bottom:8px;}
+.sow-lang-btn-record{flex:1;background:var(--clay);color:#fff;border:none;border-radius:99px;padding:10px;font-size:12.5px;font-weight:700;cursor:pointer;}
+.sow-lang-btn-record.recording{background:#A3402A;animation:sow-lang-pulse 1s infinite;}
+.sow-lang-btn-play{flex:1;background:var(--amber);color:#fff;border:none;border-radius:99px;padding:10px;font-size:12.5px;font-weight:700;cursor:pointer;}
+.sow-lang-btn-play:disabled{background:#E3D3B3;cursor:default;}
+.sow-lang-record-status{font-size:11px;color:var(--ink-soft);text-align:center;}
+@keyframes sow-lang-pulse{0%,100%{opacity:1;}50%{opacity:.6;}}
+
+.sow-lang-word-popup{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:#fff;padding:16px 18px 20px;border-radius:16px 16px 0 0;box-shadow:0 -6px 24px rgba(0,0,0,.2);transform:translateY(100%);transition:transform .25s;z-index:50;max-width:640px;margin:0 auto;}
+.sow-lang-word-popup.show{transform:translateY(0);}
+.sow-lang-popup-word{font-size:22px;font-weight:800;}
+.sow-lang-popup-mean{font-size:14px;font-weight:600;margin-top:6px;}
+.sow-lang-popup-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#B9CCB6;font-size:18px;cursor:pointer;}
 
 /* ---------- 탐험 / 인물 / 지도 ---------- */
 .sow-item-card{display:flex;gap:16px;align-items:flex-start;}
@@ -458,17 +536,21 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
   background:var(--card);cursor:pointer;transition:.18s;
 }
 .sow-discussion-item:hover{border-color:var(--line);}
-.sow-discussion-item.active{background:var(--amber-tint);border-color:var(--amber);}
+.sow-discussion-item.active{background:var(--clay-tint);border-color:var(--clay);}
 .sow-discussion-item input[type="radio"]{position:absolute;opacity:0;width:0;height:0;}
 .sow-discussion-num{
-  width:24px;height:24px;border-radius:50%;background:var(--sprout);color:#fff;
+  width:24px;height:24px;border-radius:50%;background:var(--clay);color:#fff;
   font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;
   transition:background .18s;
 }
-.sow-discussion-item.active .sow-discussion-num{background:var(--amber);}
+/* 질문 3개도 짙음/중간/옅음 테라코타 톤으로 순환 — 어휘와 같은 원리 */
+.sow-discussion-list .sow-discussion-item:nth-child(3n+1) .sow-discussion-num{background:#8A3F26;}
+.sow-discussion-list .sow-discussion-item:nth-child(3n+2) .sow-discussion-num{background:var(--clay);}
+.sow-discussion-list .sow-discussion-item:nth-child(3n) .sow-discussion-num{background:#D68F6E;}
+.sow-discussion-item.active .sow-discussion-num{background:var(--clay);}
 .sow-discussion-text{font-size:14px;font-weight:600;line-height:1.55;color:var(--ink);}
 .sow-discussion-guide{font-size:13px;color:var(--ink-soft);font-style:italic;margin:0 0 10px;}
-.sow-discussion-answer-box{background:var(--ink);border-radius:12px;padding:14px;}
+.sow-discussion-answer-box{background:#4A2A1C;border-radius:12px;padding:14px;}
 .sow-discussion-answer-box .sow-voice-field-wrap{background:transparent;border:none;}
 .sow-writing-textarea{min-height:130px;color:#fff;}
 .sow-discussion-answer-box .sow-writing-textarea::placeholder{color:#B9CCB6;}
