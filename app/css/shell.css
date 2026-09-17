@@ -5,7 +5,7 @@
    느낌 대신, 은은한 세이지 톤 원 안에 담아 카드마다 일관된 언어로 통일.
    ========================================================= */
 :root{
-  /* ---- 색상 ---- */
+  /* ---- 색상: 코어 팔레트 ---- */
   --paper:#F6F4EE;
   --card:#FFFFFF;
   --ink:#1D3A2C;          /* 짙은 파인그린 — 본문/헤딩 */
@@ -27,13 +27,47 @@
   --line:#E4DFD2;
   --line-soft:#EDEAE0;
 
-  /* ---- 반경/그림자 ---- */
+  /* ---- 색상: 보조 톤 (이전엔 컴포넌트마다 흩어진 하드코딩 값이었던 것을 토큰화) ---- */
+  --muted-gold:#9A8F6E;      /* 빈 상태/로딩/보조 안내 문구 */
+  --neutral-warm:#EAE4D6;    /* 세계언어 폴더탭 — 비활성 배경 */
+  --neutral-warm-text:#9C8F7A; /* 세계언어 폴더탭 — 비활성 글자 */
+  --paper-warm:#FBF9F4;      /* 세계언어 문장 카드 배경 */
+  --line-warm:#EDE7D8;       /* 세계언어 문장 카드 테두리 */
+  --amber-pale:#E3D3B3;      /* 앰버 버튼 disabled */
+  --charcoal:#3D3833;        /* 단계 배지 배경(대비용 다크 뉴트럴) */
+  --charcoal-gold:#F0C875;   /* 단계 배지 글자 */
+  --berry:#5C2A3D;           /* 토론 답변창 배경 */
+  --berry-soft:#D9AEB8;      /* 답변창 placeholder */
+  --terracotta-deep:#8A3F26; /* 토론 번호 배지 — 짙음 */
+  --terracotta-light:#D68F6E;/* 토론 번호 배지 — 옅음 */
+  --alert:#C4432E;           /* 녹음 중 펄스 */
+  --alert-deep:#A3402A;      /* 언어 녹음 중 */
+  --disabled-grey:#B8AF95;   /* 비활성 버튼 */
+  --word-ink:#3E4E42;        /* 오늘의 어휘 설명 텍스트 */
+  --hanja-note:#9CA89B;      /* 한자 참고 라벨 */
+
+  /* ---- 타이포 스케일 ---- */
+  --fs-2xs:11px;
+  --fs-xs:12px;
+  --fs-sm:13px;
+  --fs-base:14px;
+  --fs-md:15px;
+  --fs-lg:17px;
+  --fs-xl:19px;
+  --fs-2xl:23px;
+
+  /* ---- 반경/그림자/여백 리듬 ---- */
   --radius-lg:20px;
   --radius:16px;
   --radius-sm:10px;
   --shadow-sm:0 1px 2px rgba(29,58,44,0.05);
   --shadow-md:0 6px 20px rgba(29,58,44,0.07);
   --shadow-lift:0 14px 32px rgba(29,58,44,0.12);
+  --shadow-pop:0 -3px 8px rgba(0,0,0,.05); /* 위로 뜨는 요소(폴더탭 등) 전용 */
+  --shadow-sheet:0 -6px 24px rgba(0,0,0,.18); /* 하단 시트/팝업 */
+
+  --ease:.18s ease;
+  --ease-fast:.15s ease;
 
   --nav-h:60px;
 
@@ -95,30 +129,30 @@ body.sow-drawer-open nav.sow-modules{ transform:translateX(0); }
 .sow-nav-btn-row{ display:flex; align-items:stretch; gap:2px; }
 
 .sow-nav-btn{
-  font-family:inherit;font-size:14.5px;font-weight:600;
+  font-family:inherit;font-size:var(--fs-md);font-weight:600;
   padding:11px 12px;border-radius:12px;border:1px solid transparent;
   background:transparent;color:var(--ink-soft);cursor:pointer;
   display:flex;align-items:center;gap:12px;justify-content:flex-start;width:100%;
-  transition:background .18s,color .18s;
+  transition:background var(--ease),color var(--ease);
 }
 .sow-nav-btn-row .sow-nav-btn{ flex:1; min-width:0; }
-.sow-nav-btn > span:first-child{font-size:17px;flex:none;}
+.sow-nav-btn > span:first-child{font-size:var(--fs-lg);flex:none;}
 .sow-nav-btn.active{background:var(--ink);color:#fff;}
 .sow-nav-btn:hover:not(.active){background:rgba(29,58,44,0.07);}
 
 /* 코스 아코디언: 화살표 + 펼쳐지는 코스 목록 */
 .sow-nav-chevron{
   flex:none;width:34px;display:flex;align-items:center;justify-content:center;
-  font-size:12px;background:none;border:none;color:var(--ink-soft);
-  cursor:pointer;border-radius:10px;transition:background .18s;
+  font-size:var(--fs-xs);background:none;border:none;color:var(--ink-soft);
+  cursor:pointer;border-radius:10px;transition:background var(--ease);
 }
 .sow-nav-chevron:hover{background:rgba(29,58,44,0.07);}
 .sow-nav-sublist{display:flex;flex-direction:column;gap:2px;padding:2px 0 6px 28px;}
 .sow-nav-sub-btn{
   display:flex;align-items:center;gap:9px;text-align:left;
-  font-family:inherit;font-size:13px;font-weight:600;
+  font-family:inherit;font-size:var(--fs-sm);font-weight:600;
   padding:9px 10px;border-radius:10px;border:none;
-  background:none;color:var(--ink-soft);cursor:pointer;transition:background .18s,color .18s;
+  background:none;color:var(--ink-soft);cursor:pointer;transition:background var(--ease),color var(--ease);
 }
 .sow-nav-sub-btn > span:first-child{font-size:14px;flex:none;}
 .sow-nav-sub-btn:hover{background:rgba(29,58,44,0.06);}
@@ -149,12 +183,12 @@ body.sow-drawer-open .sow-drawer-overlay{opacity:1;pointer-events:auto;}
 
 /* ---------- 로그인 위젯 (nav 맨 아래에 함께 렌더링됨) ---------- */
 #sow-auth{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);}
-.sow-auth-bar{display:flex;flex-direction:column;align-items:stretch;gap:8px;font-size:12.5px;}
+.sow-auth-bar{display:flex;flex-direction:column;align-items:stretch;gap:8px;font-size:var(--fs-sm);}
 .sow-auth-user{font-weight:700;color:var(--ink);}
-.sow-auth-email{width:100%;font-family:inherit;font-size:12.5px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
-.sow-auth-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 12px;border-radius:10px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:.18s;width:100%;}
+.sow-auth-email{width:100%;font-family:inherit;font-size:var(--fs-sm);padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
+.sow-auth-btn{font-family:inherit;font-size:var(--fs-sm);font-weight:700;padding:9px 12px;border-radius:10px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:var(--ease);width:100%;}
 .sow-auth-btn:hover{background:var(--sprout);border-color:var(--sprout);}
-.sow-auth-msg{font-size:11px;color:var(--sprout);font-weight:600;}
+.sow-auth-msg{font-size:var(--fs-2xs);color:var(--sprout);font-weight:600;}
 
 /* ---------- 데스크톱(1024px 이상): 늘 보이는 좌측 사이드바 + 넓어진 본문 ---------- */
 @media (min-width: 1024px){
@@ -164,7 +198,12 @@ body.sow-drawer-open .sow-drawer-overlay{opacity:1;pointer-events:auto;}
     width:var(--sidebar-w);max-width:none;transform:none;transition:none;
     box-shadow:none;padding:28px 14px 20px;
   }
-  main.sow-main{ margin-left:var(--sidebar-w); max-width:900px; padding:40px 44px 90px; }
+  main.sow-main{
+    margin-left:calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+    margin-right:calc(max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+    max-width:900px;
+    padding:40px 44px 90px;
+  }
 
   /* "나의 성경읽기" 툴바 안에서도 가로 공간을 더 쓰도록 저장/새로고침과
      달력·성경지도 탭을 한 줄로 배치 */
@@ -177,70 +216,78 @@ body.sow-drawer-open .sow-drawer-overlay{opacity:1;pointer-events:auto;}
   /* 성경지도 안 66권 그리드도 넓은 화면에서 2열로 나눠 가로를 활용 */
   .sow-map-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
 }
+/* ---------- 더 넓은 데스크톱(1440px 이상): 본문 폭을 조금 더 넓혀서 여백 줄이기 ---------- */
+@media (min-width: 1440px){
+  main.sow-main{
+    margin-left:calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 1100px) / 2));
+    margin-right:calc(max(0px, (100vw - var(--sidebar-w) - 1100px) / 2));
+    max-width:1100px;
+  }
+}
 
 /* ---------- 서브탭 (korean / world-languages / explore 공용) ---------- */
 .sow-subtabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
 .sow-subtabs button{
-  font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  font-family:inherit;font-size:var(--fs-sm);font-weight:600;cursor:pointer;
   padding:8px 16px;border-radius:99px;border:1px solid var(--line);
-  background:var(--card);color:var(--ink-soft);transition:.18s;
+  background:var(--card);color:var(--ink-soft);transition:var(--ease);
 }
 .sow-subtabs button.active{border-color:var(--ink);color:var(--ink);background:var(--sprout-tint);}
 .sow-subtabs button:hover:not(.active){border-color:var(--ink-soft);}
 
 /* ---------- 레이아웃 ---------- */
 main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
-.sow-passage-ref{font-size:14.5px;color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:8px;}
-.sow-section-title{font-size:23px;margin:0 0 22px;font-weight:700;line-height:1.4;}
-.sow-loading{padding:48px 0;text-align:center;color:#9A8F6E;font-size:13.5px;}
+.sow-passage-ref{font-size:var(--fs-md);color:var(--ink-soft);font-weight:700;letter-spacing:.02em;margin-bottom:8px;}
+.sow-section-title{font-size:var(--fs-2xl);margin:0 0 22px;font-weight:700;line-height:1.4;}
+.sow-loading{padding:48px 0;text-align:center;color:var(--muted-gold);font-size:var(--fs-sm);}
 
 /* ---------- 1년1독 코스: 오늘 읽을 범위 칩 ---------- */
 .sow-year-plan-list{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
-.sow-year-plan-chip{font-size:12.5px;font-weight:600;padding:7px 12px;background:var(--sprout-tint);border-radius:99px;color:var(--ink);}
+.sow-year-plan-chip{font-size:var(--fs-xs);font-weight:600;padding:7px 12px;background:var(--sprout-tint);border-radius:99px;color:var(--ink);}
 
 /* ---------- 카드 공통 ---------- */
 .sow-card{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:22px 24px;margin-bottom:16px;transition:box-shadow .2s;}
 
 /* ---------- 프롬프트 카드 (묵상/표현하기/토론/글쓰기 공용) ---------- */
 .sow-prompt .icon-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.sow-prompt h4{margin:0;font-size:17px;font-weight:700;}
-.sow-required{font-size:11.5px;font-weight:700;color:var(--clay);background:var(--clay-tint);padding:3px 9px;border-radius:99px;margin-left:auto;letter-spacing:.02em;}
-.sow-prompt p{margin:0 0 14px;font-size:15px;color:var(--ink-soft);line-height:1.7;}
-.sow-share-toggle{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--sprout);margin-top:10px;cursor:pointer;}
+.sow-prompt h4{margin:0;font-size:var(--fs-lg);font-weight:700;}
+.sow-required{font-size:var(--fs-2xs);font-weight:700;color:var(--clay);background:var(--clay-tint);padding:3px 9px;border-radius:99px;margin-left:auto;letter-spacing:.02em;}
+.sow-prompt p{margin:0 0 14px;font-size:var(--fs-md);color:var(--ink-soft);line-height:1.7;}
+.sow-share-toggle{display:flex;align-items:center;gap:7px;font-size:var(--fs-xs);font-weight:600;color:var(--sprout);margin-top:10px;cursor:pointer;}
 .sow-share-toggle input{accent-color:var(--sprout);width:15px;height:15px;cursor:pointer;}
 
 /* ---------- 한자/어휘 ---------- */
 .sow-hanja-card{display:flex;gap:22px;align-items:flex-start;}
 .sow-hanja-char-big{background:var(--indigo-tint);width:224px;height:224px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);}
 .sow-hanja-char-fallback{font-family:'Pretendard', sans-serif;font-size:150px;font-weight:700;color:var(--ink);}
-.sow-hanja-reading{font-weight:700;font-size:17px;margin-bottom:6px;}
-.sow-hanja-tags{font-size:13.5px;color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
-.sow-hanja-card p{margin:0 0 6px;font-size:15px;line-height:1.7;color:var(--ink-soft);}
+.sow-hanja-reading{font-weight:700;font-size:var(--fs-lg);margin-bottom:6px;}
+.sow-hanja-tags{font-size:var(--fs-sm);color:var(--sprout);font-weight:700;margin-bottom:10px;letter-spacing:.01em;}
+.sow-hanja-card p{margin:0 0 6px;font-size:var(--fs-md);line-height:1.7;color:var(--ink-soft);}
 .sow-hanja-card .bible-note{color:var(--clay);font-weight:600;}
 .sow-hanja-card .origin{background:var(--sprout-tint);padding:10px 12px;border-radius:var(--radius-sm);}
-.sow-hanja-meta{font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-bottom:8px;}
+.sow-hanja-meta{font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;margin-bottom:8px;}
 
 /* ---------- 한자 획순 보기 / 써보기 (HanziWriter) ---------- */
 .sow-hanzi-row{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;}
 .sow-hanzi-row .sow-hanzi-writer-card{flex:1;min-width:200px;margin-top:0;}
 .sow-hanzi-writer-card{text-align:center;}
 .sow-hanzi-writer-card h4{margin:0 0 12px;font-size:16px;font-weight:700;}
-.sow-hanzi-icon-btn{font-size:14px;background:none;border:none;color:var(--ink-soft);cursor:pointer;padding:0 0 0 4px;vertical-align:middle;}
+.sow-hanzi-icon-btn{font-size:var(--fs-base);background:none;border:none;color:var(--ink-soft);cursor:pointer;padding:0 0 0 4px;vertical-align:middle;}
 .sow-hanzi-icon-btn:hover{color:var(--indigo);}
 .sow-hanzi-canvas{display:flex;justify-content:center;margin-bottom:12px;}
-.sow-hanzi-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-hanzi-btn{font-family:inherit;font-size:var(--fs-sm);font-weight:700;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:var(--ease);}
 .sow-hanzi-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
-.sow-hanzi-quiz-msg{margin-top:10px;font-size:14px;font-weight:700;color:var(--sprout);min-height:20px;}
+.sow-hanzi-quiz-msg{margin-top:10px;font-size:var(--fs-base);font-weight:700;color:var(--sprout);min-height:20px;}
 .sow-hanja-related{margin-top:14px;}
-.sow-hanja-section-label{font-size:11px;font-weight:800;color:var(--indigo-tint);background:var(--ink);display:inline-block;padding:5px 12px;border-radius:6px;margin:16px 0 8px;}
+.sow-hanja-section-label{font-size:var(--fs-2xs);font-weight:800;color:var(--indigo-tint);background:var(--ink);display:inline-block;padding:5px 12px;border-radius:6px;margin:16px 0 8px;}
 .sow-hanja-section-label:first-of-type{margin-top:0;}
-.sow-hanja-related h4{margin:0 0 10px;font-size:15px;font-weight:700;}
+.sow-hanja-related h4{margin:0 0 10px;font-size:var(--fs-md);font-weight:700;}
 
 /* ---------- 오늘의 어휘: 컬러 헤더 카드 — 카드 상단 전체가 색블록(초록→금색→테라코타 순환) ---------- */
 .sow-word-list{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
 .sow-word-row{
   background:var(--card);border-radius:var(--radius-sm);overflow:hidden;
-  box-shadow:0 3px 10px rgba(29,58,44,.08);
+  box-shadow:var(--shadow-md);
 }
 .sow-word-head{display:flex;align-items:center;gap:9px;padding:12px 14px;color:#fff;background:var(--sage);font-size:18px;font-weight:800;}
 /* 어휘 카드 3개마다 짙음→중간→옅음 톤이 순환 — 전부 "초록" 계열이라 정체성은 유지하면서 단조로움만 줄인다 */
@@ -252,16 +299,16 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanja-related .sow-word-list .sow-word-row:nth-child(3n+2) .sow-word-head{background:var(--indigo);}
 .sow-hanja-related .sow-word-list .sow-word-row:nth-child(3n) .sow-word-head{background:var(--indigo-light);}
 .sow-word-icon{font-size:16px;}
-.sow-word-row .w{font-weight:800;font-size:13px;color:#fff;}
-.sow-word-hanja-header{margin-left:auto;font-size:12px;font-weight:700;color:#fff;opacity:.85;}
+.sow-word-row .w{font-weight:800;font-size:var(--fs-sm);color:#fff;}
+.sow-word-hanja-header{margin-left:auto;font-size:var(--fs-xs);font-weight:700;color:#fff;opacity:.85;}
 .sow-word-body{padding:10px 14px 12px;}
-.sow-hanja-note{font-size:11px;color:#9CA89B;margin-bottom:6px;}
-.sow-word-desc-callout{font-size:13px;color:#3E4E42;font-weight:700;line-height:1.45;}
+.sow-hanja-note{font-size:var(--fs-2xs);color:var(--hanja-note);margin-bottom:6px;}
+.sow-word-desc-callout{font-size:var(--fs-sm);color:var(--word-ink);font-weight:700;line-height:1.45;}
 
 /* ---------- 낱말 퀴즈 — 색 배지로 확실하게 구분 ---------- */
 .sow-quiz-heading{
   display:inline-flex;align-items:center;gap:6px;
-  background:var(--sage);color:#fff;font-weight:800;font-size:13px;
+  background:var(--sage);color:#fff;font-weight:800;font-size:var(--fs-sm);
   padding:7px 14px;border-radius:99px;margin-top:14px;
 }
 .sow-quiz-heading-blue{background:var(--indigo);}
@@ -271,169 +318,170 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-quiz-wrap-blue .sow-quiz-opt:hover:not(:disabled){border-color:var(--indigo);}
 .sow-quiz-wrap-blue .sow-quiz-progress{color:var(--indigo);}
 .sow-quiz-card{margin-top:8px;padding:14px;background:var(--sage-tint);border:1px solid var(--sage);border-radius:var(--radius);}
-.sow-quiz-progress{font-size:11px;font-weight:700;color:var(--sage);margin-bottom:6px;}
+.sow-quiz-progress{font-size:var(--fs-2xs);font-weight:700;color:var(--sage);margin-bottom:6px;}
 
-.sow-quiz-question{font-size:13.5px;color:var(--ink);line-height:1.5;margin:0 0 10px;}
+.sow-quiz-question{font-size:var(--fs-sm);color:var(--ink);line-height:1.5;margin:0 0 10px;}
 .sow-quiz-options{display:flex;flex-wrap:wrap;gap:6px;}
-.sow-quiz-opt{font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-quiz-opt{font-family:inherit;font-size:var(--fs-xs);font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:var(--ease);}
 .sow-quiz-opt:hover:not(:disabled){border-color:var(--sprout);}
 .sow-quiz-opt.correct{background:var(--sage);border-color:var(--sage);color:#fff;}
 .sow-quiz-opt.wrong{background:var(--clay-tint);border-color:var(--clay);color:var(--clay);}
 .sow-quiz-opt:disabled{cursor:default;}
-.sow-quiz-feedback{margin-top:10px;font-size:12px;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.sow-quiz-next{font-family:inherit;font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
-.sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:15px;font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
+.sow-quiz-feedback{margin-top:10px;font-size:var(--fs-xs);font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.sow-quiz-next{font-family:inherit;font-size:var(--fs-2xs);font-weight:700;padding:6px 12px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;}
+.sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:var(--fs-md);font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
 
 /* ---------- 세계 언어 (탭+3단구조+단어탭+퀴즈+녹음, 포인트색: 앰버) — 폴더탭(카드스택) 스타일 ---------- */
 .sow-lang-tabs{display:flex;margin-bottom:-1px;position:relative;z-index:1;}
 .sow-lang-tab{
-  flex:1;text-align:center;padding:14px 8px;font-size:14.5px;font-weight:800;
-  border-radius:14px 14px 0 0;position:relative;top:2px;color:#9C8F7A;background:#EAE4D6;cursor:pointer;
+  flex:1;text-align:center;padding:14px 8px;font-size:var(--fs-md);font-weight:800;
+  border-radius:14px 14px 0 0;position:relative;top:2px;color:var(--neutral-warm-text);background:var(--neutral-warm);cursor:pointer;
+  transition:background var(--ease),color var(--ease);
 }
-.sow-lang-tab.active{background:var(--card);color:var(--ink);top:0;box-shadow:0 -3px 8px rgba(0,0,0,.05);}
+.sow-lang-tab.active{background:var(--card);color:var(--ink);top:0;box-shadow:var(--shadow-pop);}
 .sow-lang-panel{display:none;background:var(--card);border-radius:0 12px 12px 12px;padding:16px;}
 .sow-lang-panel.active{display:block;}
 
-.sow-lang-stage-label{font-size:14px;font-weight:800;color:#F0C875;background:#3D3833;display:inline-block;padding:7px 15px;border-radius:8px;margin:18px 0 10px;letter-spacing:.02em;}
+.sow-lang-stage-label{font-size:var(--fs-base);font-weight:800;color:var(--charcoal-gold);background:var(--charcoal);display:inline-block;padding:7px 15px;border-radius:8px;margin:18px 0 10px;letter-spacing:.02em;}
 .sow-lang-stage-label:first-child{margin-top:0;}
-.sow-lang-section-label{font-size:13px;font-weight:800;color:var(--amber);margin:12px 0 6px;}
+.sow-lang-section-label{font-size:var(--fs-sm);font-weight:800;color:var(--amber);margin:12px 0 6px;}
 
-.sow-lang-sentence-card{background:#FBF9F4;border:1px solid #EDE7D8;border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.sow-lang-sentence-card{background:var(--paper-warm);border:1px solid var(--line-warm);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
 .sow-lang-sentence-text{font-size:16.5px;line-height:1.9;font-weight:600;margin:0;}
-.sow-lang-sentence-text.big{font-size:19px;}
-.sow-lang-word{cursor:pointer;border-radius:2px;padding:0 1px;border-bottom:2px dotted var(--amber);transition:background .15s;}
+.sow-lang-sentence-text.big{font-size:var(--fs-xl);}
+.sow-lang-word{cursor:pointer;border-radius:2px;padding:0 1px;border-bottom:2px dotted var(--amber);transition:background var(--ease-fast);}
 .sow-lang-word:hover{background:var(--amber-tint);}
 .sow-lang-word.speaking{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
 .sow-lang-btn-listen{display:inline-flex;align-items:center;background:none;color:var(--amber);border:none;font-size:16px;cursor:pointer;padding:0 0 0 6px;vertical-align:middle;}
 
-.sow-lang-helper-box{background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:11px 13px;font-size:15px;color:var(--ink-soft);margin-bottom:10px;line-height:1.7;}
+.sow-lang-helper-box{background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:11px 13px;font-size:var(--fs-md);color:var(--ink-soft);margin-bottom:10px;line-height:1.7;}
 .sow-lang-helper-box b{color:var(--amber);}
 
 .sow-lang-quiz-card{background:var(--amber-tint);border:1px solid var(--amber);border-radius:var(--radius);padding:13px;margin-bottom:10px;}
-.sow-lang-quiz-progress{font-size:11px;font-weight:700;color:var(--amber);margin-bottom:6px;}
-.sow-lang-quiz-q{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.55;}
+.sow-lang-quiz-progress{font-size:var(--fs-2xs);font-weight:700;color:var(--amber);margin-bottom:6px;}
+.sow-lang-quiz-q{font-size:var(--fs-md);font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.55;}
 .sow-lang-quiz-opts{display:flex;flex-wrap:wrap;gap:6px;}
-.sow-lang-quiz-opt{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 15px;font-size:13.5px;font-weight:700;cursor:pointer;color:var(--ink);}
+.sow-lang-quiz-opt{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 15px;font-size:var(--fs-sm);font-weight:700;cursor:pointer;color:var(--ink);transition:var(--ease);}
 .sow-lang-quiz-opt:hover:not(:disabled){border-color:var(--amber);}
 .sow-lang-quiz-opt.correct{background:var(--amber);border-color:var(--amber);color:#fff;}
 .sow-lang-quiz-opt.wrong{background:var(--clay-tint);border-color:var(--clay);color:var(--clay);}
 .sow-lang-quiz-opt.emoji{font-size:22px;padding:10px 16px;display:flex;flex-direction:column;align-items:center;gap:3px;}
-.sow-lang-emoji-kr{font-size:13px;font-weight:700;color:var(--ink-soft);}
+.sow-lang-emoji-kr{font-size:var(--fs-sm);font-weight:700;color:var(--ink-soft);}
 .sow-lang-quiz-opt.emoji.correct .sow-lang-emoji-kr,.sow-lang-quiz-opt.emoji.wrong .sow-lang-emoji-kr{color:#fff;}
 .sow-lang-quiz-done{text-align:center;font-weight:700;color:var(--amber);padding:8px;}
 
 .sow-lang-order-slot{display:flex;flex-direction:column;gap:4px;min-height:32px;background:#fff;border:1px dashed var(--amber);border-radius:8px;padding:6px;margin-bottom:8px;}
 .sow-lang-order-pool{display:flex;flex-wrap:wrap;gap:6px;}
-.sow-lang-order-chip{background:#fff;border:1px solid var(--line);border-radius:7px;padding:6px 10px;font-size:11.5px;font-weight:700;cursor:pointer;}
+.sow-lang-order-chip{background:#fff;border:1px solid var(--line);border-radius:7px;padding:6px 10px;font-size:var(--fs-2xs);font-weight:700;cursor:pointer;}
 .sow-lang-order-chip.placed{background:var(--amber);color:#fff;border-color:var(--amber);}
 
-.sow-lang-fillin{border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-family:inherit;font-size:13px;width:140px;margin:6px 4px;}
-.sow-lang-btn-check,.sow-lang-btn-submit{background:var(--amber);color:#fff;border:none;border-radius:99px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;margin-top:8px;}
-.sow-lang-fillin-result{font-size:12px;font-weight:700;margin-top:8px;}
+.sow-lang-fillin{border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-family:inherit;font-size:var(--fs-sm);width:140px;margin:6px 4px;}
+.sow-lang-btn-check,.sow-lang-btn-submit{background:var(--amber);color:#fff;border:none;border-radius:99px;padding:8px 16px;font-size:var(--fs-xs);font-weight:700;cursor:pointer;margin-top:8px;}
+.sow-lang-fillin-result{font-size:var(--fs-xs);font-weight:700;margin-top:8px;}
 
 .sow-lang-check-list{display:flex;flex-direction:column;gap:6px;}
-.sow-lang-check-item{display:flex;align-items:flex-start;gap:8px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:12.5px;cursor:pointer;}
+.sow-lang-check-item{display:flex;align-items:flex-start;gap:8px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:var(--fs-sm);cursor:pointer;}
 .sow-lang-check-item input{margin-top:2px;}
 
-.sow-lang-essay{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font-family:inherit;font-size:13px;min-height:60px;resize:vertical;margin-top:4px;}
+.sow-lang-essay{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font-family:inherit;font-size:var(--fs-sm);min-height:60px;resize:vertical;margin-top:4px;}
 
 .sow-lang-record-card{background:var(--amber-tint);border:1px solid var(--amber);border-radius:var(--radius);padding:15px;margin-top:6px;}
-.sow-lang-record-title{font-size:12.5px;font-weight:800;color:var(--amber);margin-bottom:8px;}
-.sow-lang-record-sentence{font-size:13.5px;font-weight:600;margin:0 0 10px;}
+.sow-lang-record-title{font-size:var(--fs-2xs);font-weight:800;color:var(--amber);margin-bottom:8px;}
+.sow-lang-record-sentence{font-size:var(--fs-sm);font-weight:600;margin:0 0 10px;}
 .sow-lang-record-row{display:flex;gap:8px;margin-bottom:8px;}
-.sow-lang-btn-record{flex:1;background:var(--clay);color:#fff;border:none;border-radius:99px;padding:10px;font-size:12.5px;font-weight:700;cursor:pointer;}
-.sow-lang-btn-record.recording{background:#A3402A;animation:sow-lang-pulse 1s infinite;}
-.sow-lang-btn-play{flex:1;background:var(--amber);color:#fff;border:none;border-radius:99px;padding:10px;font-size:12.5px;font-weight:700;cursor:pointer;}
-.sow-lang-btn-play:disabled{background:#E3D3B3;cursor:default;}
-.sow-lang-record-status{font-size:11px;color:var(--ink-soft);text-align:center;}
+.sow-lang-btn-record{flex:1;background:var(--clay);color:#fff;border:none;border-radius:99px;padding:10px;font-size:var(--fs-sm);font-weight:700;cursor:pointer;}
+.sow-lang-btn-record.recording{background:var(--alert-deep);animation:sow-lang-pulse 1s infinite;}
+.sow-lang-btn-play{flex:1;background:var(--amber);color:#fff;border:none;border-radius:99px;padding:10px;font-size:var(--fs-sm);font-weight:700;cursor:pointer;}
+.sow-lang-btn-play:disabled{background:var(--amber-pale);cursor:default;}
+.sow-lang-record-status{font-size:var(--fs-2xs);color:var(--ink-soft);text-align:center;}
 @keyframes sow-lang-pulse{0%,100%{opacity:1;}50%{opacity:.6;}}
 
-.sow-lang-word-popup{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:#fff;padding:16px 18px 20px;border-radius:16px 16px 0 0;box-shadow:0 -6px 24px rgba(0,0,0,.2);transform:translateY(100%);transition:transform .25s;z-index:50;max-width:640px;margin:0 auto;}
+.sow-lang-word-popup{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:#fff;padding:16px 18px 20px;border-radius:16px 16px 0 0;box-shadow:var(--shadow-sheet);transform:translateY(100%);transition:transform .25s;z-index:50;max-width:640px;margin:0 auto;}
 .sow-lang-word-popup.show{transform:translateY(0);}
 .sow-lang-popup-word{font-size:22px;font-weight:800;}
-.sow-lang-popup-mean{font-size:19px;font-weight:700;margin-top:8px;}
+.sow-lang-popup-mean{font-size:var(--fs-xl);font-weight:700;margin-top:8px;}
 .sow-lang-popup-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#B9CCB6;font-size:18px;cursor:pointer;}
 
 /* ---------- 탐험 / 인물 / 지도 ---------- */
 .sow-item-card{display:flex;gap:16px;align-items:flex-start;}
-.sow-item-card h4{margin:0 0 2px;font-size:15px;font-weight:700;}
-.sow-item-card .sub{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:6px;}
-.sow-item-card p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.65;}
+.sow-item-card h4{margin:0 0 2px;font-size:var(--fs-md);font-weight:700;}
+.sow-item-card .sub{font-size:var(--fs-xs);color:var(--sprout);font-weight:700;margin-bottom:6px;}
+.sow-item-card p{margin:0;font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.65;}
 
 /* ---------- 빈 상태 ---------- */
-.sow-empty-note{font-size:13px;color:#9A8F6E;font-style:italic;padding:11px 14px;background:var(--line-soft);border-radius:var(--radius-sm);border:1px dashed var(--line);}
+.sow-empty-note{font-size:var(--fs-sm);color:var(--muted-gold);font-style:italic;padding:11px 14px;background:var(--line-soft);border-radius:var(--radius-sm);border:1px dashed var(--line);}
 
 /* ---------- 본문 바로 가기 (구약/신약 탭 + 책/장 선택) — 자유코스/하루한장/1년1독 공용 ----------
    기본은 접힌 상태(작은 버튼 하나)로 시작해서 공간을 안 차지한다. 눌러야 펼쳐진다. */
 .sow-jumper-toggle{
   display:flex;align-items:center;gap:8px;width:100%;margin-bottom:14px;
-  font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-soft);
+  font-family:inherit;font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft);
   padding:10px 14px;border-radius:99px;border:1px solid var(--line);
-  background:var(--card);cursor:pointer;transition:.18s;
+  background:var(--card);cursor:pointer;transition:var(--ease);
 }
 .sow-jumper-toggle:hover{border-color:var(--sprout);color:var(--ink);}
 .sow-jumper-toggle-current{margin-left:auto;color:var(--sprout);font-weight:700;}
 
 .sow-jumper{margin-bottom:14px;padding:14px 16px;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);}
 .sow-jumper-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
-.sow-jumper-head label{font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:0;}
-.sow-jumper-collapse{font-family:inherit;font-size:11.5px;font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;padding:0;}
+.sow-jumper-head label{font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft);margin-bottom:0;}
+.sow-jumper-collapse{font-family:inherit;font-size:var(--fs-2xs);font-weight:600;color:var(--ink-soft);background:none;border:none;cursor:pointer;padding:0;}
 .sow-jumper-collapse:hover{color:var(--ink);}
 .sow-jumper-testament{display:flex;gap:6px;margin-bottom:10px;}
-.sow-jumper-testament button{font-family:inherit;font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:.18s;}
+.sow-jumper-testament button{font-family:inherit;font-size:var(--fs-xs);font-weight:700;padding:6px 16px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:var(--ease);}
 .sow-jumper-testament button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
 .sow-jumper-row{display:flex;gap:8px;}
-.sow-jumper-book,.sow-jumper-chapter{font-family:inherit;font-size:13.5px;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
+.sow-jumper-book,.sow-jumper-chapter{font-family:inherit;font-size:var(--fs-sm);padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
 .sow-jumper-book{flex:1.4;}
 .sow-jumper-chapter{flex:1;}
 
 /* ---------- 걸음 이전/다음 이동 바 ---------- */
 /* ---------- 압축된 한 줄 네비바 (◀ · 코스명·장(진도) · 🔎 · ▶) ---------- */
 .sow-compact-nav{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:9px 12px;background:var(--card);border:1px solid var(--line-soft);border-radius:99px;box-shadow:var(--shadow-sm);}
-.sow-compact-nav-btn{font-family:inherit;font-size:13px;font-weight:700;width:30px;height:30px;flex:none;border-radius:50%;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:.18s;}
+.sow-compact-nav-btn{font-family:inherit;font-size:var(--fs-sm);font-weight:700;width:30px;height:30px;flex:none;border-radius:50%;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:var(--ease);}
 .sow-compact-nav-btn:disabled{opacity:.3;cursor:not-allowed;border-color:var(--line);color:var(--ink-soft);}
 .sow-compact-nav-btn:not(:disabled):hover{background:var(--ink);color:#fff;}
-.sow-compact-nav-label{flex:1;min-width:0;font-size:12.5px;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.sow-compact-nav-label{flex:1;min-width:0;font-size:var(--fs-xs);color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .sow-compact-nav-label b{color:var(--ink);}
 .sow-compact-nav-jump{flex:none;background:none;border:none;font-size:16px;cursor:pointer;padding:2px 4px;}
 
 /* ---------- 입력 저장/초기화 바 ---------- */
 .sow-persist-bar{display:flex;align-items:center;gap:12px;margin-top:8px;min-height:16px;}
-.sow-persist-status{font-size:11px;color:var(--sprout);font-weight:700;}
-.sow-persist-reset{font-family:inherit;font-size:11px;background:none;border:none;color:#9A8F6E;cursor:pointer;text-decoration:underline;padding:0;}
+.sow-persist-status{font-size:var(--fs-2xs);color:var(--sprout);font-weight:700;}
+.sow-persist-reset{font-family:inherit;font-size:var(--fs-2xs);background:none;border:none;color:var(--muted-gold);cursor:pointer;text-decoration:underline;padding:0;}
 .sow-persist-reset:hover{color:var(--clay);}
 
 /* ---------- 성경 보기 위젯: 직접 범위 입력 (항상 노출) ---------- */
 .sow-bible-free-range{margin-top:8px;display:flex;gap:8px;}
-.sow-free-range-input{flex:1;font-family:inherit;font-size:13px;padding:9px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);}
+.sow-free-range-input{flex:1;font-family:inherit;font-size:var(--fs-sm);padding:9px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);}
 .sow-free-range-input:focus{border-color:var(--sprout);}
-.sow-free-range-go{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;white-space:nowrap;transition:.18s;}
+.sow-free-range-go{font-family:inherit;font-size:var(--fs-xs);font-weight:700;padding:9px 14px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;white-space:nowrap;transition:var(--ease);}
 .sow-free-range-go:hover{border-color:var(--sprout);background:var(--sprout-tint);}
-.sow-free-range-msg{font-size:11.5px;color:var(--clay);margin-top:7px;min-height:14px;}
+.sow-free-range-msg{font-size:var(--fs-2xs);color:var(--clay);margin-top:7px;min-height:14px;}
 
 /* ---------- 코스(트랙) 선택 화면 ---------- */
 .sow-track-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
 .sow-track-card{text-align:left;font-family:inherit;cursor:pointer;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px;transition:box-shadow .2s,transform .2s,border-color .2s;}
 .sow-track-card:hover{border-color:var(--sprout);box-shadow:var(--shadow-lift);transform:translateY(-3px);}
 .sow-track-card.soon{opacity:.68;}
-.sow-track-label{font-family:'Pretendard', sans-serif;font-size:17px;font-weight:700;margin-bottom:2px;}
-.sow-track-subtitle{font-size:12px;color:var(--sprout);font-weight:700;margin-bottom:9px;}
-.sow-track-desc{font-size:13px;color:var(--ink-soft);line-height:1.65;margin-bottom:16px;min-height:42px;}
-.sow-track-cta{font-size:12.5px;font-weight:700;color:var(--clay);}
-.sow-track-card.soon .sow-track-cta{color:#9A8F6E;}
+.sow-track-label{font-family:'Pretendard', sans-serif;font-size:var(--fs-lg);font-weight:700;margin-bottom:2px;}
+.sow-track-subtitle{font-size:var(--fs-xs);color:var(--sprout);font-weight:700;margin-bottom:9px;}
+.sow-track-desc{font-size:var(--fs-sm);color:var(--ink-soft);line-height:1.65;margin-bottom:16px;min-height:42px;}
+.sow-track-cta{font-size:var(--fs-xs);font-weight:700;color:var(--clay);}
+.sow-track-card.soon .sow-track-cta{color:var(--muted-gold);}
 .sow-track-change-bar{margin-bottom:16px;}
-.sow-track-change-btn{font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:.18s;}
+.sow-track-change-btn{font-family:inherit;font-size:var(--fs-xs);font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:var(--ease);}
 .sow-track-change-btn:hover{border-color:var(--ink);color:var(--ink);}
 
 /* ---------- 그룹 관리 폼 (그룹 만들기 / 이메일 초대) ---------- */
 .sow-group-form-row{display:flex;gap:8px;margin-top:10px;}
-.sow-group-form-row input{flex:1;font-family:inherit;font-size:13.5px;padding:9px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
+.sow-group-form-row input{flex:1;font-family:inherit;font-size:var(--fs-sm);padding:9px 12px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
 .sow-group-form-row input:disabled{opacity:.55;cursor:not-allowed;}
 .sow-group-form-row button:disabled{opacity:.55;cursor:not-allowed;}
 
 /* ---------- 우리의 성경읽기: 진도판 미리보기 ---------- */
 .sow-board-preview{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
-.sow-board-row{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:8px;align-items:center;padding:9px 12px;background:var(--paper);border-radius:var(--radius-sm);font-size:12.5px;}
+.sow-board-row{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:8px;align-items:center;padding:9px 12px;background:var(--paper);border-radius:var(--radius-sm);font-size:var(--fs-xs);}
 .sow-board-name{font-weight:700;}
 .sow-board-course{color:var(--ink-soft);}
 .sow-board-progress{text-align:right;font-weight:700;color:var(--sprout);}
@@ -441,9 +489,9 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 /* ---------- 성경 보기 위젯 (역본 선택 + godpia 연동) ---------- */
 .sow-bible-widget{margin-bottom:18px;}
 .sow-bible-widget-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);padding:11px 14px;}
-.sow-bible-current{font-size:13.5px;font-weight:700;margin-right:auto;}
-.sow-version-select{font-family:inherit;font-size:12.5px;padding:7px 9px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
-.sow-bible-view-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:.18s;}
+.sow-bible-current{font-size:var(--fs-sm);font-weight:700;margin-right:auto;}
+.sow-version-select{font-family:inherit;font-size:var(--fs-xs);padding:7px 9px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--paper);color:var(--ink);}
+.sow-bible-view-btn{font-family:inherit;font-size:var(--fs-xs);font-weight:700;padding:8px 14px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:var(--ease);}
 .sow-bible-view-btn:hover{background:var(--sprout);border-color:var(--sprout);}
 
 @media (max-width: 560px){
@@ -453,8 +501,8 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 }
 
 /* ---------- 나의 성경읽기 — 전용 화면 (인사말 + 오늘의 활동 요약 + 달력/지도) ---------- */
-.sow-my-reading-head{font-family:'Pretendard', sans-serif;font-size:19px;font-weight:700;margin-bottom:4px;}
-.sow-my-reading-greeting{font-size:13px;color:var(--ink-soft);margin:0 0 18px;}
+.sow-my-reading-head{font-family:'Pretendard', sans-serif;font-size:var(--fs-xl);font-weight:700;margin-bottom:4px;}
+.sow-my-reading-greeting{font-size:var(--fs-sm);color:var(--ink-soft);margin:0 0 18px;}
 
 /* 참고 이미지(TellmeNow 대시보드)의 통계 카드 줄 스타일을 우리 팔레트로 재구성 */
 .sow-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:20px;}
@@ -465,7 +513,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 }
 .sow-stat-icon{font-size:18px;margin-bottom:4px;}
 .sow-stat-num{font-size:20px;font-weight:700;color:var(--ink);}
-.sow-stat-label{font-size:11.5px;color:var(--ink-soft);font-weight:600;}
+.sow-stat-label{font-size:var(--fs-2xs);color:var(--ink-soft);font-weight:600;}
 .sow-stat-card.sow-stat-good{background:var(--sprout-tint);border-color:transparent;}
 .sow-stat-card.sow-stat-warn{background:var(--amber-tint);border-color:transparent;}
 .sow-stat-card.sow-stat-sprout .sow-stat-num{color:var(--sprout);}
@@ -473,27 +521,27 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-stat-card.sow-stat-clay .sow-stat-num{color:var(--clay);}
 
 .sow-session-toolbar{display:flex;gap:8px;margin-bottom:12px;}
-.sow-toolbar-btn{font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);transition:.18s;}
+.sow-toolbar-btn{font-family:inherit;font-size:var(--fs-xs);font-weight:700;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow-sm);transition:var(--ease);}
 .sow-toolbar-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
 .sow-record-tabs{display:flex;gap:6px;margin-bottom:10px;}
-.sow-record-tabs button{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:.18s;}
+.sow-record-tabs button{font-family:inherit;font-size:var(--fs-xs);font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:var(--ease);}
 .sow-record-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
 
 /* ---------- 모달 공통 (재사용) ---------- */
 .sow-modal-overlay{position:fixed;inset:0;z-index:80;background:rgba(29,58,44,0.28);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;padding:20px;}
 .sow-modal-card{background:var(--card);border-radius:var(--radius-lg);box-shadow:var(--shadow-lift);padding:22px;max-width:340px;width:100%;}
-.sow-modal-head{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;margin-bottom:16px;}
-.sow-modal-head button{font-family:inherit;font-size:12px;background:none;border:none;color:var(--ink-soft);cursor:pointer;}
+.sow-modal-head{display:flex;justify-content:space-between;align-items:center;font-size:var(--fs-md);font-weight:700;margin-bottom:16px;}
+.sow-modal-head button{font-family:inherit;font-size:var(--fs-xs);background:none;border:none;color:var(--ink-soft);cursor:pointer;}
 
 /* ---------- 달력 / 성경지도 공용 카드 ---------- */
 .sow-cal-inline{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:18px;margin-bottom:18px;}
-.sow-cal-head{display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:12px;}
-.sow-cal-nav{font-family:inherit;font-size:16px;background:var(--sprout-tint);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;color:var(--ink);}
+.sow-cal-head{display:flex;align-items:center;justify-content:space-between;font-size:var(--fs-base);font-weight:700;margin-bottom:12px;}
+.sow-cal-nav{font-family:inherit;font-size:16px;background:var(--sprout-tint);border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;color:var(--ink);transition:background var(--ease),color var(--ease);}
 .sow-cal-nav:hover{background:var(--sprout);color:#fff;}
 .sow-cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;}
-.sow-cal-weekdays span{text-align:center;font-size:11px;color:var(--ink-soft);font-weight:600;}
+.sow-cal-weekdays span{text-align:center;font-size:var(--fs-2xs);color:var(--ink-soft);font-weight:600;}
 .sow-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
-.sow-cal-cell{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12.5px;border-radius:8px;color:var(--ink);transition:.15s;}
+.sow-cal-cell{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:var(--fs-sm);border-radius:8px;color:var(--ink);transition:var(--ease-fast);}
 .sow-cal-cell.empty{visibility:hidden;}
 .sow-cal-cell.today{border:1px solid var(--clay);font-weight:700;}
 .sow-cal-cell.done{background:var(--sprout-tint);font-weight:700;}
@@ -501,63 +549,63 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-cal-cell.clickable:hover{background:var(--sprout);color:#fff;}
 .sow-cal-cell.clickable:hover .sow-cal-dot{background:#fff;}
 .sow-cal-dot{position:absolute;bottom:3px;width:4px;height:4px;border-radius:50%;background:var(--sprout);}
-.sow-cal-legend{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-soft);margin:14px 0 0;}
+.sow-cal-legend{display:flex;align-items:center;gap:6px;font-size:var(--fs-2xs);color:var(--ink-soft);margin:14px 0 0;}
 .sow-cal-legend .sow-cal-dot{position:static;}
 
 /* ---------- 성경지도 ---------- */
-.sow-map-summary{font-size:13px;color:var(--ink-soft);margin:0 0 14px;}
+.sow-map-summary{font-size:var(--fs-sm);color:var(--ink-soft);margin:0 0 14px;}
 .sow-map-summary b{color:var(--sprout);}
-.sow-map-section h5{font-size:12.5px;font-weight:700;color:var(--ink-soft);margin:0 0 10px;letter-spacing:.02em;}
+.sow-map-section h5{font-size:var(--fs-xs);font-weight:700;color:var(--ink-soft);margin:0 0 10px;letter-spacing:.02em;}
 .sow-map-section{margin-bottom:18px;}
 .sow-map-grid{display:flex;flex-direction:column;gap:8px;}
 .sow-map-book{}
-.sow-map-book-head{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:700;margin-bottom:4px;}
-.sow-map-book-count{font-size:10.5px;font-weight:600;color:var(--ink-soft);}
+.sow-map-book-head{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--fs-xs);font-weight:700;margin-bottom:4px;}
+.sow-map-book-count{font-size:var(--fs-2xs);font-weight:600;color:var(--ink-soft);}
 .sow-map-cells{display:flex;flex-wrap:wrap;gap:2px;}
-.sow-map-cell{width:9px;height:9px;border-radius:2px;background:var(--line-soft);cursor:pointer;transition:.15s;}
+.sow-map-cell{width:9px;height:9px;border-radius:2px;background:var(--line-soft);cursor:pointer;transition:var(--ease-fast);}
 .sow-map-cell:hover{transform:scale(1.4);}
 .sow-map-cell.read{background:var(--sprout);}
 
 /* ---------- 토스트 알림 (저장 완료 등) ---------- */
 .sow-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,12px);z-index:90;
-  background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:11px 20px;border-radius:99px;
+  background:var(--ink);color:#fff;font-size:var(--fs-sm);font-weight:600;padding:11px 20px;border-radius:99px;
   box-shadow:var(--shadow-lift);opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;}
 .sow-toast.show{opacity:1;transform:translate(-50%,0);}
 
 /* ---------- VoiceTextInput (음성 녹음 → 텍스트 입력) ---------- */
-.sow-voice-field-wrap{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 11px;transition:border-color .18s;}
+.sow-voice-field-wrap{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 11px;transition:border-color var(--ease);}
 .sow-voice-field-wrap:focus-within{border-color:var(--sprout);}
-.sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink);outline:none;resize:vertical;}
+.sow-voice-field-wrap textarea,.sow-voice-field-wrap input{flex:1;border:none;background:transparent;font-family:inherit;font-size:var(--fs-md);color:var(--ink);outline:none;resize:vertical;}
 
 /* ---------- 글쓰기 & 토론: 번호 배지 카드 + 짙은 답변창 ---------- */
 .sow-discussion-list{display:flex;flex-direction:column;gap:8px;margin:12px 0 14px;}
 .sow-discussion-item{
   display:flex;align-items:center;gap:12px;padding:14px;
   border:2px solid transparent;border-radius:12px;
-  background:var(--card);cursor:pointer;transition:.18s;
+  background:var(--card);cursor:pointer;transition:var(--ease);
 }
 .sow-discussion-item:hover{border-color:var(--line);}
 .sow-discussion-item.active{background:var(--clay-tint);border-color:var(--clay);}
 .sow-discussion-item input[type="radio"]{position:absolute;opacity:0;width:0;height:0;}
 .sow-discussion-num{
   width:24px;height:24px;border-radius:50%;background:var(--clay);color:#fff;
-  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;
-  transition:background .18s;
+  font-size:var(--fs-xs);font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;
+  transition:background var(--ease);
 }
 /* 질문 3개도 짙음/중간/옅음 테라코타 톤으로 순환 — 어휘와 같은 원리 */
-.sow-discussion-list .sow-discussion-item:nth-child(3n+1) .sow-discussion-num{background:#8A3F26;}
+.sow-discussion-list .sow-discussion-item:nth-child(3n+1) .sow-discussion-num{background:var(--terracotta-deep);}
 .sow-discussion-list .sow-discussion-item:nth-child(3n+2) .sow-discussion-num{background:var(--clay);}
-.sow-discussion-list .sow-discussion-item:nth-child(3n) .sow-discussion-num{background:#D68F6E;}
+.sow-discussion-list .sow-discussion-item:nth-child(3n) .sow-discussion-num{background:var(--terracotta-light);}
 .sow-discussion-item.active .sow-discussion-num{background:var(--clay);}
-.sow-discussion-text{font-size:14px;font-weight:600;line-height:1.55;color:var(--ink);}
-.sow-discussion-guide{font-size:13px;color:var(--ink-soft);font-style:italic;margin:0 0 10px;}
-.sow-discussion-answer-box{background:#5C2A3D;border-radius:12px;padding:14px;}
+.sow-discussion-text{font-size:var(--fs-base);font-weight:600;line-height:1.55;color:var(--ink);}
+.sow-discussion-guide{font-size:var(--fs-sm);color:var(--ink-soft);font-style:italic;margin:0 0 10px;}
+.sow-discussion-answer-box{background:var(--berry);border-radius:12px;padding:14px;}
 .sow-discussion-answer-box .sow-voice-field-wrap{background:transparent;border:none;}
 .sow-writing-textarea{min-height:130px;color:#fff;}
-.sow-discussion-answer-box .sow-writing-textarea::placeholder{color:#D9AEB8;}
-.sow-voice-btn{flex:none;padding:8px 14px;border-radius:99px;border:none;cursor:pointer;background:var(--clay);color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;transition:.18s;}
+.sow-discussion-answer-box .sow-writing-textarea::placeholder{color:var(--berry-soft);}
+.sow-voice-btn{flex:none;padding:8px 14px;border-radius:99px;border:none;cursor:pointer;background:var(--clay);color:#fff;font-size:var(--fs-xs);font-weight:700;white-space:nowrap;transition:var(--ease);}
 .sow-voice-btn:hover{filter:brightness(1.08);}
-.sow-voice-btn.listening{background:#C4432E;animation:sow-pulse 1s infinite;}
-.sow-voice-btn:disabled{background:#B8AF95;cursor:not-allowed;}
-.sow-voice-unsupported{font-size:11.5px;color:var(--clay);margin-top:4px;}
+.sow-voice-btn.listening{background:var(--alert);animation:sow-pulse 1s infinite;}
+.sow-voice-btn:disabled{background:var(--disabled-grey);cursor:not-allowed;}
+.sow-voice-unsupported{font-size:var(--fs-2xs);color:var(--clay);margin-top:4px;}
 @keyframes sow-pulse{0%{box-shadow:0 0 0 0 rgba(196,67,46,.5);}70%{box-shadow:0 0 0 9px rgba(196,67,46,0);}100%{box-shadow:0 0 0 0 rgba(196,67,46,0);}}
