@@ -36,8 +36,8 @@
   --amber-pale:#E3D3B3;      /* 앰버 버튼 disabled */
   --charcoal:#3D3833;        /* 단계 배지 배경(대비용 다크 뉴트럴) */
   --charcoal-gold:#F0C875;   /* 단계 배지 글자 */
-  --berry:#5C2A3D;           /* 토론 답변창 배경 */
-  --berry-soft:#D9AEB8;      /* 답변창 placeholder */
+  --berry:#42230F;           /* 토론 답변창 배경 — 클레이/테라코타와 같은 색 가족의 짙은 톤 (기존 와인색은 팔레트와 어울리지 않아 교체) */
+  --berry-soft:#E7C4A8;      /* 답변창 placeholder — 위 배경 위에서 은은하게 읽히는 밝은 클레이 톤 */
   --terracotta-deep:#8A3F26; /* 토론 번호 배지 — 짙음 */
   --terracotta-light:#D68F6E;/* 토론 번호 배지 — 옅음 */
   --alert:#C4432E;           /* 녹음 중 펄스 */
@@ -275,6 +275,10 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanzi-icon-btn{font-size:var(--fs-base);background:none;border:none;color:var(--ink-soft);cursor:pointer;padding:0 0 0 4px;vertical-align:middle;}
 .sow-hanzi-icon-btn:hover{color:var(--indigo);}
 .sow-hanzi-canvas{display:flex;justify-content:center;margin-bottom:12px;}
+/* 한자 따라쓰기: 사용자가 그리는 획 두께 — HanziWriter가 인라인 style로 stroke-width를
+   지정하므로(JS drawingWidth 옵션, 기본 4px) CSS만으로는 !important가 있어야 이긴다.
+   더 두껍게 하고 싶으면 아래 값을 올리면 됨(예: 9px, 10px). */
+.sow-hanzi-canvas svg path{stroke-width:7px !important;}
 .sow-hanzi-btn{font-family:inherit;font-size:var(--fs-sm);font-weight:700;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:var(--ease);}
 .sow-hanzi-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
 .sow-hanzi-quiz-msg{margin-top:10px;font-size:var(--fs-base);font-weight:700;color:var(--sprout);min-height:20px;}
@@ -602,6 +606,10 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-discussion-answer-box{background:var(--berry);border-radius:12px;padding:14px;}
 .sow-discussion-answer-box .sow-voice-field-wrap{background:transparent;border:none;}
 .sow-writing-textarea{min-height:130px;color:#fff;}
+/* .sow-voice-field-wrap textarea 규칙(色:var(--ink))이 명시도가 더 높아서 위 흰색 지정을
+   덮어써버리던 버그 — 답변창 안 textarea/input에 한해 명시도를 올려 흰 글자가 이기도록 고정 */
+.sow-discussion-answer-box .sow-voice-field-wrap textarea,
+.sow-discussion-answer-box .sow-voice-field-wrap input{color:#fff;}
 .sow-discussion-answer-box .sow-writing-textarea::placeholder{color:var(--berry-soft);}
 .sow-voice-btn{flex:none;padding:8px 14px;border-radius:99px;border:none;cursor:pointer;background:var(--clay);color:#fff;font-size:var(--fs-xs);font-weight:700;white-space:nowrap;transition:var(--ease);}
 .sow-voice-btn:hover{filter:brightness(1.08);}
