@@ -1,0 +1,82 @@
+{
+  "book": "john", "chapter": 2, "language": "en", "version": "2.0",
+  "dictionary": {
+    "jesus":"예수님","turned":"바꾸었다","water":"물","into":"~으로","wine":"포도주",
+    "there":"거기에","was":"있었다","a":"하나의","wedding":"결혼식","in":"~안에","cana":"가나",
+    "the":"그","ran":"떨어졌다","out":"밖으로","everyone":"모든 사람","amazed":"놀랐다",
+    "went":"갔다","to":"~로","of":"~의","galilee":"갈릴리","when":"~할 때",
+    "his":"그의","mother":"어머니","asked":"부탁했다","for":"~을 위해","help":"도움",
+    "told":"말했다","servants":"하인들","fill":"채우다","jars":"항아리들","with":"~을 가지고",
+    "on":"~에","third":"세 번째","day":"날","and":"그리고","disciples":"제자들","also":"또한","invited":"초대받았다",
+    "do":"하다","whatever":"무엇이든","he":"그는","tells":"말하다","you":"너희",
+    "six":"여섯","stone":"돌","became":"되었다","this":"이것","first":"첫 번째","sign":"표적","performed":"행하셨다",
+    "revealing":"드러내며","glory":"영광","believed":"믿었다"
+  },
+  "levels": {
+    "sprout": {
+      "sentences": ["Jesus turned water into wine."],
+      "quiz": [
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "wine", "opts": [{"text":"🍷","kr":"포도주","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"📖","kr":"책","correct":false}] },
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "water", "opts": [{"text":"💧","kr":"물","correct":true},{"text":"🔥","kr":"불","correct":false},{"text":"🌳","kr":"나무","correct":false}] }
+      ],
+      "repeatSentence": "Jesus turned water into wine."
+    },
+    "tree": {
+      "sentences": [
+        "There was a wedding in Cana.",
+        "The wine ran out.",
+        "Jesus turned water into wine.",
+        "Everyone was amazed."
+      ],
+      "fillBlank": { "template": "Jesus turned water into ___.", "answer": "wine", "options": ["wine","water","bread"] },
+      "mixQuiz": [
+        { "q": "'wedding'의 뜻은?", "opts": [{"text":"결혼식","correct":true},{"text":"성전","correct":false},{"text":"기도","correct":false}] },
+        { "q": "'amazed'의 뜻은?", "opts": [{"text":"화가 난","correct":false},{"text":"놀란","correct":true},{"text":"슬픈","correct":false}] },
+        { "q": "무슨 문장을 들었나요?", "listen": "The wine ran out.", "opts": [{"text":"The wine ran out.","correct":true},{"text":"The water ran out.","correct":false},{"text":"The wine was good.","correct":false}] },
+        { "q": "🍷 은 무슨 단어일까요?", "opts": [{"text":"wine","correct":true},{"text":"water","correct":false},{"text":"wedding","correct":false}] }
+      ],
+      "repeatSentence": "The wine ran out."
+    },
+    "fruit": {
+      "helperWords": { "wedding":"결혼식", "servants":"하인들", "jars":"항아리" },
+      "sentences": [
+        "Jesus went to a wedding in Cana of Galilee.",
+        "When the wine ran out, his mother asked for his help.",
+        "Jesus told the servants to fill the jars with water."
+      ],
+      "orderQuiz": [
+        "Jesus went to a wedding in Cana of Galilee.",
+        "When the wine ran out, his mother asked for his help.",
+        "Jesus told the servants to fill the jars with water."
+      ],
+      "mixQuiz": [
+        { "q": "\"Jesus turned wine into water.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
+        { "q": "\"The wedding was in Cana of Galilee.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
+        { "q": "'asked for help'와 비슷한 뜻은?", "opts": [{"text":"requested assistance","correct":true},{"text":"gave a gift","correct":false},{"text":"said goodbye","correct":false}] }
+      ],
+      "krEnFill": { "kr": "예수님이 물을 포도주로 바꾸셨다", "template": "Jesus turned water into ___.", "answer": "wine" }
+    },
+    "forest": {
+      "helperWords": { "miracle":"기적", "sign":"표적", "glory":"영광" },
+      "paragraphs": [
+        "On the third day, there was a wedding in Cana of Galilee, and Jesus's mother was there. Jesus and his disciples were also invited to the wedding.",
+        "When the wine ran out, Jesus's mother told the servants, \"Do whatever he tells you.\" Jesus told them to fill six stone jars with water.",
+        "The water became wine, and this was the first sign Jesus performed, revealing his glory. His disciples believed in him."
+      ],
+      "multiSelect": [
+        { "text": "Jesus turned water into wine.", "correct": true },
+        { "text": "The wedding ran out of bread.", "correct": false },
+        { "text": "This was Jesus's first sign.", "correct": true },
+        { "text": "The disciples did not believe in him.", "correct": false }
+      ],
+      "summaryQuiz": [
+        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
+          {"text":"예수님이 가나의 혼인잔치에서 물을 포도주로 바꾸신 첫 표적을 행하셨고, 제자들이 그분을 믿었다","correct":true},
+          {"text":"예수님이 결혼식에서 신랑이 되셨다","correct":false},
+          {"text":"제자들이 결혼식에서 포도주를 만들었다","correct":false}
+        ] }
+      ],
+      "essayQuestion": "Why do you think Jesus performed this miracle? Write one sentence in English."
+    }
+  }
+}

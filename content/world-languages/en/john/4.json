@@ -1,0 +1,81 @@
+{
+  "book": "john", "chapter": 4, "language": "en", "version": "2.0",
+  "dictionary": {
+    "jesus":"예수님","gave":"주었다","living":"살아있는","water":"물","met":"만났다","a":"한",
+    "woman":"여자","at":"~에서","well":"우물","she":"그녀는","was":"~였다","from":"~에서 온","samaria":"사마리아",
+    "told":"말했다","everyone":"모든 사람","about":"~에 대해","tired":"피곤한","and":"그리고","sat":"앉았다",
+    "by":"~옆에","the":"그","came":"왔다","to":"~하려고","get":"얻다","offered":"제안했다","her":"그녀에게",
+    "will":"~할 것이다","never":"결코 ~않다","thirst":"목마르다","again":"다시","whoever":"~하는 사람은 누구나","drinks":"마신다",
+    "this":"이","true":"참된","worshipers":"예배하는 자들","worship":"예배하다","in":"~안에서","spirit":"영",
+    "truth":"진리","father":"아버지","seeks":"찾으신다","such":"그러한","people":"사람들",
+    "harvest":"추수","is":"~이다","ripe":"익은","look":"보라","fields":"들판","already":"이미","for":"~을 위해",
+    "many":"많은","believed":"믿었다","because":"~때문에","words":"말들","of":"~의","him":"그를"
+  },
+  "levels": {
+    "sprout": {
+      "sentences": ["Jesus gave living water."],
+      "quiz": [
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "water", "opts": [{"text":"💧","kr":"물","correct":true},{"text":"🔥","kr":"불","correct":false},{"text":"🌳","kr":"나무","correct":false}] },
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "well", "opts": [{"text":"🪣","kr":"우물/양동이","correct":true},{"text":"📖","kr":"책","correct":false},{"text":"👑","kr":"왕관","correct":false}] }
+      ],
+      "repeatSentence": "Jesus gave living water."
+    },
+    "tree": {
+      "sentences": [
+        "Jesus met a woman at a well.",
+        "She was from Samaria.",
+        "Jesus gave living water.",
+        "She told everyone about Jesus."
+      ],
+      "fillBlank": { "template": "Jesus met a woman at a ___.", "answer": "well", "options": ["well","house","road"] },
+      "mixQuiz": [
+        { "q": "'well'의 뜻은?", "opts": [{"text":"우물","correct":true},{"text":"바다","correct":false},{"text":"산","correct":false}] },
+        { "q": "'told'의 뜻은?", "opts": [{"text":"숨겼다","correct":false},{"text":"말했다","correct":true},{"text":"잊었다","correct":false}] },
+        { "q": "무슨 문장을 들었나요?", "listen": "She was from Samaria.", "opts": [{"text":"She was from Samaria.","correct":true},{"text":"She was from Galilee.","correct":false},{"text":"She was from Judea.","correct":false}] },
+        { "q": "💧 은 무슨 단어일까요?", "opts": [{"text":"water","correct":true},{"text":"well","correct":false},{"text":"woman","correct":false}] }
+      ],
+      "repeatSentence": "She was from Samaria."
+    },
+    "fruit": {
+      "helperWords": { "thirst":"목마르다", "worship":"예배하다", "truth":"진리" },
+      "sentences": [
+        "Jesus was tired and sat by the well.",
+        "A Samaritan woman came to get water.",
+        "Jesus offered her living water."
+      ],
+      "orderQuiz": [
+        "Jesus was tired and sat by the well.",
+        "A Samaritan woman came to get water.",
+        "Jesus offered her living water."
+      ],
+      "mixQuiz": [
+        { "q": "\"Jesus was not tired.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
+        { "q": "\"The woman came to get water.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
+        { "q": "'offered'와 비슷한 뜻은?", "opts": [{"text":"gave","correct":true},{"text":"took","correct":false},{"text":"hid","correct":false}] }
+      ],
+      "krEnFill": { "kr": "예수님이 그녀에게 생수를 주셨다", "template": "Jesus gave her living ___.", "answer": "water" }
+    },
+    "forest": {
+      "helperWords": { "worshipers":"예배하는 자들", "harvest":"추수", "ripe":"익은" },
+      "paragraphs": [
+        "Whoever drinks this water will thirst again, but whoever drinks the water Jesus gives will never thirst. True worshipers worship the Father in spirit and truth.",
+        "The Father seeks such people to worship him. Jesus said, \"Look at the fields! They are already ripe for harvest.\"",
+        "Many Samaritans believed in Jesus because of the woman's words, and even more believed after hearing him themselves."
+      ],
+      "multiSelect": [
+        { "text": "Jesus said true worshipers worship in spirit and truth.", "correct": true },
+        { "text": "The woman kept the good news to herself.", "correct": false },
+        { "text": "Jesus said the fields were ripe for harvest.", "correct": true },
+        { "text": "No Samaritans believed in Jesus.", "correct": false }
+      ],
+      "summaryQuiz": [
+        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
+          {"text":"예수님이 생수와 참된 예배, 영적 추수에 대해 말씀하셨고 많은 사마리아인이 그를 믿었다","correct":true},
+          {"text":"사마리아 사람들이 예수님을 미워했다","correct":false},
+          {"text":"예수님이 우물을 새로 파셨다","correct":false}
+        ] }
+      ],
+      "essayQuestion": "What does \"living water\" mean to you? Write one sentence in English."
+    }
+  }
+}

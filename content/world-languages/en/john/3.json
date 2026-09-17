@@ -1,0 +1,83 @@
+{
+  "book": "john", "chapter": 3, "language": "en", "version": "2.0",
+  "dictionary": {
+    "god":"하나님","loved":"사랑했다","the":"그","world":"세상","you":"너는","must":"~해야 한다",
+    "be":"~이다","born":"태어난","again":"다시","he":"그는","gave":"주었다","his":"그의",
+    "only":"유일한","son":"아들","whoever":"~하는 사람은 누구나","believes":"믿는다","has":"가지고 있다","eternal":"영원한","life":"생명",
+    "nicodemus":"니고데모","came":"왔다","to":"~에게","jesus":"예수님","at":"~에","night":"밤",
+    "said":"말했다","so":"매우","much":"많이","that":"~해서","there":"거기에","was":"있었다",
+    "a":"한","man":"사람","named":"이름의","jewish":"유대인의","leader":"지도자",
+    "we":"우리는","know":"안다","teacher":"선생님","from":"~로부터",
+    "replied":"대답했다","no":"아무도 ~않다","one":"사람","can":"할 수 있다","see":"보다",
+    "kingdom":"나라","of":"~의","unless":"~하지 않으면","they":"그들은","are":"~이다",
+    "confused":"혼란스러운","asked":"물었다","how":"어떻게","this":"이것","could":"할 수 있었다","happen":"일어나다",
+    "for":"왜냐하면","one and only":"하나뿐인","so":"그래서","will":"~할 것이다","not":"~않다","perish":"멸망하다","and":"그리고","have":"가지다"
+  },
+  "levels": {
+    "sprout": {
+      "sentences": ["God loved the world."],
+      "quiz": [
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "God", "opts": [{"text":"👑","kr":"하나님","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"📖","kr":"책","correct":false}] },
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "world", "opts": [{"text":"🌍","kr":"세상","correct":true},{"text":"☀️","kr":"해","correct":false},{"text":"🌳","kr":"나무","correct":false}] }
+      ],
+      "repeatSentence": "God loved the world."
+    },
+    "tree": {
+      "sentences": [
+        "You must be born again.",
+        "God loved the world.",
+        "He gave his only Son.",
+        "Whoever believes has eternal life."
+      ],
+      "fillBlank": { "template": "You must be born ___.", "answer": "again", "options": ["again","new","well"] },
+      "mixQuiz": [
+        { "q": "'eternal'의 뜻은?", "opts": [{"text":"영원한","correct":true},{"text":"짧은","correct":false},{"text":"슬픈","correct":false}] },
+        { "q": "'believes'의 뜻은?", "opts": [{"text":"싸운다","correct":false},{"text":"믿는다","correct":true},{"text":"떠난다","correct":false}] },
+        { "q": "무슨 문장을 들었나요?", "listen": "He gave his only Son.", "opts": [{"text":"He gave his only Son.","correct":true},{"text":"He loved his only Son.","correct":false},{"text":"He saw his only Son.","correct":false}] },
+        { "q": "👑 은 무슨 단어일까요?", "opts": [{"text":"God","correct":true},{"text":"world","correct":false},{"text":"Son","correct":false}] }
+      ],
+      "repeatSentence": "You must be born again."
+    },
+    "fruit": {
+      "helperWords": { "eternal":"영원한", "believe":"믿다", "perish":"멸망하다" },
+      "sentences": [
+        "Nicodemus came to Jesus at night.",
+        "Jesus said, \"You must be born again.\"",
+        "God loved the world so much that he gave his Son."
+      ],
+      "orderQuiz": [
+        "Nicodemus came to Jesus at night.",
+        "Jesus said, \"You must be born again.\"",
+        "God loved the world so much that he gave his Son."
+      ],
+      "mixQuiz": [
+        { "q": "\"Nicodemus came to Jesus in the morning.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
+        { "q": "\"God gave his only Son because he loved the world.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
+        { "q": "'believe'와 비슷한 뜻은?", "opts": [{"text":"trust","correct":true},{"text":"doubt","correct":false},{"text":"forget","correct":false}] }
+      ],
+      "krEnFill": { "kr": "너는 다시 태어나야 한다", "template": "You must be born ___.", "answer": "again" }
+    },
+    "forest": {
+      "helperWords": { "condemn":"정죄하다", "darkness":"어둠", "confused":"혼란스러운" },
+      "paragraphs": [
+        "There was a man named Nicodemus, a Jewish leader. He came to Jesus at night and said, \"We know you are a teacher from God.\"",
+        "Jesus replied, \"No one can see the kingdom of God unless they are born again.\" Nicodemus was confused and asked how this could happen.",
+        "For God so loved the world that he gave his one and only Son, so that whoever believes in him will not perish but have eternal life."
+      ],
+      "multiSelect": [
+        { "text": "Nicodemus was a Jewish leader.", "correct": true },
+        { "text": "Nicodemus understood Jesus right away.", "correct": false },
+        { "text": "God gave his only Son because he loved the world.", "correct": true },
+        { "text": "Believers in Jesus will perish.", "correct": false }
+      ],
+      "summaryQuiz": [
+        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
+          {"text":"니고데모가 밤에 예수님을 찾아왔고, 하나님이 세상을 사랑하셔서 독생자를 주셨다는 말씀을 들었다","correct":true},
+          {"text":"니고데모가 예수님과 함께 여행을 떠났다","correct":false},
+          {"text":"하나님이 니고데모를 벌하셨다","correct":false}
+        ] }
+      ],
+      "essayQuestion": "What do you think it means to be \"born again\"? Write one sentence in English."
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "book": "john", "chapter": 5, "language": "en", "version": "2.0",
+  "dictionary": {
+    "jesus":"예수님","healed":"고쳤다","a":"한","sick":"아픈","man":"남자","was":"~였다","for":"~동안",
+    "years":"년","said":"말했다","get":"일어나다","up":"위로","and":"그리고","walk":"걷다","the":"그",
+    "he":"그는","picked":"들었다","his":"그의","mat":"자리","sabbath":"안식일","day":"날",
+    "pool":"연못","called":"불리는","bethesda":"베데스다","many":"많은","disabled":"장애가 있는","people":"사람들","lay":"누워있었다",
+    "there":"거기에","one":"한 사람","of":"~의","thirty":"삼십","eight":"팔","asked":"물었다",
+    "do":"하다","you":"너는","want":"원한다","to":"~하기를","be":"~이다","made":"되게","well":"건강한",
+    "jews":"유대인들","because":"~때문에","this":"이것","happened":"일어났다","on":"~에",
+    "father":"아버지","is":"~이다","always":"항상","at":"~에서","work":"일","so":"그래서","am":"~이다","i":"나는",
+    "truly":"진실로","tell":"말하다","whoever":"~하는 사람은 누구나","hears":"듣는다","my":"나의","word":"말씀",
+    "believes":"믿는다","him":"그를","sent":"보내신","me":"나를","has":"가지고 있다","eternal":"영원한","life":"생명"
+  },
+  "levels": {
+    "sprout": {
+      "sentences": ["Jesus healed a sick man."],
+      "quiz": [
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "sick", "opts": [{"text":"🤒","kr":"아픈","correct":true},{"text":"😊","kr":"웃는","correct":false},{"text":"🏃","kr":"뛰는","correct":false}] },
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "walk", "opts": [{"text":"🚶","kr":"걷다","correct":true},{"text":"😴","kr":"자다","correct":false},{"text":"🍞","kr":"빵","correct":false}] }
+      ],
+      "repeatSentence": "Jesus healed a sick man."
+    },
+    "tree": {
+      "sentences": [
+        "A man was sick for 38 years.",
+        "Jesus said, \"Get up and walk.\"",
+        "The man was healed.",
+        "It was the Sabbath day."
+      ],
+      "fillBlank": { "template": "Jesus said, \"Get up and ___.\"", "answer": "walk", "options": ["walk","sleep","eat"] },
+      "mixQuiz": [
+        { "q": "'healed'의 뜻은?", "opts": [{"text":"고쳤다","correct":true},{"text":"아프게 했다","correct":false},{"text":"버렸다","correct":false}] },
+        { "q": "'Sabbath'의 뜻은?", "opts": [{"text":"안식일","correct":true},{"text":"명절","correct":false},{"text":"생일","correct":false}] },
+        { "q": "무슨 문장을 들었나요?", "listen": "The man was healed.", "opts": [{"text":"The man was healed.","correct":true},{"text":"The man was sick.","correct":false},{"text":"The man was happy.","correct":false}] },
+        { "q": "🚶 은 무슨 단어일까요?", "opts": [{"text":"walk","correct":true},{"text":"sick","correct":false},{"text":"heal","correct":false}] }
+      ],
+      "repeatSentence": "The man was healed."
+    },
+    "fruit": {
+      "helperWords": { "pool":"연못", "disabled":"장애가 있는", "authority":"권세" },
+      "sentences": [
+        "There was a pool called Bethesda.",
+        "Many disabled people lay there.",
+        "Jesus asked, \"Do you want to be made well?\""
+      ],
+      "orderQuiz": [
+        "There was a pool called Bethesda.",
+        "Many disabled people lay there.",
+        "Jesus asked, \"Do you want to be made well?\""
+      ],
+      "mixQuiz": [
+        { "q": "\"The man had been sick for 8 years.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
+        { "q": "\"Jesus healed the man on the Sabbath.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
+        { "q": "'disabled'와 비슷한 뜻은?", "opts": [{"text":"unable to walk","correct":true},{"text":"very strong","correct":false},{"text":"very happy","correct":false}] }
+      ],
+      "krEnFill": { "kr": "예수님이 '일어나 걸어가라' 말씀하셨다", "template": "Jesus said, \"Get up and ___.\"", "answer": "walk" }
+    },
+    "forest": {
+      "helperWords": { "authority":"권세", "testimony":"증언", "resurrection":"부활" },
+      "paragraphs": [
+        "Jesus said, \"My Father is always at his work, and I am working too.\" This made the Jews want to kill him even more, because he was calling God his own Father.",
+        "Jesus said, \"Truly I tell you, whoever hears my word and believes him who sent me has eternal life.\"",
+        "He also said, \"A time is coming when all who are in their graves will hear his voice and come out.\""
+      ],
+      "multiSelect": [
+        { "text": "Jesus said his Father is always at work.", "correct": true },
+        { "text": "The Jews were happy about Jesus's words.", "correct": false },
+        { "text": "Whoever believes has eternal life.", "correct": true },
+        { "text": "Jesus said no one would hear his voice.", "correct": false }
+      ],
+      "summaryQuiz": [
+        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
+          {"text":"예수님이 아버지와 함께 일하신다고 말씀하시며, 자신을 믿는 자마다 영생을 얻는다고 하셨다","correct":true},
+          {"text":"유대인들이 예수님을 왕으로 세우려 했다","correct":false},
+          {"text":"병자가 스스로 일어나 걸었다","correct":false}
+        ] }
+      ],
+      "essayQuestion": "How do you think the healed man felt? Write one sentence in English."
+    }
+  }
+}
