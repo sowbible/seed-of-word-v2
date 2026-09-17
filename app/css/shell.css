@@ -47,14 +47,14 @@
   --hanja-note:#9CA89B;      /* 한자 참고 라벨 */
 
   /* ---- 타이포 스케일 ---- */
-  --fs-2xs:11px;
-  --fs-xs:12px;
-  --fs-sm:13px;
-  --fs-base:14px;
-  --fs-md:15px;
-  --fs-lg:17px;
-  --fs-xl:19px;
-  --fs-2xl:23px;
+  --fs-2xs:12px;
+  --fs-xs:13px;
+  --fs-sm:14px;
+  --fs-base:15px;
+  --fs-md:16.5px;
+  --fs-lg:18px;
+  --fs-xl:20px;
+  --fs-2xl:24px;
 
   /* ---- 반경/그림자/여백 리듬 ---- */
   --radius-lg:20px;
@@ -336,23 +336,23 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-quiz-done{margin-top:18px;padding:20px;text-align:center;font-size:var(--fs-md);font-weight:700;color:var(--sprout);background:var(--sprout-tint);border-radius:var(--radius);}
 
 /* ---------- 세계 언어 (탭+3단구조+단어탭+퀴즈+녹음, 포인트색: 앰버) — 폴더탭(카드스택) 스타일 ---------- */
-.sow-lang-tabs{display:flex;margin-bottom:-1px;position:relative;z-index:1;}
+.sow-lang-tabs{display:flex;margin-bottom:-1px;position:relative;z-index:1;max-width:700px;}
 .sow-lang-tab{
   flex:1;text-align:center;padding:14px 8px;font-size:var(--fs-md);font-weight:800;
   border-radius:14px 14px 0 0;position:relative;top:2px;color:var(--neutral-warm-text);background:var(--neutral-warm);cursor:pointer;
   transition:background var(--ease),color var(--ease);
 }
 .sow-lang-tab.active{background:var(--card);color:var(--ink);top:0;box-shadow:var(--shadow-pop);}
-.sow-lang-panel{display:none;background:var(--card);border-radius:0 12px 12px 12px;padding:16px;}
+.sow-lang-panel{display:none;background:var(--card);border-radius:0 12px 12px 12px;padding:16px;max-width:700px;}
 .sow-lang-panel.active{display:block;}
 
 .sow-lang-stage-label{font-size:var(--fs-base);font-weight:800;color:var(--charcoal-gold);background:var(--charcoal);display:inline-block;padding:7px 15px;border-radius:8px;margin:18px 0 10px;letter-spacing:.02em;}
 .sow-lang-stage-label:first-child{margin-top:0;}
 .sow-lang-section-label{font-size:var(--fs-sm);font-weight:800;color:var(--amber);margin:12px 0 6px;}
 
-.sow-lang-sentence-card{background:var(--paper-warm);border:1px solid var(--line-warm);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
-.sow-lang-sentence-text{font-size:16.5px;line-height:1.9;font-weight:600;margin:0;}
-.sow-lang-sentence-text.big{font-size:var(--fs-xl);}
+.sow-lang-sentence-card{background:var(--paper-warm);border:1px solid var(--line-warm);border-radius:10px;padding:14px 16px;margin-bottom:8px;}
+.sow-lang-sentence-text{font-size:19px;line-height:1.95;font-weight:600;margin:0;}
+.sow-lang-sentence-text.big{font-size:var(--fs-2xl);}
 .sow-lang-word{cursor:pointer;border-radius:2px;padding:0 1px;border-bottom:2px dotted var(--amber);transition:background var(--ease-fast);}
 .sow-lang-word:hover{background:var(--amber-tint);}
 .sow-lang-word.speaking{background:var(--amber);color:#fff;border-bottom-color:var(--amber);}
