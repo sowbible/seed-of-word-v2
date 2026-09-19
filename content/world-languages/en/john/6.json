@@ -14,7 +14,13 @@
   },
   "levels": {
     "sprout": {
-      "sentences": ["Jesus fed five thousand people."],
+      "vocab": [
+        { "word": "bread", "meaning": "떡" },
+        { "word": "fish", "meaning": "물고기" }
+      ],
+      "sentences": [
+        { "text": "Jesus fed five thousand people.", "ko": "예수님은 오천 명을 먹이셨어요." }
+      ],
       "quiz": [
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "bread", "opts": [{"text":"🍞","kr":"떡/빵","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"💧","kr":"물","correct":false}] },
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "fish", "opts": [{"text":"🐟","kr":"물고기","correct":true},{"text":"🍞","kr":"떡","correct":false},{"text":"👑","kr":"왕관","correct":false}] }
@@ -22,11 +28,17 @@
       "repeatSentence": "Jesus fed five thousand people."
     },
     "tree": {
+      "vocab": [
+        { "word": "bread", "meaning": "떡" },
+        { "word": "fish", "meaning": "물고기" },
+        { "word": "full", "meaning": "배부른" },
+        { "word": "boy", "meaning": "소년" }
+      ],
       "sentences": [
-        "A boy had five loaves and two fish.",
-        "Jesus fed five thousand people.",
-        "Everyone ate and was full.",
-        "Jesus is the bread of life."
+        { "text": "A boy had five loaves and two fish.", "ko": "한 소년이 떡 다섯 개와 물고기 두 마리를 가지고 있었어요." },
+        { "text": "Jesus fed five thousand people.", "ko": "예수님은 오천 명을 먹이셨어요." },
+        { "text": "Everyone ate and was full.", "ko": "모든 사람이 먹고 배불렀어요." },
+        { "text": "Jesus is the bread of life.", "ko": "예수님은 생명의 떡이세요." }
       ],
       "fillBlank": { "template": "Jesus is the ___ of life.", "answer": "bread", "options": ["bread","water","light"] },
       "mixQuiz": [
@@ -40,13 +52,13 @@
     "fruit": {
       "helperWords": { "multitude":"큰 무리", "hungry":"배고픈", "signs":"표적들" },
       "sentences": [
-        "A great multitude followed Jesus.",
-        "They saw the signs he performed on the sick.",
-        "Jesus fed them with five loaves and two fish."
+        { "text": "A great multitude followed Jesus.", "ko": "큰 무리가 예수님을 따라갔어요." },
+        { "text": "They followed him because they'd seen him heal people who were sick.", "ko": "그들은 예수님이 아픈 사람들을 고쳐주시는 것을 보았기 때문에 그분을 따라갔어요." },
+        { "text": "Jesus fed them with five loaves and two fish.", "ko": "예수님은 떡 다섯 개와 물고기 두 마리로 그들을 먹이셨어요." }
       ],
       "orderQuiz": [
         "A great multitude followed Jesus.",
-        "They saw the signs he performed on the sick.",
+        "They followed him because they'd seen him heal people who were sick.",
         "Jesus fed them with five loaves and two fish."
       ],
       "mixQuiz": [
@@ -59,9 +71,9 @@
     "forest": {
       "helperWords": { "perish":"썩다", "eternal":"영원한", "grumbled":"불평했다" },
       "paragraphs": [
-        "Jesus said, \"I am the bread of life. Whoever comes to me will never be hungry, and whoever believes in me will never be thirsty.\"",
-        "The people grumbled because Jesus said he came down from heaven. Jesus said, \"No one can come to me unless the Father draws them.\"",
-        "Jesus said, \"Whoever eats my flesh and drinks my blood has eternal life, and I will raise them up on the last day.\""
+        { "text": "Jesus described himself in a surprising way — he said he was like bread, the kind of bread that truly satisfies. Anyone who came to him, he said, would never feel empty inside again, and anyone who trusted him would never feel that deep thirst for meaning that nothing else could fill.", "ko": "예수님은 자신을 놀라운 방식으로 표현하셨습니다 — 자신이 진짜로 배부르게 하는 떡과 같다고 말씀하신 것입니다. 그분께 오는 사람은 다시는 마음속이 텅 빈 느낌을 받지 않을 것이고, 그분을 신뢰하는 사람은 다른 어떤 것으로도 채울 수 없는 깊은 갈망을 더 이상 느끼지 않을 것이라고 하셨습니다." },
+        { "text": "This confused the crowd, because they only saw an ordinary man in front of them — how could he claim to have come down from heaven? Jesus responded that people couldn't reach him on their own strength alone; it was the Father who first drew their hearts toward him.", "ko": "이 말은 사람들을 혼란스럽게 했는데, 그들 눈에는 그저 평범한 사람으로 보였기 때문입니다 — 어떻게 하늘에서 내려왔다고 주장할 수 있을까요? 예수님은 사람이 자기 힘만으로는 자신에게 올 수 없으며, 아버지께서 먼저 그들의 마음을 이끄신 것이라고 대답하셨습니다." },
+        { "text": "Jesus used strong, startling language to make his point: he said that anyone who truly took him in — as close and necessary as food and drink — would live forever, and that he himself would bring them back to life on the final day.", "ko": "예수님은 강렬하고 놀라운 표현으로 자신의 뜻을 전하셨습니다. 자신을 음식과 물처럼 가깝고 꼭 필요한 존재로 진심으로 받아들이는 사람은 영원히 살게 될 것이며, 마지막 날에 자신이 직접 그를 다시 살리겠다고 말씀하신 것입니다." }
       ],
       "multiSelect": [
         { "text": "Jesus said he is the bread of life.", "correct": true },
