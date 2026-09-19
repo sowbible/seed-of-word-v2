@@ -62,14 +62,14 @@
     "fruit": {
       "helperWords": { "beginning":"시작", "through":"~을 통해", "everything":"모든 것", "darkness":"어둠" },
       "sentences": [
-        { "text": "In the beginning, the Word already existed.", "ko": "태초에, 말씀은 이미 계셨어요." },
-        { "text": "God made everything through the Word.", "ko": "하나님은 말씀을 통해 모든 것을 만드셨어요." },
-        { "text": "The light shines in the dark, and the dark cannot stop it.", "ko": "빛은 어둠 속에서 비추고, 어둠은 그 빛을 막을 수 없어요." }
+        { "text": "Long ago, before anything was made, the Word was already there.", "ko": "아주 오래전, 아무것도 만들어지기 전부터 말씀은 이미 거기 계셨어요." },
+        { "text": "God used the Word to make everything that exists.", "ko": "하나님은 말씀을 사용해서 존재하는 모든 것을 만드셨어요." },
+        { "text": "That light keeps shining in the dark, and nothing can put it out.", "ko": "그 빛은 어둠 속에서 계속 비추고, 아무것도 그 빛을 끌 수 없어요." }
       ],
       "orderQuiz": [
-        "In the beginning, the Word already existed.",
-        "God made everything through the Word.",
-        "The light shines in the dark, and the dark cannot stop it."
+        "Long ago, before anything was made, the Word was already there.",
+        "God used the Word to make everything that exists.",
+        "That light keeps shining in the dark, and nothing can put it out."
       ],
       "mixQuiz": [
         { "q": "\"The dark can stop the light.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
@@ -78,14 +78,14 @@
         { "q": "'shines'와 비슷한 뜻은?", "opts": [{"text":"gives light","correct":true},{"text":"hides away","correct":false},{"text":"makes noise","correct":false}] },
         { "q": "'existed'와 비슷한 뜻은?", "opts": [{"text":"disappeared","correct":false},{"text":"was there","correct":true},{"text":"will come","correct":false}] }
       ],
-      "krEnFill": { "kr": "하나님이 말씀을 통해 모든 것을 만드셨다", "template": "God made everything ___ the Word.", "answer": "through" }
+      "krEnFill": { "kr": "하나님은 말씀을 사용해서 모든 것을 만드셨다", "template": "God used the Word ___ make everything that exists.", "answer": "to" }
     },
     "forest": {
       "helperWords": { "overcome":"이기다", "recognize":"알아보다", "receive":"받아들이다", "descent":"혈통" },
       "paragraphs": [
-        { "text": "In the beginning, the Word already existed with God, and the Word was God Himself. Everything was created through Him, and without Him nothing that has been made was made.", "ko": "태초에 말씀은 하나님과 함께 계셨고, 말씀은 곧 하나님이셨습니다. 모든 것이 그분을 통해 창조되었고, 그분 없이 지어진 것은 하나도 없습니다." },
-        { "text": "The light shines in the darkness, and the darkness has never overcome it. He came to His own people, but His own people did not receive Him.", "ko": "빛이 어둠 속에서 비추고, 어둠은 그 빛을 한 번도 이기지 못했습니다. 그분이 자기 백성에게 오셨지만, 그의 백성은 그분을 받아들이지 않았습니다." },
-        { "text": "Yet to everyone who did receive Him and believed in His name, He gave the right to become children of God.", "ko": "그러나 그분을 받아들이고 그 이름을 믿은 모든 사람에게는, 하나님의 자녀가 되는 권리를 주셨습니다." }
+        { "text": "Long before the world was made, the Word was there with God. In fact, the Word was God. Every single thing that has ever been made came into being because of him; without him, not one thing exists.", "ko": "세상이 생기기 훨씬 전부터, 말씀은 하나님과 함께 계셨습니다. 사실 말씀은 곧 하나님이셨습니다. 지금까지 만들어진 모든 것은 그분을 통해 생겨났고, 그분이 없이는 아무것도 존재하지 않습니다." },
+        { "text": "A light began to shine right in the middle of the darkness, and no matter how hard the darkness tried, it could never put that light out. The Word entered the world he had made among his own people, yet they turned him away.", "ko": "어둠 한가운데서 빛이 비추기 시작했고, 어둠이 아무리 애써도 그 빛을 끌 수는 없었습니다. 말씀은 자신이 만드신 세상, 자기 백성에게로 오셨지만 그들은 그분을 외면했습니다." },
+        { "text": "But some people did welcome him and put their trust in him — and to every one of them, he gave the right to be called children of God.", "ko": "그러나 그분을 반갑게 맞이하고 신뢰한 사람들도 있었습니다. 그분은 그들 모두에게 하나님의 자녀라고 불릴 권리를 주셨습니다." }
       ],
       "multiSelect": [
         { "text": "God created everything through the Word.", "correct": true },
