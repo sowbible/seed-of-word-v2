@@ -1,0 +1,490 @@
+{
+  "book": "john",
+  "chapter": 16,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "able": "할 수 있는",
+    "actually": "사실",
+    "admitted": "인정했다",
+    "again": "다시",
+    "alone": "홀로",
+    "already": "이미",
+    "also": "또한",
+    "and": "그리고",
+    "anything": "무엇이든",
+    "away": "멀리",
+    "baby": "아기",
+    "back": "뒤로",
+    "be": "~이다",
+    "because": "~때문에",
+    "become": "~하게 되다",
+    "birth": "출산",
+    "born": "태어난",
+    "but": "그러나",
+    "come": "오다",
+    "coming": "다가오는",
+    "compared": "비유했다",
+    "completely": "완전히",
+    "could": "할 수 있었다",
+    "courage": "용기",
+    "day": "날",
+    "decided": "정해진",
+    "difficulty": "어려움",
+    "directly": "직접",
+    "disciples": "제자들",
+    "each": "각각",
+    "encouraged": "격려했다",
+    "encouragement": "격려",
+    "even": "심지어",
+    "expect": "예상하다",
+    "explained": "설명했다",
+    "expose": "드러내다",
+    "face": "직면하다",
+    "father": "아버지",
+    "feels": "느낀다",
+    "felt": "느꼈다",
+    "fill": "채우다",
+    "filled": "가득 찼다",
+    "finished": "마쳤다",
+    "followers": "제자들",
+    "for": "~을 위해",
+    "forever": "영원히",
+    "forgets": "잊는다",
+    "forgotten": "잊혀진",
+    "from": "~로부터",
+    "fuller": "더 온전한",
+    "giving": "낳는",
+    "going": "가는 것",
+    "good": "좋은",
+    "grasp": "이해하다",
+    "grief": "슬픔",
+    "guide": "이끌다",
+    "had": "가지고 있었다",
+    "has": "가지고 있다",
+    "he": "그는",
+    "heart": "마음",
+    "hearts": "마음들",
+    "helper": "도우미",
+    "helper's": "도우미의",
+    "her": "그녀의",
+    "him": "그를",
+    "his": "그의",
+    "holding": "안고 있는",
+    "homes": "집들",
+    "in": "~안에",
+    "intense": "강렬한",
+    "into": "~안으로",
+    "is": "~이다",
+    "it": "그것",
+    "jesus": "예수님",
+    "join": "합류하다",
+    "joy": "기쁨",
+    "judgment": "심판",
+    "labor": "산고",
+    "last": "지속되다",
+    "leaving": "떠나는 것",
+    "might": "~일지도 모른다",
+    "moment": "순간",
+    "name": "이름",
+    "near": "가까운",
+    "newborn": "갓난아기",
+    "news": "소식",
+    "no": "아니다",
+    "not": "~않다",
+    "nothing": "아무것도",
+    "now": "지금",
+    "of": "~의",
+    "on": "~에",
+    "once": "일단",
+    "one": "하나",
+    "only": "오직",
+    "over": "~에 대해",
+    "overcome": "이기다",
+    "overflow": "넘치다",
+    "own": "자기 자신의",
+    "pain": "고통",
+    "people": "사람들",
+    "plainly": "분명하게",
+    "point": "가리키다",
+    "promised": "약속했다",
+    "real": "진짜의",
+    "really": "정말로",
+    "receive": "받다",
+    "remain": "머물다",
+    "reveal": "드러내다",
+    "right": "바로",
+    "role": "역할",
+    "running": "달려가는",
+    "sad": "슬픈",
+    "sadness": "슬픔",
+    "said": "말했다",
+    "same": "같은",
+    "saw": "보았다",
+    "scatter": "흩어지다",
+    "seem": "~처럼 보이다",
+    "she's": "그녀는 ~이다",
+    "should": "~해야 한다",
+    "so": "그래서",
+    "sorrow": "슬픔",
+    "strange": "이상한",
+    "take": "가지다",
+    "than": "~보다",
+    "that": "저것/그것",
+    "the": "그",
+    "their": "그들의",
+    "them": "그들을",
+    "then": "그다음",
+    "there": "거기",
+    "they": "그들은",
+    "this": "이것",
+    "time": "시간",
+    "to": "~에게",
+    "told": "말했다",
+    "toward": "~쪽으로",
+    "trouble": "어려움",
+    "truly": "진정으로",
+    "truth": "진리",
+    "turn": "바뀌다",
+    "understanding": "이해",
+    "using": "사용하여",
+    "victory": "승리",
+    "warned": "경고했다",
+    "was": "~였다",
+    "way": "방식",
+    "what": "무엇",
+    "when": "~할 때",
+    "who": "누구",
+    "will": "~할 것이다",
+    "with": "~와 함께",
+    "woman": "여자",
+    "won": "이겼다",
+    "world": "세상",
+    "world's": "세상의",
+    "would": "~할 것이다",
+    "wouldn't": "~하지 않을 것이다",
+    "wrongdoing": "잘못",
+    "you": "너는",
+    "ask": "구하다"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "sad",
+          "meaning": "슬픈"
+        },
+        {
+          "word": "joy",
+          "meaning": "기쁨"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus will turn sadness into joy.",
+          "ko": "예수님은 슬픔을 기쁨으로 바꾸실 거예요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "sad",
+          "opts": [
+            {
+              "text": "😢",
+              "kr": "슬픈",
+              "correct": true
+            },
+            {
+              "text": "😊",
+              "kr": "기쁜",
+              "correct": false
+            },
+            {
+              "text": "😴",
+              "kr": "자는",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "joy",
+          "opts": [
+            {
+              "text": "😄",
+              "kr": "기쁨",
+              "correct": true
+            },
+            {
+              "text": "😭",
+              "kr": "슬픔",
+              "correct": false
+            },
+            {
+              "text": "😨",
+              "kr": "두려움",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus will turn sadness into joy."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "sad",
+          "meaning": "슬픈"
+        },
+        {
+          "word": "joy",
+          "meaning": "기쁨"
+        },
+        {
+          "word": "ask",
+          "meaning": "구하다"
+        },
+        {
+          "word": "overcome",
+          "meaning": "이기다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "The disciples felt sad.",
+          "ko": "제자들은 슬펐어요."
+        },
+        {
+          "text": "Jesus said their sadness would become joy.",
+          "ko": "예수님은 그들의 슬픔이 기쁨이 될 거라고 말씀하셨어요."
+        },
+        {
+          "text": "Ask, and you will receive.",
+          "ko": "구하라, 그러면 받을 것이다."
+        },
+        {
+          "text": "Jesus has overcome the world.",
+          "ko": "예수님은 세상을 이기셨어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Ask, and you will ___.",
+        "answer": "receive",
+        "options": [
+          "receive",
+          "forget",
+          "sleep"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'overcome'의 뜻은?",
+          "opts": [
+            {
+              "text": "이기다",
+              "correct": true
+            },
+            {
+              "text": "지다",
+              "correct": false
+            },
+            {
+              "text": "도망가다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'ask'의 뜻은?",
+          "opts": [
+            {
+              "text": "주다",
+              "correct": false
+            },
+            {
+              "text": "구하다",
+              "correct": true
+            },
+            {
+              "text": "숨다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Jesus has overcome the world.",
+          "opts": [
+            {
+              "text": "Jesus has overcome the world.",
+              "correct": true
+            },
+            {
+              "text": "Jesus has left the world.",
+              "correct": false
+            },
+            {
+              "text": "The world has overcome Jesus.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "😄 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "joy",
+              "correct": true
+            },
+            {
+              "text": "sad",
+              "correct": false
+            },
+            {
+              "text": "ask",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus has overcome the world."
+    },
+    "fruit": {
+      "helperWords": {
+        "sadness": "슬픔",
+        "joy": "기쁨",
+        "overcome": "이기다"
+      },
+      "sentences": [
+        {
+          "text": "Jesus told his followers that he was going away, and their hearts filled with sadness. But he promised that their sadness would not last forever.",
+          "ko": "예수님은 제자들에게 자신이 떠날 거라고 말씀하셨고, 그들의 마음은 슬픔으로 가득 찼어요. 하지만 그분은 그 슬픔이 영원히 계속되지는 않을 거라고 약속하셨어요."
+        },
+        {
+          "text": "He compared it to a woman in labor, who forgets her pain once her baby is born. In the same way, their grief would turn into joy that no one could take away.",
+          "ko": "그분은 그것을 아기를 낳는 여자에 비유하셨어요. 아기가 태어나면 그 고통을 잊게 되죠. 마찬가지로, 그들의 슬픔도 아무도 빼앗을 수 없는 기쁨으로 바뀔 거예요."
+        },
+        {
+          "text": "Jesus told them that in this world they would face trouble. But he encouraged them to take heart, because he had already overcome the world.",
+          "ko": "예수님은 그들에게 이 세상에서 어려움을 겪게 될 거라고 말씀하셨어요. 하지만 그분은 이미 세상을 이기셨으니 용기를 내라고 격려하셨어요."
+        }
+      ],
+      "orderQuiz": [
+        "Jesus told his followers that he was going away, and their hearts filled with sadness. But he promised that their sadness would not last forever.",
+        "He compared it to a woman in labor, who forgets her pain once her baby is born. In the same way, their grief would turn into joy that no one could take away.",
+        "Jesus told them that in this world they would face trouble. But he encouraged them to take heart, because he had already overcome the world."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Jesus said their sadness would last forever.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus compared their sadness to a woman giving birth.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'take heart'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "be brave",
+              "correct": true
+            },
+            {
+              "text": "be afraid",
+              "correct": false
+            },
+            {
+              "text": "give up",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "예수님은 이미 세상을 이기셨다",
+        "template": "Jesus had already ___ the world.",
+        "answer": "overcome"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "convict": "깨우치다",
+        "righteousness": "의로움",
+        "victory": "승리"
+      },
+      "paragraphs": [
+        {
+          "text": "Jesus admitted it might seem strange, but his leaving was actually good news for them, because only then could the promised helper come and join them. He explained that this helper's role would be to expose the world's wrongdoing, point people toward what is truly right, and reveal that judgment was already decided. He also promised that this helper would guide them into a fuller understanding of truth than they could grasp on their own right now.",
+          "ko": "예수님은 이상하게 들릴 수 있지만, 자신이 떠나는 것이 사실은 그들에게 좋은 소식이라고 인정하셨습니다. 그래야만 약속된 도우미가 와서 그들과 함께할 수 있기 때문이었습니다. 그분은 이 도우미의 역할이 세상의 잘못을 드러내고, 사람들에게 참으로 옳은 것을 가리켜 보이며, 심판이 이미 정해졌음을 알리는 것이라고 설명하셨습니다. 그분은 또한 이 도우미가 그들이 지금 스스로 이해할 수 있는 것보다 훨씬 더 온전하게 진리를 이해하도록 이끌어줄 거라고 약속하셨습니다."
+        },
+        {
+          "text": "Jesus compared their coming sorrow to the pain a woman feels giving birth — real and intense in the moment, but completely forgotten once she's holding her newborn. He promised that when he saw them again, that same joy would fill their hearts, and this time nothing would be able to take it from them. He also told them that a day was coming when they could ask the Father for anything directly, using his name, and their joy would overflow because of it.",
+          "ko": "예수님은 그들에게 다가올 슬픔을 여자가 아기를 낳을 때 겪는 고통에 비유하셨습니다 — 그 순간엔 실제로 강렬하지만, 갓난아기를 품에 안는 순간 완전히 잊혀지는 고통이었습니다. 그분은 다시 그들을 만날 때 그와 같은 기쁨이 그들의 마음을 채울 것이고, 이번엔 아무도 그것을 빼앗을 수 없을 거라고 약속하셨습니다. 그분은 또한 아버지께 자신의 이름으로 직접 무엇이든 구할 수 있는 날이 올 것이고, 그로 인해 그들의 기쁨이 넘칠 거라고 말씀하셨습니다."
+        },
+        {
+          "text": "Jesus warned them plainly that the time was near when they would scatter, each running back to their own homes and leaving him completely alone. Even so, he said he wouldn't really be alone, because the Father would remain right there with him. He finished with one last encouragement: they should expect real difficulty in this world, but they could take courage, because he had already won the victory over it.",
+          "ko": "예수님은 그들이 흩어져 각자 자기 집으로 돌아가고 자신을 완전히 홀로 남겨둘 때가 가까웠다고 분명히 경고하셨습니다. 그럼에도 그분은 자신이 진짜로 혼자는 아닐 거라고 말씀하셨습니다. 아버지께서 바로 곁에 함께 계실 것이기 때문이었습니다. 그분은 마지막으로 한 가지 격려의 말씀을 남기셨습니다. 이 세상에서 진짜 어려움을 겪게 되겠지만, 자신이 이미 그것을 이기고 승리했으니 용기를 내라는 것이었습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Jesus said his leaving would allow the helper to come.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said their sadness would never turn into joy.",
+          "correct": false
+        },
+        {
+          "text": "Jesus compared their sorrow to the pain of childbirth.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said the disciples would never be scattered.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 떠나심이 도우미가 오시기 위함이라 설명하시며, 제자들의 슬픔이 기쁨으로 바뀔 것과 자신이 세상을 이겼으니 용기를 내라고 말씀하셨다",
+              "correct": true
+            },
+            {
+              "text": "제자들이 예수님을 떠나지 않기로 했다",
+              "correct": false
+            },
+            {
+              "text": "예수님이 세상에게 패배하셨다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus compared sadness turning to joy with a woman giving birth? Write one sentence in English."
+    }
+  }
+}
