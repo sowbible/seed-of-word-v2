@@ -1,61 +1,329 @@
 {
-  "book": "john", "chapter": 3, "language": "en", "version": "2.0",
+  "book": "john",
+  "chapter": 3,
+  "language": "en",
+  "version": "2.0",
   "dictionary": {
-    "god":"하나님","loved":"사랑했다","the":"그","world":"세상","you":"너는","must":"~해야 한다",
-    "be":"~이다","born":"태어난","again":"다시","he":"그는","gave":"주었다","his":"그의",
-    "only":"유일한","son":"아들","whoever":"~하는 사람은 누구나","believes":"믿는다","has":"가지고 있다","eternal":"영원한","life":"생명",
-    "nicodemus":"니고데모","came":"왔다","to":"~에게","jesus":"예수님","at":"~에","night":"밤",
-    "said":"말했다","so":"매우","much":"많이","that":"~해서","there":"거기에","was":"있었다",
-    "a":"한","man":"사람","named":"이름의","jewish":"유대인의","leader":"지도자",
-    "we":"우리는","know":"안다","teacher":"선생님","from":"~로부터",
-    "replied":"대답했다","no":"아무도 ~않다","one":"사람","can":"할 수 있다","see":"보다",
-    "kingdom":"나라","of":"~의","unless":"~하지 않으면","they":"그들은","are":"~이다",
-    "confused":"혼란스러운","asked":"물었다","how":"어떻게","this":"이것","could":"할 수 있었다","happen":"일어나다",
-    "for":"왜냐하면","one and only":"하나뿐인","so":"그래서","will":"~할 것이다","not":"~않다","perish":"멸망하다","and":"그리고","have":"가지다"
+    "god": "하나님",
+    "loved": "사랑했다",
+    "the": "그",
+    "world": "세상",
+    "you": "너는",
+    "must": "~해야 한다",
+    "be": "~이다",
+    "born": "태어난",
+    "again": "다시",
+    "he": "그는",
+    "gave": "주었다",
+    "his": "그의",
+    "only": "유일한",
+    "son": "아들",
+    "whoever": "~하는 사람은 누구나",
+    "believes": "믿는다",
+    "has": "가지고 있다",
+    "eternal": "영원한",
+    "life": "생명",
+    "nicodemus": "니고데모",
+    "came": "왔다",
+    "to": "~에게",
+    "jesus": "예수님",
+    "at": "~에",
+    "night": "밤",
+    "said": "말했다",
+    "so": "그래서",
+    "much": "많이",
+    "that": "~해서",
+    "there": "거기에",
+    "was": "있었다",
+    "a": "한",
+    "man": "사람",
+    "named": "이름의",
+    "jewish": "유대인의",
+    "leader": "지도자",
+    "we": "우리는",
+    "know": "안다",
+    "teacher": "선생님",
+    "from": "~로부터",
+    "replied": "대답했다",
+    "no": "아무도 ~않다",
+    "one": "사람",
+    "can": "할 수 있다",
+    "see": "보다",
+    "kingdom": "나라",
+    "of": "~의",
+    "unless": "~하지 않으면",
+    "they": "그들은",
+    "are": "~이다",
+    "confused": "혼란스러운",
+    "asked": "물었다",
+    "how": "어떻게",
+    "this": "이것",
+    "could": "할 수 있었다",
+    "happen": "일어나다",
+    "for": "왜냐하면",
+    "one and only": "하나뿐인",
+    "will": "~할 것이다",
+    "not": "~않다",
+    "perish": "멸망하다",
+    "and": "그리고",
+    "have": "가지다",
+    "about": "~에 대해",
+    "alone": "혼자",
+    "aloud": "소리 내어",
+    "but": "그러나",
+    "clear": "분명한",
+    "couldn't": "할 수 없었다",
+    "dark": "어두운",
+    "everyone": "모든 사람",
+    "find": "찾다",
+    "forever": "영원히",
+    "god's": "하나님의",
+    "great": "큰",
+    "grown": "다 자란",
+    "him": "그를",
+    "in": "~안에",
+    "it": "그것",
+    "it's": "그것은 ~이다",
+    "leaders": "지도자들",
+    "learn": "배우다",
+    "live": "살다",
+    "lost": "길을 잃은",
+    "love": "사랑",
+    "meant": "의미했다",
+    "might": "~일지도 모른다",
+    "more": "더",
+    "nobody": "아무도 ~않다",
+    "other": "다른",
+    "outside": "밖에",
+    "over": "~에 대해",
+    "part": "부분",
+    "picture": "그려보다",
+    "puts": "둔다",
+    "second": "두 번째",
+    "sent": "보내셨다",
+    "something": "무언가",
+    "spiritual": "영적인",
+    "starting": "시작하는",
+    "surprising": "놀라운",
+    "their": "그들의",
+    "think": "생각하다",
+    "time": "시간",
+    "told": "말했다",
+    "trust": "신뢰하다",
+    "until": "~까지",
+    "waited": "기다렸다",
+    "wanted": "원했다",
+    "way": "방법",
+    "went": "갔다",
+    "what": "무엇",
+    "who": "누구",
+    "without": "~없이",
+    "wondered": "궁금해했다",
+    "worried": "걱정했다",
+    "would": "~할 것이다"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "God", "meaning": "하나님" },
-        { "word": "world", "meaning": "세상" }
+        {
+          "word": "God",
+          "meaning": "하나님"
+        },
+        {
+          "word": "world",
+          "meaning": "세상"
+        }
       ],
       "sentences": [
-        { "text": "God loved the world.", "ko": "하나님은 세상을 사랑하셨어요." }
+        {
+          "text": "God loved the world.",
+          "ko": "하나님은 세상을 사랑하셨어요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "God", "opts": [{"text":"👑","kr":"하나님","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"📖","kr":"책","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "world", "opts": [{"text":"🌍","kr":"세상","correct":true},{"text":"☀️","kr":"해","correct":false},{"text":"🌳","kr":"나무","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "God",
+          "opts": [
+            {
+              "text": "👑",
+              "kr": "하나님",
+              "correct": true
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "world",
+          "opts": [
+            {
+              "text": "🌍",
+              "kr": "세상",
+              "correct": true
+            },
+            {
+              "text": "☀️",
+              "kr": "해",
+              "correct": false
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "God loved the world."
     },
     "tree": {
       "vocab": [
-        { "word": "born", "meaning": "태어난" },
-        { "word": "again", "meaning": "다시" },
-        { "word": "eternal", "meaning": "영원한" },
-        { "word": "believes", "meaning": "믿는다" }
+        {
+          "word": "born",
+          "meaning": "태어난"
+        },
+        {
+          "word": "again",
+          "meaning": "다시"
+        },
+        {
+          "word": "eternal",
+          "meaning": "영원한"
+        },
+        {
+          "word": "believes",
+          "meaning": "믿는다"
+        }
       ],
       "sentences": [
-        { "text": "You must be born again.", "ko": "너는 다시 태어나야 해요." },
-        { "text": "God loved the world.", "ko": "하나님은 세상을 사랑하셨어요." },
-        { "text": "He gave his only Son.", "ko": "그분은 자신의 하나뿐인 아들을 주셨어요." },
-        { "text": "Whoever believes has eternal life.", "ko": "믿는 사람은 누구나 영원한 생명을 가져요." }
+        {
+          "text": "You must be born again.",
+          "ko": "너는 다시 태어나야 해요."
+        },
+        {
+          "text": "God loved the world.",
+          "ko": "하나님은 세상을 사랑하셨어요."
+        },
+        {
+          "text": "He gave his only Son.",
+          "ko": "그분은 자신의 하나뿐인 아들을 주셨어요."
+        },
+        {
+          "text": "Whoever believes has eternal life.",
+          "ko": "믿는 사람은 누구나 영원한 생명을 가져요."
+        }
       ],
-      "fillBlank": { "template": "You must be born ___.", "answer": "again", "options": ["again","new","well"] },
+      "fillBlank": {
+        "template": "You must be born ___.",
+        "answer": "again",
+        "options": [
+          "again",
+          "new",
+          "well"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'eternal'의 뜻은?", "opts": [{"text":"영원한","correct":true},{"text":"짧은","correct":false},{"text":"슬픈","correct":false}] },
-        { "q": "'believes'의 뜻은?", "opts": [{"text":"싸운다","correct":false},{"text":"믿는다","correct":true},{"text":"떠난다","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "He gave his only Son.", "opts": [{"text":"He gave his only Son.","correct":true},{"text":"He loved his only Son.","correct":false},{"text":"He saw his only Son.","correct":false}] },
-        { "q": "👑 은 무슨 단어일까요?", "opts": [{"text":"God","correct":true},{"text":"world","correct":false},{"text":"Son","correct":false}] }
+        {
+          "q": "'eternal'의 뜻은?",
+          "opts": [
+            {
+              "text": "영원한",
+              "correct": true
+            },
+            {
+              "text": "짧은",
+              "correct": false
+            },
+            {
+              "text": "슬픈",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'believes'의 뜻은?",
+          "opts": [
+            {
+              "text": "싸운다",
+              "correct": false
+            },
+            {
+              "text": "믿는다",
+              "correct": true
+            },
+            {
+              "text": "떠난다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "He gave his only Son.",
+          "opts": [
+            {
+              "text": "He gave his only Son.",
+              "correct": true
+            },
+            {
+              "text": "He loved his only Son.",
+              "correct": false
+            },
+            {
+              "text": "He saw his only Son.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "👑 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "God",
+              "correct": true
+            },
+            {
+              "text": "world",
+              "correct": false
+            },
+            {
+              "text": "Son",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "You must be born again."
     },
     "fruit": {
-      "helperWords": { "eternal":"영원한", "believe":"믿다", "perish":"멸망하다" },
+      "helperWords": {
+        "eternal": "영원한",
+        "believe": "믿다",
+        "perish": "멸망하다"
+      },
       "sentences": [
-        { "text": "Nicodemus came to Jesus at night.", "ko": "니고데모는 밤에 예수님께 왔어요." },
-        { "text": "Jesus said, \"You must be born again.\"", "ko": "예수님은 \"너는 다시 태어나야 한다\"고 말씀하셨어요." },
-        { "text": "God loved the world so much that he gave his Son.", "ko": "하나님은 세상을 너무나 사랑하셔서 자신의 아들을 주셨어요." }
+        {
+          "text": "Nicodemus came to Jesus at night.",
+          "ko": "니고데모는 밤에 예수님께 왔어요."
+        },
+        {
+          "text": "Jesus said, \"You must be born again.\"",
+          "ko": "예수님은 \"너는 다시 태어나야 한다\"고 말씀하셨어요."
+        },
+        {
+          "text": "God loved the world so much that he gave his Son.",
+          "ko": "하나님은 세상을 너무나 사랑하셔서 자신의 아들을 주셨어요."
+        }
       ],
       "orderQuiz": [
         "Nicodemus came to Jesus at night.",
@@ -63,31 +331,112 @@
         "God loved the world so much that he gave his Son."
       ],
       "mixQuiz": [
-        { "q": "\"Nicodemus came to Jesus in the morning.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"God gave his only Son because he loved the world.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "'believe'와 비슷한 뜻은?", "opts": [{"text":"trust","correct":true},{"text":"doubt","correct":false},{"text":"forget","correct":false}] }
+        {
+          "q": "\"Nicodemus came to Jesus in the morning.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"God gave his only Son because he loved the world.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'believe'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "trust",
+              "correct": true
+            },
+            {
+              "text": "doubt",
+              "correct": false
+            },
+            {
+              "text": "forget",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "너는 다시 태어나야 한다", "template": "You must be born ___.", "answer": "again" }
+      "krEnFill": {
+        "kr": "너는 다시 태어나야 한다",
+        "template": "You must be born ___.",
+        "answer": "again"
+      }
     },
     "forest": {
-      "helperWords": { "condemn":"정죄하다", "darkness":"어둠", "confused":"혼란스러운" },
+      "helperWords": {
+        "condemn": "정죄하다",
+        "darkness": "어둠",
+        "confused": "혼란스러운"
+      },
       "paragraphs": [
-        { "text": "A Jewish leader named Nicodemus wanted to learn more about Jesus, but he was worried what other leaders might think — so he waited until it was dark outside and went to find Jesus alone. \"Teacher,\" he said, \"it's clear that God sent you.\"", "ko": "니고데모라는 유대인 지도자가 예수님에 대해 더 알고 싶었지만, 다른 지도자들이 어떻게 생각할지 걱정이 되었습니다. 그래서 그는 날이 어두워질 때까지 기다렸다가 혼자 예수님을 찾아갔습니다. \"선생님,\" 그가 말했습니다, \"하나님께서 당신을 보내신 것이 분명합니다.\"" },
-        { "text": "Jesus told him something surprising: nobody can be part of God's kingdom without starting life over again, in a spiritual way. Nicodemus couldn't picture what that meant — \"How can a grown man be born a second time?\" he wondered aloud.", "ko": "예수님은 놀라운 말씀을 하셨습니다. 누구든지 영적으로 삶을 다시 시작하지 않으면 하나님의 나라에 속할 수 없다는 것이었습니다. 니고데모는 그게 무슨 뜻인지 도무지 그려지지 않았습니다. \"다 큰 어른이 어떻게 다시 태어날 수 있습니까?\" 그는 소리 내어 물었습니다." },
-        { "text": "God's love for the world was so great that he sent his only Son — so that everyone who puts their trust in him would not be lost, but would live forever.", "ko": "하나님이 세상을 사랑하신 마음이 얼마나 크셨던지, 그분은 하나뿐인 아들을 보내셨습니다. 그래서 그분을 신뢰하는 사람은 누구든지 길을 잃지 않고 영원히 살게 됩니다." }
+        {
+          "text": "A Jewish leader named Nicodemus wanted to learn more about Jesus, but he was worried what other leaders might think — so he waited until it was dark outside and went to find Jesus alone. \"Teacher,\" he said, \"it's clear that God sent you.\"",
+          "ko": "니고데모라는 유대인 지도자가 예수님에 대해 더 알고 싶었지만, 다른 지도자들이 어떻게 생각할지 걱정이 되었습니다. 그래서 그는 날이 어두워질 때까지 기다렸다가 혼자 예수님을 찾아갔습니다. \"선생님,\" 그가 말했습니다, \"하나님께서 당신을 보내신 것이 분명합니다.\""
+        },
+        {
+          "text": "Jesus told him something surprising: nobody can be part of God's kingdom without starting life over again, in a spiritual way. Nicodemus couldn't picture what that meant — \"How can a grown man be born a second time?\" he wondered aloud.",
+          "ko": "예수님은 놀라운 말씀을 하셨습니다. 누구든지 영적으로 삶을 다시 시작하지 않으면 하나님의 나라에 속할 수 없다는 것이었습니다. 니고데모는 그게 무슨 뜻인지 도무지 그려지지 않았습니다. \"다 큰 어른이 어떻게 다시 태어날 수 있습니까?\" 그는 소리 내어 물었습니다."
+        },
+        {
+          "text": "God's love for the world was so great that he sent his only Son — so that everyone who puts their trust in him would not be lost, but would live forever.",
+          "ko": "하나님이 세상을 사랑하신 마음이 얼마나 크셨던지, 그분은 하나뿐인 아들을 보내셨습니다. 그래서 그분을 신뢰하는 사람은 누구든지 길을 잃지 않고 영원히 살게 됩니다."
+        }
       ],
       "multiSelect": [
-        { "text": "Nicodemus was a Jewish leader.", "correct": true },
-        { "text": "Nicodemus understood Jesus right away.", "correct": false },
-        { "text": "God gave his only Son because he loved the world.", "correct": true },
-        { "text": "Believers in Jesus will perish.", "correct": false }
+        {
+          "text": "Nicodemus was a Jewish leader.",
+          "correct": true
+        },
+        {
+          "text": "Nicodemus understood Jesus right away.",
+          "correct": false
+        },
+        {
+          "text": "God gave his only Son because he loved the world.",
+          "correct": true
+        },
+        {
+          "text": "Believers in Jesus will perish.",
+          "correct": false
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"니고데모가 밤에 예수님을 찾아왔고, 하나님이 세상을 사랑하셔서 독생자를 주셨다는 말씀을 들었다","correct":true},
-          {"text":"니고데모가 예수님과 함께 여행을 떠났다","correct":false},
-          {"text":"하나님이 니고데모를 벌하셨다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "니고데모가 밤에 예수님을 찾아왔고, 하나님이 세상을 사랑하셔서 독생자를 주셨다는 말씀을 들었다",
+              "correct": true
+            },
+            {
+              "text": "니고데모가 예수님과 함께 여행을 떠났다",
+              "correct": false
+            },
+            {
+              "text": "하나님이 니고데모를 벌하셨다",
+              "correct": false
+            }
+          ]
+        }
       ],
       "essayQuestion": "What do you think it means to be \"born again\"? Write one sentence in English."
     }
