@@ -1,0 +1,527 @@
+{
+  "book": "john",
+  "chapter": 18,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "about": "~에 대해",
+    "across": "건너편에",
+    "after": "~후에",
+    "all": "모두",
+    "alongside": "~옆에",
+    "an": "하나의",
+    "and": "그리고",
+    "annas": "안나스",
+    "answered": "대답했다",
+    "any": "어떤",
+    "arrest": "체포하다",
+    "arrested": "체포했다",
+    "as": "~인 것처럼",
+    "asked": "물었다",
+    "at": "~에서",
+    "authority": "권한",
+    "away": "멀리",
+    "back": "뒤로",
+    "barabbas": "바라바",
+    "be": "~이다",
+    "before": "~전에",
+    "behind": "뒤에서",
+    "belong": "속하다",
+    "bound": "묶었다",
+    "brought": "데려왔다",
+    "but": "그러나",
+    "by": "~옆에서",
+    "caiaphas": "가야바",
+    "calmly": "침착하게",
+    "came": "왔다",
+    "carry": "수행하다",
+    "carrying": "들고서",
+    "charcoal": "숯",
+    "charge": "기소하다",
+    "choice": "선택",
+    "choosing": "선택하는 것",
+    "claimed": "주장했다",
+    "confirmed": "확인해주었다",
+    "confusion": "혼란",
+    "couldn't": "할 수 없었다",
+    "courtyard": "뜰",
+    "crime": "죄",
+    "criminal": "범죄자",
+    "crowd": "무리",
+    "crowed": "울었다",
+    "current": "현직의",
+    "custom": "관습",
+    "denial": "부인",
+    "did": "~했다",
+    "didn't": "~하지 않았다",
+    "different": "서로 다른",
+    "directly": "직접",
+    "distance": "거리",
+    "don't": "~하지 않는다",
+    "each": "각각",
+    "enough": "충분히",
+    "execution": "처형",
+    "expecting": "예상하며",
+    "far": "멀리",
+    "fight": "싸움",
+    "fighting": "싸우는 것",
+    "find": "찾다",
+    "fire": "불",
+    "firmly": "단호하게",
+    "first": "먼저",
+    "followed": "따라갔다",
+    "followers": "제자들",
+    "following": "따라서",
+    "for": "~을 위해",
+    "former": "전직의",
+    "forward": "앞으로",
+    "fought": "싸웠다",
+    "free": "자유로운",
+    "from": "~로부터",
+    "further": "더 많은",
+    "garden": "동산",
+    "gathered": "모였다",
+    "governor": "총독",
+    "grabbed": "움켜잡았다",
+    "group": "무리",
+    "guards": "경비병들",
+    "had": "가지고 있었다",
+    "hands": "손",
+    "have": "가지다",
+    "he": "그는",
+    "hesitation": "망설임",
+    "high": "높은",
+    "him": "그를",
+    "his": "그의",
+    "house": "집",
+    "i": "나는",
+    "if": "만약",
+    "in": "~안에서",
+    "insisted": "우겼다",
+    "instead": "대신",
+    "into": "~안으로",
+    "it": "그것",
+    "jesus": "예수님",
+    "jesus's": "예수님의",
+    "judas": "유다",
+    "just": "바로",
+    "king": "왕",
+    "kingdom": "나라",
+    "knew": "알고 있었다",
+    "know": "알다",
+    "leaders": "지도자들",
+    "led": "이끌었다",
+    "looking": "찾고 있는",
+    "meanwhile": "그동안",
+    "men": "사람들",
+    "met": "만났다",
+    "moment": "순간",
+    "morning": "아침",
+    "name": "이름",
+    "named": "~라는 이름의",
+    "needed": "필요했다",
+    "night": "밤",
+    "no": "아니다",
+    "notice": "알아채다",
+    "of": "~의",
+    "offered": "제시했다",
+    "often": "자주",
+    "on": "~에",
+    "one": "하나",
+    "out": "밖으로",
+    "outside": "바깥에",
+    "own": "자기 자신의",
+    "passover": "유월절",
+    "peter": "베드로",
+    "pilate": "빌라도",
+    "place": "장소",
+    "previous": "이전의",
+    "priest": "제사장",
+    "priest's": "제사장의",
+    "prisoner": "죄수",
+    "put": "두었다",
+    "questioned": "질문했다",
+    "questioning": "심문",
+    "quietly": "조용히",
+    "real": "실제의",
+    "recognized": "알아보았다",
+    "releasing": "풀어주는 것",
+    "religious": "종교적인",
+    "right": "바로",
+    "roman": "로마의",
+    "rooster": "수탉",
+    "said": "말했다",
+    "sending": "보내며",
+    "separate": "별개의",
+    "set": "석방하다",
+    "shouted": "외쳤다",
+    "since": "~때문에",
+    "slipped": "슬며시 들어갔다",
+    "small": "작은",
+    "so": "그래서",
+    "soldiers": "군인들",
+    "some": "몇몇",
+    "someone": "누군가",
+    "spot": "장소",
+    "stayed": "머물렀다",
+    "stepped": "나섰다",
+    "stop": "막다",
+    "strangers": "낯선 사람들",
+    "sword": "칼",
+    "swung": "휘둘렀다",
+    "temple": "성전",
+    "that": "저것/그것",
+    "the": "그",
+    "their": "그들의",
+    "then": "그다음",
+    "there": "거기",
+    "they": "그들은",
+    "third": "세 번째의",
+    "this": "이것",
+    "though": "~이지만",
+    "three": "셋",
+    "time": "시간",
+    "times": "번",
+    "to": "~에게",
+    "told": "말했다",
+    "took": "데려갔다",
+    "torches": "횃불",
+    "valley": "골짜기",
+    "visits": "방문들",
+    "warming": "녹이며",
+    "was": "~였다",
+    "wasn't": "~아니었다",
+    "weapon": "무기",
+    "weapons": "무기들",
+    "well": "잘",
+    "went": "갔다",
+    "were": "~였다",
+    "when": "~할 때",
+    "whether": "~인지",
+    "who": "누구",
+    "with": "~와 함께",
+    "without": "~없이",
+    "world": "세상",
+    "would": "~할 것이다"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "soldiers",
+          "meaning": "군인들"
+        },
+        {
+          "word": "arrested",
+          "meaning": "체포했다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Soldiers arrested Jesus.",
+          "ko": "군인들이 예수님을 체포했어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "soldiers",
+          "opts": [
+            {
+              "text": "💂",
+              "kr": "군인들",
+              "correct": true
+            },
+            {
+              "text": "👶",
+              "kr": "아기",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "arrested",
+          "opts": [
+            {
+              "text": "⛓️",
+              "kr": "체포했다",
+              "correct": true
+            },
+            {
+              "text": "😊",
+              "kr": "환영했다",
+              "correct": false
+            },
+            {
+              "text": "🎁",
+              "kr": "선물했다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Soldiers arrested Jesus."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "garden",
+          "meaning": "동산"
+        },
+        {
+          "word": "arrest",
+          "meaning": "체포하다"
+        },
+        {
+          "word": "followed",
+          "meaning": "따라갔다"
+        },
+        {
+          "word": "know",
+          "meaning": "알다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus went to a garden.",
+          "ko": "예수님은 동산에 가셨어요."
+        },
+        {
+          "text": "Soldiers came to arrest him.",
+          "ko": "군인들이 그분을 체포하러 왔어요."
+        },
+        {
+          "text": "Peter followed at a distance.",
+          "ko": "베드로는 멀찍이 떨어져 따라갔어요."
+        },
+        {
+          "text": "Peter said, \"I don't know him.\"",
+          "ko": "베드로는 \"나는 그를 모른다\"고 말했어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Jesus went to a ___.",
+        "answer": "garden",
+        "options": [
+          "garden",
+          "boat",
+          "mountain"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'arrest'의 뜻은?",
+          "opts": [
+            {
+              "text": "체포하다",
+              "correct": true
+            },
+            {
+              "text": "풀어주다",
+              "correct": false
+            },
+            {
+              "text": "환영하다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'know'의 뜻은?",
+          "opts": [
+            {
+              "text": "모르다",
+              "correct": false
+            },
+            {
+              "text": "알다",
+              "correct": true
+            },
+            {
+              "text": "잊다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Peter followed at a distance.",
+          "opts": [
+            {
+              "text": "Peter followed at a distance.",
+              "correct": true
+            },
+            {
+              "text": "Peter ran away quickly.",
+              "correct": false
+            },
+            {
+              "text": "Peter went home.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "⛓️ 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "arrest",
+              "correct": true
+            },
+            {
+              "text": "garden",
+              "correct": false
+            },
+            {
+              "text": "know",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Peter followed at a distance."
+    },
+    "fruit": {
+      "helperWords": {
+        "garden": "동산",
+        "soldiers": "군인들",
+        "denied": "부인했다"
+      },
+      "sentences": [
+        {
+          "text": "Jesus often met with his followers in a garden across a small valley. Judas knew the place well, so he led soldiers and guards there to find Jesus.",
+          "ko": "예수님은 작은 골짜기 건너편 동산에서 제자들과 자주 만나셨어요. 유다는 그곳을 잘 알고 있어서, 군인들과 경비병들을 이끌고 예수님을 찾으러 그곳으로 갔어요."
+        },
+        {
+          "text": "The soldiers arrested Jesus and took him first to the high priest's house. Peter followed behind, but stayed far enough back that no one would notice him.",
+          "ko": "군인들은 예수님을 체포해서 먼저 대제사장의 집으로 데려갔어요. 베드로는 뒤따라갔지만, 아무도 알아채지 못하도록 멀찍이 떨어져 있었어요."
+        },
+        {
+          "text": "Three different times, someone asked Peter if he knew Jesus. Each time, Peter said no — and just then, a rooster crowed.",
+          "ko": "세 번이나 사람들이 베드로에게 예수님을 아느냐고 물었어요. 매번 베드로는 모른다고 대답했어요 — 그리고 바로 그때, 닭이 울었어요."
+        }
+      ],
+      "orderQuiz": [
+        "Jesus often met with his followers in a garden across a small valley. Judas knew the place well, so he led soldiers and guards there to find Jesus.",
+        "The soldiers arrested Jesus and took him first to the high priest's house. Peter followed behind, but stayed far enough back that no one would notice him.",
+        "Three different times, someone asked Peter if he knew Jesus. Each time, Peter said no — and just then, a rooster crowed."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Judas did not know where to find Jesus.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"A rooster crowed after Peter denied Jesus three times.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'distance'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "space between two things",
+              "correct": true
+            },
+            {
+              "text": "a kind of food",
+              "correct": false
+            },
+            {
+              "text": "a type of bird",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "베드로는 세 번 예수님을 모른다고 말했다",
+        "template": "Peter said no three ___.",
+        "answer": "times"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "authority": "권한",
+        "kingdom": "나라",
+        "custom": "관습"
+      },
+      "paragraphs": [
+        {
+          "text": "Jesus often gathered with his followers in a garden across a small valley, a spot Judas knew well from all their previous visits there. That night, Judas led a group of soldiers and temple guards to the garden, carrying torches and weapons as if expecting a fight. Jesus stepped forward on his own and calmly asked who they were looking for; when they answered his name, he confirmed it was him without any hesitation. In the confusion, Peter grabbed a sword and swung it at one of the men, but Jesus told him firmly to put the weapon away — this wasn't the moment for fighting.",
+          "ko": "예수님은 작은 골짜기 건너편 동산에서 제자들과 자주 모이셨는데, 유다는 예전에 여러 번 방문했던 그곳을 잘 알고 있었습니다. 그날 밤 유다는 군인들과 성전 경비병들 한 무리를 이끌고 마치 싸움을 예상한 듯 횃불과 무기를 들고 동산으로 갔습니다. 예수님은 스스로 앞으로 나서서 침착하게 누구를 찾고 있느냐고 물으셨고, 그들이 자신의 이름을 대답하자 조금도 망설이지 않고 그게 자신이라고 밝히셨습니다. 혼란 속에서 베드로가 칼을 뽑아 한 사람을 향해 휘둘렀지만, 예수님은 그에게 단호하게 칼을 거두라고, 지금은 싸울 때가 아니라고 말씀하셨습니다."
+        },
+        {
+          "text": "The soldiers bound Jesus and brought him first to Annas, a former high priest, before sending him on to Caiaphas, the current high priest, for further questioning. Meanwhile, Peter had quietly followed behind and slipped into the courtyard outside, warming his hands by a charcoal fire alongside some strangers. Three separate times that night, someone recognized him and asked if he was one of Jesus's followers, and three separate times Peter insisted he wasn't — and right after his third denial, a rooster crowed, just as Jesus had told him it would.",
+          "ko": "군인들은 예수님을 묶어서 먼저 전직 대제사장인 안나스에게, 그다음 더 심문받도록 현직 대제사장인 가야바에게 데려갔습니다. 그동안 베드로는 조용히 뒤따라가서 바깥뜰로 슬며시 들어가, 낯선 사람들 옆에서 숯불에 손을 녹이고 있었습니다. 그날 밤 세 번이나 누군가 그를 알아보고 예수님의 제자냐고 물었고, 세 번 다 베드로는 아니라고 우겼습니다 — 세 번째 부인 직후, 예수님이 말씀하셨던 그대로 닭이 울었습니다."
+        },
+        {
+          "text": "By morning, the religious leaders brought Jesus to Pilate, the Roman governor, since they needed his authority to carry out an execution. Pilate questioned Jesus directly about whether he claimed to be a king, and Jesus answered that his kingdom didn't belong to this world at all — if it did, his followers would have fought to stop his arrest. Pilate couldn't find any real crime to charge him with, so he offered the crowd a choice, following a Passover custom of releasing one prisoner. Instead of choosing Jesus, though, the crowd shouted for a criminal named Barabbas to be set free instead.",
+          "ko": "아침이 되자 종교 지도자들은 처형을 집행할 권한이 필요했기에 예수님을 로마 총독 빌라도에게 데려갔습니다. 빌라도는 예수님께 왕이라고 주장하느냐고 직접 물었고, 예수님은 자신의 나라는 이 세상에 속한 것이 전혀 아니라고 대답하셨습니다 — 만약 그랬다면 제자들이 그분의 체포를 막으려 싸웠을 거라는 것이었습니다. 빌라도는 그분에게 물을 만한 실제 죄를 찾지 못해서, 유월절 관습에 따라 죄수 한 명을 풀어주는 선택권을 무리에게 주었습니다. 하지만 무리는 예수님 대신 바라바라는 범죄자를 풀어달라고 외쳤습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Judas led soldiers to the garden where Jesus often met his followers.",
+          "correct": true
+        },
+        {
+          "text": "Jesus tried to hide from the soldiers.",
+          "correct": false
+        },
+        {
+          "text": "Peter denied knowing Jesus three times.",
+          "correct": true
+        },
+        {
+          "text": "Pilate found Jesus guilty of a real crime.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 동산에서 체포되어 심문받으셨고, 베드로는 세 번 부인했으며, 빌라도는 죄를 찾지 못했지만 무리는 바라바를 풀어달라고 외쳤다",
+              "correct": true
+            },
+            {
+              "text": "베드로가 예수님을 끝까지 부인하지 않았다",
+              "correct": false
+            },
+            {
+              "text": "무리가 예수님을 풀어달라고 외쳤다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Peter denied knowing Jesus? Write one sentence in English."
+    }
+  }
+}
