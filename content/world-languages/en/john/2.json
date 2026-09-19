@@ -123,7 +123,10 @@
     "seemed": "~처럼 보였다",
     "so": "그래서",
     "strange": "이상한",
-    "they": "그들은"
+    "they": "그들은",
+    "follow": "따르다",
+    "instructions": "지시",
+    "them": "그들을"
   },
   "levels": {
     "sprout": {
@@ -396,8 +399,8 @@
           "ko": "예수님과 그분의 어머니, 그리고 제자들은 모두 가나라는 마을에서 열린 결혼 잔치에 손님으로 초대받았습니다. 어떤 큰 일이 있은 지 사흘째 되는 날이었고, 마을 전체가 함께 기뻐하고 있었습니다."
         },
         {
-          "text": "Partway through the party, the wine ran out — an embarrassing problem for the host. Jesus's mother came to him about it, and even though she wasn't totally sure what he'd do, she turned to the servants and simply said, \"Just do whatever he tells you.\"",
-          "ko": "잔치 도중에 포도주가 다 떨어졌는데, 이는 주인에게 매우 난처한 일이었습니다. 예수님의 어머니가 그분께 이 사실을 알렸고, 그분이 무엇을 하실지 확실히는 몰랐지만 하인들에게 이렇게 말했습니다. '그가 무엇을 시키든 그대로 하세요.'"
+          "text": "Partway through the party, the wine ran out — an embarrassing problem for the host. Jesus's mother came to him about it, and even though she wasn't totally sure what he'd do, she turned to the servants and told them to follow whatever instructions he gave them.",
+          "ko": "잔치 도중에 포도주가 다 떨어졌는데, 이는 주인에게 매우 난처한 일이었습니다. 예수님의 어머니가 그분께 이 사실을 알렸고, 그분이 무엇을 하실지 확실히는 몰랐지만 하인들에게 그가 무슨 말을 하든 그대로 따르라고 일렀습니다."
         },
         {
           "text": "What happened next became the very first miracle Jesus ever performed in public, and it gave everyone a glimpse of who he really was. Seeing it, his followers put their trust in him for the first time.",
