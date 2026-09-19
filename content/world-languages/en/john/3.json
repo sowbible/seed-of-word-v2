@@ -120,7 +120,15 @@
     "without": "~없이",
     "wondered": "궁금해했다",
     "worried": "걱정했다",
-    "would": "~할 것이다"
+    "would": "~할 것이다",
+    "anyone": "누구도",
+    "because": "~때문에",
+    "curious": "궁금한",
+    "didn't": "~하지 않았다",
+    "else": "다른",
+    "possible": "가능한",
+    "understand": "이해하다",
+    "want": "원하다"
   },
   "levels": {
     "sprout": {
@@ -313,22 +321,22 @@
       },
       "sentences": [
         {
-          "text": "Nicodemus came to Jesus at night.",
-          "ko": "니고데모는 밤에 예수님께 왔어요."
+          "text": "Nicodemus was curious about Jesus, so he came to see him at night. He didn't want anyone else to know he was there.",
+          "ko": "니고데모는 예수님이 궁금해서 밤에 그분을 찾아갔어요. 다른 사람들이 그 사실을 아는 걸 원하지 않았어요."
         },
         {
-          "text": "Jesus said, \"You must be born again.\"",
-          "ko": "예수님은 \"너는 다시 태어나야 한다\"고 말씀하셨어요."
+          "text": "Jesus told him something surprising: \"You must be born again.\" Nicodemus couldn't understand how that was possible.",
+          "ko": "예수님은 그에게 놀라운 말씀을 하셨어요. \"너는 다시 태어나야 한다.\" 니고데모는 그게 어떻게 가능한지 이해할 수 없었어요."
         },
         {
-          "text": "God loved the world so much that he gave his Son.",
-          "ko": "하나님은 세상을 너무나 사랑하셔서 자신의 아들을 주셨어요."
+          "text": "God loved the world so much that he gave his only Son. Because of that, whoever believes in him can live forever.",
+          "ko": "하나님은 세상을 너무나 사랑하셔서 하나뿐인 아들을 주셨어요. 그렇기 때문에 그분을 믿는 사람은 누구나 영원히 살 수 있어요."
         }
       ],
       "orderQuiz": [
-        "Nicodemus came to Jesus at night.",
-        "Jesus said, \"You must be born again.\"",
-        "God loved the world so much that he gave his Son."
+        "Nicodemus was curious about Jesus, so he came to see him at night. He didn't want anyone else to know he was there.",
+        "Jesus told him something surprising: \"You must be born again.\" Nicodemus couldn't understand how that was possible.",
+        "God loved the world so much that he gave his only Son. Because of that, whoever believes in him can live forever."
       ],
       "mixQuiz": [
         {
