@@ -1,112 +1,488 @@
 {
-  "book": "john", "chapter": 7, "language": "en", "version": "2.0",
+  "book": "john",
+  "chapter": 7,
+  "language": "en",
+  "version": "2.0",
   "dictionary": {
-    "a":"한","about":"~에 대해","already":"이미","amazed":"놀란","among":"~중에서","and":"그리고",
-    "announcement":"공지","any":"어떤","anybody":"누구도","anyone":"누구든지","argued":"논쟁했다",
-    "arrest":"체포하다","at":"~에서","back":"돌아왔다","be":"~이다","before":"~전에","began":"시작했다",
-    "believe":"믿다","believed":"믿었다","big":"큰","bothered":"신경쓰였다","brothers":"형제들",
-    "but":"그러나","called":"외쳤다","came":"왔다","carrying":"지니고 다니는","city":"도시",
-    "come":"오다","completely":"완전히","could":"할 수 있었다","couldn't":"할 수 없었다",
-    "courts":"뜰","crowd":"무리","day":"날","did":"~했다","doubted":"의심했다","drink":"마시다",
-    "dry":"마른","emptyhanded":"빈손으로","even":"심지어","ever":"지금까지","everyone":"모든 사람",
-    "felt":"느꼈다","festival":"축제","filled":"채워진","final":"마지막의","for":"~을 위해",
-    "fresh":"신선한","from":"~로부터","galilee":"갈릴리","go":"가다","guards":"경비병들",
-    "had":"가지고 있었다","halfway":"절반쯤","he":"그는","heard":"들었다","hearing":"듣고서",
-    "help":"돕다","him":"그를","himself":"그 자신","his":"그의","important":"중요한","in":"~안에",
-    "inside":"안에서","instead":"대신","into":"~안으로","is":"~이다","it":"그것",
-    "jerusalem":"예루살렘","jesus":"예수님","jesus's":"예수님의","king":"왕","leaders":"지도자들",
-    "like":"~처럼","listened":"들었다","making":"만드는","man":"사람","may":"~해도 된다","me":"나에게",
-    "more":"더","most":"가장","must":"~임에 틀림없다","never":"결코 ~않다","not":"~않다","of":"~의",
-    "off":"밖으로","on":"~에","one":"하나","others":"다른 사람들","out":"밖으로","overflows":"넘쳐흐른다",
-    "own":"자기 자신의","people":"사람들","promised":"약속하셨다","prophet":"선지자","public":"공개된",
-    "quietly":"조용히","real":"진짜의","really":"정말로","runs":"흐른다","secretly":"몰래",
-    "sent":"보냈다","show":"보여주다","since":"~때문에","slipped":"슬며시 들어갔다","so":"그래서",
-    "some":"몇몇","something":"무언가","spoke":"말했다","spring":"샘","start":"시작",
-    "stood":"일어섰다","studied":"공부했다","talk":"말하다","talks":"말한다","taught":"가르치셨다",
-    "teachers":"선생님들","teaching":"가르치는 것","teased":"놀렸다","telling":"말하며",
-    "temple":"성전","than":"~보다","that":"저것/그것","the":"그","themselves":"그들 스스로",
-    "they":"그들은","thirsty":"목마른","this":"이","thought":"생각했다","through":"~을 통해",
-    "to":"~에게","trusting":"신뢰하는 것","under":"~아래에서","understand":"이해하다","until":"~까지",
-    "up":"위로","waited":"기다렸다","was":"~였다","water":"물","way":"방식","we've":"우리는 ~했다",
-    "wellknown":"잘 알려진","went":"갔다","were":"~였다","while":"~하는 동안","who":"누구",
-    "whole":"전체의","wisdom":"지혜","with":"~와 함께","without":"~없이","would":"~할 것이다",
-    "yet":"아직","yourself":"너 자신"
+    "a": "한",
+    "about": "~에 대해",
+    "already": "이미",
+    "amazed": "놀란",
+    "among": "~중에서",
+    "and": "그리고",
+    "announcement": "공지",
+    "any": "어떤",
+    "anybody": "누구도",
+    "anyone": "누구든지",
+    "argued": "논쟁했다",
+    "arrest": "체포하다",
+    "at": "~에서",
+    "back": "돌아왔다",
+    "be": "~이다",
+    "before": "~전에",
+    "began": "시작했다",
+    "believe": "믿다",
+    "believed": "믿었다",
+    "big": "큰",
+    "bothered": "신경쓰였다",
+    "brothers": "형제들",
+    "but": "그러나",
+    "called": "외쳤다",
+    "came": "왔다",
+    "carrying": "지니고 다니는",
+    "city": "도시",
+    "come": "오다",
+    "completely": "완전히",
+    "could": "할 수 있었다",
+    "couldn't": "할 수 없었다",
+    "courts": "뜰",
+    "crowd": "무리",
+    "day": "날",
+    "did": "~했다",
+    "doubted": "의심했다",
+    "drink": "마시다",
+    "dry": "마른",
+    "emptyhanded": "빈손으로",
+    "even": "심지어",
+    "ever": "지금까지",
+    "everyone": "모든 사람",
+    "felt": "느꼈다",
+    "festival": "축제",
+    "filled": "채워진",
+    "final": "마지막의",
+    "for": "~을 위해",
+    "fresh": "신선한",
+    "from": "~로부터",
+    "galilee": "갈릴리",
+    "go": "가다",
+    "guards": "경비병들",
+    "had": "가지고 있었다",
+    "halfway": "절반쯤",
+    "he": "그는",
+    "heard": "들었다",
+    "hearing": "듣고서",
+    "help": "돕다",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "important": "중요한",
+    "in": "~안에",
+    "inside": "안에서",
+    "instead": "대신",
+    "into": "~안으로",
+    "is": "~이다",
+    "it": "그것",
+    "jerusalem": "예루살렘",
+    "jesus": "예수님",
+    "jesus's": "예수님의",
+    "king": "왕",
+    "leaders": "지도자들",
+    "like": "~처럼",
+    "listened": "들었다",
+    "making": "만드는",
+    "man": "사람",
+    "may": "~해도 된다",
+    "me": "나에게",
+    "more": "더",
+    "most": "가장",
+    "must": "~임에 틀림없다",
+    "never": "결코 ~않다",
+    "not": "~않다",
+    "of": "~의",
+    "off": "밖으로",
+    "on": "~에",
+    "one": "하나",
+    "others": "다른 사람들",
+    "out": "밖으로",
+    "overflows": "넘쳐흐른다",
+    "own": "자기 자신의",
+    "people": "사람들",
+    "promised": "약속하셨다",
+    "prophet": "선지자",
+    "public": "공개된",
+    "quietly": "조용히",
+    "real": "진짜의",
+    "really": "정말로",
+    "runs": "흐른다",
+    "secretly": "몰래",
+    "sent": "보냈다",
+    "show": "보여주다",
+    "since": "~때문에",
+    "slipped": "슬며시 들어갔다",
+    "so": "그래서",
+    "some": "몇몇",
+    "something": "무언가",
+    "spoke": "말했다",
+    "spring": "샘",
+    "start": "시작",
+    "stood": "일어섰다",
+    "studied": "공부했다",
+    "talk": "말하다",
+    "talks": "말한다",
+    "taught": "가르치셨다",
+    "teachers": "선생님들",
+    "teaching": "가르치는 것",
+    "teased": "놀렸다",
+    "telling": "말하며",
+    "temple": "성전",
+    "than": "~보다",
+    "that": "저것/그것",
+    "the": "그",
+    "themselves": "그들 스스로",
+    "they": "그들은",
+    "thirsty": "목마른",
+    "this": "이",
+    "thought": "생각했다",
+    "through": "~을 통해",
+    "to": "~에게",
+    "trusting": "신뢰하는 것",
+    "under": "~아래에서",
+    "understand": "이해하다",
+    "until": "~까지",
+    "up": "위로",
+    "waited": "기다렸다",
+    "was": "~였다",
+    "water": "물",
+    "way": "방식",
+    "we've": "우리는 ~했다",
+    "wellknown": "잘 알려진",
+    "went": "갔다",
+    "were": "~였다",
+    "while": "~하는 동안",
+    "who": "누구",
+    "whole": "전체의",
+    "wisdom": "지혜",
+    "with": "~와 함께",
+    "without": "~없이",
+    "would": "~할 것이다",
+    "yet": "아직",
+    "yourself": "너 자신",
+    "appeared": "나타났다",
+    "grown": "자란",
+    "last": "마지막의",
+    "listening": "듣는 것",
+    "over": "지나서",
+    "power": "능력",
+    "said": "말했다",
+    "them": "그들을",
+    "though": "~이지만",
+    "together": "함께"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "temple", "meaning": "성전" },
-        { "word": "thirsty", "meaning": "목마른" }
+        {
+          "word": "temple",
+          "meaning": "성전"
+        },
+        {
+          "word": "thirsty",
+          "meaning": "목마른"
+        }
       ],
       "sentences": [
-        { "text": "Jesus taught in the temple.", "ko": "예수님은 성전에서 가르치셨어요." }
+        {
+          "text": "Jesus taught in the temple.",
+          "ko": "예수님은 성전에서 가르치셨어요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "temple", "opts": [{"text":"🏛️","kr":"성전","correct":true},{"text":"🏠","kr":"집","correct":false},{"text":"🌳","kr":"나무","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "thirsty", "opts": [{"text":"🥤","kr":"목마른","correct":true},{"text":"😴","kr":"자는","correct":false},{"text":"😊","kr":"웃는","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "temple",
+          "opts": [
+            {
+              "text": "🏛️",
+              "kr": "성전",
+              "correct": true
+            },
+            {
+              "text": "🏠",
+              "kr": "집",
+              "correct": false
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "thirsty",
+          "opts": [
+            {
+              "text": "🥤",
+              "kr": "목마른",
+              "correct": true
+            },
+            {
+              "text": "😴",
+              "kr": "자는",
+              "correct": false
+            },
+            {
+              "text": "😊",
+              "kr": "웃는",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Jesus taught in the temple."
     },
     "tree": {
       "vocab": [
-        { "word": "festival", "meaning": "축제" },
-        { "word": "temple", "meaning": "성전" },
-        { "word": "amazed", "meaning": "놀란" },
-        { "word": "drink", "meaning": "마시다" }
+        {
+          "word": "festival",
+          "meaning": "축제"
+        },
+        {
+          "word": "temple",
+          "meaning": "성전"
+        },
+        {
+          "word": "amazed",
+          "meaning": "놀란"
+        },
+        {
+          "word": "drink",
+          "meaning": "마시다"
+        }
       ],
       "sentences": [
-        { "text": "Jesus went to the festival.", "ko": "예수님은 축제에 가셨어요." },
-        { "text": "He taught in the temple.", "ko": "그분은 성전에서 가르치셨어요." },
-        { "text": "The people were amazed.", "ko": "사람들이 놀랐어요." },
-        { "text": "Come to me and drink.", "ko": "내게 와서 마셔라." }
+        {
+          "text": "Jesus went to the festival.",
+          "ko": "예수님은 축제에 가셨어요."
+        },
+        {
+          "text": "He taught in the temple.",
+          "ko": "그분은 성전에서 가르치셨어요."
+        },
+        {
+          "text": "The people were amazed.",
+          "ko": "사람들이 놀랐어요."
+        },
+        {
+          "text": "Come to me and drink.",
+          "ko": "내게 와서 마셔라."
+        }
       ],
-      "fillBlank": { "template": "Jesus went to the ___.", "answer": "festival", "options": ["festival","temple","house"] },
+      "fillBlank": {
+        "template": "Jesus went to the ___.",
+        "answer": "festival",
+        "options": [
+          "festival",
+          "temple",
+          "house"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'festival'의 뜻은?", "opts": [{"text":"축제","correct":true},{"text":"성전","correct":false},{"text":"집","correct":false}] },
-        { "q": "'amazed'의 뜻은?", "opts": [{"text":"화난","correct":false},{"text":"놀란","correct":true},{"text":"슬픈","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "The people were amazed.", "opts": [{"text":"The people were amazed.","correct":true},{"text":"The people went home.","correct":false},{"text":"The people were angry.","correct":false}] },
-        { "q": "🏛️ 은 무슨 단어일까요?", "opts": [{"text":"temple","correct":true},{"text":"festival","correct":false},{"text":"water","correct":false}] }
+        {
+          "q": "'festival'의 뜻은?",
+          "opts": [
+            {
+              "text": "축제",
+              "correct": true
+            },
+            {
+              "text": "성전",
+              "correct": false
+            },
+            {
+              "text": "집",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'amazed'의 뜻은?",
+          "opts": [
+            {
+              "text": "화난",
+              "correct": false
+            },
+            {
+              "text": "놀란",
+              "correct": true
+            },
+            {
+              "text": "슬픈",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "The people were amazed.",
+          "opts": [
+            {
+              "text": "The people were amazed.",
+              "correct": true
+            },
+            {
+              "text": "The people went home.",
+              "correct": false
+            },
+            {
+              "text": "The people were angry.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🏛️ 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "temple",
+              "correct": true
+            },
+            {
+              "text": "festival",
+              "correct": false
+            },
+            {
+              "text": "water",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Come to me and drink."
     },
     "fruit": {
-      "helperWords": { "secretly":"몰래", "brothers":"형제들", "believe":"믿다" },
+      "helperWords": {
+        "secretly": "몰래",
+        "brothers": "형제들",
+        "believe": "믿다"
+      },
       "sentences": [
-        { "text": "Jesus's brothers did not believe in him yet.", "ko": "예수님의 형제들은 아직 그분을 믿지 않았어요." },
-        { "text": "He went to the festival secretly, not in public.", "ko": "그분은 공개적으로가 아니라 몰래 축제에 가셨어요." },
-        { "text": "Everyone who is thirsty may come to Jesus and drink.", "ko": "목마른 사람은 누구나 예수님께 와서 마셔도 돼요." }
+        {
+          "text": "Jesus's brothers did not believe in him yet, even though they had grown up together. They teased him to go show off his power at the festival.",
+          "ko": "예수님의 형제들은 함께 자랐음에도 아직 그분을 믿지 않았어요. 그들은 축제에서 능력을 보여주라고 놀렸어요."
+        },
+        {
+          "text": "Instead of listening to them, Jesus went to the festival secretly, not in public. He waited until it was already halfway over before he appeared.",
+          "ko": "그들의 말을 듣는 대신, 예수님은 공개적으로가 아니라 몰래 축제에 가셨어요. 그분은 축제가 이미 절반쯤 지날 때까지 기다렸다가 나타나셨어요."
+        },
+        {
+          "text": "On the last day, Jesus stood up and called out to the crowd. Everyone who felt thirsty inside, he said, could come to him and drink.",
+          "ko": "마지막 날, 예수님은 일어서서 무리를 향해 외치셨어요. 마음이 목마른 사람은 누구든지 자신에게 와서 마셔도 된다고 하셨어요."
+        }
       ],
       "orderQuiz": [
-        "Jesus's brothers did not believe in him yet.",
-        "He went to the festival secretly, not in public.",
-        "Everyone who is thirsty may come to Jesus and drink."
+        "Jesus's brothers did not believe in him yet, even though they had grown up together. They teased him to go show off his power at the festival.",
+        "Instead of listening to them, Jesus went to the festival secretly, not in public. He waited until it was already halfway over before he appeared.",
+        "On the last day, Jesus stood up and called out to the crowd. Everyone who felt thirsty inside, he said, could come to him and drink."
       ],
       "mixQuiz": [
-        { "q": "\"Jesus's brothers believed in him right away.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"Jesus went to the festival secretly.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "'secretly'와 비슷한 뜻은?", "opts": [{"text":"quietly, without telling everyone","correct":true},{"text":"loudly, in front of everyone","correct":false},{"text":"never, not at all","correct":false}] }
+        {
+          "q": "\"Jesus's brothers believed in him right away.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus went to the festival secretly.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'secretly'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "quietly, without telling everyone",
+              "correct": true
+            },
+            {
+              "text": "loudly, in front of everyone",
+              "correct": false
+            },
+            {
+              "text": "never, not at all",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "예수님의 형제들은 아직 그를 믿지 않았다", "template": "Jesus's brothers did not believe in ___ yet.", "answer": "him" }
+      "krEnFill": {
+        "kr": "예수님의 형제들은 아직 그를 믿지 않았다",
+        "template": "Jesus's brothers did not believe in ___ yet.",
+        "answer": "him"
+      }
     },
     "forest": {
-      "helperWords": { "prophet":"선지자", "overflow":"넘쳐흐르다", "doubted":"의심했다" },
+      "helperWords": {
+        "prophet": "선지자",
+        "overflow": "넘쳐흐르다",
+        "doubted": "의심했다"
+      },
       "paragraphs": [
-        { "text": "At the start, even Jesus's own brothers doubted who he really was, and they teased him to go show himself off at the big festival in Jerusalem. Instead, Jesus quietly slipped into the city on his own, without making any announcement, and waited until the festival was already halfway through before he stood up in the temple courts and began teaching.", "ko": "처음에는 예수님의 친형제들조차 그분이 정말 누구신지 의심했고, 예루살렘에서 열리는 큰 축제에 가서 스스로를 드러내 보라고 놀리듯 말했습니다. 하지만 예수님은 아무런 공지도 없이 조용히 혼자 도시로 들어가셨고, 축제가 절반쯤 지날 때까지 기다리셨다가 성전 뜰에 서서 가르치기 시작하셨습니다." },
-        { "text": "The crowd who listened couldn't understand it — Jesus had never studied under any of the well-known teachers, yet he spoke with more wisdom than they had ever heard. Some leaders were so bothered that they sent guards to arrest him, but the guards came back empty-handed, telling everyone, \"We've never heard anybody talk the way this man talks.\"", "ko": "그 말씀을 들은 사람들은 이해할 수 없었습니다 — 예수님은 이름난 선생님 밑에서 공부하신 적이 없는데도, 그들이 지금껏 들어본 것보다 더 지혜롭게 말씀하셨기 때문입니다. 몇몇 지도자들은 이 일이 너무 신경 쓰여서 경비병들을 보내 그분을 잡아오게 했지만, 경비병들은 빈손으로 돌아와 모두에게 이렇게 말했습니다. \"우리는 이 사람처럼 말하는 사람을 지금까지 들어본 적이 없습니다.\"" },
-        { "text": "On the final and most important day of the festival, Jesus stood up and called out to the whole crowd: anyone who felt thirsty inside — not for water, but for something real — could come to him and be filled completely. He promised that trusting him would be like carrying a spring of fresh water inside yourself, one that never runs dry and even overflows to help others. Hearing this, the crowd argued among themselves about who he really was — some thought he must be a prophet, others believed he was the promised King, while others doubted he could be, since he came from Galilee.", "ko": "축제의 마지막, 가장 중요한 날에 예수님은 일어서서 온 무리를 향해 외치셨습니다. 마음속이 목마른 사람은 누구든지 — 물 때문이 아니라 뭔가 진짜로 채워질 것이 필요해서 — 자신에게 와서 완전히 채움을 받으라는 것이었습니다. 그분은 자신을 신뢰하는 것이 마치 마르지 않는 신선한 샘물을 마음속에 지니고 다니는 것과 같아서, 넘쳐흘러 다른 사람들까지 도울 수 있게 될 것이라고 약속하셨습니다. 이 말씀을 듣고 무리는 그분이 정말 누구인지를 두고 서로 논쟁했습니다 — 어떤 사람은 그분이 선지자임에 틀림없다고 생각했고, 어떤 사람은 약속된 왕이라고 믿었으며, 또 어떤 사람은 그분이 갈릴리 출신이라는 이유로 그럴 리 없다고 의심했습니다." }
+        {
+          "text": "At the start, even Jesus's own brothers doubted who he really was, and they teased him to go show himself off at the big festival in Jerusalem. Instead, Jesus quietly slipped into the city on his own, without making any announcement, and waited until the festival was already halfway through before he stood up in the temple courts and began teaching.",
+          "ko": "처음에는 예수님의 친형제들조차 그분이 정말 누구신지 의심했고, 예루살렘에서 열리는 큰 축제에 가서 스스로를 드러내 보라고 놀리듯 말했습니다. 하지만 예수님은 아무런 공지도 없이 조용히 혼자 도시로 들어가셨고, 축제가 절반쯤 지날 때까지 기다리셨다가 성전 뜰에 서서 가르치기 시작하셨습니다."
+        },
+        {
+          "text": "The crowd who listened couldn't understand it — Jesus had never studied under any of the well-known teachers, yet he spoke with more wisdom than they had ever heard. Some leaders were so bothered that they sent guards to arrest him, but the guards came back empty-handed, telling everyone, \"We've never heard anybody talk the way this man talks.\"",
+          "ko": "그 말씀을 들은 사람들은 이해할 수 없었습니다 — 예수님은 이름난 선생님 밑에서 공부하신 적이 없는데도, 그들이 지금껏 들어본 것보다 더 지혜롭게 말씀하셨기 때문입니다. 몇몇 지도자들은 이 일이 너무 신경 쓰여서 경비병들을 보내 그분을 잡아오게 했지만, 경비병들은 빈손으로 돌아와 모두에게 이렇게 말했습니다. \"우리는 이 사람처럼 말하는 사람을 지금까지 들어본 적이 없습니다.\""
+        },
+        {
+          "text": "On the final and most important day of the festival, Jesus stood up and called out to the whole crowd: anyone who felt thirsty inside — not for water, but for something real — could come to him and be filled completely. He promised that trusting him would be like carrying a spring of fresh water inside yourself, one that never runs dry and even overflows to help others. Hearing this, the crowd argued among themselves about who he really was — some thought he must be a prophet, others believed he was the promised King, while others doubted he could be, since he came from Galilee.",
+          "ko": "축제의 마지막, 가장 중요한 날에 예수님은 일어서서 온 무리를 향해 외치셨습니다. 마음속이 목마른 사람은 누구든지 — 물 때문이 아니라 뭔가 진짜로 채워질 것이 필요해서 — 자신에게 와서 완전히 채움을 받으라는 것이었습니다. 그분은 자신을 신뢰하는 것이 마치 마르지 않는 신선한 샘물을 마음속에 지니고 다니는 것과 같아서, 넘쳐흘러 다른 사람들까지 도울 수 있게 될 것이라고 약속하셨습니다. 이 말씀을 듣고 무리는 그분이 정말 누구인지를 두고 서로 논쟁했습니다 — 어떤 사람은 그분이 선지자임에 틀림없다고 생각했고, 어떤 사람은 약속된 왕이라고 믿었으며, 또 어떤 사람은 그분이 갈릴리 출신이라는 이유로 그럴 리 없다고 의심했습니다."
+        }
       ],
       "multiSelect": [
-        { "text": "Jesus's brothers doubted him at first.", "correct": true },
-        { "text": "Jesus went to the festival loudly and publicly from the start.", "correct": false },
-        { "text": "The guards could not arrest Jesus because of how he spoke.", "correct": true },
-        { "text": "Everyone in the crowd agreed right away about who Jesus was.", "correct": false }
+        {
+          "text": "Jesus's brothers doubted him at first.",
+          "correct": true
+        },
+        {
+          "text": "Jesus went to the festival loudly and publicly from the start.",
+          "correct": false
+        },
+        {
+          "text": "The guards could not arrest Jesus because of how he spoke.",
+          "correct": true
+        },
+        {
+          "text": "Everyone in the crowd agreed right away about who Jesus was.",
+          "correct": false
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"예수님은 명절에 몰래 올라가 성전에서 놀라운 지혜로 가르치셨고, 목마른 자는 누구든 오라고 초청하셨지만 사람들은 그분이 누구인지를 두고 서로 의견이 갈렸다","correct":true},
-          {"text":"예수님의 형제들이 축제를 직접 준비했다","correct":false},
-          {"text":"경비병들이 예수님을 곧바로 체포했다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 명절에 몰래 올라가 성전에서 놀라운 지혜로 가르치셨고, 목마른 자는 누구든 오라고 초청하셨지만 사람들은 그분이 누구인지를 두고 서로 의견이 갈렸다",
+              "correct": true
+            },
+            {
+              "text": "예수님의 형제들이 축제를 직접 준비했다",
+              "correct": false
+            },
+            {
+              "text": "경비병들이 예수님을 곧바로 체포했다",
+              "correct": false
+            }
+          ]
+        }
       ],
       "essayQuestion": "Why do you think the crowd disagreed about who Jesus was? Write one sentence in English."
     }
