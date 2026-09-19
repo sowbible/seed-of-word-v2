@@ -359,14 +359,13 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
    always-translated 클래스를 추가 → 버튼이 숨고 해석이 처음부터 펼쳐짐.
    그 외(초급 이상)는 버튼을 눌러야 .sow-lang-translation에 show가 붙으며 펼쳐짐. */
 .sow-lang-translate-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  font-family:inherit;font-size:var(--fs-xs);font-weight:700;
-  padding:6px 13px;margin-top:10px;border-radius:99px;
+  display:inline-flex;align-items:center;
+  font-family:inherit;font-size:12px;font-weight:700;
+  padding:2px 11px;margin-left:6px;border-radius:99px;
   border:1px dashed var(--amber);background:var(--amber-tint);color:var(--amber);
-  cursor:pointer;transition:var(--ease);
+  cursor:pointer;transition:var(--ease);vertical-align:middle;
 }
 .sow-lang-translate-btn:hover{background:var(--amber);color:#fff;border-style:solid;}
-.sow-lang-translate-btn .sow-lang-translate-icon{font-size:13px;}
 .sow-lang-sentence-card.always-translated .sow-lang-translate-btn{display:none;}
 
 .sow-lang-translation{
@@ -391,12 +390,12 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-lang-vocab-check{background:var(--amber-tint);border:1px solid var(--amber);border-radius:var(--radius);padding:16px;margin-bottom:12px;}
 .sow-lang-vocab-check-title{font-size:var(--fs-2xs);font-weight:800;color:var(--amber);margin-bottom:11px;letter-spacing:.02em;}
 .sow-lang-vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:9px;}
-.sow-lang-vocab-card{position:relative;perspective:600px;height:66px;cursor:pointer;}
+.sow-lang-vocab-card{position:relative;perspective:600px;height:74px;cursor:pointer;}
 .sow-lang-vocab-card-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
 .sow-lang-vocab-card.flipped .sow-lang-vocab-card-inner{transform:rotateY(180deg);}
 .sow-lang-vocab-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;border-radius:10px;backface-visibility:hidden;font-weight:700;}
-.sow-lang-vocab-face.front{background:#fff;border:1.5px solid var(--line);color:var(--ink);font-size:var(--fs-sm);transition:border-color var(--ease);}
-.sow-lang-vocab-face.back{background:var(--amber);color:#fff;font-size:var(--fs-xs);transform:rotateY(180deg);}
+.sow-lang-vocab-face.front{background:#fff;border:1.5px solid var(--line);color:var(--ink);font-size:20px;transition:border-color var(--ease);}
+.sow-lang-vocab-face.back{background:var(--amber);color:#fff;font-size:var(--fs-sm);transform:rotateY(180deg);}
 .sow-lang-vocab-card.checked .sow-lang-vocab-face.front{border-color:var(--sprout);}
 .sow-lang-vocab-card.checked .sow-lang-vocab-card-inner::after{
   content:'✓';position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;
