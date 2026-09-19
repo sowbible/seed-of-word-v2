@@ -17,7 +17,14 @@
   },
   "levels": {
     "sprout": {
-      "sentences": ["Jesus is God's Son."],
+      "vocab": [
+        { "word": "Jesus", "meaning": "예수님" },
+        { "word": "God", "meaning": "하나님" },
+        { "word": "Son", "meaning": "아들" }
+      ],
+      "sentences": [
+        { "text": "Jesus is God's Son.", "ko": "예수님은 하나님의 아들이에요." }
+      ],
       "quiz": [
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "Jesus", "opts": [{"text":"✝️","kr":"예수님","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"🌳","kr":"나무","correct":false}] },
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "God", "opts": [{"text":"👑","kr":"하나님","correct":true},{"text":"📖","kr":"책","correct":false},{"text":"🐟","kr":"물고기","correct":false}] },
@@ -26,11 +33,17 @@
       "repeatSentence": "Jesus is God's Son."
     },
     "tree": {
+      "vocab": [
+        { "word": "beginning", "meaning": "시작" },
+        { "word": "Word", "meaning": "말씀" },
+        { "word": "light", "meaning": "빛" },
+        { "word": "world", "meaning": "세상" }
+      ],
       "sentences": [
-        "In the beginning, there was the Word.",
-        "The Word was with God.",
-        "Jesus came to the world.",
-        "He gives light to people."
+        { "text": "In the beginning, there was the Word.", "ko": "맨 처음에, 말씀이 계셨어요." },
+        { "text": "The Word was with God.", "ko": "말씀은 하나님과 함께 계셨어요." },
+        { "text": "Jesus came to the world.", "ko": "예수님이 세상에 오셨어요." },
+        { "text": "He gives light to people.", "ko": "그분은 사람들에게 빛을 주세요." }
       ],
       "fillBlank": { "template": "In the beginning, there was the ___.", "answer": "Word", "options": ["Word","light","world"] },
       "mixQuiz": [
@@ -49,9 +62,9 @@
     "fruit": {
       "helperWords": { "beginning":"시작", "through":"~을 통해", "everything":"모든 것", "darkness":"어둠" },
       "sentences": [
-        "In the beginning, the Word already existed.",
-        "God made everything through the Word.",
-        "The light shines in the dark, and the dark cannot stop it."
+        { "text": "In the beginning, the Word already existed.", "ko": "태초에, 말씀은 이미 계셨어요." },
+        { "text": "God made everything through the Word.", "ko": "하나님은 말씀을 통해 모든 것을 만드셨어요." },
+        { "text": "The light shines in the dark, and the dark cannot stop it.", "ko": "빛은 어둠 속에서 비추고, 어둠은 그 빛을 막을 수 없어요." }
       ],
       "orderQuiz": [
         "In the beginning, the Word already existed.",
@@ -70,9 +83,9 @@
     "forest": {
       "helperWords": { "overcome":"이기다", "recognize":"알아보다", "receive":"받아들이다", "descent":"혈통" },
       "paragraphs": [
-        "In the beginning, the Word already existed with God, and the Word was God Himself. Everything was created through Him, and without Him nothing that has been made was made.",
-        "The light shines in the darkness, and the darkness has never overcome it. He came to His own people, but His own people did not receive Him.",
-        "Yet to everyone who did receive Him and believed in His name, He gave the right to become children of God."
+        { "text": "In the beginning, the Word already existed with God, and the Word was God Himself. Everything was created through Him, and without Him nothing that has been made was made.", "ko": "태초에 말씀은 하나님과 함께 계셨고, 말씀은 곧 하나님이셨습니다. 모든 것이 그분을 통해 창조되었고, 그분 없이 지어진 것은 하나도 없습니다." },
+        { "text": "The light shines in the darkness, and the darkness has never overcome it. He came to His own people, but His own people did not receive Him.", "ko": "빛이 어둠 속에서 비추고, 어둠은 그 빛을 한 번도 이기지 못했습니다. 그분이 자기 백성에게 오셨지만, 그의 백성은 그분을 받아들이지 않았습니다." },
+        { "text": "Yet to everyone who did receive Him and believed in His name, He gave the right to become children of God.", "ko": "그러나 그분을 받아들이고 그 이름을 믿은 모든 사람에게는, 하나님의 자녀가 되는 권리를 주셨습니다." }
       ],
       "multiSelect": [
         { "text": "God created everything through the Word.", "correct": true },
