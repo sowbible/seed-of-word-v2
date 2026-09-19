@@ -15,7 +15,13 @@
   },
   "levels": {
     "sprout": {
-      "sentences": ["God loved the world."],
+      "vocab": [
+        { "word": "God", "meaning": "하나님" },
+        { "word": "world", "meaning": "세상" }
+      ],
+      "sentences": [
+        { "text": "God loved the world.", "ko": "하나님은 세상을 사랑하셨어요." }
+      ],
       "quiz": [
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "God", "opts": [{"text":"👑","kr":"하나님","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"📖","kr":"책","correct":false}] },
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "world", "opts": [{"text":"🌍","kr":"세상","correct":true},{"text":"☀️","kr":"해","correct":false},{"text":"🌳","kr":"나무","correct":false}] }
@@ -23,11 +29,17 @@
       "repeatSentence": "God loved the world."
     },
     "tree": {
+      "vocab": [
+        { "word": "born", "meaning": "태어난" },
+        { "word": "again", "meaning": "다시" },
+        { "word": "eternal", "meaning": "영원한" },
+        { "word": "believes", "meaning": "믿는다" }
+      ],
       "sentences": [
-        "You must be born again.",
-        "God loved the world.",
-        "He gave his only Son.",
-        "Whoever believes has eternal life."
+        { "text": "You must be born again.", "ko": "너는 다시 태어나야 해요." },
+        { "text": "God loved the world.", "ko": "하나님은 세상을 사랑하셨어요." },
+        { "text": "He gave his only Son.", "ko": "그분은 자신의 하나뿐인 아들을 주셨어요." },
+        { "text": "Whoever believes has eternal life.", "ko": "믿는 사람은 누구나 영원한 생명을 가져요." }
       ],
       "fillBlank": { "template": "You must be born ___.", "answer": "again", "options": ["again","new","well"] },
       "mixQuiz": [
@@ -41,9 +53,9 @@
     "fruit": {
       "helperWords": { "eternal":"영원한", "believe":"믿다", "perish":"멸망하다" },
       "sentences": [
-        "Nicodemus came to Jesus at night.",
-        "Jesus said, \"You must be born again.\"",
-        "God loved the world so much that he gave his Son."
+        { "text": "Nicodemus came to Jesus at night.", "ko": "니고데모는 밤에 예수님께 왔어요." },
+        { "text": "Jesus said, \"You must be born again.\"", "ko": "예수님은 \"너는 다시 태어나야 한다\"고 말씀하셨어요." },
+        { "text": "God loved the world so much that he gave his Son.", "ko": "하나님은 세상을 너무나 사랑하셔서 자신의 아들을 주셨어요." }
       ],
       "orderQuiz": [
         "Nicodemus came to Jesus at night.",
@@ -60,9 +72,9 @@
     "forest": {
       "helperWords": { "condemn":"정죄하다", "darkness":"어둠", "confused":"혼란스러운" },
       "paragraphs": [
-        "There was a man named Nicodemus, a Jewish leader. He came to Jesus at night and said, \"We know you are a teacher from God.\"",
-        "Jesus replied, \"No one can see the kingdom of God unless they are born again.\" Nicodemus was confused and asked how this could happen.",
-        "For God so loved the world that he gave his one and only Son, so that whoever believes in him will not perish but have eternal life."
+        { "text": "A Jewish leader named Nicodemus wanted to learn more about Jesus, but he was worried what other leaders might think — so he waited until it was dark outside and went to find Jesus alone. \"Teacher,\" he said, \"it's clear that God sent you.\"", "ko": "니고데모라는 유대인 지도자가 예수님에 대해 더 알고 싶었지만, 다른 지도자들이 어떻게 생각할지 걱정이 되었습니다. 그래서 그는 날이 어두워질 때까지 기다렸다가 혼자 예수님을 찾아갔습니다. \"선생님,\" 그가 말했습니다, \"하나님께서 당신을 보내신 것이 분명합니다.\"" },
+        { "text": "Jesus told him something surprising: nobody can be part of God's kingdom without starting life over again, in a spiritual way. Nicodemus couldn't picture what that meant — \"How can a grown man be born a second time?\" he wondered aloud.", "ko": "예수님은 놀라운 말씀을 하셨습니다. 누구든지 영적으로 삶을 다시 시작하지 않으면 하나님의 나라에 속할 수 없다는 것이었습니다. 니고데모는 그게 무슨 뜻인지 도무지 그려지지 않았습니다. \"다 큰 어른이 어떻게 다시 태어날 수 있습니까?\" 그는 소리 내어 물었습니다." },
+        { "text": "God's love for the world was so great that he sent his only Son — so that everyone who puts their trust in him would not be lost, but would live forever.", "ko": "하나님이 세상을 사랑하신 마음이 얼마나 크셨던지, 그분은 하나뿐인 아들을 보내셨습니다. 그래서 그분을 신뢰하는 사람은 누구든지 길을 잃지 않고 영원히 살게 됩니다." }
       ],
       "multiSelect": [
         { "text": "Nicodemus was a Jewish leader.", "correct": true },
