@@ -1,1 +1,466 @@
-
+{
+  "book": "john",
+  "chapter": 11,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "alarmed": "불안해진",
+    "alive": "살아있는",
+    "along": "함께",
+    "aloud": "소리내어",
+    "already": "이미",
+    "amazement": "놀람",
+    "and": "그리고",
+    "anyone": "누구든지",
+    "around": "주변의",
+    "arrived": "도착했다",
+    "astonishingly": "놀랍게도",
+    "away": "멀리",
+    "back": "다시",
+    "be": "~이다",
+    "became": "~하게 되었다",
+    "been": "~이었다",
+    "before": "~전에",
+    "began": "시작했다",
+    "brother": "오빠/형제",
+    "brought": "데려왔다",
+    "burial": "장례",
+    "but": "그러나",
+    "by": "~까지",
+    "called": "외쳤다",
+    "came": "왔다",
+    "close": "가까운",
+    "cloths": "천",
+    "come": "오다",
+    "confused": "혼란스러운",
+    "could": "할 수 있었다",
+    "crowd": "무리",
+    "cry": "울다",
+    "day": "날",
+    "days": "날들",
+    "dead": "죽은",
+    "death": "죽음",
+    "died": "죽었다",
+    "everyone": "모든 사람",
+    "everyone's": "모든 사람의",
+    "faith": "믿음",
+    "few": "몇몇의",
+    "finally": "마침내",
+    "first": "먼저",
+    "followers": "제자들",
+    "for": "~동안",
+    "four": "넷",
+    "friend": "친구",
+    "get": "~하게 만들다",
+    "grew": "~해졌다",
+    "had": "가지고 있었다",
+    "have": "가지다",
+    "he": "그는",
+    "head": "머리",
+    "hear": "듣다",
+    "heard": "들었다",
+    "her": "그녀의",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "hoping": "바라며",
+    "how": "어떻게",
+    "if": "만약",
+    "ill": "아픈",
+    "in": "~안에",
+    "it": "그것",
+    "itself": "그 자체",
+    "jesus": "예수님",
+    "jesus's": "예수님의",
+    "late": "늦은",
+    "lazarus": "나사로",
+    "leaders": "지도자들",
+    "life": "생명",
+    "little": "조금",
+    "loud": "큰",
+    "man": "사람",
+    "many": "많은",
+    "martha": "마르다",
+    "mary": "마리아",
+    "meet": "만나다",
+    "might": "~일지도 모른다",
+    "more": "더",
+    "moved": "마음이 움직인",
+    "never": "결코 ~않다",
+    "of": "~의",
+    "only": "오직",
+    "out": "밖으로",
+    "plotting": "꾸미는 것",
+    "prayed": "기도했다",
+    "put": "두었다",
+    "quickly": "빨리",
+    "reached": "도착했다",
+    "reassured": "안심시켰다",
+    "religious": "종교적인",
+    "rid": "없애다",
+    "right": "바로",
+    "sad": "슬픈",
+    "sent": "보냈다",
+    "seriously": "심하게",
+    "setting": "출발하는",
+    "sick": "아픈",
+    "sisters": "누이들",
+    "so": "그래서",
+    "some": "몇몇",
+    "sooner": "더 일찍",
+    "still": "여전히",
+    "stood": "섰다",
+    "surprised": "놀라게 했다",
+    "take": "빼앗다",
+    "telling": "말하며",
+    "that": "저것/그것",
+    "the": "그",
+    "their": "그들의",
+    "then": "그다음",
+    "they": "그들은",
+    "time": "시간",
+    "to": "~에게",
+    "toe": "발끝",
+    "tomb": "무덤",
+    "too": "또한",
+    "town": "마을",
+    "trust": "신뢰하다",
+    "two": "둘",
+    "very": "매우",
+    "voice": "음성",
+    "waiting": "기다리는",
+    "walked": "걸었다",
+    "was": "~였다",
+    "weeping": "울고 있는",
+    "went": "갔다",
+    "were": "~였다",
+    "when": "~할 때",
+    "who": "누구",
+    "with": "~와 함께",
+    "witnessed": "목격했다",
+    "word": "소식",
+    "worried": "걱정했다",
+    "would": "~할 것이다",
+    "wrapped": "감긴"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "life",
+          "meaning": "생명"
+        },
+        {
+          "word": "friend",
+          "meaning": "친구"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus brought Lazarus back to life.",
+          "ko": "예수님은 나사로를 다시 살리셨어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "life",
+          "opts": [
+            {
+              "text": "❤️",
+              "kr": "생명",
+              "correct": true
+            },
+            {
+              "text": "🌙",
+              "kr": "밤",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "friend",
+          "opts": [
+            {
+              "text": "🤝",
+              "kr": "친구",
+              "correct": true
+            },
+            {
+              "text": "😴",
+              "kr": "자는",
+              "correct": false
+            },
+            {
+              "text": "🍞",
+              "kr": "빵",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus brought Lazarus back to life."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "sick",
+          "meaning": "아픈"
+        },
+        {
+          "word": "died",
+          "meaning": "죽었다"
+        },
+        {
+          "word": "tomb",
+          "meaning": "무덤"
+        },
+        {
+          "word": "life",
+          "meaning": "생명"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Lazarus was very sick.",
+          "ko": "나사로가 많이 아팠어요."
+        },
+        {
+          "text": "Lazarus died.",
+          "ko": "나사로가 죽었어요."
+        },
+        {
+          "text": "Jesus called him out of the tomb.",
+          "ko": "예수님이 그를 무덤에서 불러내셨어요."
+        },
+        {
+          "text": "Lazarus came back to life.",
+          "ko": "나사로가 다시 살아났어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Lazarus was very ___.",
+        "answer": "sick",
+        "options": [
+          "sick",
+          "happy",
+          "tired"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'died'의 뜻은?",
+          "opts": [
+            {
+              "text": "죽었다",
+              "correct": true
+            },
+            {
+              "text": "살았다",
+              "correct": false
+            },
+            {
+              "text": "웃었다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'tomb'의 뜻은?",
+          "opts": [
+            {
+              "text": "무덤",
+              "correct": true
+            },
+            {
+              "text": "집",
+              "correct": false
+            },
+            {
+              "text": "연못",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Lazarus came back to life.",
+          "opts": [
+            {
+              "text": "Lazarus came back to life.",
+              "correct": true
+            },
+            {
+              "text": "Lazarus went to sleep.",
+              "correct": false
+            },
+            {
+              "text": "Lazarus was very sick.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "⚰️ 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "tomb",
+              "correct": true
+            },
+            {
+              "text": "life",
+              "correct": false
+            },
+            {
+              "text": "friend",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Lazarus came back to life."
+    },
+    "fruit": {
+      "helperWords": {
+        "sick": "아픈",
+        "tomb": "무덤",
+        "alive": "살아있는"
+      },
+      "sentences": [
+        {
+          "text": "Lazarus was Jesus's close friend, and he became very sick. His sisters sent word to Jesus, hoping he would come quickly.",
+          "ko": "나사로는 예수님의 가까운 친구였는데, 그가 많이 아프게 되었어요. 그의 누이들은 예수님이 빨리 오시길 바라며 소식을 전했어요."
+        },
+        {
+          "text": "By the time Jesus arrived, Lazarus had already been dead for four days. Martha went out to meet Jesus, sad and a little confused.",
+          "ko": "예수님이 도착하셨을 때, 나사로는 이미 죽은 지 나흘이 지나 있었어요. 마르다는 슬프고 조금 혼란스러운 마음으로 예수님을 맞으러 나갔어요."
+        },
+        {
+          "text": "Jesus stood before the tomb and called out, \"Lazarus, come out!\" To everyone's amazement, Lazarus walked out alive.",
+          "ko": "예수님은 무덤 앞에 서서 \"나사로야, 나오너라!\"고 외치셨어요. 모두가 놀랍게도, 나사로가 살아서 걸어 나왔어요."
+        }
+      ],
+      "orderQuiz": [
+        "Lazarus was Jesus's close friend, and he became very sick. His sisters sent word to Jesus, hoping he would come quickly.",
+        "By the time Jesus arrived, Lazarus had already been dead for four days. Martha went out to meet Jesus, sad and a little confused.",
+        "Jesus stood before the tomb and called out, \"Lazarus, come out!\" To everyone's amazement, Lazarus walked out alive."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Jesus arrived before Lazarus died.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Lazarus had been dead for four days.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'amazement'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "surprise",
+              "correct": true
+            },
+            {
+              "text": "anger",
+              "correct": false
+            },
+            {
+              "text": "boredom",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "나사로는 죽은 지 나흘이 지났다",
+        "template": "Lazarus had been dead for four ___.",
+        "answer": "days"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "resurrection": "부활",
+        "weep": "울다",
+        "plotting": "꾸미기"
+      },
+      "paragraphs": [
+        {
+          "text": "When Jesus heard that his close friend Lazarus was seriously ill, he surprised everyone by waiting two more days before finally setting out. Some of his followers worried it might already be too late, and they were right — by the time Jesus reached the town, Lazarus had already been in the tomb for four days.",
+          "ko": "예수님은 가까운 친구 나사로가 심하게 아프다는 소식을 들으시고도, 뜻밖에 이틀을 더 기다리셨다가 마침내 길을 떠나셨습니다. 제자들 중 몇몇은 이미 너무 늦은 게 아닐까 걱정했는데, 그 말대로 예수님이 마을에 도착하셨을 때 나사로는 이미 무덤에 나흘이나 있었습니다."
+        },
+        {
+          "text": "Martha came out to meet him first, telling him that if he had only arrived sooner, her brother might still be alive. Jesus reassured her that anyone who put their trust in him would have life that death itself could never take away. When Mary came out too, weeping along with the crowd around her, Jesus was so moved that he began to cry himself.",
+          "ko": "마르다가 먼저 나와 예수님을 맞으며, 조금만 더 일찍 오셨더라면 오빠가 아직 살아있었을지도 모른다고 말했습니다. 예수님은 그녀에게, 자신을 신뢰하는 사람은 죽음조차 빼앗을 수 없는 생명을 갖게 될 거라고 안심시켜 주셨습니다. 마리아도 나와서 주변 사람들과 함께 울자, 예수님은 마음이 크게 움직이셔서 자신도 눈물을 흘리기 시작하셨습니다."
+        },
+        {
+          "text": "Jesus walked to the tomb, prayed aloud so the crowd could hear, and then called out in a loud voice for Lazarus to come out. Astonishingly, the man who had been dead for four days walked out, still wrapped head to toe in burial cloths. Many who witnessed it put their faith in Jesus that day, but a few religious leaders grew alarmed and began plotting how to get rid of him.",
+          "ko": "예수님은 무덤으로 걸어가셔서 사람들이 들을 수 있도록 소리 내어 기도하신 뒤, 큰 소리로 나사로에게 나오라고 외치셨습니다. 놀랍게도 나흘 동안 죽어 있던 사람이 머리부터 발끝까지 수의로 감긴 채 걸어 나왔습니다. 이 일을 목격한 많은 사람들이 그날 예수님을 믿게 되었지만, 몇몇 종교 지도자들은 불안해져서 그분을 없앨 방법을 꾸미기 시작했습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Jesus waited two days before going to Lazarus.",
+          "correct": true
+        },
+        {
+          "text": "Jesus arrived before Lazarus died.",
+          "correct": false
+        },
+        {
+          "text": "Jesus wept when he saw Mary crying.",
+          "correct": true
+        },
+        {
+          "text": "No one believed in Jesus after this miracle.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 나흘 동안 죽어 있던 나사로를 무덤에서 불러내 살리셨고, 많은 사람이 믿었지만 몇몇 지도자들은 그분을 없앨 계획을 세우기 시작했다",
+              "correct": true
+            },
+            {
+              "text": "나사로가 스스로 무덤에서 걸어 나왔다",
+              "correct": false
+            },
+            {
+              "text": "마르다와 마리아가 예수님을 원망했다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus cried even though he knew he would raise Lazarus? Write one sentence in English."
+    }
+  }
+}
