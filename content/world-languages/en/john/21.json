@@ -1,0 +1,517 @@
+{
+  "book": "john",
+  "chapter": 21,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "aboard": "배 위로",
+    "after": "~후에",
+    "ahead": "앞서",
+    "all": "모두",
+    "already": "이미",
+    "and": "그리고",
+    "another": "또 다른",
+    "answered": "대답했다",
+    "as": "~로서",
+    "asked": "물었다",
+    "attention": "돌봄",
+    "away": "멀리",
+    "back": "돌아와서",
+    "barely": "거의 ~않게",
+    "be": "~이다",
+    "beach": "해변",
+    "boat": "배",
+    "book": "책",
+    "books": "책들",
+    "bread": "빵",
+    "breakfast": "아침식사",
+    "broke": "밝았다",
+    "but": "그러나",
+    "by": "~로",
+    "called": "외쳤다",
+    "came": "왔다",
+    "care": "돌봄",
+    "casting": "던지는 것",
+    "caught": "잡았다",
+    "closes": "마친다",
+    "comparing": "비유하며",
+    "concern": "관심사",
+    "cooked": "요리하셨다",
+    "cooking": "요리하는",
+    "could": "할 수 있었다",
+    "couldn't": "할 수 없었다",
+    "countless": "셀 수 없이 많은",
+    "dawn": "새벽",
+    "decided": "결정했다",
+    "denied": "부인했다",
+    "did": "~했다",
+    "disciple": "제자",
+    "disciples": "제자들",
+    "down": "내려서",
+    "during": "~동안",
+    "each": "각각",
+    "earth": "땅",
+    "eat": "먹다",
+    "eaten": "먹었다",
+    "effort": "노력",
+    "else": "다른",
+    "eventually": "결국",
+    "everyone": "모든 사람",
+    "few": "몇몇의",
+    "figure": "인물",
+    "fire": "불",
+    "first": "처음으로",
+    "fish": "물고기",
+    "fishing": "낚시",
+    "flock": "양떼",
+    "follow": "따르다",
+    "following": "따르는 것",
+    "for": "~을 위해",
+    "found": "찾았다",
+    "friends": "친구들",
+    "from": "~로부터",
+    "full": "가득 찬",
+    "given": "주어질",
+    "glanced": "흘낏 보았다",
+    "go": "가다",
+    "going": "가는 것",
+    "grew": "~해졌다",
+    "had": "가지고 있었다",
+    "happen": "일어나다",
+    "hardly": "거의 ~않게",
+    "haul": "끌어올리다",
+    "he": "그는",
+    "heard": "들었다",
+    "heavy": "무거운",
+    "him": "그를",
+    "hinted": "넌지시 말했다",
+    "his": "그의",
+    "hold": "담다",
+    "immediately": "즉시",
+    "in": "~안으로",
+    "into": "~안으로",
+    "invited": "초대했다",
+    "it": "그것",
+    "jesus": "예수님",
+    "job": "할 일",
+    "john": "요한",
+    "jumped": "뛰어들었다",
+    "keep": "계속 ~하다",
+    "knowing": "알고서",
+    "lake": "호수",
+    "life": "생명",
+    "long": "오래",
+    "loved": "사랑했다",
+    "man": "사람",
+    "many": "많은",
+    "matched": "일치했다",
+    "moment": "순간",
+    "morning": "아침",
+    "nearby": "근처에",
+    "needed": "필요했다",
+    "net": "그물",
+    "night": "밤",
+    "nothing": "아무것도",
+    "noting": "언급하며",
+    "number": "숫자",
+    "obeyed": "순종했다",
+    "of": "~의",
+    "on": "~에",
+    "once": "예전에",
+    "one": "하나",
+    "only": "오직",
+    "other": "다른",
+    "others": "다른 사람들",
+    "out": "밖으로",
+    "over": "~에 대해",
+    "own": "자기 자신의",
+    "painfully": "아프게도",
+    "people": "사람들",
+    "peter": "베드로",
+    "peter's": "베드로의",
+    "probably": "아마도",
+    "pull": "끌어당기다",
+    "reached": "도착했다",
+    "realize": "깨닫다",
+    "realized": "깨달았다",
+    "really": "정말로",
+    "responded": "대답했다",
+    "rest": "나머지",
+    "right": "오른쪽",
+    "said": "말했다",
+    "separate": "별개의",
+    "service": "섬김",
+    "several": "몇몇의",
+    "shepherd's": "목자의",
+    "shore": "물가",
+    "show": "보여주다",
+    "side": "쪽",
+    "simply": "단순히",
+    "sit": "앉다",
+    "small": "작은",
+    "so": "그래서",
+    "standing": "서 있는",
+    "started": "시작했다",
+    "straight": "곧장",
+    "stranger": "낯선 사람",
+    "suddenly": "갑자기",
+    "suggested": "제안했다",
+    "swam": "헤엄쳤다",
+    "take": "돌보다",
+    "telling": "말하며",
+    "that": "저것/그것",
+    "the": "그",
+    "their": "그들의",
+    "them": "그들을",
+    "then": "그다음",
+    "they": "그들은",
+    "they'd": "그들은 ~했다",
+    "things": "것들",
+    "three": "셋",
+    "time": "시간",
+    "times": "번",
+    "to": "~에게",
+    "together": "함께",
+    "told": "말했다",
+    "truly": "진정으로",
+    "try": "시도하다",
+    "turned": "돌아섰다",
+    "up": "위로",
+    "was": "~였다",
+    "wasn't": "~아니었다",
+    "water": "물",
+    "went": "갔다",
+    "what": "무엇",
+    "when": "~할 때",
+    "where": "~곳",
+    "whether": "~인지",
+    "who": "누구",
+    "whole": "전체의",
+    "with": "~와 함께",
+    "world": "세상",
+    "would": "~할 것이다",
+    "write": "쓰다",
+    "yes": "예",
+    "even": "심지어"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "breakfast",
+          "meaning": "아침식사"
+        },
+        {
+          "word": "friends",
+          "meaning": "친구들"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus cooked breakfast for his friends.",
+          "ko": "예수님은 친구들을 위해 아침을 요리하셨어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "breakfast",
+          "opts": [
+            {
+              "text": "🍳",
+              "kr": "아침식사",
+              "correct": true
+            },
+            {
+              "text": "🌙",
+              "kr": "밤",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "friends",
+          "opts": [
+            {
+              "text": "🤝",
+              "kr": "친구들",
+              "correct": true
+            },
+            {
+              "text": "😴",
+              "kr": "자는",
+              "correct": false
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus cooked breakfast for his friends."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "fishing",
+          "meaning": "낚시"
+        },
+        {
+          "word": "caught",
+          "meaning": "잡았다"
+        },
+        {
+          "word": "night",
+          "meaning": "밤"
+        },
+        {
+          "word": "many",
+          "meaning": "많은"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "The disciples went fishing.",
+          "ko": "제자들은 낚시를 하러 갔어요."
+        },
+        {
+          "text": "They caught nothing all night.",
+          "ko": "그들은 밤새 아무것도 잡지 못했어요."
+        },
+        {
+          "text": "Jesus told them where to fish.",
+          "ko": "예수님이 어디서 낚시할지 알려주셨어요."
+        },
+        {
+          "text": "They caught many fish.",
+          "ko": "그들은 많은 물고기를 잡았어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "They caught ___ fish.",
+        "answer": "many",
+        "options": [
+          "many",
+          "no",
+          "two"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'caught'의 뜻은?",
+          "opts": [
+            {
+              "text": "잡았다",
+              "correct": true
+            },
+            {
+              "text": "놓쳤다",
+              "correct": false
+            },
+            {
+              "text": "만들었다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'night'의 뜻은?",
+          "opts": [
+            {
+              "text": "아침",
+              "correct": false
+            },
+            {
+              "text": "밤",
+              "correct": true
+            },
+            {
+              "text": "낮",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "They caught nothing all night.",
+          "opts": [
+            {
+              "text": "They caught nothing all night.",
+              "correct": true
+            },
+            {
+              "text": "They caught many fish at night.",
+              "correct": false
+            },
+            {
+              "text": "They went home early.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🐟 은 무슨 단어와 관련 있을까요?",
+          "opts": [
+            {
+              "text": "fishing",
+              "correct": true
+            },
+            {
+              "text": "breakfast",
+              "correct": false
+            },
+            {
+              "text": "night",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "They caught many fish."
+    },
+    "fruit": {
+      "helperWords": {
+        "shore": "물가",
+        "net": "그물",
+        "obeyed": "순종했다"
+      },
+      "sentences": [
+        {
+          "text": "Several disciples went fishing on the lake, but they caught nothing all night long. In the morning, a man on the shore told them to try the other side of the boat.",
+          "ko": "몇몇 제자들이 호수로 낚시를 갔지만, 밤새 아무것도 잡지 못했어요. 아침이 되자, 물가에 있던 한 사람이 배의 반대쪽으로 그물을 던져보라고 말했어요."
+        },
+        {
+          "text": "They obeyed, and suddenly their net was so full of fish they could hardly pull it in. John realized right away that the man on the shore was Jesus.",
+          "ko": "그들은 그 말대로 했고, 갑자기 그물이 물고기로 가득 차서 끌어올리기도 힘들었어요. 요한은 곧바로 물가에 있던 사람이 예수님이라는 것을 알아챘어요."
+        },
+        {
+          "text": "When they reached the shore, Jesus already had a fire going with fish and bread cooking. He invited them all to sit down and eat breakfast with him.",
+          "ko": "그들이 물가에 도착했을 때, 예수님은 이미 불을 피우고 생선과 빵을 굽고 계셨어요. 그분은 모두에게 앉아서 함께 아침을 먹자고 하셨어요."
+        }
+      ],
+      "orderQuiz": [
+        "Several disciples went fishing on the lake, but they caught nothing all night long. In the morning, a man on the shore told them to try the other side of the boat.",
+        "They obeyed, and suddenly their net was so full of fish they could hardly pull it in. John realized right away that the man on the shore was Jesus.",
+        "When they reached the shore, Jesus already had a fire going with fish and bread cooking. He invited them all to sit down and eat breakfast with him."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"The disciples caught many fish all night.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"John recognized that the man on the shore was Jesus.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'obeyed'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "did what was said",
+              "correct": true
+            },
+            {
+              "text": "refused to listen",
+              "correct": false
+            },
+            {
+              "text": "forgot the instructions",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "예수님은 이미 불을 피우고 계셨다",
+        "template": "Jesus already had a ___ going.",
+        "answer": "fire"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "flock": "양떼",
+        "denied": "부인했다",
+        "concern": "관심사"
+      },
+      "paragraphs": [
+        {
+          "text": "Peter and a few others decided to go fishing one night but came back with nothing to show for their effort by morning. As dawn broke, a figure on the beach called out and suggested they try casting their net from the other side of the boat. They did, and immediately the net grew so heavy with fish that they could barely haul it aboard. John was the first to realize who the stranger really was, and the moment Peter heard it was Jesus, he jumped straight into the water and swam to shore ahead of everyone else.",
+          "ko": "베드로와 몇몇 사람들이 어느 날 밤 낚시를 나갔지만, 아침이 되도록 아무 성과 없이 돌아왔습니다. 동이 틀 무렵, 해변에 있던 누군가가 배의 반대쪽에서 그물을 던져보라고 외쳤습니다. 그들이 그대로 하자, 곧바로 그물이 물고기로 너무 무거워져서 배에 끌어올리기도 힘들 정도였습니다. 요한이 가장 먼저 그 낯선 사람이 누구인지 알아챘고, 베드로는 그게 예수님이라는 말을 듣자마자 곧장 물속으로 뛰어들어 누구보다 먼저 헤엄쳐 물가로 갔습니다."
+        },
+        {
+          "text": "When the rest of the boat caught up, they found Jesus had already started a small fire and was cooking fish and bread for them. After they'd all eaten together, Jesus turned to Peter and asked, three separate times, whether Peter truly loved him — a number that matched, painfully, the three times Peter had once denied even knowing him. Each time Peter said yes, Jesus responded by telling him to take care of the people who would follow, comparing them to a flock that needed a shepherd's attention.",
+          "ko": "나머지 사람들이 배를 타고 도착했을 때, 예수님은 이미 작은 불을 피우고 그들을 위해 생선과 빵을 굽고 계셨습니다. 다 함께 먹은 후, 예수님은 베드로를 향해 세 번이나 따로 정말 자신을 사랑하느냐고 물으셨습니다 — 그 숫자는 베드로가 예전에 그분을 모른다고 세 번 부인했던 것과 아프게도 일치했습니다. 베드로가 그렇다고 대답할 때마다, 예수님은 그에게 앞으로 따를 사람들을 돌보라고, 그들을 목자의 돌봄이 필요한 양떼에 비유하며 말씀하셨습니다."
+        },
+        {
+          "text": "Jesus then hinted that Peter's own life would eventually be given up in service to him, and simply told him to keep following. When Peter glanced over and asked what would happen to another disciple standing nearby, Jesus answered that it wasn't Peter's concern — his job was only to follow. The book closes by noting that Jesus did countless other things during his time on earth, so many that the whole world probably couldn't hold all the books it would take to write them down.",
+          "ko": "예수님은 그다음 베드로 자신의 생명도 언젠가 그분을 섬기다가 내주게 될 거라고 넌지시 말씀하시며, 그저 계속 따르라고 하셨습니다. 베드로가 곁을 보다가 근처에 서 있는 다른 제자는 어떻게 되느냐고 묻자, 예수님은 그건 베드로가 신경 쓸 일이 아니라고, 그의 할 일은 오직 따르는 것뿐이라고 대답하셨습니다. 이 책은 예수님이 이 땅에 계시는 동안 셀 수 없이 많은 다른 일들을 하셨다고, 그것을 다 기록하려면 온 세상도 그 책들을 다 담지 못할 거라는 말로 끝을 맺습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "The disciples caught nothing until Jesus told them where to fish.",
+          "correct": true
+        },
+        {
+          "text": "Peter waited calmly instead of rushing to Jesus.",
+          "correct": false
+        },
+        {
+          "text": "Jesus asked Peter three times if he loved him.",
+          "correct": true
+        },
+        {
+          "text": "Jesus told Peter to worry about what would happen to John.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "제자들이 밤새 고기를 못 잡다가 예수님의 말씀대로 많은 물고기를 잡았고, 예수님은 베드로에게 세 번 사랑을 확인하시며 양떼를 돌보라 하셨다",
+              "correct": true
+            },
+            {
+              "text": "베드로가 예수님을 못 알아보았다",
+              "correct": false
+            },
+            {
+              "text": "예수님이 요한의 미래를 베드로에게 자세히 알려주셨다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus asked Peter the same question three times? Write one sentence in English."
+    }
+  }
+}
