@@ -790,13 +790,88 @@
       u.onend = () => words.forEach(w => w.classList.remove('speaking'));
       speechSynthesis.cancel(); speechSynthesis.speak(u);
     }
-    function sentenceCard(text, rate, big){
+    /* ---------- 영어 문장 카드 ----------
+       sentence는 두 가지 형태를 모두 받는다:
+         - 문자열 "Jesus gave living water." (기존 콘텐츠 — 번역 없음, 그냥 지나간다)
+         - {text:"...", ko:"..."} 객체 (번역 있는 새 콘텐츠 — 해석 버튼/박스가 붙는다)
+       alwaysShowTranslation이 true면(왕초급) 번역이 처음부터 펼쳐진 채로 보이고,
+       그 외(초급/중급/고급)는 "🔎 우리말 해석 보기" 버튼을 눌러야 펼쳐진다. */
+    function sentenceCard(sentence, rate, big, alwaysShowTranslation){
+      const text = typeof sentence === 'string' ? sentence : sentence.text;
+      const translation = typeof sentence === 'string' ? null : (sentence.ko || null);
+
       const card = document.createElement('div');
-      card.className = 'sow-lang-sentence-card';
+      card.className = 'sow-lang-sentence-card' + (alwaysShowTranslation ? ' always-translated' : '');
       card.innerHTML = `<p class="sow-lang-sentence-text${big?' big':''}">${wrapWords(text)}<button class="sow-lang-btn-listen">🔊</button></p>`;
       card.querySelector('.sow-lang-btn-listen').onclick = () => readAloudCard(card, text, rate);
       wireWordTaps(card);
+
+      if(translation){
+        const box = document.createElement('div');
+        box.className = 'sow-lang-translation' + (alwaysShowTranslation ? ' show' : '');
+        box.textContent = translation;
+
+        if(!alwaysShowTranslation){
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'sow-lang-translate-btn';
+          btn.innerHTML = '<span class="sow-lang-translate-icon">🔎</span> 우리말 해석 보기';
+          btn.onclick = () => {
+            const opened = box.classList.toggle('show');
+            btn.innerHTML = opened
+              ? '<span class="sow-lang-translate-icon">🙈</span> 해석 숨기기'
+              : '<span class="sow-lang-translate-icon">🔎</span> 우리말 해석 보기';
+          };
+          card.appendChild(btn);
+        }
+        card.appendChild(box);
+      }
       return card;
+    }
+
+    /* ---------- 단어 하나씩 눌러서 확인(탭투플립) — 초급 이상 "본문 읽기 전" 게이트용 ----------
+       카드마다 앞면(단어)/뒷면(뜻)을 뒤집어 보여주고, 전부 한 번씩 확인해야
+       "문장으로 넘어가기" 버튼이 풀린다. 완료 콜백(onComplete)은 호출부에서 연결한다. */
+    function renderVocabCheck(words){
+      const box = document.createElement('div');
+      box.className = 'sow-lang-vocab-check';
+      box.innerHTML = `<div class="sow-lang-vocab-check-title">먼저 단어를 하나씩 눌러서 확인해보세요</div>
+        <div class="sow-lang-vocab-grid"></div>
+        <div class="sow-lang-vocab-progress">0 / ${words.length}개 확인함</div>
+        <button type="button" class="sow-lang-vocab-next" disabled>문장으로 넘어가기 →</button>`;
+      const grid = box.querySelector('.sow-lang-vocab-grid');
+      const progress = box.querySelector('.sow-lang-vocab-progress');
+      const nextBtn = box.querySelector('.sow-lang-vocab-next');
+      const api = { el: box, onComplete: null };
+
+      function updateProgress(){
+        const checked = grid.querySelectorAll('.sow-lang-vocab-card.checked').length;
+        progress.textContent = `${checked} / ${words.length}개 확인함`;
+        nextBtn.disabled = checked < words.length;
+      }
+
+      words.forEach(w => {
+        const card = document.createElement('div');
+        card.className = 'sow-lang-vocab-card';
+        card.innerHTML = `<div class="sow-lang-vocab-card-inner">
+            <div class="sow-lang-vocab-face front">${w.word}</div>
+            <div class="sow-lang-vocab-face back">${w.meaning}</div>
+          </div>`;
+        card.onclick = () => {
+          const firstCheck = !card.classList.contains('checked');
+          card.classList.toggle('flipped');
+          if(firstCheck){ card.classList.add('checked'); speak(w.word, 0.6); updateProgress(); }
+        };
+        grid.appendChild(card);
+      });
+
+      nextBtn.onclick = () => {
+        if(nextBtn.disabled) return;
+        nextBtn.textContent = '✓ 확인 완료';
+        if(api.onComplete) api.onComplete();
+      };
+      updateProgress();
+      return api;
     }
 
     /* ---------- 공용 여러문제 퀴즈 러너 ---------- */
@@ -837,7 +912,14 @@
     if(LV.sprout){
       const p = container.querySelector('#sow-lang-panel-sprout');
       p.appendChild(stageLabel('① 입력 — 읽고 들어보세요'));
-      LV.sprout.sentences.forEach(s => p.appendChild(sentenceCard(s, 0.55, true)));
+      // 왕초급: 아직 스스로 유추할 부담을 줄 단계가 아니라, 오늘 나올 단어를 먼저 가볍게 보여주기만 한다(게이트 없음).
+      if(LV.sprout.vocab && LV.sprout.vocab.length){
+        const hb = document.createElement('div'); hb.className='sow-lang-helper-box';
+        hb.innerHTML = '💡 ' + LV.sprout.vocab.map(w => `<b>${w.word}</b>(${w.meaning})`).join(' · ');
+        p.appendChild(hb);
+      }
+      // 문장도 처음부터 해석까지 다 보여준다(alwaysShowTranslation=true) — 왕초급은 안 보여줄 이유가 없음.
+      LV.sprout.sentences.forEach(s => p.appendChild(sentenceCard(s, 0.55, true, true)));
       if(LV.sprout.quiz && LV.sprout.quiz.length){
         p.appendChild(stageLabel('② 이해 확인'));
         p.appendChild(sectionLabel('🎧 듣고 이모지 고르기'));
@@ -853,8 +935,20 @@
     /* ================= 🌳 초급 ================= */
     if(LV.tree){
       const p = container.querySelector('#sow-lang-panel-tree');
+      // 초급: 오늘 나올 핵심 단어를 하나씩 눌러서 확인해야(=능동적으로 만나야) 문장이 열린다.
+      let vocabGate = null;
+      if(LV.tree.vocab && LV.tree.vocab.length){
+        vocabGate = renderVocabCheck(LV.tree.vocab);
+        p.appendChild(vocabGate.el);
+      }
       p.appendChild(stageLabel('① 입력 — 읽고 들어보세요'));
-      LV.tree.sentences.forEach(s => p.appendChild(sentenceCard(s, 0.65)));
+      const sentenceWrap = document.createElement('div');
+      LV.tree.sentences.forEach(s => sentenceWrap.appendChild(sentenceCard(s, 0.65)));
+      p.appendChild(sentenceWrap);
+      if(vocabGate){
+        sentenceWrap.style.display = 'none';
+        vocabGate.onComplete = () => { sentenceWrap.style.display = ''; sentenceWrap.scrollIntoView({ behavior:'smooth', block:'nearest' }); };
+      }
       p.appendChild(stageLabel('② 이해 확인'));
       if(LV.tree.fillBlank){
         p.appendChild(sectionLabel('✏️ 빈칸에 단어 넣기'));
@@ -947,8 +1041,6 @@
       }
       LV.forest.paragraphs.forEach(s => {
         const card = sentenceCard(s, 0.72);
-        card.querySelector('.sow-lang-sentence-text').style.fontSize = '13.5px';
-        card.querySelector('.sow-lang-sentence-text').style.lineHeight = '1.85';
         p.appendChild(card);
       });
       p.appendChild(stageLabel('② 이해 확인'));
