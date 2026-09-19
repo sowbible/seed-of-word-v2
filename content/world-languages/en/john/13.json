@@ -1,1 +1,503 @@
-
+{
+  "book": "john",
+  "chapter": 13,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "admitted": "인정했다",
+    "after": "~후에",
+    "all": "모두",
+    "also": "또한",
+    "an": "하나의",
+    "and": "그리고",
+    "another": "다른",
+    "anything": "아무것도",
+    "around": "둘레에",
+    "as": "~로서",
+    "at": "~에",
+    "be": "~이다",
+    "before": "~전에",
+    "began": "시작했다",
+    "betray": "배신하다",
+    "bread": "빵",
+    "but": "그러나",
+    "by": "~로",
+    "care": "돌봄",
+    "cared": "돌보았다",
+    "carry": "지니다",
+    "closeness": "친밀함",
+    "closest": "가장 가까운",
+    "coming": "다가오는",
+    "command": "명령",
+    "completely": "완전히",
+    "corrected": "바로잡았다",
+    "couldn't": "할 수 없었다",
+    "crowed": "울었다",
+    "deny": "부인하다",
+    "die": "죽다",
+    "disappeared": "사라졌다",
+    "disciple's": "제자의",
+    "disciples": "제자들",
+    "disciples'": "제자들의",
+    "do": "하다",
+    "down": "아래로",
+    "during": "~동안",
+    "each": "각각",
+    "earth": "땅",
+    "else": "다른",
+    "end": "끝",
+    "even": "심지어",
+    "example": "본",
+    "explained": "설명했다",
+    "feet": "발",
+    "finished": "끝냈다",
+    "finishing": "끝내고서",
+    "follow": "따르다",
+    "followers": "제자들",
+    "for": "~을 위해",
+    "friends": "친구들",
+    "gave": "주었다",
+    "generous": "넉넉한",
+    "gently": "부드럽게",
+    "gone": "떠난",
+    "got": "일어났다",
+    "grew": "~해졌다",
+    "had": "가지고 있었다",
+    "handed": "건넸다",
+    "he": "그는",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "household": "집안",
+    "if": "만약",
+    "in": "~안에",
+    "insisted": "우겼다",
+    "instruction": "가르침",
+    "into": "~안으로",
+    "jesus": "예수님",
+    "job": "일",
+    "judas": "유다",
+    "just": "바로",
+    "kind": "종류",
+    "kneel": "무릎 꿇다",
+    "knelt": "무릎을 꿇었다",
+    "knew": "알고 있었다",
+    "knowing": "아는 것",
+    "last": "마지막의",
+    "left": "남겨졌다",
+    "let": "~하게 하다",
+    "letting": "허락하는 것",
+    "like": "~처럼",
+    "long": "오래",
+    "love": "사랑",
+    "loved": "사랑했다",
+    "lowest": "가장 낮은",
+    "mattered": "중요했다",
+    "middle": "한가운데",
+    "moment": "순간",
+    "more": "더",
+    "morning": "아침",
+    "new": "새로운",
+    "next": "다음",
+    "night": "밤",
+    "normally": "보통",
+    "not": "~않다",
+    "objected": "반대했다",
+    "of": "~의",
+    "on": "~에",
+    "once": "일단",
+    "one": "하나",
+    "other": "다른",
+    "person": "사람",
+    "peter": "베드로",
+    "piece": "조각",
+    "plainly": "분명하게",
+    "quietly": "조용히",
+    "ready": "준비된",
+    "realized": "깨달았다",
+    "really": "실제로",
+    "refuse": "거절하다",
+    "rest": "나머지",
+    "right": "바로",
+    "rooster": "수탉",
+    "said": "말했다",
+    "same": "같은",
+    "separate": "별개의",
+    "servant": "종",
+    "servant's": "종의",
+    "serve": "섬기다",
+    "share": "나누다",
+    "should": "~해야 한다",
+    "showed": "보여주었다",
+    "signal": "신호",
+    "simple": "간단한",
+    "sitting": "앉아 있는",
+    "stood": "일어섰다",
+    "supper": "저녁식사",
+    "table": "식탁",
+    "task": "일",
+    "teacher": "선생님",
+    "than": "~보다",
+    "that": "저것/그것",
+    "the": "그",
+    "their": "그들의",
+    "them": "그들을",
+    "then": "그다음",
+    "there": "거기",
+    "they": "그들은",
+    "this": "이것",
+    "though": "~이지만",
+    "three": "셋",
+    "tied": "둘렀다",
+    "time": "시간",
+    "times": "번",
+    "to": "~에게",
+    "together": "함께",
+    "told": "말했다",
+    "towel": "수건",
+    "treat": "대하다",
+    "tried": "시도했다",
+    "troubled": "괴로운",
+    "true": "진짜의",
+    "uncomfortable": "불편한",
+    "unless": "~하지 않으면",
+    "up": "위로",
+    "very": "매우",
+    "visibly": "눈에 띄게",
+    "waist": "허리",
+    "warning": "경고하며",
+    "was": "~였다",
+    "washed": "씻었다",
+    "washing": "씻기는 것",
+    "way": "방식",
+    "were": "~였다",
+    "what": "무엇",
+    "when": "~할 때",
+    "who": "누구",
+    "willing": "기꺼이 하는",
+    "with": "~와 함께",
+    "world": "세상",
+    "would": "~할 것이다",
+    "wrapped": "둘렀다"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "feet",
+          "meaning": "발"
+        },
+        {
+          "word": "washed",
+          "meaning": "씻었다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus washed his disciples' feet.",
+          "ko": "예수님은 제자들의 발을 씻기셨어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "feet",
+          "opts": [
+            {
+              "text": "🦶",
+              "kr": "발",
+              "correct": true
+            },
+            {
+              "text": "👋",
+              "kr": "손",
+              "correct": false
+            },
+            {
+              "text": "👀",
+              "kr": "눈",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "washed",
+          "opts": [
+            {
+              "text": "💧",
+              "kr": "씻었다",
+              "correct": true
+            },
+            {
+              "text": "😴",
+              "kr": "잤다",
+              "correct": false
+            },
+            {
+              "text": "🍞",
+              "kr": "먹었다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus washed his disciples' feet."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "supper",
+          "meaning": "저녁식사"
+        },
+        {
+          "word": "washed",
+          "meaning": "씻었다"
+        },
+        {
+          "word": "command",
+          "meaning": "명령"
+        },
+        {
+          "word": "love",
+          "meaning": "사랑"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus had supper with his disciples.",
+          "ko": "예수님은 제자들과 저녁식사를 하셨어요."
+        },
+        {
+          "text": "He washed their feet.",
+          "ko": "그분은 그들의 발을 씻기셨어요."
+        },
+        {
+          "text": "Jesus gave them a new command.",
+          "ko": "예수님이 그들에게 새 계명을 주셨어요."
+        },
+        {
+          "text": "Love one another.",
+          "ko": "서로 사랑하라."
+        }
+      ],
+      "fillBlank": {
+        "template": "Jesus washed their ___.",
+        "answer": "feet",
+        "options": [
+          "feet",
+          "hands",
+          "hair"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'command'의 뜻은?",
+          "opts": [
+            {
+              "text": "명령",
+              "correct": true
+            },
+            {
+              "text": "질문",
+              "correct": false
+            },
+            {
+              "text": "노래",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'love'의 뜻은?",
+          "opts": [
+            {
+              "text": "미움",
+              "correct": false
+            },
+            {
+              "text": "사랑",
+              "correct": true
+            },
+            {
+              "text": "두려움",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "He washed their feet.",
+          "opts": [
+            {
+              "text": "He washed their feet.",
+              "correct": true
+            },
+            {
+              "text": "He fed them bread.",
+              "correct": false
+            },
+            {
+              "text": "He taught them a song.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🦶 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "feet",
+              "correct": true
+            },
+            {
+              "text": "command",
+              "correct": false
+            },
+            {
+              "text": "supper",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Love one another."
+    },
+    "fruit": {
+      "helperWords": {
+        "towel": "수건",
+        "servant": "종",
+        "refuse": "거절하다"
+      },
+      "sentences": [
+        {
+          "text": "During supper, Jesus got up, wrapped a towel around his waist, and knelt down. One by one, he washed each disciple's feet, even though that was normally a servant's job.",
+          "ko": "저녁식사 중에 예수님은 일어나셔서 허리에 수건을 두르고 무릎을 꿇으셨어요. 그분은 한 사람씩 제자들의 발을 씻기셨는데, 그건 보통 종이 하던 일이었어요."
+        },
+        {
+          "text": "Peter was uncomfortable and tried to refuse. But Jesus told him that unless he let him do this, they couldn't share that closeness together.",
+          "ko": "베드로는 불편해하며 거절하려 했어요. 하지만 예수님은 그에게, 이걸 하게 해주지 않으면 둘이 그런 친밀함을 나눌 수 없다고 말씀하셨어요."
+        },
+        {
+          "text": "After finishing, Jesus told them to follow his example and serve one another the same way. He also gave them a simple new command — to love each other just as he had loved them.",
+          "ko": "다 마치신 후, 예수님은 그들에게 자신의 본을 따라 서로 그렇게 섬기라고 말씀하셨어요. 그분은 또한 간단한 새 계명을 주셨어요 — 자신이 그들을 사랑한 것처럼 서로 사랑하라는 것이었어요."
+        }
+      ],
+      "orderQuiz": [
+        "During supper, Jesus got up, wrapped a towel around his waist, and knelt down. One by one, he washed each disciple's feet, even though that was normally a servant's job.",
+        "Peter was uncomfortable and tried to refuse. But Jesus told him that unless he let him do this, they couldn't share that closeness together.",
+        "After finishing, Jesus told them to follow his example and serve one another the same way. He also gave them a simple new command — to love each other just as he had loved them."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Peter was happy to let Jesus wash his feet right away.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus gave them a new command to love one another.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'example'과 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "a model to follow",
+              "correct": true
+            },
+            {
+              "text": "a kind of food",
+              "correct": false
+            },
+            {
+              "text": "a type of question",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "예수님은 서로 사랑하라는 새 계명을 주셨다",
+        "template": "Jesus gave them a new command to ___ one another.",
+        "answer": "love"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "betray": "배신하다",
+        "signal": "신호",
+        "deny": "부인하다"
+      },
+      "paragraphs": [
+        {
+          "text": "Jesus knew that his time on earth was coming to an end, and he loved his closest friends completely, all the way to the last moment. In the middle of supper, he stood up, tied a towel around himself, and began washing each disciple's feet one by one — a task normally left to the lowest servant in a household. When Peter objected, Jesus explained that letting him do this mattered more than Peter realized.",
+          "ko": "예수님은 이 땅에서의 시간이 끝나가고 있다는 것을 아셨고, 가장 가까운 친구들을 마지막 순간까지 온전히 사랑하셨습니다. 저녁식사 도중, 그분은 일어나 자신에게 수건을 두르시고 제자들의 발을 한 사람씩 씻기기 시작하셨습니다 — 보통 집안에서 가장 낮은 종이 하던 일이었습니다. 베드로가 반대하자, 예수님은 이걸 하게 해주는 것이 베드로가 생각하는 것보다 더 중요하다고 설명해주셨습니다."
+        },
+        {
+          "text": "Once he finished, Jesus told them plainly that if their teacher was willing to kneel down like a servant, they should be willing to treat each other the same way. Not long after, he grew visibly troubled and admitted that one person sitting right there at the table would betray him. He quietly handed a piece of bread to Judas as a signal, and Judas got up and disappeared into the night.",
+          "ko": "다 마치신 후, 예수님은 선생인 자신이 종처럼 무릎을 꿇었으니 그들도 서로에게 그렇게 대해야 한다고 분명히 말씀하셨습니다. 얼마 지나지 않아 그분은 눈에 띄게 괴로워하시며, 바로 그 식탁에 앉아 있는 한 사람이 자신을 배신할 거라고 말씀하셨습니다. 그분은 조용히 유다에게 빵 한 조각을 건네 신호를 주셨고, 유다는 일어나 밤 속으로 사라졌습니다."
+        },
+        {
+          "text": "Jesus then gave his followers a simple instruction to carry with them after he was gone: care for each other the same generous way he had cared for them. He said that kind of love, more than anything else, would be what showed the rest of the world who his true followers really were. When Peter insisted he was ready to die for Jesus that very night, Jesus gently corrected him, warning that before the rooster crowed the next morning, Peter would deny even knowing him three separate times.",
+          "ko": "예수님은 자신이 떠난 뒤에도 제자들이 간직할 간단한 가르침을 주셨습니다. 자신이 그들을 돌본 것과 같은 넉넉한 방식으로 서로를 돌보라는 것이었습니다. 그분은 다른 무엇보다도 그런 사랑이 세상 사람들에게 그들이 진짜 자신의 제자임을 보여줄 거라고 말씀하셨습니다. 베드로가 그날 밤 예수님을 위해 죽을 각오가 되어 있다고 우기자, 예수님은 부드럽게 그를 바로잡으시며, 다음 날 아침 닭이 울기 전에 베드로가 자신을 세 번이나 모른다고 할 것이라고 경고하셨습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Jesus washed his disciples' feet during supper.",
+          "correct": true
+        },
+        {
+          "text": "Peter immediately agreed without any hesitation.",
+          "correct": false
+        },
+        {
+          "text": "Jesus said one of them would betray him.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said Peter would never deny him.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 제자들의 발을 씻기시며 겸손과 사랑의 본을 보이셨고, 서로 사랑하라는 새 계명을 주셨으며, 베드로의 부인과 유다의 배신을 미리 말씀하셨다",
+              "correct": true
+            },
+            {
+              "text": "베드로가 예수님의 발을 씻겼다",
+              "correct": false
+            },
+            {
+              "text": "유다가 끝까지 예수님과 함께 있었다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus washed his disciples' feet himself? Write one sentence in English."
+    }
+  }
+}
