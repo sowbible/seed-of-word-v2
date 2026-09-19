@@ -1,0 +1,107 @@
+{
+  "book": "john", "chapter": 8, "language": "en", "version": "2.0",
+  "dictionary": {
+    "a":"한","after":"~후에","again":"다시","also":"또한","among":"~중에서","and":"그리고",
+    "answering":"대답하는 것","anyone":"누구든지","anything":"아무것도","around":"주변에","as":"~로서",
+    "asked":"물었다","asking":"묻는 것","away":"멀리","be":"~이다","behind":"뒤에","blindly":"눈먼 채로",
+    "brought":"데려왔다","but":"그러나","by":"~씩","called":"요구했다","clearly":"분명히",
+    "completely":"완전히","condemn":"정죄하다","could":"할 수 있었다","darkness":"어둠","deeply":"깊이",
+    "described":"묘사했다","done":"~했다","down":"아래로","either":"또한","enough":"충분히",
+    "everyone":"모든 사람","first":"첫 번째","followed":"따랐다","for":"~을 위해","free":"자유로운",
+    "full":"가득한","go":"가다","going":"가는 것","ground":"땅","had":"가지고 있었다","harsh":"가혹한",
+    "have":"가지다","he":"그는","held":"붙잡았다","her":"그녀를","him":"그를","himself":"그 자신",
+    "if":"만약","instead":"대신","is":"~이다","it":"그것","jesus":"예수님","kept":"계속 ~했다",
+    "kind":"친절한","knelt":"무릎을 꿇었다","law":"율법","leaders":"지도자들","leave":"떠나다",
+    "left":"남겨졌다","light":"빛","long":"오래","mercy":"자비","never":"결코 ~않다","not":"~않다",
+    "of":"~의","oldest":"가장 나이 많은","on":"~에","one":"하나","only":"오직","onto":"~위로",
+    "over":"~에 대해","people":"사람들","promising":"약속하며","punish":"벌하다","punishment":"벌",
+    "quietly":"조용히","religious":"종교적인","right":"즉시","said":"말했다","set":"~하게 하다",
+    "she":"그녀는","should":"~해야 한다","showed":"보여주었다","since":"~때문에","so":"그래서",
+    "some":"몇몇","something":"무언가","start":"시작하다","starting":"시작하여","stood":"일어섰다",
+    "stumble":"넘어지다","taught":"가르치셨다","that":"저것/그것","the":"그","them":"그들을",
+    "they":"그들은","thing":"것","to":"~에게","told":"말했다","trap":"함정에 빠뜨리다","truly":"진정으로",
+    "truth":"진리","understand":"이해하다","until":"~까지","up":"위로","walked":"걸어갔다",
+    "wanted":"원했다","was":"~였다","wasn't":"~아니었다","ways":"방식들","were":"~였다","what":"무엇",
+    "when":"~할 때","who":"누구","whoever":"~하는 사람은 누구든지","will":"~할 것이다","with":"~와 함께",
+    "woman":"여자","world":"세상","would":"~할 것이다","wrong":"잘못된","wrote":"썼다","you":"너는"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        { "word": "light", "meaning": "빛" },
+        { "word": "world", "meaning": "세상" }
+      ],
+      "sentences": [
+        { "text": "Jesus is the light of the world.", "ko": "예수님은 세상의 빛이세요." }
+      ],
+      "quiz": [
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "light", "opts": [{"text":"💡","kr":"빛","correct":true},{"text":"🌊","kr":"물","correct":false},{"text":"🌳","kr":"나무","correct":false}] },
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "world", "opts": [{"text":"🌍","kr":"세상","correct":true},{"text":"☀️","kr":"해","correct":false},{"text":"📖","kr":"책","correct":false}] }
+      ],
+      "repeatSentence": "Jesus is the light of the world."
+    },
+    "tree": {
+      "vocab": [
+        { "word": "light", "meaning": "빛" },
+        { "word": "kind", "meaning": "친절한" },
+        { "word": "truth", "meaning": "진리" },
+        { "word": "free", "meaning": "자유로운" }
+      ],
+      "sentences": [
+        { "text": "Jesus is the light of the world.", "ko": "예수님은 세상의 빛이세요." },
+        { "text": "A woman had done something wrong.", "ko": "한 여자가 잘못을 저질렀어요." },
+        { "text": "Jesus was kind to her.", "ko": "예수님은 그녀에게 친절하셨어요." },
+        { "text": "The truth will set you free.", "ko": "진리가 너를 자유롭게 할 거야." }
+      ],
+      "fillBlank": { "template": "Jesus is the ___ of the world.", "answer": "light", "options": ["light","water","bread"] },
+      "mixQuiz": [
+        { "q": "'kind'의 뜻은?", "opts": [{"text":"친절한","correct":true},{"text":"화난","correct":false},{"text":"슬픈","correct":false}] },
+        { "q": "'truth'의 뜻은?", "opts": [{"text":"거짓말","correct":false},{"text":"진리","correct":true},{"text":"이야기","correct":false}] },
+        { "q": "무슨 문장을 들었나요?", "listen": "The truth will set you free.", "opts": [{"text":"The truth will set you free.","correct":true},{"text":"The light will set you free.","correct":false},{"text":"The woman will set you free.","correct":false}] },
+        { "q": "💡 은 무슨 단어일까요?", "opts": [{"text":"light","correct":true},{"text":"world","correct":false},{"text":"water","correct":false}] }
+      ],
+      "repeatSentence": "The truth will set you free."
+    },
+    "fruit": {
+      "helperWords": { "leaders":"지도자들", "punish":"벌하다", "mercy":"자비" },
+      "sentences": [
+        { "text": "Some leaders brought a woman who had done something wrong.", "ko": "몇몇 지도자들이 잘못을 저지른 한 여자를 데려왔어요." },
+        { "text": "They wanted to punish her, but Jesus showed her mercy instead.", "ko": "그들은 그녀를 벌하고 싶어했지만, 예수님은 대신 자비를 보이셨어요." },
+        { "text": "He told her to go and leave her wrong ways behind.", "ko": "그분은 그녀에게 가서 잘못된 삶을 그만두라고 말씀하셨어요." }
+      ],
+      "orderQuiz": [
+        "Some leaders brought a woman who had done something wrong.",
+        "They wanted to punish her, but Jesus showed her mercy instead.",
+        "He told her to go and leave her wrong ways behind."
+      ],
+      "mixQuiz": [
+        { "q": "\"Jesus wanted to punish the woman.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
+        { "q": "\"Jesus showed the woman mercy.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
+        { "q": "'mercy'와 비슷한 뜻은?", "opts": [{"text":"kindness","correct":true},{"text":"anger","correct":false},{"text":"punishment","correct":false}] }
+      ],
+      "krEnFill": { "kr": "예수님은 벌 대신 자비를 보이셨다", "template": "Jesus showed her ___ instead of punishment.", "answer": "mercy" }
+    },
+    "forest": {
+      "helperWords": { "trap":"함정", "condemn":"정죄하다", "darkness":"어둠" },
+      "paragraphs": [
+        { "text": "Some religious leaders wanted to trap Jesus, so they brought a woman who had clearly done something wrong and asked what should be done with her, since the law called for a harsh punishment. Instead of answering right away, Jesus knelt down and quietly wrote something on the ground.", "ko": "몇몇 종교 지도자들이 예수님을 함정에 빠뜨리려고, 분명히 잘못을 저지른 한 여자를 데려와서 어떻게 해야 하는지 물었습니다. 율법에는 가혹한 벌을 내리라고 되어 있었기 때문입니다. 예수님은 바로 대답하시는 대신 무릎을 꿇고 조용히 땅에 무언가를 쓰셨습니다." },
+        { "text": "When they kept asking, Jesus stood up and said only one thing: whoever among them had never done anything wrong could be the first to punish her. One by one, starting with the oldest, everyone walked away until only Jesus and the woman were left. He told her that he wasn't going to condemn her either, and that she was free to go and start over.", "ko": "그들이 계속 묻자, 예수님은 일어서서 한 가지만 말씀하셨습니다. 그들 중 한 번도 잘못한 적 없는 사람이 먼저 그녀를 벌하라는 것이었습니다. 나이 많은 사람부터 시작해서 한 사람씩 자리를 떠났고, 결국 예수님과 그 여자만 남았습니다. 그분은 자신도 그녀를 정죄하지 않겠다고, 이제 가서 새롭게 시작해도 된다고 말씀하셨습니다." },
+        { "text": "Not long after, Jesus described himself as light for a world full of darkness, promising that anyone who followed him would never have to stumble around blindly again. He also told the people that if they truly held onto what he taught them, they would understand the truth deeply enough that it would set them completely free.", "ko": "그 후 얼마 지나지 않아, 예수님은 자신을 어둠 가득한 세상을 위한 빛이라고 설명하시며, 자신을 따르는 사람은 다시는 어둠 속에서 헤매지 않을 거라고 약속하셨습니다. 그분은 또한 사람들이 자신이 가르친 것을 진정으로 붙잡고 있으면, 진리를 깊이 이해하게 되어 그것이 그들을 완전히 자유롭게 할 거라고 말씀하셨습니다." }
+      ],
+      "multiSelect": [
+        { "text": "Jesus asked whoever had never done wrong to throw the first stone.", "correct": true },
+        { "text": "Jesus immediately punished the woman himself.", "correct": false },
+        { "text": "Jesus said he is the light of the world.", "correct": true },
+        { "text": "Jesus said the truth would not matter to anyone.", "correct": false }
+      ],
+      "summaryQuiz": [
+        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
+          {"text":"예수님은 죄 지은 여자를 정죄하지 않고 자비를 베푸셨으며, 자신을 세상의 빛이라 하시고 진리가 자유롭게 한다고 가르치셨다","correct":true},
+          {"text":"예수님이 여자를 직접 벌하셨다","correct":false},
+          {"text":"지도자들이 여자를 용서했다","correct":false}
+        ] }
+      ],
+      "essayQuestion": "Why do you think no one could throw the first stone? Write one sentence in English."
+    }
+  }
+}
