@@ -104,7 +104,12 @@
     "trust": "신뢰하다",
     "turned": "돌아섰다",
     "used": "~했다",
-    "welcome": "환영하다"
+    "welcome": "환영하다",
+    "alone": "혼자",
+    "appeared": "나타났다",
+    "didn't": "~하지 않았다",
+    "even": "심지어",
+    "though": "~이지만"
   },
   "levels": {
     "sprout": {
@@ -409,22 +414,22 @@
       },
       "sentences": [
         {
-          "text": "Long ago, before anything was made, the Word was already there.",
-          "ko": "아주 오래전, 아무것도 만들어지기 전부터 말씀은 이미 거기 계셨어요."
+          "text": "Long before anything was ever made, the Word was already there with God. Through him, everything that exists came into being.",
+          "ko": "말씀은 하나님과 함께, 아무것도 만들어지기 훨씬 전부터 이미 거기 계셨습니다. 그분을 통해 존재하는 모든 것이 생겨났습니다."
         },
         {
-          "text": "God used the Word to make everything that exists.",
-          "ko": "하나님은 말씀을 사용해서 존재하는 모든 것을 만드셨어요."
+          "text": "God didn't make the world alone — he made it through the Word. Because of that, nothing came into being without the Word.",
+          "ko": "하나님은 세상을 혼자 만드신 게 아니라 말씀을 통해 만드셨습니다. 그렇기 때문에 말씀 없이 생겨난 것은 하나도 없습니다."
         },
         {
-          "text": "That light keeps shining in the dark, and nothing can put it out.",
-          "ko": "그 빛은 어둠 속에서 계속 비추고, 아무것도 그 빛을 끌 수 없어요."
+          "text": "A light appeared, shining right in the middle of the darkness. Even though the darkness tried, it could never put that light out.",
+          "ko": "빛이 나타나 어둠 한가운데서 비추었습니다. 어둠이 아무리 애써도 그 빛을 끌 수는 없었습니다."
         }
       ],
       "orderQuiz": [
-        "Long ago, before anything was made, the Word was already there.",
-        "God used the Word to make everything that exists.",
-        "That light keeps shining in the dark, and nothing can put it out."
+        "Long before anything was ever made, the Word was already there with God. Through him, everything that exists came into being.",
+        "God didn't make the world alone — he made it through the Word. Because of that, nothing came into being without the Word.",
+        "A light appeared, shining right in the middle of the darkness. Even though the darkness tried, it could never put that light out."
       ],
       "mixQuiz": [
         {
