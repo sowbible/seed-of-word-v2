@@ -144,7 +144,20 @@
     "with": "~와 함께",
     "worked": "일했다",
     "working": "일하는 것",
-    "would": "~할 것이다"
+    "would": "~할 것이다",
+    "around": "주변에",
+    "been": "~이었다",
+    "believed": "믿었다",
+    "could": "할 수 있다",
+    "every": "매",
+    "heal": "고치다",
+    "help": "돕다",
+    "its": "그것의",
+    "jerusalem": "예루살렘",
+    "no": "아무도 ~않다",
+    "thirtyeight": "서른여덟",
+    "waiting": "기다리는",
+    "water": "물"
   },
   "levels": {
     "sprout": {
@@ -337,22 +350,22 @@
       },
       "sentences": [
         {
-          "text": "There was a pool called Bethesda.",
-          "ko": "베데스다라는 연못이 있었어요."
+          "text": "There was a pool in Jerusalem called Bethesda. Many people believed its water could heal them.",
+          "ko": "예루살렘에는 베데스다라는 연못이 있었어요. 많은 사람들이 그 물이 자신을 고쳐줄 거라고 믿었어요."
         },
         {
-          "text": "Many disabled people lay there.",
-          "ko": "많은 장애가 있는 사람들이 거기 누워 있었어요."
+          "text": "Many disabled people lay around that pool every day. One man had been waiting there for thirty-eight years.",
+          "ko": "많은 장애가 있는 사람들이 매일 그 연못 주변에 누워 있었어요. 한 사람은 거기서 38년이나 기다리고 있었어요."
         },
         {
-          "text": "Jesus asked him gently, \"Do you really want to get better?\"",
-          "ko": "예수님은 그에게 부드럽게 \"정말 낫고 싶으냐?\"고 물으셨어요."
+          "text": "Jesus asked him gently, \"Do you really want to get better?\" The man explained that he had no one to help him into the water.",
+          "ko": "예수님은 그에게 부드럽게 \"정말 낫고 싶으냐?\"고 물으셨어요. 그 사람은 자신을 물속으로 데려다줄 사람이 없다고 설명했어요."
         }
       ],
       "orderQuiz": [
-        "There was a pool called Bethesda.",
-        "Many disabled people lay there.",
-        "Jesus asked him gently, \"Do you really want to get better?\""
+        "There was a pool in Jerusalem called Bethesda. Many people believed its water could heal them.",
+        "Many disabled people lay around that pool every day. One man had been waiting there for thirty-eight years.",
+        "Jesus asked him gently, \"Do you really want to get better?\" The man explained that he had no one to help him into the water."
       ],
       "mixQuiz": [
         {
