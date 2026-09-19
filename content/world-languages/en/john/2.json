@@ -1,60 +1,322 @@
 {
-  "book": "john", "chapter": 2, "language": "en", "version": "2.0",
+  "book": "john",
+  "chapter": 2,
+  "language": "en",
+  "version": "2.0",
   "dictionary": {
-    "jesus":"예수님","turned":"바꾸었다","water":"물","into":"~으로","wine":"포도주",
-    "there":"거기에","was":"있었다","a":"하나의","wedding":"결혼식","in":"~안에","cana":"가나",
-    "the":"그","ran":"떨어졌다","out":"밖으로","everyone":"모든 사람","amazed":"놀랐다",
-    "went":"갔다","to":"~로","of":"~의","galilee":"갈릴리","when":"~할 때",
-    "his":"그의","mother":"어머니","asked":"부탁했다","for":"~을 위해","help":"도움",
-    "told":"말했다","servants":"하인들","fill":"채우다","jars":"항아리들","with":"~을 가지고",
-    "on":"~에","third":"세 번째","day":"날","and":"그리고","disciples":"제자들","also":"또한","invited":"초대받았다",
-    "do":"하다","whatever":"무엇이든","he":"그는","tells":"말하다","you":"너희",
-    "six":"여섯","stone":"돌","became":"되었다","this":"이것","first":"첫 번째","sign":"표적","performed":"행하셨다",
-    "revealing":"드러내며","glory":"영광","believed":"믿었다"
+    "jesus": "예수님",
+    "turned": "바꾸었다",
+    "water": "물",
+    "into": "~으로",
+    "wine": "포도주",
+    "there": "거기에",
+    "was": "있었다",
+    "a": "하나의",
+    "wedding": "결혼식",
+    "in": "~안에",
+    "cana": "가나",
+    "the": "그",
+    "ran": "떨어졌다",
+    "out": "밖으로",
+    "everyone": "모든 사람",
+    "amazed": "놀랐다",
+    "went": "갔다",
+    "to": "~로",
+    "of": "~의",
+    "galilee": "갈릴리",
+    "when": "~할 때",
+    "his": "그의",
+    "mother": "어머니",
+    "asked": "부탁했다",
+    "for": "~을 위해",
+    "help": "도움",
+    "told": "말했다",
+    "servants": "하인들",
+    "fill": "채우다",
+    "jars": "항아리들",
+    "with": "~을 가지고",
+    "on": "~에",
+    "third": "세 번째",
+    "day": "날",
+    "and": "그리고",
+    "disciples": "제자들",
+    "also": "또한",
+    "invited": "초대받았다",
+    "do": "하다",
+    "whatever": "무엇이든",
+    "he": "그는",
+    "tells": "말하다",
+    "you": "너희",
+    "six": "여섯",
+    "stone": "돌",
+    "became": "되었다",
+    "this": "이것",
+    "first": "첫 번째",
+    "sign": "표적",
+    "performed": "행하셨다",
+    "revealing": "드러내며",
+    "glory": "영광",
+    "believed": "믿었다",
+    "about": "~에 대해",
+    "all": "모두",
+    "an": "하나의",
+    "at": "~에서",
+    "big": "큰",
+    "came": "왔다",
+    "celebrating": "축하하는",
+    "celebration": "축하 행사",
+    "embarrassing": "당혹스러운",
+    "even": "심지어",
+    "events": "사건들",
+    "ever": "지금까지",
+    "followers": "따르는 사람들",
+    "gave": "주었다",
+    "glimpse": "살짝 봄",
+    "guests": "손님들",
+    "had": "가지고 있었다",
+    "happened": "일어났다",
+    "happening": "일어나고 있는",
+    "he'd": "그가 ~할 것이다",
+    "him": "그를",
+    "host": "주인",
+    "it": "그것",
+    "jesus's": "예수님의",
+    "miracle": "기적",
+    "next": "다음의",
+    "only": "오직",
+    "partway": "도중에",
+    "party": "잔치",
+    "place": "장소",
+    "problem": "문제",
+    "public": "공개적인",
+    "put": "놓다",
+    "really": "정말로",
+    "said": "말했다",
+    "seeing": "보고서",
+    "she": "그녀는",
+    "simply": "그냥",
+    "since": "~때문에",
+    "some": "몇몇",
+    "sure": "확신하는",
+    "taken": "일어난",
+    "their": "그들의",
+    "though": "비록 ~이지만",
+    "through": "~을 통해",
+    "time": "시간",
+    "together": "함께",
+    "totally": "완전히",
+    "town": "마을",
+    "trust": "신뢰하다",
+    "very": "매우",
+    "wasn't": "~아니었다",
+    "were": "~였다",
+    "what": "무엇",
+    "who": "누구",
+    "whole": "전체의",
+    "just": "그냥"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "wine", "meaning": "포도주" },
-        { "word": "water", "meaning": "물" }
+        {
+          "word": "wine",
+          "meaning": "포도주"
+        },
+        {
+          "word": "water",
+          "meaning": "물"
+        }
       ],
       "sentences": [
-        { "text": "Jesus turned water into wine.", "ko": "예수님은 물을 포도주로 바꾸셨어요." }
+        {
+          "text": "Jesus turned water into wine.",
+          "ko": "예수님은 물을 포도주로 바꾸셨어요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "wine", "opts": [{"text":"🍷","kr":"포도주","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"📖","kr":"책","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "water", "opts": [{"text":"💧","kr":"물","correct":true},{"text":"🔥","kr":"불","correct":false},{"text":"🌳","kr":"나무","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "wine",
+          "opts": [
+            {
+              "text": "🍷",
+              "kr": "포도주",
+              "correct": true
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "water",
+          "opts": [
+            {
+              "text": "💧",
+              "kr": "물",
+              "correct": true
+            },
+            {
+              "text": "🔥",
+              "kr": "불",
+              "correct": false
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Jesus turned water into wine."
     },
     "tree": {
       "vocab": [
-        { "word": "wedding", "meaning": "결혼식" },
-        { "word": "wine", "meaning": "포도주" },
-        { "word": "amazed", "meaning": "놀란" },
-        { "word": "water", "meaning": "물" }
+        {
+          "word": "wedding",
+          "meaning": "결혼식"
+        },
+        {
+          "word": "wine",
+          "meaning": "포도주"
+        },
+        {
+          "word": "amazed",
+          "meaning": "놀란"
+        },
+        {
+          "word": "water",
+          "meaning": "물"
+        }
       ],
       "sentences": [
-        { "text": "There was a wedding in Cana.", "ko": "가나에서 결혼식이 있었어요." },
-        { "text": "The wine ran out.", "ko": "포도주가 떨어졌어요." },
-        { "text": "Jesus turned water into wine.", "ko": "예수님은 물을 포도주로 바꾸셨어요." },
-        { "text": "Everyone was amazed.", "ko": "모든 사람이 놀랐어요." }
+        {
+          "text": "There was a wedding in Cana.",
+          "ko": "가나에서 결혼식이 있었어요."
+        },
+        {
+          "text": "The wine ran out.",
+          "ko": "포도주가 떨어졌어요."
+        },
+        {
+          "text": "Jesus turned water into wine.",
+          "ko": "예수님은 물을 포도주로 바꾸셨어요."
+        },
+        {
+          "text": "Everyone was amazed.",
+          "ko": "모든 사람이 놀랐어요."
+        }
       ],
-      "fillBlank": { "template": "Jesus turned water into ___.", "answer": "wine", "options": ["wine","water","bread"] },
+      "fillBlank": {
+        "template": "Jesus turned water into ___.",
+        "answer": "wine",
+        "options": [
+          "wine",
+          "water",
+          "bread"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'wedding'의 뜻은?", "opts": [{"text":"결혼식","correct":true},{"text":"성전","correct":false},{"text":"기도","correct":false}] },
-        { "q": "'amazed'의 뜻은?", "opts": [{"text":"화가 난","correct":false},{"text":"놀란","correct":true},{"text":"슬픈","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "The wine ran out.", "opts": [{"text":"The wine ran out.","correct":true},{"text":"The water ran out.","correct":false},{"text":"The wine was good.","correct":false}] },
-        { "q": "🍷 은 무슨 단어일까요?", "opts": [{"text":"wine","correct":true},{"text":"water","correct":false},{"text":"wedding","correct":false}] }
+        {
+          "q": "'wedding'의 뜻은?",
+          "opts": [
+            {
+              "text": "결혼식",
+              "correct": true
+            },
+            {
+              "text": "성전",
+              "correct": false
+            },
+            {
+              "text": "기도",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'amazed'의 뜻은?",
+          "opts": [
+            {
+              "text": "화가 난",
+              "correct": false
+            },
+            {
+              "text": "놀란",
+              "correct": true
+            },
+            {
+              "text": "슬픈",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "The wine ran out.",
+          "opts": [
+            {
+              "text": "The wine ran out.",
+              "correct": true
+            },
+            {
+              "text": "The water ran out.",
+              "correct": false
+            },
+            {
+              "text": "The wine was good.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🍷 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "wine",
+              "correct": true
+            },
+            {
+              "text": "water",
+              "correct": false
+            },
+            {
+              "text": "wedding",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "The wine ran out."
     },
     "fruit": {
-      "helperWords": { "wedding":"결혼식", "servants":"하인들", "jars":"항아리" },
+      "helperWords": {
+        "wedding": "결혼식",
+        "servants": "하인들",
+        "jars": "항아리"
+      },
       "sentences": [
-        { "text": "Jesus went to a wedding in Cana of Galilee.", "ko": "예수님은 갈릴리 가나에서 열린 결혼식에 가셨어요." },
-        { "text": "When the wine ran out, his mother asked for his help.", "ko": "포도주가 떨어지자, 그분의 어머니가 도움을 요청했어요." },
-        { "text": "Jesus told the servants to fill the jars with water.", "ko": "예수님은 하인들에게 항아리에 물을 채우라고 하셨어요." }
+        {
+          "text": "Jesus went to a wedding in Cana of Galilee.",
+          "ko": "예수님은 갈릴리 가나에서 열린 결혼식에 가셨어요."
+        },
+        {
+          "text": "When the wine ran out, his mother asked for his help.",
+          "ko": "포도주가 떨어지자, 그분의 어머니가 도움을 요청했어요."
+        },
+        {
+          "text": "Jesus told the servants to fill the jars with water.",
+          "ko": "예수님은 하인들에게 항아리에 물을 채우라고 하셨어요."
+        }
       ],
       "orderQuiz": [
         "Jesus went to a wedding in Cana of Galilee.",
@@ -62,31 +324,112 @@
         "Jesus told the servants to fill the jars with water."
       ],
       "mixQuiz": [
-        { "q": "\"Jesus turned wine into water.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"The wedding was in Cana of Galilee.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "'asked for help'와 비슷한 뜻은?", "opts": [{"text":"requested assistance","correct":true},{"text":"gave a gift","correct":false},{"text":"said goodbye","correct":false}] }
+        {
+          "q": "\"Jesus turned wine into water.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"The wedding was in Cana of Galilee.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'asked for help'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "requested assistance",
+              "correct": true
+            },
+            {
+              "text": "gave a gift",
+              "correct": false
+            },
+            {
+              "text": "said goodbye",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "예수님이 물을 포도주로 바꾸셨다", "template": "Jesus turned water into ___.", "answer": "wine" }
+      "krEnFill": {
+        "kr": "예수님이 물을 포도주로 바꾸셨다",
+        "template": "Jesus turned water into ___.",
+        "answer": "wine"
+      }
     },
     "forest": {
-      "helperWords": { "miracle":"기적", "sign":"표적", "glory":"영광" },
+      "helperWords": {
+        "miracle": "기적",
+        "sign": "표적",
+        "glory": "영광"
+      },
       "paragraphs": [
-        { "text": "Jesus, his mother, and his followers were all guests at a wedding celebration happening in the town of Cana. It was only the third day since some big events had taken place, and the whole town was celebrating together.", "ko": "예수님과 그분의 어머니, 그리고 제자들은 모두 가나라는 마을에서 열린 결혼 잔치에 손님으로 초대받았습니다. 어떤 큰 일이 있은 지 사흘째 되는 날이었고, 마을 전체가 함께 기뻐하고 있었습니다." },
-        { "text": "Partway through the party, the wine ran out — an embarrassing problem for the host. Jesus's mother came to him about it, and even though she wasn't totally sure what he'd do, she turned to the servants and simply said, 'Just do whatever he tells you.'", "ko": "잔치 도중에 포도주가 다 떨어졌는데, 이는 주인에게 매우 난처한 일이었습니다. 예수님의 어머니가 그분께 이 사실을 알렸고, 그분이 무엇을 하실지 확실히는 몰랐지만 하인들에게 이렇게 말했습니다. '그가 무엇을 시키든 그대로 하세요.'" },
-        { "text": "What happened next became the very first miracle Jesus ever performed in public, and it gave everyone a glimpse of who he really was. Seeing it, his followers put their trust in him for the first time.", "ko": "그다음에 일어난 일은 예수님이 사람들 앞에서 행하신 첫 번째 기적이 되었고, 사람들은 그분이 누구신지 조금씩 알게 되었습니다. 이를 본 제자들은 처음으로 그분을 믿게 되었습니다." }
+        {
+          "text": "Jesus, his mother, and his followers were all guests at a wedding celebration happening in the town of Cana. It was only the third day since some big events had taken place, and the whole town was celebrating together.",
+          "ko": "예수님과 그분의 어머니, 그리고 제자들은 모두 가나라는 마을에서 열린 결혼 잔치에 손님으로 초대받았습니다. 어떤 큰 일이 있은 지 사흘째 되는 날이었고, 마을 전체가 함께 기뻐하고 있었습니다."
+        },
+        {
+          "text": "Partway through the party, the wine ran out — an embarrassing problem for the host. Jesus's mother came to him about it, and even though she wasn't totally sure what he'd do, she turned to the servants and simply said, \"Just do whatever he tells you.\"",
+          "ko": "잔치 도중에 포도주가 다 떨어졌는데, 이는 주인에게 매우 난처한 일이었습니다. 예수님의 어머니가 그분께 이 사실을 알렸고, 그분이 무엇을 하실지 확실히는 몰랐지만 하인들에게 이렇게 말했습니다. '그가 무엇을 시키든 그대로 하세요.'"
+        },
+        {
+          "text": "What happened next became the very first miracle Jesus ever performed in public, and it gave everyone a glimpse of who he really was. Seeing it, his followers put their trust in him for the first time.",
+          "ko": "그다음에 일어난 일은 예수님이 사람들 앞에서 행하신 첫 번째 기적이 되었고, 사람들은 그분이 누구신지 조금씩 알게 되었습니다. 이를 본 제자들은 처음으로 그분을 믿게 되었습니다."
+        }
       ],
       "multiSelect": [
-        { "text": "Jesus turned water into wine.", "correct": true },
-        { "text": "The wedding ran out of bread.", "correct": false },
-        { "text": "This was Jesus's first sign.", "correct": true },
-        { "text": "The disciples did not believe in him.", "correct": false }
+        {
+          "text": "Jesus turned water into wine.",
+          "correct": true
+        },
+        {
+          "text": "The wedding ran out of bread.",
+          "correct": false
+        },
+        {
+          "text": "This was Jesus's first sign.",
+          "correct": true
+        },
+        {
+          "text": "The disciples did not believe in him.",
+          "correct": false
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"예수님이 가나의 혼인잔치에서 물을 포도주로 바꾸신 첫 표적을 행하셨고, 제자들이 그분을 믿었다","correct":true},
-          {"text":"예수님이 결혼식에서 신랑이 되셨다","correct":false},
-          {"text":"제자들이 결혼식에서 포도주를 만들었다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님이 가나의 혼인잔치에서 물을 포도주로 바꾸신 첫 표적을 행하셨고, 제자들이 그분을 믿었다",
+              "correct": true
+            },
+            {
+              "text": "예수님이 결혼식에서 신랑이 되셨다",
+              "correct": false
+            },
+            {
+              "text": "제자들이 결혼식에서 포도주를 만들었다",
+              "correct": false
+            }
+          ]
+        }
       ],
       "essayQuestion": "Why do you think Jesus performed this miracle? Write one sentence in English."
     }
