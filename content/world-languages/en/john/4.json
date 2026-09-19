@@ -1,59 +1,350 @@
 {
-  "book": "john", "chapter": 4, "language": "en", "version": "2.0",
+  "book": "john",
+  "chapter": 4,
+  "language": "en",
+  "version": "2.0",
   "dictionary": {
-    "jesus":"예수님","gave":"주었다","living":"살아있는","water":"물","met":"만났다","a":"한",
-    "woman":"여자","at":"~에서","well":"우물","she":"그녀는","was":"~였다","from":"~에서 온","samaria":"사마리아",
-    "told":"말했다","everyone":"모든 사람","about":"~에 대해","tired":"피곤한","and":"그리고","sat":"앉았다",
-    "by":"~옆에","the":"그","came":"왔다","to":"~하려고","get":"얻다","offered":"제안했다","her":"그녀에게",
-    "will":"~할 것이다","never":"결코 ~않다","thirst":"목마르다","again":"다시","whoever":"~하는 사람은 누구나","drinks":"마신다",
-    "this":"이","true":"참된","worshipers":"예배하는 자들","worship":"예배하다","in":"~안에서","spirit":"영",
-    "truth":"진리","father":"아버지","seeks":"찾으신다","such":"그러한","people":"사람들",
-    "harvest":"추수","is":"~이다","ripe":"익은","look":"보라","fields":"들판","already":"이미","for":"~을 위해",
-    "many":"많은","believed":"믿었다","because":"~때문에","words":"말들","of":"~의","him":"그를"
+    "jesus": "예수님",
+    "gave": "주었다",
+    "living": "살아있는",
+    "water": "물",
+    "met": "만났다",
+    "a": "한",
+    "woman": "여자",
+    "at": "~에서",
+    "well": "우물",
+    "she": "그녀는",
+    "was": "~였다",
+    "from": "~에서 온",
+    "samaria": "사마리아",
+    "told": "말했다",
+    "everyone": "모든 사람",
+    "about": "~에 대해",
+    "tired": "피곤한",
+    "and": "그리고",
+    "sat": "앉았다",
+    "by": "~옆에",
+    "the": "그",
+    "came": "왔다",
+    "to": "~하려고",
+    "get": "얻다",
+    "offered": "제안했다",
+    "her": "그녀에게",
+    "will": "~할 것이다",
+    "never": "결코 ~않다",
+    "thirst": "목마르다",
+    "again": "다시",
+    "whoever": "~하는 사람은 누구나",
+    "drinks": "마신다",
+    "this": "이",
+    "true": "참된",
+    "worshipers": "예배하는 자들",
+    "worship": "예배하다",
+    "in": "~안에서",
+    "spirit": "영",
+    "truth": "진리",
+    "father": "아버지",
+    "seeks": "찾으신다",
+    "such": "그러한",
+    "people": "사람들",
+    "harvest": "추수",
+    "is": "~이다",
+    "ripe": "익은",
+    "look": "보라",
+    "fields": "들판",
+    "already": "이미",
+    "for": "~을 위해",
+    "many": "많은",
+    "believed": "믿었다",
+    "because": "~때문에",
+    "words": "말들",
+    "of": "~의",
+    "him": "그를",
+    "all": "모두",
+    "also": "또한",
+    "always": "항상",
+    "are": "~이다",
+    "around": "주변에",
+    "beside": "옆에",
+    "building": "건물",
+    "but": "그러나",
+    "countryside": "시골",
+    "day": "날",
+    "delay": "미루다",
+    "differently": "다르게",
+    "down": "아래로",
+    "eat": "먹다",
+    "even": "심지어",
+    "exactly": "정확히",
+    "explained": "설명하셨다",
+    "follow": "따르다",
+    "followers": "따르는 사람들",
+    "gives": "준다",
+    "god": "하나님",
+    "good": "좋은",
+    "he": "그는",
+    "he's": "그는 ~이다",
+    "heard": "들었다",
+    "heart": "마음",
+    "his": "그의",
+    "honestly": "정직하게",
+    "isn't": "~아니다",
+    "it": "그것",
+    "kind": "종류",
+    "later": "나중에",
+    "little": "잠깐",
+    "looking": "찾고 있는",
+    "lot": "많음",
+    "meet": "만나다",
+    "more": "더",
+    "need": "필요하다",
+    "no": "아무도 ~않다",
+    "not": "~않다",
+    "now": "지금",
+    "once": "일단 ~하면",
+    "only": "오직",
+    "ordinary": "보통의",
+    "out": "밖으로",
+    "pointed": "가리켰다",
+    "put": "놓다",
+    "ready": "준비된",
+    "reason": "이유",
+    "receives": "받는다",
+    "rest": "쉬다",
+    "right": "정확한",
+    "rituals": "의식",
+    "samaritan": "사마리아 사람의",
+    "satisfied": "만족한",
+    "satisfies": "만족시킨다",
+    "searching": "찾고 있는",
+    "so": "그래서",
+    "someone": "누군가",
+    "something": "무언가",
+    "speak": "말하다",
+    "that": "저것/그것",
+    "their": "그들의",
+    "them": "그들을",
+    "themselves": "그들 스스로",
+    "there": "거기",
+    "they": "그들은",
+    "toward": "~쪽으로",
+    "town": "마을",
+    "trust": "신뢰하다",
+    "urged": "권했다",
+    "wait": "기다리다",
+    "walking": "걷는",
+    "what": "무엇",
+    "when": "~할 때",
+    "while": "~하는 동안",
+    "who": "누구",
+    "work": "일",
+    "works": "작동한다",
+    "worn": "지친",
+    "worshiper": "예배자",
+    "you'll": "너는 ~할 것이다"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "water", "meaning": "물" },
-        { "word": "well", "meaning": "우물" }
+        {
+          "word": "water",
+          "meaning": "물"
+        },
+        {
+          "word": "well",
+          "meaning": "우물"
+        }
       ],
       "sentences": [
-        { "text": "Jesus gave living water.", "ko": "예수님은 생명의 물을 주셨어요." }
+        {
+          "text": "Jesus gave living water.",
+          "ko": "예수님은 생명의 물을 주셨어요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "water", "opts": [{"text":"💧","kr":"물","correct":true},{"text":"🔥","kr":"불","correct":false},{"text":"🌳","kr":"나무","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "well", "opts": [{"text":"🪣","kr":"우물/양동이","correct":true},{"text":"📖","kr":"책","correct":false},{"text":"👑","kr":"왕관","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "water",
+          "opts": [
+            {
+              "text": "💧",
+              "kr": "물",
+              "correct": true
+            },
+            {
+              "text": "🔥",
+              "kr": "불",
+              "correct": false
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "well",
+          "opts": [
+            {
+              "text": "🪣",
+              "kr": "우물/양동이",
+              "correct": true
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            },
+            {
+              "text": "👑",
+              "kr": "왕관",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Jesus gave living water."
     },
     "tree": {
       "vocab": [
-        { "word": "well", "meaning": "우물" },
-        { "word": "water", "meaning": "물" },
-        { "word": "Samaria", "meaning": "사마리아" },
-        { "word": "told", "meaning": "말했다" }
+        {
+          "word": "well",
+          "meaning": "우물"
+        },
+        {
+          "word": "water",
+          "meaning": "물"
+        },
+        {
+          "word": "Samaria",
+          "meaning": "사마리아"
+        },
+        {
+          "word": "told",
+          "meaning": "말했다"
+        }
       ],
       "sentences": [
-        { "text": "Jesus met a woman at a well.", "ko": "예수님은 우물가에서 한 여인을 만나셨어요." },
-        { "text": "She was from Samaria.", "ko": "그녀는 사마리아에서 왔어요." },
-        { "text": "Jesus gave living water.", "ko": "예수님은 생명의 물을 주셨어요." },
-        { "text": "She told everyone about Jesus.", "ko": "그녀는 모든 사람에게 예수님에 대해 말했어요." }
+        {
+          "text": "Jesus met a woman at a well.",
+          "ko": "예수님은 우물가에서 한 여인을 만나셨어요."
+        },
+        {
+          "text": "She was from Samaria.",
+          "ko": "그녀는 사마리아에서 왔어요."
+        },
+        {
+          "text": "Jesus gave living water.",
+          "ko": "예수님은 생명의 물을 주셨어요."
+        },
+        {
+          "text": "She told everyone about Jesus.",
+          "ko": "그녀는 모든 사람에게 예수님에 대해 말했어요."
+        }
       ],
-      "fillBlank": { "template": "Jesus met a woman at a ___.", "answer": "well", "options": ["well","house","road"] },
+      "fillBlank": {
+        "template": "Jesus met a woman at a ___.",
+        "answer": "well",
+        "options": [
+          "well",
+          "house",
+          "road"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'well'의 뜻은?", "opts": [{"text":"우물","correct":true},{"text":"바다","correct":false},{"text":"산","correct":false}] },
-        { "q": "'told'의 뜻은?", "opts": [{"text":"숨겼다","correct":false},{"text":"말했다","correct":true},{"text":"잊었다","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "She was from Samaria.", "opts": [{"text":"She was from Samaria.","correct":true},{"text":"She was from Galilee.","correct":false},{"text":"She was from Judea.","correct":false}] },
-        { "q": "💧 은 무슨 단어일까요?", "opts": [{"text":"water","correct":true},{"text":"well","correct":false},{"text":"woman","correct":false}] }
+        {
+          "q": "'well'의 뜻은?",
+          "opts": [
+            {
+              "text": "우물",
+              "correct": true
+            },
+            {
+              "text": "바다",
+              "correct": false
+            },
+            {
+              "text": "산",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'told'의 뜻은?",
+          "opts": [
+            {
+              "text": "숨겼다",
+              "correct": false
+            },
+            {
+              "text": "말했다",
+              "correct": true
+            },
+            {
+              "text": "잊었다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "She was from Samaria.",
+          "opts": [
+            {
+              "text": "She was from Samaria.",
+              "correct": true
+            },
+            {
+              "text": "She was from Galilee.",
+              "correct": false
+            },
+            {
+              "text": "She was from Judea.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "💧 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "water",
+              "correct": true
+            },
+            {
+              "text": "well",
+              "correct": false
+            },
+            {
+              "text": "woman",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "She was from Samaria."
     },
     "fruit": {
-      "helperWords": { "thirst":"목마르다", "worship":"예배하다", "truth":"진리" },
+      "helperWords": {
+        "thirst": "목마르다",
+        "worship": "예배하다",
+        "truth": "진리"
+      },
       "sentences": [
-        { "text": "Worn out from walking all day, Jesus sat down to rest beside a well.", "ko": "하루 종일 걸어서 지치신 예수님은 우물가에 앉아 쉬셨어요." },
-        { "text": "A Samaritan woman came to get water.", "ko": "한 사마리아 여인이 물을 길으러 왔어요." },
-        { "text": "Jesus offered her living water.", "ko": "예수님은 그녀에게 생명의 물을 주겠다고 하셨어요." }
+        {
+          "text": "Worn out from walking all day, Jesus sat down to rest beside a well.",
+          "ko": "하루 종일 걸어서 지치신 예수님은 우물가에 앉아 쉬셨어요."
+        },
+        {
+          "text": "A Samaritan woman came to get water.",
+          "ko": "한 사마리아 여인이 물을 길으러 왔어요."
+        },
+        {
+          "text": "Jesus offered her living water.",
+          "ko": "예수님은 그녀에게 생명의 물을 주겠다고 하셨어요."
+        }
       ],
       "orderQuiz": [
         "Worn out from walking all day, Jesus sat down to rest beside a well.",
@@ -61,31 +352,112 @@
         "Jesus offered her living water."
       ],
       "mixQuiz": [
-        { "q": "\"Jesus was not tired.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"The woman came to get water.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "'offered'와 비슷한 뜻은?", "opts": [{"text":"gave","correct":true},{"text":"took","correct":false},{"text":"hid","correct":false}] }
+        {
+          "q": "\"Jesus was not tired.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"The woman came to get water.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'offered'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "gave",
+              "correct": true
+            },
+            {
+              "text": "took",
+              "correct": false
+            },
+            {
+              "text": "hid",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "예수님이 그녀에게 생수를 주셨다", "template": "Jesus gave her living ___.", "answer": "water" }
+      "krEnFill": {
+        "kr": "예수님이 그녀에게 생수를 주셨다",
+        "template": "Jesus gave her living ___.",
+        "answer": "water"
+      }
     },
     "forest": {
-      "helperWords": { "worshipers":"예배하는 자들", "harvest":"추수", "ripe":"익은" },
+      "helperWords": {
+        "worshipers": "예배하는 자들",
+        "harvest": "추수",
+        "ripe": "익은"
+      },
       "paragraphs": [
-        { "text": "Jesus explained that ordinary water only satisfies thirst for a little while — you'll always need more. But the water he gives works differently: once someone receives it, they are satisfied for good. He also told her that God isn't looking for people who follow the right rituals in the right building; he's looking for people who worship him honestly, from the heart.", "ko": "예수님은 보통 물은 잠깐만 갈증을 해결해줄 뿐, 계속 다시 마셔야 한다고 설명하셨습니다. 하지만 그분이 주시는 물은 다릅니다 — 한 번 받으면 다시는 목마르지 않습니다. 그분은 또한 하나님이 정해진 장소와 절차를 따르는 사람을 찾으시는 게 아니라, 진심으로 정직하게 예배하는 사람을 찾으신다고 말씀하셨습니다." },
-        { "text": "God is searching for exactly that kind of worshiper. Later, when his followers urged him to eat something, Jesus pointed out toward the countryside and told them not to wait around — the harvest was ready right now, so there was no reason to delay the work.", "ko": "하나님은 바로 그런 예배자를 찾고 계십니다. 나중에 제자들이 뭔가 좀 드시라고 권하자, 예수님은 들판 쪽을 가리키며 더 이상 기다릴 필요 없다고, 추수할 때가 바로 지금이니 일을 미룰 이유가 없다고 말씀하셨습니다." },
-        { "text": "Because of what the woman told them, a lot of people from that town came out to meet Jesus themselves — and once they heard him speak, even more of them put their trust in him.", "ko": "그 여인이 전한 말 때문에 그 마을의 많은 사람들이 직접 예수님을 만나러 나왔고, 그분의 말씀을 들은 후에는 더 많은 사람이 그분을 믿게 되었습니다." }
+        {
+          "text": "Jesus explained that ordinary water only satisfies thirst for a little while — you'll always need more. But the water he gives works differently: once someone receives it, they are satisfied for good. He also told her that God isn't looking for people who follow the right rituals in the right building; he's looking for people who worship him honestly, from the heart.",
+          "ko": "예수님은 보통 물은 잠깐만 갈증을 해결해줄 뿐, 계속 다시 마셔야 한다고 설명하셨습니다. 하지만 그분이 주시는 물은 다릅니다 — 한 번 받으면 다시는 목마르지 않습니다. 그분은 또한 하나님이 정해진 장소와 절차를 따르는 사람을 찾으시는 게 아니라, 진심으로 정직하게 예배하는 사람을 찾으신다고 말씀하셨습니다."
+        },
+        {
+          "text": "God is searching for exactly that kind of worshiper. Later, when his followers urged him to eat something, Jesus pointed out toward the countryside and told them not to wait around — the harvest was ready right now, so there was no reason to delay the work.",
+          "ko": "하나님은 바로 그런 예배자를 찾고 계십니다. 나중에 제자들이 뭔가 좀 드시라고 권하자, 예수님은 들판 쪽을 가리키며 더 이상 기다릴 필요 없다고, 추수할 때가 바로 지금이니 일을 미룰 이유가 없다고 말씀하셨습니다."
+        },
+        {
+          "text": "Because of what the woman told them, a lot of people from that town came out to meet Jesus themselves — and once they heard him speak, even more of them put their trust in him.",
+          "ko": "그 여인이 전한 말 때문에 그 마을의 많은 사람들이 직접 예수님을 만나러 나왔고, 그분의 말씀을 들은 후에는 더 많은 사람이 그분을 믿게 되었습니다."
+        }
       ],
       "multiSelect": [
-        { "text": "Jesus said true worshipers worship in spirit and truth.", "correct": true },
-        { "text": "The woman kept the good news to herself.", "correct": false },
-        { "text": "Jesus said the fields were ripe for harvest.", "correct": true },
-        { "text": "No Samaritans believed in Jesus.", "correct": false }
+        {
+          "text": "Jesus said true worshipers worship in spirit and truth.",
+          "correct": true
+        },
+        {
+          "text": "The woman kept the good news to herself.",
+          "correct": false
+        },
+        {
+          "text": "Jesus said the fields were ripe for harvest.",
+          "correct": true
+        },
+        {
+          "text": "No Samaritans believed in Jesus.",
+          "correct": false
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"예수님이 생수와 참된 예배, 영적 추수에 대해 말씀하셨고 많은 사마리아인이 그를 믿었다","correct":true},
-          {"text":"사마리아 사람들이 예수님을 미워했다","correct":false},
-          {"text":"예수님이 우물을 새로 파셨다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님이 생수와 참된 예배, 영적 추수에 대해 말씀하셨고 많은 사마리아인이 그를 믿었다",
+              "correct": true
+            },
+            {
+              "text": "사마리아 사람들이 예수님을 미워했다",
+              "correct": false
+            },
+            {
+              "text": "예수님이 우물을 새로 파셨다",
+              "correct": false
+            }
+          ]
+        }
       ],
       "essayQuestion": "What does \"living water\" mean to you? Write one sentence in English."
     }
