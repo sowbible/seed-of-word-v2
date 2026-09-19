@@ -1,110 +1,482 @@
 {
-  "book": "john", "chapter": 9, "language": "en", "version": "2.0",
+  "book": "john",
+  "chapter": 10,
+  "language": "en",
+  "version": "2.0",
   "dictionary": {
-    "a":"한","able":"할 수 있는","again":"다시","all":"모두","along":"함께","already":"이미","and":"그리고",
-    "as":"~로서","ask":"물어보다","asked":"물었다","at":"~에","back":"돌아와서","be":"~이다",
-    "because":"~때문에","been":"~이었다","believe":"믿다","believed":"믿었다","birth":"출생",
-    "blind":"눈이 먼","born":"태어난","but":"그러나","called":"불렀다","came":"왔다","chance":"기회",
-    "clearly":"분명히","come":"오다","completely":"완전히","could":"할 수 있었다","day":"날","did":"~했다",
-    "discover":"발견하다","done":"~했다","down":"아래로","even":"심지어","exactly":"정확히","eyes":"눈",
-    "fault":"잘못","first":"첫 번째","followers":"제자들","for":"~을 위해","found":"찾았다",
-    "from":"~부터","frustrated":"답답해하는","gently":"부드럽게","god's":"하나님의","good":"좋은",
-    "grew":"~해졌다","had":"가지고 있었다","happened":"일어났다","hardly":"거의 ~않다","he":"그는",
-    "he'd":"그가 ~했는지","healed":"고쳤다","healing":"치유","heard":"들었다","him":"그를",
-    "himself":"그 자신","his":"그의","how":"얼마나","if":"~인지","in":"~안에","insisting":"주장하는",
-    "instead":"대신","it":"그것","jesus":"예수님","just":"단지","kept":"계속 ~했다","knelt":"무릎을 꿇었다",
-    "leaders":"지도자들","life":"삶","little":"약간의","loud":"큰 소리로","man":"남자","man's":"남자의",
-    "meanwhile":"한편","mixed":"섞었다","mud":"진흙","nearby":"근처의","neighbors":"이웃들",
-    "never":"결코 ~않다","no":"아니다","not":"~않다","noticed":"알아챘다","now":"이제","of":"~의",
-    "off":"제거된","on":"~에","once":"한 번도","or":"또는","out":"밖으로","over":"~위에",
-    "own":"자기 자신의","parents":"부모","parents'":"부모의","people":"사람들","plainly":"분명하게",
-    "point":"요점","pool":"연못","power":"능력","put":"놓았다","questioned":"질문했다","real":"진짜의",
-    "really":"정말로","religious":"종교적인","right":"바로","sabbath":"안식일","said":"말했다",
-    "see":"보다","sent":"보냈다","should":"~해야 한다","since":"~때문에","so":"그래서","some":"몇몇",
-    "something":"무언가","son":"아들","spread":"발랐다","sure":"확신하는","surprising":"놀라운",
-    "synagogue":"회당","that":"저것/그것","the":"그","then":"그다음","there":"거기","they":"그들은",
-    "this":"이것","threw":"내쫓았다","time":"시간","to":"~에게","told":"말했다","truly":"진정으로",
-    "trusted":"신뢰했다","upset":"화가 난","very":"매우","walked":"걸었다","wanted":"원했다","was":"~였다",
-    "wash":"씻다","washed":"씻었다","wasn't":"~아니었다","went":"갔다","were":"~였다","what":"무엇",
-    "when":"~할 때","who":"누구","whose":"누구의","wondered":"궁금해했다","work":"일","would":"~할 것이다"
+    "a": "한",
+    "about": "~에 대해",
+    "actions": "행동들",
+    "already": "이미",
+    "always": "항상",
+    "and": "그리고",
+    "answer": "대답",
+    "anyone": "누구든지",
+    "appears": "나타난다",
+    "are": "~이다",
+    "as": "~로서",
+    "attack": "공격하다",
+    "away": "멀리",
+    "be": "~이다",
+    "because": "~때문에",
+    "believe": "믿다",
+    "bold": "대담한",
+    "bring": "데려오다",
+    "but": "그러나",
+    "by": "~로",
+    "called": "불렀다",
+    "calls": "부른다",
+    "care": "돌봄",
+    "cared": "돌보았다",
+    "claim": "주장",
+    "clearly": "분명히",
+    "climbs": "기어오른다",
+    "completely": "완전히",
+    "could": "할 수 있었다",
+    "danger": "위험",
+    "deeply": "깊이",
+    "demanded": "요구했다",
+    "different": "다른",
+    "enough": "충분히",
+    "even": "심지어",
+    "ever": "결코",
+    "explained": "설명하셨다",
+    "father": "아버지",
+    "fence": "울타리",
+    "flock": "무리",
+    "follow": "따르다",
+    "for": "~을 위해",
+    "from": "~로부터",
+    "gate": "문",
+    "gave": "주었다",
+    "give": "주다",
+    "good": "좋은",
+    "had": "가지고 있었다",
+    "he": "그는",
+    "him": "그를",
+    "himself": "그 자신",
+    "hired": "고용된",
+    "his": "그의",
+    "if": "~인지",
+    "in": "~안에",
+    "instead": "대신",
+    "into": "~안으로",
+    "is": "~이다",
+    "it": "그것",
+    "jesus": "예수님",
+    "jewish": "유대인의",
+    "just": "단지",
+    "keep": "지키다",
+    "kind": "종류",
+    "know": "안다",
+    "last": "마지막",
+    "leaders": "지도자들",
+    "leads": "이끈다",
+    "leaving": "남겨둔 채",
+    "life": "생명",
+    "like": "~처럼",
+    "mentioned": "언급했다",
+    "messiah": "메시아",
+    "moment": "순간",
+    "much": "많이",
+    "name": "이름",
+    "no": "아니다",
+    "not": "~않다",
+    "nothing": "아무것도",
+    "of": "~의",
+    "off": "떠나버린",
+    "one": "하나",
+    "only": "오직",
+    "or": "또는",
+    "other": "다른",
+    "out": "밖으로",
+    "over": "~에 대해",
+    "own": "자기 자신의",
+    "paycheck": "급여",
+    "picked": "집어들었다",
+    "planned": "계획했다",
+    "probably": "아마도",
+    "protect": "보호하다",
+    "reach": "도달하다",
+    "ready": "준비된",
+    "real": "진짜의",
+    "recognize": "알아본다",
+    "recognized": "알아보았다",
+    "refused": "거부했다",
+    "run": "도망가다",
+    "runs": "도망간다",
+    "safe": "안전한",
+    "said": "말했다",
+    "saying": "말하는 것",
+    "secure": "안전한",
+    "sheep": "양",
+    "shepherd": "목자",
+    "shows": "나타난다",
+    "simply": "단순히",
+    "snatch": "낚아채다",
+    "so": "그래서",
+    "some": "몇몇",
+    "something": "무언가",
+    "spoke": "말했다",
+    "still": "여전히",
+    "stones": "돌들",
+    "straight": "직접적인",
+    "stranger's": "낯선 사람의",
+    "surrounded": "둘러쌌다",
+    "that": "저것/그것",
+    "the": "그",
+    "them": "그들을",
+    "then": "그다음",
+    "they": "그들은",
+    "thief": "도둑",
+    "though": "~이지만",
+    "through": "~을 통해",
+    "to": "~에게",
+    "together": "함께",
+    "told": "말했다",
+    "true": "진짜의",
+    "trust": "신뢰하다",
+    "united": "하나가 된",
+    "unprotected": "보호받지 못하는",
+    "up": "위로",
+    "upset": "화나게 했다",
+    "voice": "음성",
+    "walking": "걷는 것",
+    "walks": "걷는다",
+    "was": "~였다",
+    "wasn't": "~아니었다",
+    "way": "길",
+    "well": "잘",
+    "were": "~였다",
+    "weren't": "~아니었다",
+    "wherever": "어디든지",
+    "who": "누구",
+    "willing": "기꺼이 하는",
+    "worker": "일꾼",
+    "would": "~할 것이다",
+    "come": "오다",
+    "right": "곧장",
+    "stranger": "낯선 사람",
+    "that's": "그것은 ~이다",
+    "very": "매우"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "blind", "meaning": "눈이 먼" },
-        { "word": "see", "meaning": "보다" }
+        {
+          "word": "shepherd",
+          "meaning": "목자"
+        },
+        {
+          "word": "sheep",
+          "meaning": "양"
+        }
       ],
       "sentences": [
-        { "text": "Jesus healed a blind man.", "ko": "예수님은 눈이 먼 사람을 고쳐주셨어요." }
+        {
+          "text": "Jesus is the good shepherd.",
+          "ko": "예수님은 선한 목자세요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "blind", "opts": [{"text":"🙈","kr":"눈이 먼","correct":true},{"text":"😊","kr":"웃는","correct":false},{"text":"🏃","kr":"뛰는","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "see", "opts": [{"text":"👀","kr":"보다","correct":true},{"text":"😴","kr":"자는","correct":false},{"text":"🍞","kr":"빵","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "shepherd",
+          "opts": [
+            {
+              "text": "🧑‍🌾",
+              "kr": "목자",
+              "correct": true
+            },
+            {
+              "text": "👑",
+              "kr": "왕",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "sheep",
+          "opts": [
+            {
+              "text": "🐑",
+              "kr": "양",
+              "correct": true
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            },
+            {
+              "text": "🐦",
+              "kr": "새",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "repeatSentence": "Jesus healed a blind man."
+      "repeatSentence": "Jesus is the good shepherd."
     },
     "tree": {
       "vocab": [
-        { "word": "blind", "meaning": "눈이 먼" },
-        { "word": "healed", "meaning": "고쳤다" },
-        { "word": "see", "meaning": "보다" },
-        { "word": "Sabbath", "meaning": "안식일" }
+        {
+          "word": "shepherd",
+          "meaning": "목자"
+        },
+        {
+          "word": "sheep",
+          "meaning": "양"
+        },
+        {
+          "word": "voice",
+          "meaning": "음성"
+        },
+        {
+          "word": "life",
+          "meaning": "생명"
+        }
       ],
       "sentences": [
-        { "text": "A man was blind from birth.", "ko": "한 남자가 태어날 때부터 눈이 멀었어요." },
-        { "text": "Jesus healed the blind man.", "ko": "예수님은 그 눈먼 사람을 고쳐주셨어요." },
-        { "text": "Now he could see.", "ko": "이제 그는 볼 수 있었어요." },
-        { "text": "It was the Sabbath day.", "ko": "그날은 안식일이었어요." }
+        {
+          "text": "Jesus is the good shepherd.",
+          "ko": "예수님은 선한 목자세요."
+        },
+        {
+          "text": "The sheep know his voice.",
+          "ko": "양들은 그분의 음성을 알아요."
+        },
+        {
+          "text": "He gave his life for the sheep.",
+          "ko": "그분은 양들을 위해 자신의 생명을 주셨어요."
+        },
+        {
+          "text": "Jesus and the Father are one.",
+          "ko": "예수님과 아버지는 하나이세요."
+        }
       ],
-      "fillBlank": { "template": "A man was ___ from birth.", "answer": "blind", "options": ["blind","sick","tired"] },
+      "fillBlank": {
+        "template": "Jesus is the good ___.",
+        "answer": "shepherd",
+        "options": [
+          "shepherd",
+          "king",
+          "teacher"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'healed'의 뜻은?", "opts": [{"text":"고쳤다","correct":true},{"text":"아프게 했다","correct":false},{"text":"버렸다","correct":false}] },
-        { "q": "'Sabbath'의 뜻은?", "opts": [{"text":"안식일","correct":true},{"text":"생일","correct":false},{"text":"명절","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "Now he could see.", "opts": [{"text":"Now he could see.","correct":true},{"text":"Now he could walk.","correct":false},{"text":"Now he was blind.","correct":false}] },
-        { "q": "👀 은 무슨 단어일까요?", "opts": [{"text":"see","correct":true},{"text":"blind","correct":false},{"text":"walk","correct":false}] }
+        {
+          "q": "'voice'의 뜻은?",
+          "opts": [
+            {
+              "text": "음성",
+              "correct": true
+            },
+            {
+              "text": "얼굴",
+              "correct": false
+            },
+            {
+              "text": "손",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'life'의 뜻은?",
+          "opts": [
+            {
+              "text": "죽음",
+              "correct": false
+            },
+            {
+              "text": "생명",
+              "correct": true
+            },
+            {
+              "text": "집",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "He gave his life for the sheep.",
+          "opts": [
+            {
+              "text": "He gave his life for the sheep.",
+              "correct": true
+            },
+            {
+              "text": "He gave his life for the leaders.",
+              "correct": false
+            },
+            {
+              "text": "He gave food to the sheep.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🐑 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "sheep",
+              "correct": true
+            },
+            {
+              "text": "shepherd",
+              "correct": false
+            },
+            {
+              "text": "voice",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "repeatSentence": "Now he could see."
+      "repeatSentence": "The sheep know his voice."
     },
     "fruit": {
-      "helperWords": { "mud":"진흙", "pool":"연못", "wash":"씻다" },
+      "helperWords": {
+        "shepherd": "목자",
+        "voice": "음성",
+        "protect": "보호하다"
+      },
       "sentences": [
-        { "text": "Jesus put mud on the man's eyes.", "ko": "예수님은 그 사람의 눈에 진흙을 바르셨어요." },
-        { "text": "He told the man to wash in a pool.", "ko": "그분은 그 사람에게 연못에서 씻으라고 하셨어요." },
-        { "text": "The man washed and could see.", "ko": "그 사람은 씻고 나서 볼 수 있었어요." }
+        {
+          "text": "A shepherd calls his own sheep by name, one by one. Because they trust him, the sheep come right to him.",
+          "ko": "목자는 자기 양들을 하나씩 이름으로 불러요. 양들은 그를 신뢰하기 때문에 그에게 곧장 와요."
+        },
+        {
+          "text": "The sheep follow him because they know his voice so well. If a stranger called instead, they would run away.",
+          "ko": "양들은 그의 음성을 너무 잘 알기 때문에 그를 따라가요. 만약 낯선 사람이 대신 부른다면, 그들은 도망칠 거예요."
+        },
+        {
+          "text": "A good shepherd would even give his life to protect his sheep. That's very different from a hired worker who runs away in danger.",
+          "ko": "선한 목자는 양들을 지키기 위해 자신의 생명까지도 내놓아요. 이는 위험할 때 도망가는 고용된 일꾼과는 많이 달라요."
+        }
       ],
       "orderQuiz": [
-        "Jesus put mud on the man's eyes.",
-        "He told the man to wash in a pool.",
-        "The man washed and could see."
+        "A shepherd calls his own sheep by name, one by one. Because they trust him, the sheep come right to him.",
+        "The sheep follow him because they know his voice so well. If a stranger called instead, they would run away.",
+        "A good shepherd would even give his life to protect his sheep. That's very different from a hired worker who runs away in danger."
       ],
       "mixQuiz": [
-        { "q": "\"Jesus put water on the man's eyes.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"The man washed in a pool.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "'wash'와 비슷한 뜻은?", "opts": [{"text":"clean with water","correct":true},{"text":"eat food","correct":false},{"text":"go to sleep","correct":false}] }
+        {
+          "q": "\"A shepherd does not know his sheep's names.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"The sheep follow the shepherd because they know his voice.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'protect'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "keep safe",
+              "correct": true
+            },
+            {
+              "text": "give away",
+              "correct": false
+            },
+            {
+              "text": "forget about",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "예수님은 그의 눈에 진흙을 바르셨다", "template": "Jesus put ___ on the man's eyes.", "answer": "mud" }
+      "krEnFill": {
+        "kr": "선한 목자는 양들을 지키기 위해 생명을 준다",
+        "template": "A good shepherd gives his life to ___ his sheep.",
+        "answer": "protect"
+      }
     },
     "forest": {
-      "helperWords": { "synagogue":"회당", "believe":"믿다", "discover":"발견하다" },
+      "helperWords": {
+        "thief": "도둑",
+        "messiah": "메시아",
+        "united": "하나된"
+      },
       "paragraphs": [
-        { "text": "As Jesus and his followers walked along, they noticed a man who had never been able to see, not even once since the day he was born. His followers wondered out loud whose fault it was — his own or his parents' — but Jesus said that wasn't the point at all; instead, this was a chance for people to see God's power at work. Jesus knelt down, mixed a little mud, and spread it gently over the man's eyes.", "ko": "예수님과 제자들이 함께 걸어가다가, 태어난 날부터 한 번도 앞을 본 적이 없는 한 남자를 보았습니다. 제자들은 이것이 그 사람의 잘못인지 부모의 잘못인지 소리 내어 궁금해했지만, 예수님은 그게 중요한 게 아니라 오히려 하나님의 능력이 드러날 기회라고 말씀하셨습니다. 예수님은 무릎을 꿇고 진흙을 조금 개어 그 사람의 눈에 부드럽게 발라주셨습니다." },
-        { "text": "He then sent the man to wash it off in a nearby pool. The man did exactly that, and when he came back, he could see for the very first time in his life. His neighbors could hardly believe it was really him. Meanwhile, some religious leaders grew upset because the healing had happened on a day when they believed no work should be done, so they questioned the man again and again, and even called in his parents to ask if he'd truly been born blind.", "ko": "그런 다음 예수님은 그 사람을 근처 연못에 가서 씻으라고 보내셨습니다. 그 사람은 그대로 했고, 돌아왔을 때 평생 처음으로 볼 수 있게 되었습니다. 이웃들은 그가 정말 그 사람이 맞는지 믿기 어려워했습니다. 한편 몇몇 종교 지도자들은 그 치유가 일을 하면 안 된다고 여겨지는 날에 일어났다는 사실에 화가 나서, 그 사람에게 계속 캐물었고 심지어 그의 부모까지 불러 정말 태어날 때부터 눈이 멀었는지 물었습니다." },
-        { "text": "Frustrated that the man kept insisting the healing was real and good, the leaders threw him out of the synagogue. When Jesus heard what had happened, he went and found the man himself and asked if he believed in the Son of Man. The man said he wanted to believe, so Jesus told him plainly who he was — and right there, the man knelt down and trusted him completely. Jesus then said something surprising: he had come so that the blind could see, and so that people who were so sure they could already see clearly would discover just how blind they truly were.", "ko": "그 사람이 치유가 진짜였고 좋은 일이었다고 계속 주장하자, 답답해진 지도자들은 그를 회당에서 내쫓아버렸습니다. 예수님은 이 일을 들으시고 직접 그 사람을 찾아가 인자를 믿느냐고 물으셨습니다. 그 사람이 믿고 싶다고 하자, 예수님은 자신이 누구인지 분명하게 말씀해주셨고, 그 자리에서 그 사람은 무릎을 꿇고 그분을 완전히 신뢰하게 되었습니다. 그때 예수님은 놀라운 말씀을 하셨습니다. 자신은 눈먼 사람이 보게 하고, 이미 잘 본다고 확신하는 사람들은 자신이 얼마나 눈멀었는지 깨닫게 하려고 오셨다는 것이었습니다." }
+        {
+          "text": "Jesus explained that anyone who climbs over a fence to reach the sheep instead of walking through the gate is up to no good — probably a thief. A true shepherd, though, simply walks in through the gate, and the sheep already recognize his voice and follow wherever he leads. If a stranger's voice called out to them instead, the sheep would run the other way, because they only trust a voice they already know well.",
+          "ko": "예수님은 문으로 들어오지 않고 울타리를 넘어 양들에게 가려는 사람은 뭔가 수상한 사람, 아마도 도둑일 거라고 설명하셨습니다. 하지만 진짜 목자는 그냥 문으로 들어오고, 양들은 이미 그의 음성을 알아보고 그가 이끄는 곳이면 어디든 따라갑니다. 만약 낯선 사람의 목소리가 대신 부른다면, 양들은 오히려 도망칠 것입니다. 그들은 이미 잘 아는 목소리만 신뢰하기 때문입니다."
+        },
+        {
+          "text": "Jesus then said something bold about himself: he wasn't like a hired worker who only shows up for a paycheck and runs off the moment real danger appears, leaving the flock unprotected. He cared for his sheep so deeply that he was willing to give up his own life just to keep them safe. He even mentioned that he had other sheep, from a completely different flock, that he still planned to bring together into one.",
+          "ko": "그다음 예수님은 자신에 대해 대담한 말씀을 하셨습니다. 자신은 월급 때문에 왔다가 진짜 위험이 닥치면 양떼를 버려두고 도망가는 고용된 일꾼과는 다르다는 것이었습니다. 그분은 양들을 너무나 깊이 돌보셔서, 그들을 안전하게 지키기 위해서라면 자신의 목숨까지도 기꺼이 내놓으실 분이었습니다. 그분은 또한 전혀 다른 무리에 속한 다른 양들도 있는데, 그들도 언젠가 하나로 모으실 계획이라고 말씀하셨습니다."
+        },
+        {
+          "text": "Some Jewish leaders surrounded him and demanded a straight answer: was he the Messiah or not? Jesus told them that his actions already spoke clearly enough, but they still refused to believe, simply because they weren't the kind of sheep who recognized his voice. His true sheep, he said, would always know him, follow him, and be so completely secure in his care that nothing could ever snatch them away — because he and the Father were completely united as one. That last claim upset the leaders so much that some of them picked up stones, ready to attack him for saying it.",
+          "ko": "몇몇 유대인 지도자들이 그분을 둘러싸고 메시아인지 아닌지 확실히 대답하라고 요구했습니다. 예수님은 자신의 행동이 이미 충분히 분명하게 말해주고 있다고 하셨지만, 그들은 여전히 믿지 않았습니다. 그들이 그분의 음성을 알아듣는 양이 아니었기 때문입니다. 그분의 진짜 양들은 항상 그분을 알아보고 따르며, 그분의 돌봄 안에서 너무나 안전해서 그 무엇도 그들을 빼앗아갈 수 없다고 말씀하셨습니다 — 자신과 아버지가 완전히 하나이기 때문이라는 것이었습니다. 그 마지막 주장에 화가 난 지도자들 중 몇몇은 돌을 집어들어 그분을 공격하려 했습니다."
+        }
       ],
       "multiSelect": [
-        { "text": "The man had been blind since birth.", "correct": true },
-        { "text": "Jesus said the blindness was the man's own fault.", "correct": false },
-        { "text": "The religious leaders were upset because the healing happened on the Sabbath.", "correct": true },
-        { "text": "The man refused to believe in Jesus in the end.", "correct": false }
+        {
+          "text": "The sheep run away from a stranger's voice.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said he is like a hired worker who runs away.",
+          "correct": false
+        },
+        {
+          "text": "Jesus said he and the Father are one.",
+          "correct": true
+        },
+        {
+          "text": "The leaders believed Jesus right away.",
+          "correct": false
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"예수님이 태어날 때부터 눈먼 사람을 고쳐주셨고, 그 사람은 예수님을 믿게 되었으나 지도자들은 믿지 않았다","correct":true},
-          {"text":"그 사람이 스스로 눈을 고쳤다","correct":false},
-          {"text":"지도자들이 그 사람을 곧바로 믿어주었다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 선한 목자로서 양들을 위해 생명을 주기까지 돌보시며, 자신과 아버지가 하나라고 말씀하셔서 지도자들의 분노를 샀다",
+              "correct": true
+            },
+            {
+              "text": "목자가 양들을 버리고 도망갔다",
+              "correct": false
+            },
+            {
+              "text": "지도자들이 예수님을 즉시 메시아로 인정했다",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "essayQuestion": "Why do you think the man believed in Jesus so quickly? Write one sentence in English."
+      "essayQuestion": "What do you think it means that the sheep 'know his voice'? Write one sentence in English."
     }
   }
 }
