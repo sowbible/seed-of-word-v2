@@ -144,7 +144,26 @@
     "were": "~였다",
     "who": "누구",
     "with": "~와 함께",
-    "would": "~할 것이다"
+    "would": "~할 것이다",
+    "decided": "결정했다",
+    "even": "심지어",
+    "evening": "저녁",
+    "far": "훨씬",
+    "feed": "먹이다",
+    "grew": "~해졌다",
+    "hillside": "언덕",
+    "little": "적은/약간의",
+    "offered": "내놓았다",
+    "right": "바로",
+    "seemed": "~처럼 보였다",
+    "small": "작은",
+    "there": "거기서",
+    "though": "~이지만",
+    "tired": "지친",
+    "too": "너무",
+    "went": "갔다",
+    "wherever": "어디든지",
+    "whole": "전체의"
   },
   "levels": {
     "sprout": {
@@ -337,22 +356,22 @@
       },
       "sentences": [
         {
-          "text": "A great multitude followed Jesus.",
-          "ko": "큰 무리가 예수님을 따라갔어요."
+          "text": "A great multitude followed Jesus wherever he went. They followed him because they had seen him heal people who were sick.",
+          "ko": "큰 무리가 예수님이 가시는 곳마다 따라갔어요. 그들은 예수님이 아픈 사람들을 고쳐주시는 것을 보았기 때문에 그분을 따라갔어요."
         },
         {
-          "text": "They followed him because they'd seen him heal people who were sick.",
-          "ko": "그들은 예수님이 아픈 사람들을 고쳐주시는 것을 보았기 때문에 그분을 따라갔어요."
+          "text": "As evening came, the crowd grew hungry and tired. So Jesus decided to feed everyone right there on the hillside.",
+          "ko": "저녁이 되자 무리는 배고프고 지쳐갔어요. 그래서 예수님은 바로 그 언덕에서 모두를 먹이기로 하셨어요."
         },
         {
-          "text": "Jesus fed them with five loaves and two fish.",
-          "ko": "예수님은 떡 다섯 개와 물고기 두 마리로 그들을 먹이셨어요."
+          "text": "A boy offered five small loaves and two fish. Even though it seemed like far too little, Jesus fed the whole crowd with it.",
+          "ko": "한 소년이 작은 떡 다섯 개와 물고기 두 마리를 내놓았어요. 너무 적어 보였지만, 예수님은 그것으로 온 무리를 먹이셨어요."
         }
       ],
       "orderQuiz": [
-        "A great multitude followed Jesus.",
-        "They followed him because they'd seen him heal people who were sick.",
-        "Jesus fed them with five loaves and two fish."
+        "A great multitude followed Jesus wherever he went. They followed him because they had seen him heal people who were sick.",
+        "As evening came, the crowd grew hungry and tired. So Jesus decided to feed everyone right there on the hillside.",
+        "A boy offered five small loaves and two fish. Even though it seemed like far too little, Jesus fed the whole crowd with it."
       ],
       "mixQuiz": [
         {
