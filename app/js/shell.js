@@ -805,12 +805,21 @@
 
       const card = document.createElement('div');
       card.className = 'sow-lang-sentence-card' + (alwaysShowTranslation ? ' always-translated' : '');
-      card.innerHTML = `<p class="sow-lang-sentence-text${big?' big':''}">${wrapWords(text)}<button class="sow-lang-btn-listen">🔊</button></p>`;
-      card.querySelector('.sow-lang-btn-listen').onclick = () => readAloudCard(card, text, rate);
-      wireWordTaps(card);
 
+      const p = document.createElement('p');
+      p.className = 'sow-lang-sentence-text' + (big ? ' big' : '');
+      p.innerHTML = wrapWords(text);
+
+      const listenBtn = document.createElement('button');
+      listenBtn.type = 'button';
+      listenBtn.className = 'sow-lang-btn-listen';
+      listenBtn.textContent = '🔊';
+      listenBtn.onclick = () => readAloudCard(card, text, rate);
+      p.appendChild(listenBtn);
+
+      let box = null;
       if(translation){
-        const box = document.createElement('div');
+        box = document.createElement('div');
         box.className = 'sow-lang-translation' + (alwaysShowTranslation ? ' show' : '');
         box.textContent = translation;
 
@@ -818,17 +827,19 @@
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'sow-lang-translate-btn';
-          btn.innerHTML = '<span class="sow-lang-translate-icon">🔎</span> 우리말 해석 보기';
+          btn.textContent = '해석';
           btn.onclick = () => {
             const opened = box.classList.toggle('show');
-            btn.innerHTML = opened
-              ? '<span class="sow-lang-translate-icon">🙈</span> 해석 숨기기'
-              : '<span class="sow-lang-translate-icon">🔎</span> 우리말 해석 보기';
+            btn.textContent = opened ? '닫기' : '해석';
           };
-          card.appendChild(btn);
+          // 스피커 버튼 바로 옆에 붙도록 <p> 안, listenBtn 뒤에 삽입
+          p.appendChild(btn);
         }
-        card.appendChild(box);
       }
+
+      card.appendChild(p);
+      wireWordTaps(card);
+      if(box) card.appendChild(box);
       return card;
     }
 
