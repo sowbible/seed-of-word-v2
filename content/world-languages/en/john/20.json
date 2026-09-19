@@ -1,0 +1,514 @@
+{
+  "book": "john",
+  "chapter": 20,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "accept": "받아들이다",
+    "again": "다시",
+    "alive": "살아있는",
+    "already": "이미",
+    "among": "~가운데",
+    "and": "그리고",
+    "angels": "천사들",
+    "another": "또 다른",
+    "appeared": "나타났다",
+    "around": "주위를",
+    "as": "~로서",
+    "aside": "옆으로",
+    "assumed": "짐작했다",
+    "at": "~에",
+    "away": "멀리",
+    "back": "돌아온",
+    "be": "~이다",
+    "been": "~이었다",
+    "beginning": "시작",
+    "behind": "뒤에",
+    "believe": "믿다",
+    "body": "몸",
+    "breathed": "숨을 내쉬었다",
+    "breathlessly": "숨 가쁘게",
+    "burial": "장례",
+    "but": "그러나",
+    "check": "확인하다",
+    "cloths": "천",
+    "crying": "울며",
+    "dark": "어두운",
+    "dead": "죽은",
+    "declared": "고백했다",
+    "did": "~했다",
+    "disciple": "제자",
+    "disciples": "제자들",
+    "doubt": "의심",
+    "dropped": "내려놓았다",
+    "early": "이른",
+    "empty": "빈",
+    "even": "심지어",
+    "evening": "저녁",
+    "ever": "결코",
+    "extraordinary": "놀라운",
+    "faith": "믿음",
+    "father": "아버지",
+    "fear": "두려움",
+    "find": "찾다",
+    "first": "처음으로",
+    "follower": "제자",
+    "followers": "제자들",
+    "for": "~을 위해",
+    "found": "찾았다",
+    "from": "~로부터",
+    "full": "완전한",
+    "future": "미래",
+    "gardener": "정원사",
+    "gently": "부드럽게",
+    "getting": "얻는 것",
+    "glad": "기쁜",
+    "glanced": "흘낏 보았다",
+    "go": "가다",
+    "gone": "사라진",
+    "had": "가지고 있었다",
+    "hadn't": "~하지 않았었다",
+    "hands": "손",
+    "happened": "일어났다",
+    "have": "가지다",
+    "he": "그는",
+    "heavy": "무거운",
+    "her": "그녀의",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "hold": "붙잡다",
+    "holy": "거룩한",
+    "how": "얼마나",
+    "immediately": "즉시",
+    "in": "~안에",
+    "inside": "안을",
+    "instead": "대신",
+    "invited": "초대했다",
+    "it": "그것",
+    "itself": "그 자체",
+    "jesus": "예수님",
+    "jesus's": "예수님의",
+    "just": "단지",
+    "know": "알다",
+    "later": "나중에",
+    "leaving": "남겨둔 채",
+    "left": "남겨진",
+    "locked": "잠긴",
+    "man": "사람",
+    "mary": "마리아",
+    "meaningful": "의미 있는",
+    "men": "사람들",
+    "morning": "아침",
+    "must": "~임에 틀림없다",
+    "name": "이름",
+    "nearby": "근처에",
+    "neatly": "가지런히",
+    "night": "밤",
+    "not": "~않다",
+    "noted": "언급했다",
+    "noticed": "알아챘다",
+    "of": "~의",
+    "off": "떨어져",
+    "on": "~에",
+    "others": "다른 사람들",
+    "out": "밖으로",
+    "outside": "밖에",
+    "own": "자기 자신의",
+    "people": "사람들",
+    "peter": "베드로",
+    "physical": "물리적인",
+    "present": "있는",
+    "proof": "증거",
+    "puzzled": "어리둥절한",
+    "ran": "달렸다",
+    "realized": "깨달았다",
+    "really": "정말로",
+    "receive": "받다",
+    "recognized": "알아보았다",
+    "refused": "거부했다",
+    "rolled": "굴려졌다",
+    "room": "방",
+    "rose": "살아나셨다",
+    "rushed": "달려갔다",
+    "said": "말했다",
+    "same": "같은",
+    "saw": "보았다",
+    "she": "그녀는",
+    "showed": "보여주었다",
+    "side": "옆구리",
+    "simply": "단순히",
+    "sitting": "앉아 있는",
+    "so": "그래서",
+    "somehow": "어쩐지",
+    "someone": "누군가",
+    "something": "무언가",
+    "spirit": "영",
+    "spoke": "말했다",
+    "standing": "서 있는",
+    "startled": "놀란",
+    "stayed": "머물렀다",
+    "still": "여전히",
+    "stone": "돌",
+    "stood": "서셨다",
+    "suddenly": "갑자기",
+    "taken": "가져간",
+    "tell": "말하다",
+    "telling": "말하며",
+    "that": "저것/그것",
+    "the": "그",
+    "them": "그들을",
+    "themselves": "그들 스스로",
+    "there": "거기",
+    "they": "그들은",
+    "they'd": "그들은 ~했다",
+    "thomas": "도마",
+    "though": "~이지만",
+    "thought": "생각했다",
+    "to": "~에게",
+    "told": "말했다",
+    "tomb": "무덤",
+    "touch": "만지다",
+    "trust": "신뢰하다",
+    "turned": "돌아섰다",
+    "turning": "돌아서며",
+    "two": "둘",
+    "unless": "~하지 않으면",
+    "until": "~까지",
+    "voice": "목소리",
+    "was": "~였다",
+    "wasn't": "~아니었다",
+    "way": "길",
+    "week": "주",
+    "went": "갔다",
+    "when": "~할 때",
+    "where": "~곳에",
+    "while": "~하는 동안",
+    "with": "~와 함께",
+    "without": "~없이",
+    "would": "~할 것이다",
+    "wouldn't": "~하지 않을 것이다",
+    "wounds": "상처",
+    "yet": "아직"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "rose",
+          "meaning": "살아나셨다"
+        },
+        {
+          "word": "tomb",
+          "meaning": "무덤"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus rose from the dead.",
+          "ko": "예수님은 죽음에서 살아나셨어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "rose",
+          "opts": [
+            {
+              "text": "⬆️",
+              "kr": "살아나셨다",
+              "correct": true
+            },
+            {
+              "text": "😴",
+              "kr": "잤다",
+              "correct": false
+            },
+            {
+              "text": "🍞",
+              "kr": "먹었다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "tomb",
+          "opts": [
+            {
+              "text": "⚰️",
+              "kr": "무덤",
+              "correct": true
+            },
+            {
+              "text": "🏠",
+              "kr": "집",
+              "correct": false
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus rose from the dead."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "empty",
+          "meaning": "빈"
+        },
+        {
+          "word": "alive",
+          "meaning": "살아있는"
+        },
+        {
+          "word": "glad",
+          "meaning": "기쁜"
+        },
+        {
+          "word": "believe",
+          "meaning": "믿다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Mary found the tomb empty.",
+          "ko": "마리아는 무덤이 빈 것을 발견했어요."
+        },
+        {
+          "text": "Jesus was alive again.",
+          "ko": "예수님은 다시 살아계셨어요."
+        },
+        {
+          "text": "Mary saw Jesus and was glad.",
+          "ko": "마리아는 예수님을 보고 기뻐했어요."
+        },
+        {
+          "text": "Thomas did not believe at first.",
+          "ko": "도마는 처음에 믿지 않았어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Mary found the tomb ___.",
+        "answer": "empty",
+        "options": [
+          "empty",
+          "open",
+          "closed"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'alive'의 뜻은?",
+          "opts": [
+            {
+              "text": "살아있는",
+              "correct": true
+            },
+            {
+              "text": "죽은",
+              "correct": false
+            },
+            {
+              "text": "잠든",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'believe'의 뜻은?",
+          "opts": [
+            {
+              "text": "잊다",
+              "correct": false
+            },
+            {
+              "text": "믿다",
+              "correct": true
+            },
+            {
+              "text": "의심하다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Mary saw Jesus and was glad.",
+          "opts": [
+            {
+              "text": "Mary saw Jesus and was glad.",
+              "correct": true
+            },
+            {
+              "text": "Mary saw Jesus and was scared.",
+              "correct": false
+            },
+            {
+              "text": "Mary did not see Jesus.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "⚰️ 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "tomb",
+              "correct": true
+            },
+            {
+              "text": "alive",
+              "correct": false
+            },
+            {
+              "text": "glad",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus was alive again."
+    },
+    "fruit": {
+      "helperWords": {
+        "tomb": "무덤",
+        "gardener": "정원사",
+        "proof": "증거"
+      },
+      "sentences": [
+        {
+          "text": "Early in the morning, Mary went to the tomb and found the stone rolled away. She ran to tell Peter and another follower that Jesus's body was gone.",
+          "ko": "이른 아침, 마리아는 무덤에 갔다가 돌이 옮겨진 것을 발견했어요. 그녀는 베드로와 다른 제자에게 예수님의 몸이 사라졌다고 말하러 달려갔어요."
+        },
+        {
+          "text": "Mary stayed outside crying, until she turned around and saw someone she thought was the gardener. When he said her name, she realized it was Jesus himself.",
+          "ko": "마리아는 밖에서 울고 있다가, 돌아서서 정원사라고 생각한 사람을 보았어요. 그가 그녀의 이름을 부르자, 그녀는 그것이 바로 예수님이라는 것을 깨달았어요."
+        },
+        {
+          "text": "Later, Jesus appeared to his followers in a locked room. Thomas wasn't there, and he said he wouldn't believe unless he saw the proof himself.",
+          "ko": "나중에, 예수님은 잠긴 방 안의 제자들에게 나타나셨어요. 도마는 그 자리에 없었고, 자신이 직접 증거를 보지 않으면 믿지 않겠다고 말했어요."
+        }
+      ],
+      "orderQuiz": [
+        "Early in the morning, Mary went to the tomb and found the stone rolled away. She ran to tell Peter and another follower that Jesus's body was gone.",
+        "Mary stayed outside crying, until she turned around and saw someone she thought was the gardener. When he said her name, she realized it was Jesus himself.",
+        "Later, Jesus appeared to his followers in a locked room. Thomas wasn't there, and he said he wouldn't believe unless he saw the proof himself."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Mary found the tomb still sealed shut.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Mary thought Jesus was the gardener at first.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'realized'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "suddenly understood",
+              "correct": true
+            },
+            {
+              "text": "completely forgot",
+              "correct": false
+            },
+            {
+              "text": "stayed confused",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "도마는 직접 증거를 보지 않으면 믿지 않겠다고 말했다",
+        "template": "Thomas said he wouldn't believe unless he saw the ___ himself.",
+        "answer": "proof"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "angels": "천사들",
+        "wounds": "상처",
+        "doubt": "의심"
+      },
+      "paragraphs": [
+        {
+          "text": "While it was still dark, Mary went to check on the tomb and was startled to find the heavy stone already rolled aside. She rushed off to find Peter and another disciple, breathlessly telling them that someone must have taken Jesus's body. The two men ran there themselves, and though they found the burial cloths neatly left behind, the body itself was simply gone — leaving them puzzled but somehow beginning to trust that something extraordinary had happened.",
+          "ko": "아직 어두울 때, 마리아는 무덤을 확인하러 갔다가 무거운 돌이 이미 옮겨져 있는 것을 보고 깜짝 놀랐습니다. 그녀는 베드로와 다른 제자를 찾아 달려가서, 누군가 예수님의 시신을 가져간 게 틀림없다고 숨 가쁘게 말했습니다. 두 사람은 직접 그곳으로 달려갔고, 수의는 가지런히 남아 있었지만 시신 자체는 그냥 사라지고 없었습니다 — 그들은 어리둥절했지만 어쩐지 놀라운 일이 일어났다는 것을 믿기 시작했습니다."
+        },
+        {
+          "text": "Mary stayed behind at the tomb, crying, and when she glanced inside she saw two angels sitting where Jesus's body had been. Turning around, she noticed a man standing nearby and assumed he must be the gardener — until he spoke her name, and she suddenly recognized his voice as Jesus's own. He gently told her not to hold on to him just yet, but instead to go tell the others that he was on his way back to the Father.",
+          "ko": "마리아는 무덤가에 남아 울고 있었는데, 안을 들여다보니 예수님의 시신이 있던 자리에 천사 둘이 앉아 있었습니다. 돌아서자 근처에 서 있는 한 사람이 보여서 정원사이겠거니 생각했습니다 — 그가 그녀의 이름을 부르기 전까지는요. 그 순간 그녀는 그것이 예수님의 목소리라는 걸 알아챘습니다. 그분은 아직은 자신을 붙잡지 말고, 대신 다른 사람들에게 자신이 아버지께로 돌아가는 중이라고 전하라고 부드럽게 말씀하셨습니다."
+        },
+        {
+          "text": "That same evening, even though the disciples had locked themselves in out of fear, Jesus suddenly stood among them and showed them the wounds in his hands and side so they'd know it was really him. He breathed on them and told them to receive the Holy Spirit. Thomas hadn't been there that night, and he refused to accept it without proof of his own. A week later, Jesus appeared again with Thomas present, invited him to touch the wounds himself, and Thomas immediately dropped his doubt and declared his full faith. Jesus gently noted how meaningful it would be for people in the future to trust him without ever getting that same physical proof.",
+          "ko": "바로 그날 저녁, 제자들이 두려움에 문을 잠그고 있었음에도, 예수님이 갑자기 그들 가운데 서서 정말 자신이 맞다는 것을 알 수 있도록 손과 옆구리의 상처를 보여주셨습니다. 그분은 그들에게 숨을 내쉬며 성령을 받으라고 말씀하셨습니다. 도마는 그날 밤 거기 없었고, 자신만의 증거 없이는 받아들이지 않겠다고 했습니다. 일주일 후, 예수님이 도마가 있을 때 다시 나타나셔서 직접 상처를 만져보라고 초대하셨고, 도마는 즉시 의심을 내려놓고 온전한 믿음을 고백했습니다. 예수님은 앞으로 같은 물리적 증거 없이도 자신을 신뢰하게 될 사람들이 얼마나 의미 있는지 부드럽게 말씀해주셨습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Mary found the stone already rolled away.",
+          "correct": true
+        },
+        {
+          "text": "Peter and the other disciple found Jesus's body still in the tomb.",
+          "correct": false
+        },
+        {
+          "text": "Jesus showed his wounds to prove it was really him.",
+          "correct": true
+        },
+        {
+          "text": "Thomas believed right away without any proof.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "마리아는 빈 무덤을 발견하고 부활하신 예수님을 만났으며, 예수님은 제자들에게 나타나 상처를 보여주셨고 도마도 마침내 믿게 되었다",
+              "correct": true
+            },
+            {
+              "text": "예수님의 시신이 여전히 무덤 안에 있었다",
+              "correct": false
+            },
+            {
+              "text": "도마가 처음부터 의심 없이 믿었다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Thomas needed to see the wounds himself? Write one sentence in English."
+    }
+  }
+}
