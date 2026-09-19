@@ -1,60 +1,353 @@
 {
-  "book": "john", "chapter": 6, "language": "en", "version": "2.0",
+  "book": "john",
+  "chapter": 6,
+  "language": "en",
+  "version": "2.0",
   "dictionary": {
-    "jesus":"예수님","fed":"먹이셨다","five":"다섯","thousand":"천","people":"사람들","a":"한",
-    "boy":"소년","had":"가지고 있었다","loaves":"떡","and":"그리고","two":"둘","fish":"물고기",
-    "everyone":"모든 사람","ate":"먹었다","was":"~였다","full":"배부른","is":"~이다","the":"그",
-    "bread":"떡","of":"~의","life":"생명","whoever":"~하는 사람은 누구나","comes":"온다","to":"~에게",
-    "me":"나에게","will":"~할 것이다","never":"결코 ~않다","be":"~이다","hungry":"배고픈",
-    "believes":"믿는다","in":"~안에","thirsty":"목마른","multitude":"큰 무리","followed":"따라갔다","him":"그를",
-    "because":"~때문에","saw":"보았다","signs":"표적들","he":"그는","performed":"행하셨다","on":"~에서","sick":"아픈",
-    "philip":"빌립","asked":"물었다","where":"어디서","shall":"~할까","we":"우리는","buy":"사다",
-    "enough":"충분한","so":"~하도록","that":"~하게","this":"이","many":"많은","can":"할 수 있다","eat":"먹다",
-    "andrew":"안드레","here":"여기에","but":"그러나","what":"무엇","are":"이다","they":"그것들은","among":"~사이에서"
+    "jesus": "예수님",
+    "fed": "먹이셨다",
+    "five": "다섯",
+    "thousand": "천",
+    "people": "사람들",
+    "a": "한",
+    "boy": "소년",
+    "had": "가지고 있었다",
+    "loaves": "떡",
+    "and": "그리고",
+    "two": "둘",
+    "fish": "물고기",
+    "everyone": "모든 사람",
+    "ate": "먹었다",
+    "was": "~였다",
+    "full": "배부른",
+    "is": "~이다",
+    "the": "그",
+    "bread": "떡",
+    "of": "~의",
+    "life": "생명",
+    "whoever": "~하는 사람은 누구나",
+    "comes": "온다",
+    "to": "~에게",
+    "me": "나에게",
+    "will": "~할 것이다",
+    "never": "결코 ~않다",
+    "be": "~이다",
+    "hungry": "배고픈",
+    "believes": "믿는다",
+    "in": "~안에",
+    "thirsty": "목마른",
+    "multitude": "큰 무리",
+    "followed": "따라갔다",
+    "him": "그를",
+    "because": "~때문에",
+    "saw": "보았다",
+    "signs": "표적들",
+    "he": "그는",
+    "performed": "행하셨다",
+    "on": "~에서",
+    "sick": "아픈",
+    "philip": "빌립",
+    "asked": "물었다",
+    "where": "어디서",
+    "shall": "~할까",
+    "we": "우리는",
+    "buy": "사다",
+    "enough": "충분한",
+    "so": "~하도록",
+    "that": "~하게",
+    "this": "이",
+    "many": "많은",
+    "can": "할 수 있다",
+    "eat": "먹다",
+    "andrew": "안드레",
+    "here": "여기에",
+    "but": "그러나",
+    "what": "무엇",
+    "are": "이다",
+    "they": "그것들은",
+    "among": "~사이에서",
+    "again": "다시",
+    "alone": "혼자",
+    "an": "하나의",
+    "anyone": "누구든지",
+    "as": "~로서",
+    "back": "다시",
+    "bring": "데려오다",
+    "came": "왔다",
+    "claim": "주장하다",
+    "close": "가까운",
+    "come": "오다",
+    "confused": "혼란스러운",
+    "could": "할 수 있었다",
+    "couldn't": "할 수 없었다",
+    "crowd": "군중",
+    "day": "날",
+    "deep": "깊은",
+    "described": "묘사했다",
+    "down": "아래로",
+    "drew": "이끌었다",
+    "drink": "마시다",
+    "else": "그 밖의",
+    "empty": "텅 빈",
+    "father": "아버지",
+    "feel": "느끼다",
+    "fill": "채우다",
+    "final": "마지막의",
+    "first": "먼저",
+    "food": "음식",
+    "for": "~을 위해",
+    "forever": "영원히",
+    "from": "~로부터",
+    "front": "앞",
+    "great": "큰",
+    "have": "가지다",
+    "heal": "고치다",
+    "hearts": "마음들",
+    "heaven": "하늘",
+    "himself": "그 자신",
+    "his": "그의",
+    "how": "어떻게",
+    "inside": "안에서",
+    "it": "그것",
+    "kind": "종류",
+    "language": "표현",
+    "like": "~처럼",
+    "live": "살다",
+    "make": "만들다",
+    "man": "사람",
+    "meaning": "의미",
+    "necessary": "필요한",
+    "nothing": "아무것도",
+    "only": "오직",
+    "ordinary": "보통의",
+    "own": "자기의",
+    "point": "요점",
+    "reach": "다다르다",
+    "responded": "대답하셨다",
+    "said": "말했다",
+    "satisfies": "만족시킨다",
+    "seen": "보았다",
+    "startling": "놀라운",
+    "strength": "힘",
+    "strong": "강한",
+    "surprising": "놀라운",
+    "their": "그들의",
+    "them": "그들을",
+    "they'd": "그들은 ~했다",
+    "thirst": "갈증",
+    "took": "받아들였다",
+    "toward": "~쪽으로",
+    "truly": "진정으로",
+    "trusted": "신뢰했다",
+    "used": "~했다",
+    "way": "방법",
+    "were": "~였다",
+    "who": "누구",
+    "with": "~와 함께",
+    "would": "~할 것이다"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "bread", "meaning": "떡" },
-        { "word": "fish", "meaning": "물고기" }
+        {
+          "word": "bread",
+          "meaning": "떡"
+        },
+        {
+          "word": "fish",
+          "meaning": "물고기"
+        }
       ],
       "sentences": [
-        { "text": "Jesus fed five thousand people.", "ko": "예수님은 오천 명을 먹이셨어요." }
+        {
+          "text": "Jesus fed five thousand people.",
+          "ko": "예수님은 오천 명을 먹이셨어요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "bread", "opts": [{"text":"🍞","kr":"떡/빵","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"💧","kr":"물","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "fish", "opts": [{"text":"🐟","kr":"물고기","correct":true},{"text":"🍞","kr":"떡","correct":false},{"text":"👑","kr":"왕관","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "bread",
+          "opts": [
+            {
+              "text": "🍞",
+              "kr": "떡/빵",
+              "correct": true
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            },
+            {
+              "text": "💧",
+              "kr": "물",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "fish",
+          "opts": [
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": true
+            },
+            {
+              "text": "🍞",
+              "kr": "떡",
+              "correct": false
+            },
+            {
+              "text": "👑",
+              "kr": "왕관",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Jesus fed five thousand people."
     },
     "tree": {
       "vocab": [
-        { "word": "bread", "meaning": "떡" },
-        { "word": "fish", "meaning": "물고기" },
-        { "word": "full", "meaning": "배부른" },
-        { "word": "boy", "meaning": "소년" }
+        {
+          "word": "bread",
+          "meaning": "떡"
+        },
+        {
+          "word": "fish",
+          "meaning": "물고기"
+        },
+        {
+          "word": "full",
+          "meaning": "배부른"
+        },
+        {
+          "word": "boy",
+          "meaning": "소년"
+        }
       ],
       "sentences": [
-        { "text": "A boy had five loaves and two fish.", "ko": "한 소년이 떡 다섯 개와 물고기 두 마리를 가지고 있었어요." },
-        { "text": "Jesus fed five thousand people.", "ko": "예수님은 오천 명을 먹이셨어요." },
-        { "text": "Everyone ate and was full.", "ko": "모든 사람이 먹고 배불렀어요." },
-        { "text": "Jesus is the bread of life.", "ko": "예수님은 생명의 떡이세요." }
+        {
+          "text": "A boy had five loaves and two fish.",
+          "ko": "한 소년이 떡 다섯 개와 물고기 두 마리를 가지고 있었어요."
+        },
+        {
+          "text": "Jesus fed five thousand people.",
+          "ko": "예수님은 오천 명을 먹이셨어요."
+        },
+        {
+          "text": "Everyone ate and was full.",
+          "ko": "모든 사람이 먹고 배불렀어요."
+        },
+        {
+          "text": "Jesus is the bread of life.",
+          "ko": "예수님은 생명의 떡이세요."
+        }
       ],
-      "fillBlank": { "template": "Jesus is the ___ of life.", "answer": "bread", "options": ["bread","water","light"] },
+      "fillBlank": {
+        "template": "Jesus is the ___ of life.",
+        "answer": "bread",
+        "options": [
+          "bread",
+          "water",
+          "light"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'loaves'의 뜻은?", "opts": [{"text":"떡","correct":true},{"text":"물고기","correct":false},{"text":"포도주","correct":false}] },
-        { "q": "'full'의 뜻은?", "opts": [{"text":"배고픈","correct":false},{"text":"배부른","correct":true},{"text":"목마른","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "Everyone ate and was full.", "opts": [{"text":"Everyone ate and was full.","correct":true},{"text":"Everyone was hungry.","correct":false},{"text":"Everyone went home.","correct":false}] },
-        { "q": "🍞 은 무슨 단어일까요?", "opts": [{"text":"bread","correct":true},{"text":"fish","correct":false},{"text":"boy","correct":false}] }
+        {
+          "q": "'loaves'의 뜻은?",
+          "opts": [
+            {
+              "text": "떡",
+              "correct": true
+            },
+            {
+              "text": "물고기",
+              "correct": false
+            },
+            {
+              "text": "포도주",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'full'의 뜻은?",
+          "opts": [
+            {
+              "text": "배고픈",
+              "correct": false
+            },
+            {
+              "text": "배부른",
+              "correct": true
+            },
+            {
+              "text": "목마른",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Everyone ate and was full.",
+          "opts": [
+            {
+              "text": "Everyone ate and was full.",
+              "correct": true
+            },
+            {
+              "text": "Everyone was hungry.",
+              "correct": false
+            },
+            {
+              "text": "Everyone went home.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🍞 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "bread",
+              "correct": true
+            },
+            {
+              "text": "fish",
+              "correct": false
+            },
+            {
+              "text": "boy",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Jesus is the bread of life."
     },
     "fruit": {
-      "helperWords": { "multitude":"큰 무리", "hungry":"배고픈", "signs":"표적들" },
+      "helperWords": {
+        "multitude": "큰 무리",
+        "hungry": "배고픈",
+        "signs": "표적들"
+      },
       "sentences": [
-        { "text": "A great multitude followed Jesus.", "ko": "큰 무리가 예수님을 따라갔어요." },
-        { "text": "They followed him because they'd seen him heal people who were sick.", "ko": "그들은 예수님이 아픈 사람들을 고쳐주시는 것을 보았기 때문에 그분을 따라갔어요." },
-        { "text": "Jesus fed them with five loaves and two fish.", "ko": "예수님은 떡 다섯 개와 물고기 두 마리로 그들을 먹이셨어요." }
+        {
+          "text": "A great multitude followed Jesus.",
+          "ko": "큰 무리가 예수님을 따라갔어요."
+        },
+        {
+          "text": "They followed him because they'd seen him heal people who were sick.",
+          "ko": "그들은 예수님이 아픈 사람들을 고쳐주시는 것을 보았기 때문에 그분을 따라갔어요."
+        },
+        {
+          "text": "Jesus fed them with five loaves and two fish.",
+          "ko": "예수님은 떡 다섯 개와 물고기 두 마리로 그들을 먹이셨어요."
+        }
       ],
       "orderQuiz": [
         "A great multitude followed Jesus.",
@@ -62,31 +355,112 @@
         "Jesus fed them with five loaves and two fish."
       ],
       "mixQuiz": [
-        { "q": "\"The boy had ten loaves.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"Jesus fed the multitude with bread and fish.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "'multitude'와 비슷한 뜻은?", "opts": [{"text":"a large crowd","correct":true},{"text":"one person","correct":false},{"text":"an empty room","correct":false}] }
+        {
+          "q": "\"The boy had ten loaves.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus fed the multitude with bread and fish.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'multitude'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "a large crowd",
+              "correct": true
+            },
+            {
+              "text": "one person",
+              "correct": false
+            },
+            {
+              "text": "an empty room",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "예수님은 생명의 떡이시다", "template": "Jesus is the ___ of life.", "answer": "bread" }
+      "krEnFill": {
+        "kr": "예수님은 생명의 떡이시다",
+        "template": "Jesus is the ___ of life.",
+        "answer": "bread"
+      }
     },
     "forest": {
-      "helperWords": { "perish":"썩다", "eternal":"영원한", "grumbled":"불평했다" },
+      "helperWords": {
+        "perish": "썩다",
+        "eternal": "영원한",
+        "grumbled": "불평했다"
+      },
       "paragraphs": [
-        { "text": "Jesus described himself in a surprising way — he said he was like bread, the kind of bread that truly satisfies. Anyone who came to him, he said, would never feel empty inside again, and anyone who trusted him would never feel that deep thirst for meaning that nothing else could fill.", "ko": "예수님은 자신을 놀라운 방식으로 표현하셨습니다 — 자신이 진짜로 배부르게 하는 떡과 같다고 말씀하신 것입니다. 그분께 오는 사람은 다시는 마음속이 텅 빈 느낌을 받지 않을 것이고, 그분을 신뢰하는 사람은 다른 어떤 것으로도 채울 수 없는 깊은 갈망을 더 이상 느끼지 않을 것이라고 하셨습니다." },
-        { "text": "This confused the crowd, because they only saw an ordinary man in front of them — how could he claim to have come down from heaven? Jesus responded that people couldn't reach him on their own strength alone; it was the Father who first drew their hearts toward him.", "ko": "이 말은 사람들을 혼란스럽게 했는데, 그들 눈에는 그저 평범한 사람으로 보였기 때문입니다 — 어떻게 하늘에서 내려왔다고 주장할 수 있을까요? 예수님은 사람이 자기 힘만으로는 자신에게 올 수 없으며, 아버지께서 먼저 그들의 마음을 이끄신 것이라고 대답하셨습니다." },
-        { "text": "Jesus used strong, startling language to make his point: he said that anyone who truly took him in — as close and necessary as food and drink — would live forever, and that he himself would bring them back to life on the final day.", "ko": "예수님은 강렬하고 놀라운 표현으로 자신의 뜻을 전하셨습니다. 자신을 음식과 물처럼 가깝고 꼭 필요한 존재로 진심으로 받아들이는 사람은 영원히 살게 될 것이며, 마지막 날에 자신이 직접 그를 다시 살리겠다고 말씀하신 것입니다." }
+        {
+          "text": "Jesus described himself in a surprising way — he said he was like bread, the kind of bread that truly satisfies. Anyone who came to him, he said, would never feel empty inside again, and anyone who trusted him would never feel that deep thirst for meaning that nothing else could fill.",
+          "ko": "예수님은 자신을 놀라운 방식으로 표현하셨습니다 — 자신이 진짜로 배부르게 하는 떡과 같다고 말씀하신 것입니다. 그분께 오는 사람은 다시는 마음속이 텅 빈 느낌을 받지 않을 것이고, 그분을 신뢰하는 사람은 다른 어떤 것으로도 채울 수 없는 깊은 갈망을 더 이상 느끼지 않을 것이라고 하셨습니다."
+        },
+        {
+          "text": "This confused the crowd, because they only saw an ordinary man in front of them — how could he claim to have come down from heaven? Jesus responded that people couldn't reach him on their own strength alone; it was the Father who first drew their hearts toward him.",
+          "ko": "이 말은 사람들을 혼란스럽게 했는데, 그들 눈에는 그저 평범한 사람으로 보였기 때문입니다 — 어떻게 하늘에서 내려왔다고 주장할 수 있을까요? 예수님은 사람이 자기 힘만으로는 자신에게 올 수 없으며, 아버지께서 먼저 그들의 마음을 이끄신 것이라고 대답하셨습니다."
+        },
+        {
+          "text": "Jesus used strong, startling language to make his point: he said that anyone who truly took him in — as close and necessary as food and drink — would live forever, and that he himself would bring them back to life on the final day.",
+          "ko": "예수님은 강렬하고 놀라운 표현으로 자신의 뜻을 전하셨습니다. 자신을 음식과 물처럼 가깝고 꼭 필요한 존재로 진심으로 받아들이는 사람은 영원히 살게 될 것이며, 마지막 날에 자신이 직접 그를 다시 살리겠다고 말씀하신 것입니다."
+        }
       ],
       "multiSelect": [
-        { "text": "Jesus said he is the bread of life.", "correct": true },
-        { "text": "The people all understood Jesus right away.", "correct": false },
-        { "text": "Jesus said whoever believes in him will never be thirsty.", "correct": true },
-        { "text": "Jesus said no one needs the Father.", "correct": false }
+        {
+          "text": "Jesus said he is the bread of life.",
+          "correct": true
+        },
+        {
+          "text": "The people all understood Jesus right away.",
+          "correct": false
+        },
+        {
+          "text": "Jesus said whoever believes in him will never be thirsty.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said no one needs the Father.",
+          "correct": false
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"예수님이 자신을 생명의 떡이라 하시며, 믿는 자마다 영생을 얻는다고 말씀하셨다","correct":true},
-          {"text":"사람들이 예수님을 배불리 먹였다","correct":false},
-          {"text":"예수님이 물고기를 잡으러 가셨다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님이 자신을 생명의 떡이라 하시며, 믿는 자마다 영생을 얻는다고 말씀하셨다",
+              "correct": true
+            },
+            {
+              "text": "사람들이 예수님을 배불리 먹였다",
+              "correct": false
+            },
+            {
+              "text": "예수님이 물고기를 잡으러 가셨다",
+              "correct": false
+            }
+          ]
+        }
       ],
       "essayQuestion": "What do you think \"bread of life\" means? Write one sentence in English."
     }
