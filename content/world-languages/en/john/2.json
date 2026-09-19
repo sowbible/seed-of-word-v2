@@ -14,7 +14,13 @@
   },
   "levels": {
     "sprout": {
-      "sentences": ["Jesus turned water into wine."],
+      "vocab": [
+        { "word": "wine", "meaning": "포도주" },
+        { "word": "water", "meaning": "물" }
+      ],
+      "sentences": [
+        { "text": "Jesus turned water into wine.", "ko": "예수님은 물을 포도주로 바꾸셨어요." }
+      ],
       "quiz": [
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "wine", "opts": [{"text":"🍷","kr":"포도주","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"📖","kr":"책","correct":false}] },
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "water", "opts": [{"text":"💧","kr":"물","correct":true},{"text":"🔥","kr":"불","correct":false},{"text":"🌳","kr":"나무","correct":false}] }
@@ -22,11 +28,17 @@
       "repeatSentence": "Jesus turned water into wine."
     },
     "tree": {
+      "vocab": [
+        { "word": "wedding", "meaning": "결혼식" },
+        { "word": "wine", "meaning": "포도주" },
+        { "word": "amazed", "meaning": "놀란" },
+        { "word": "water", "meaning": "물" }
+      ],
       "sentences": [
-        "There was a wedding in Cana.",
-        "The wine ran out.",
-        "Jesus turned water into wine.",
-        "Everyone was amazed."
+        { "text": "There was a wedding in Cana.", "ko": "가나에서 결혼식이 있었어요." },
+        { "text": "The wine ran out.", "ko": "포도주가 떨어졌어요." },
+        { "text": "Jesus turned water into wine.", "ko": "예수님은 물을 포도주로 바꾸셨어요." },
+        { "text": "Everyone was amazed.", "ko": "모든 사람이 놀랐어요." }
       ],
       "fillBlank": { "template": "Jesus turned water into ___.", "answer": "wine", "options": ["wine","water","bread"] },
       "mixQuiz": [
@@ -40,9 +52,9 @@
     "fruit": {
       "helperWords": { "wedding":"결혼식", "servants":"하인들", "jars":"항아리" },
       "sentences": [
-        "Jesus went to a wedding in Cana of Galilee.",
-        "When the wine ran out, his mother asked for his help.",
-        "Jesus told the servants to fill the jars with water."
+        { "text": "Jesus went to a wedding in Cana of Galilee.", "ko": "예수님은 갈릴리 가나에서 열린 결혼식에 가셨어요." },
+        { "text": "When the wine ran out, his mother asked for his help.", "ko": "포도주가 떨어지자, 그분의 어머니가 도움을 요청했어요." },
+        { "text": "Jesus told the servants to fill the jars with water.", "ko": "예수님은 하인들에게 항아리에 물을 채우라고 하셨어요." }
       ],
       "orderQuiz": [
         "Jesus went to a wedding in Cana of Galilee.",
@@ -59,9 +71,9 @@
     "forest": {
       "helperWords": { "miracle":"기적", "sign":"표적", "glory":"영광" },
       "paragraphs": [
-        "On the third day, there was a wedding in Cana of Galilee, and Jesus's mother was there. Jesus and his disciples were also invited to the wedding.",
-        "When the wine ran out, Jesus's mother told the servants, \"Do whatever he tells you.\" Jesus told them to fill six stone jars with water.",
-        "The water became wine, and this was the first sign Jesus performed, revealing his glory. His disciples believed in him."
+        { "text": "Jesus, his mother, and his followers were all guests at a wedding celebration happening in the town of Cana. It was only the third day since some big events had taken place, and the whole town was celebrating together.", "ko": "예수님과 그분의 어머니, 그리고 제자들은 모두 가나라는 마을에서 열린 결혼 잔치에 손님으로 초대받았습니다. 어떤 큰 일이 있은 지 사흘째 되는 날이었고, 마을 전체가 함께 기뻐하고 있었습니다." },
+        { "text": "Partway through the party, the wine ran out — an embarrassing problem for the host. Jesus's mother came to him about it, and even though she wasn't totally sure what he'd do, she turned to the servants and simply said, 'Just do whatever he tells you.'", "ko": "잔치 도중에 포도주가 다 떨어졌는데, 이는 주인에게 매우 난처한 일이었습니다. 예수님의 어머니가 그분께 이 사실을 알렸고, 그분이 무엇을 하실지 확실히는 몰랐지만 하인들에게 이렇게 말했습니다. '그가 무엇을 시키든 그대로 하세요.'" },
+        { "text": "What happened next became the very first miracle Jesus ever performed in public, and it gave everyone a glimpse of who he really was. Seeing it, his followers put their trust in him for the first time.", "ko": "그다음에 일어난 일은 예수님이 사람들 앞에서 행하신 첫 번째 기적이 되었고, 사람들은 그분이 누구신지 조금씩 알게 되었습니다. 이를 본 제자들은 처음으로 그분을 믿게 되었습니다." }
       ],
       "multiSelect": [
         { "text": "Jesus turned water into wine.", "correct": true },
