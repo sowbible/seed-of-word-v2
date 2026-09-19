@@ -1,0 +1,499 @@
+{
+  "book": "john",
+  "chapter": 19,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "about": "~에 대해",
+    "above": "위에",
+    "actually": "실제로",
+    "admired": "흠모했다",
+    "afraid": "두려운",
+    "after": "~후에",
+    "afterward": "그 후",
+    "almost": "거의",
+    "already": "이미",
+    "and": "그리고",
+    "any": "어떤",
+    "anything": "아무것도",
+    "as": "~로서",
+    "asked": "부탁했다",
+    "at": "~에",
+    "be": "~이다",
+    "because": "~때문에",
+    "been": "~이었다",
+    "before": "~전에",
+    "believed": "믿었다",
+    "between": "~사이에",
+    "bodies": "시신들",
+    "body": "몸",
+    "breath": "숨",
+    "breathed": "숨을 쉬었다",
+    "but": "그러나",
+    "called": "불리는",
+    "care": "돌봄",
+    "carried": "짊어지셨다",
+    "carry": "짊어지다",
+    "change": "바꾸다",
+    "closest": "가장 가까운",
+    "come": "오다",
+    "complained": "불평했다",
+    "complete": "완성된",
+    "condemned": "사형선고 받은",
+    "confirmed": "확인했다",
+    "control": "통제",
+    "couldn't": "할 수 없었다",
+    "cross": "십자가",
+    "crowd": "무리",
+    "crucified": "십자가에 못박히다",
+    "cruelly": "잔인하게",
+    "died": "죽으셨다",
+    "disciple": "제자",
+    "do": "하다",
+    "done": "했다",
+    "down": "아래로",
+    "dressing": "꾸미며",
+    "end": "끝",
+    "even": "심지어",
+    "everything": "모든 것",
+    "execution": "처형",
+    "fake": "가짜의",
+    "finally": "마침내",
+    "find": "찾다",
+    "finished": "끝났다",
+    "followers": "제자들",
+    "for": "~을 위해",
+    "from": "~로부터",
+    "gave": "주었다",
+    "gently": "부드럽게",
+    "golgotha": "골고다",
+    "had": "가지고 있었다",
+    "hadn't": "~하지 않았었다",
+    "handed": "넘겨주었다",
+    "he": "그는",
+    "he'd": "그가 ~했다",
+    "head": "머리",
+    "her": "그녀의",
+    "hill": "언덕",
+    "him": "그를",
+    "his": "그의",
+    "hung": "매달렸다",
+    "if": "만약",
+    "in": "~안에",
+    "is": "~이다",
+    "it": "그것",
+    "jesus": "예수님",
+    "jews": "유대인들",
+    "joseph": "요셉",
+    "just": "단지",
+    "kept": "계속 ~했다",
+    "king": "왕",
+    "knowing": "알고서",
+    "laid": "두었다",
+    "languages": "언어들",
+    "last": "마지막의",
+    "laugh": "웃다",
+    "leaders": "지도자들",
+    "like": "~처럼",
+    "look": "돌보다",
+    "losing": "잃는 것",
+    "louder": "더 크게",
+    "made": "~하게 만들었다",
+    "men": "사람들",
+    "mocked": "조롱했다",
+    "more": "더",
+    "mother": "어머니",
+    "nailed": "못박았다",
+    "nearby": "근처에",
+    "never": "결코 ~않다",
+    "new": "새로운",
+    "nicodemus": "니고데모",
+    "noticed": "알아챘다",
+    "now": "이제",
+    "of": "~의",
+    "off": "떠나",
+    "on": "~에",
+    "one": "하나",
+    "only": "오직",
+    "other": "다른",
+    "out": "밖으로",
+    "over": "~에게",
+    "own": "자기 자신의",
+    "pilate": "빌라도",
+    "placed": "놓았다",
+    "presented": "세웠다",
+    "punish": "벌하다",
+    "put": "두었다",
+    "quickly": "빨리",
+    "read": "쓰여 있었다",
+    "real": "실제의",
+    "reason": "이유",
+    "refused": "거부했다",
+    "religious": "종교적인",
+    "respectfully": "정중하게",
+    "sabbath": "안식일",
+    "said": "말했다",
+    "secretly": "남몰래",
+    "sending": "보내기",
+    "she": "그녀는",
+    "shouted": "외쳤다",
+    "shouting": "외치며",
+    "sign": "팻말",
+    "situation": "상황",
+    "so": "그래서",
+    "soldier": "군인",
+    "soldiers": "군인들",
+    "some": "몇몇",
+    "spices": "향료",
+    "standing": "서 있는",
+    "still": "여전히",
+    "take": "하다",
+    "taken": "내려진",
+    "that": "저것/그것",
+    "the": "그",
+    "then": "그다음",
+    "there": "거기",
+    "they": "그들은",
+    "though": "~이지만",
+    "three": "셋",
+    "time": "때",
+    "to": "~에게",
+    "tomb": "무덤",
+    "treating": "대하며",
+    "two": "둘",
+    "until": "~까지",
+    "up": "위로",
+    "used": "사용된",
+    "wanted": "원했다",
+    "was": "~였다",
+    "were": "~였다",
+    "where": "~곳에",
+    "while": "~하는 동안",
+    "who": "누구",
+    "with": "~와 함께",
+    "wording": "문구",
+    "wrapped": "감쌌다",
+    "written": "쓰여진",
+    "wrong": "잘못된"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "cross",
+          "meaning": "십자가"
+        },
+        {
+          "word": "died",
+          "meaning": "죽으셨다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus died on a cross.",
+          "ko": "예수님은 십자가에서 돌아가셨어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "cross",
+          "opts": [
+            {
+              "text": "✝️",
+              "kr": "십자가",
+              "correct": true
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "died",
+          "opts": [
+            {
+              "text": "😢",
+              "kr": "돌아가셨다",
+              "correct": true
+            },
+            {
+              "text": "😊",
+              "kr": "웃었다",
+              "correct": false
+            },
+            {
+              "text": "🏃",
+              "kr": "뛰었다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus died on a cross."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "cross",
+          "meaning": "십자가"
+        },
+        {
+          "word": "carried",
+          "meaning": "짊어지셨다"
+        },
+        {
+          "word": "finished",
+          "meaning": "끝났다"
+        },
+        {
+          "word": "died",
+          "meaning": "죽으셨다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus carried his own cross.",
+          "ko": "예수님은 자신의 십자가를 지셨어요."
+        },
+        {
+          "text": "Soldiers put Jesus on the cross.",
+          "ko": "군인들이 예수님을 십자가에 매달았어요."
+        },
+        {
+          "text": "Jesus said, \"It is finished.\"",
+          "ko": "예수님은 \"다 이루었다\"고 말씀하셨어요."
+        },
+        {
+          "text": "Jesus died on the cross.",
+          "ko": "예수님은 십자가에서 돌아가셨어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Jesus said, \"It is ___.\"",
+        "answer": "finished",
+        "options": [
+          "finished",
+          "hungry",
+          "tired"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'carried'의 뜻은?",
+          "opts": [
+            {
+              "text": "짊어지셨다",
+              "correct": true
+            },
+            {
+              "text": "버리셨다",
+              "correct": false
+            },
+            {
+              "text": "숨기셨다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'finished'의 뜻은?",
+          "opts": [
+            {
+              "text": "시작했다",
+              "correct": false
+            },
+            {
+              "text": "끝났다",
+              "correct": true
+            },
+            {
+              "text": "기다렸다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Jesus died on the cross.",
+          "opts": [
+            {
+              "text": "Jesus died on the cross.",
+              "correct": true
+            },
+            {
+              "text": "Jesus walked to the cross.",
+              "correct": false
+            },
+            {
+              "text": "Jesus healed on the cross.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "✝️ 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "cross",
+              "correct": true
+            },
+            {
+              "text": "finished",
+              "correct": false
+            },
+            {
+              "text": "carried",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus said, \"It is finished.\""
+    },
+    "fruit": {
+      "helperWords": {
+        "crucified": "십자가형",
+        "soldiers": "군인들",
+        "sign": "팻말"
+      },
+      "sentences": [
+        {
+          "text": "Pilate gave in to the crowd and handed Jesus over to be crucified. Jesus carried his own cross to a hill called Golgotha.",
+          "ko": "빌라도는 무리에게 굴복해서 예수님을 십자가형에 넘겨주었어요. 예수님은 골고다라는 언덕까지 자신의 십자가를 직접 지고 가셨어요."
+        },
+        {
+          "text": "Soldiers put Jesus on the cross between two other men. Above his head, they placed a sign that read, \"The King of the Jews.\"",
+          "ko": "군인들은 예수님을 다른 두 사람 사이에서 십자가에 매달았어요. 그분의 머리 위에는 \"유대인의 왕\"이라고 쓰인 팻말이 붙었어요."
+        },
+        {
+          "text": "Before he died, Jesus asked one of his followers to take care of his mother. Then he said, \"It is finished,\" and breathed his last breath.",
+          "ko": "돌아가시기 전, 예수님은 한 제자에게 자신의 어머니를 돌봐달라고 부탁하셨어요. 그런 다음 \"다 이루었다\"고 말씀하시고 마지막 숨을 거두셨어요."
+        }
+      ],
+      "orderQuiz": [
+        "Pilate gave in to the crowd and handed Jesus over to be crucified. Jesus carried his own cross to a hill called Golgotha.",
+        "Soldiers put Jesus on the cross between two other men. Above his head, they placed a sign that read, \"The King of the Jews.\"",
+        "Before he died, Jesus asked one of his followers to take care of his mother. Then he said, \"It is finished,\" and breathed his last breath."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Pilate refused to hand Jesus over.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"A sign above Jesus read 'The King of the Jews.'\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'take care of'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "look after",
+              "correct": true
+            },
+            {
+              "text": "ignore",
+              "correct": false
+            },
+            {
+              "text": "forget about",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "예수님은 \"다 이루었다\"고 말씀하셨다",
+        "template": "Jesus said, \"It is ___.\"",
+        "answer": "finished"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "crucify": "십자가에 못박다",
+        "tomb": "무덤",
+        "spices": "향료"
+      },
+      "paragraphs": [
+        {
+          "text": "Even though Pilate couldn't find any real reason to punish Jesus, the crowd kept shouting for his execution until Pilate finally gave in, afraid of losing control of the situation. Before sending him off, the soldiers mocked Jesus cruelly, dressing him up and treating him like a fake king just to laugh at him. Pilate presented Jesus to the crowd one more time, but they only shouted louder, so in the end he handed Jesus over to be crucified, even though he still believed Jesus hadn't actually done anything wrong.",
+          "ko": "빌라도는 예수님을 벌할 만한 실제 이유를 찾지 못했지만, 무리가 계속 처형을 외치자 상황을 통제할 수 없을까 두려워 결국 굴복했습니다. 그를 보내기 전, 군인들은 예수님을 놀리려고 가짜 왕처럼 꾸며 잔인하게 조롱했습니다. 빌라도는 예수님을 다시 한번 무리 앞에 세웠지만, 그들은 더 크게 외칠 뿐이었고, 결국 그는 예수님이 실제로 아무 잘못도 하지 않았다고 여전히 믿으면서도 십자가형에 넘겨주고 말았습니다."
+        },
+        {
+          "text": "Jesus was made to carry his own cross out to a hill called Golgotha, where the soldiers nailed him up between two other condemned men. Above his head hung a sign written in three languages that read, \"The King of the Jews,\" and even as some leaders complained about the wording, Pilate refused to change it. While Jesus hung there, he noticed his mother standing nearby with one of his closest followers, and he gently asked that disciple to look after her from then on, as if she were his own mother.",
+          "ko": "예수님은 골고다라는 언덕까지 자신의 십자가를 직접 지고 가셔야 했고, 그곳에서 군인들은 그분을 다른 두 사형수 사이에 매달았습니다. 그분의 머리 위에는 세 가지 언어로 \"유대인의 왕\"이라고 쓰인 팻말이 걸렸는데, 몇몇 지도자들이 그 문구에 대해 불평했지만 빌라도는 바꾸기를 거부했습니다. 예수님은 매달려 계시는 동안, 가장 가까운 제자 한 명과 함께 서 있는 어머니를 보시고는, 그때부터 마치 자신의 어머니처럼 돌봐달라고 그 제자에게 부드럽게 부탁하셨습니다."
+        },
+        {
+          "text": "Knowing that everything he'd come to do was now complete, Jesus finally said, \"It is finished,\" and breathed his last breath. Because it was almost the Sabbath, the religious leaders wanted the bodies taken down quickly, and a soldier confirmed Jesus had already died. Afterward, two men who had secretly admired Jesus — Joseph and Nicodemus — asked Pilate for his body, wrapped it respectfully with spices, and laid it in a new tomb nearby that had never been used before.",
+          "ko": "자신이 이루러 온 모든 일이 이제 완성되었음을 아신 예수님은 마침내 \"다 이루었다\"고 말씀하시고 마지막 숨을 거두셨습니다. 안식일이 거의 다 되었기 때문에, 종교 지도자들은 시신을 빨리 내리고 싶어했고, 한 군인이 예수님이 이미 돌아가셨음을 확인했습니다. 그 후, 남몰래 예수님을 흠모했던 두 사람 — 요셉과 니고데모 — 이 빌라도에게 시신을 요청해서 향료로 정성스럽게 감싼 뒤, 전에 한 번도 쓰인 적 없는 새 무덤에 모셨습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Pilate believed Jesus had done nothing wrong.",
+          "correct": true
+        },
+        {
+          "text": "The crowd asked Pilate to release Jesus.",
+          "correct": false
+        },
+        {
+          "text": "Jesus asked a disciple to take care of his mother.",
+          "correct": true
+        },
+        {
+          "text": "No one buried Jesus's body.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "빌라도는 무리의 압박에 굴복해 예수님을 십자가형에 넘겼고, 예수님은 십자가에서 어머니를 부탁하신 뒤 \"다 이루었다\" 말씀하시고 돌아가셨으며 새 무덤에 묻히셨다",
+              "correct": true
+            },
+            {
+              "text": "빌라도가 예수님을 직접 풀어주었다",
+              "correct": false
+            },
+            {
+              "text": "아무도 예수님의 시신을 돌보지 않았다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus cared for his mother even while he was dying? Write one sentence in English."
+    }
+  }
+}
