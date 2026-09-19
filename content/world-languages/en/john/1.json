@@ -4,67 +4,422 @@
   "language": "en",
   "version": "2.0",
   "dictionary": {
-    "jesus":"예수님","is":"~이다","god's":"하나님의","son":"아들",
-    "in":"~안에","the":"그","beginning":"시작","there":"거기에","was":"있었다","word":"말씀",
-    "with":"함께","god":"하나님","came":"왔다","to":"~로","world":"세상",
-    "he":"그는","gives":"준다","light":"빛","people":"사람들",
-    "already":"이미","existed":"존재했다","made":"만드셨다","everything":"모든 것","through":"~을 통해",
-    "shines":"비춘다","dark":"어둠","and":"그리고","cannot":"할 수 없다","stop":"멈추다","it":"그것을",
-    "himself":"그 자신","created":"창조되었다","without":"~없이","nothing":"아무것도",
-    "darkness":"어둠","never":"결코","overcome":"이기다","own":"자기의","did":"~했다","not":"아니다","receive":"받아들이다",
-    "yet":"그러나","everyone":"모든 사람","believed":"믿었다","name":"이름","gave":"주었다","right":"권리","become":"되다","children":"자녀들",
-    "his":"그의","him":"그를","who":"~하는 사람","that":"저것/그것","of":"~의","but":"그러나","has":"가지고 있다","been":"~이었다(과거분사)"
+    "jesus": "예수님",
+    "is": "~이다",
+    "god's": "하나님의",
+    "son": "아들",
+    "in": "~안에",
+    "the": "그",
+    "beginning": "시작",
+    "there": "거기에",
+    "was": "있었다",
+    "word": "말씀",
+    "with": "함께",
+    "god": "하나님",
+    "came": "왔다",
+    "to": "~로",
+    "world": "세상",
+    "he": "그는",
+    "gives": "준다",
+    "light": "빛",
+    "people": "사람들",
+    "already": "이미",
+    "existed": "존재했다",
+    "made": "만드셨다",
+    "everything": "모든 것",
+    "through": "~을 통해",
+    "shines": "비춘다",
+    "dark": "어둠",
+    "and": "그리고",
+    "cannot": "할 수 없다",
+    "stop": "멈추다",
+    "it": "그것을",
+    "himself": "그 자신",
+    "created": "창조되었다",
+    "without": "~없이",
+    "nothing": "아무것도",
+    "darkness": "어둠",
+    "never": "결코",
+    "overcome": "이기다",
+    "own": "자기의",
+    "did": "~했다",
+    "not": "아니다",
+    "receive": "받아들이다",
+    "yet": "그러나",
+    "everyone": "모든 사람",
+    "believed": "믿었다",
+    "name": "이름",
+    "gave": "주었다",
+    "right": "권리",
+    "become": "되다",
+    "children": "자녀들",
+    "his": "그의",
+    "him": "그를",
+    "who": "~하는 사람",
+    "that": "저것/그것",
+    "of": "~의",
+    "but": "그러나",
+    "has": "가지고 있다",
+    "been": "~이었다(과거분사)",
+    "a": "한/하나의",
+    "ago": "전에",
+    "among": "~중에",
+    "anything": "무엇이든",
+    "away": "멀리",
+    "be": "~이다",
+    "because": "~때문에",
+    "before": "~전에",
+    "began": "시작했다",
+    "being": "존재/생성됨",
+    "called": "불리는",
+    "can": "할 수 있다",
+    "could": "할 수 있었다",
+    "entered": "들어왔다",
+    "ever": "지금까지",
+    "every": "모든",
+    "exists": "존재한다",
+    "fact": "사실",
+    "had": "가지고 있었다",
+    "hard": "열심히",
+    "how": "어떻게",
+    "into": "~안으로",
+    "keeps": "계속 ~하다",
+    "long": "오랫동안",
+    "make": "만들다",
+    "matter": "문제되다",
+    "middle": "한가운데",
+    "no": "아무도 ~않다",
+    "one": "하나/사람",
+    "out": "밖으로",
+    "put": "놓다",
+    "shine": "비추다",
+    "shining": "비추는",
+    "single": "단 하나의",
+    "some": "몇몇",
+    "their": "그들의",
+    "them": "그들을",
+    "they": "그들은",
+    "thing": "것",
+    "tried": "애썼다",
+    "trust": "신뢰하다",
+    "turned": "돌아섰다",
+    "used": "~했다",
+    "welcome": "환영하다"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "Jesus", "meaning": "예수님" },
-        { "word": "God", "meaning": "하나님" },
-        { "word": "Son", "meaning": "아들" }
+        {
+          "word": "Jesus",
+          "meaning": "예수님"
+        },
+        {
+          "word": "God",
+          "meaning": "하나님"
+        },
+        {
+          "word": "Son",
+          "meaning": "아들"
+        }
       ],
       "sentences": [
-        { "text": "Jesus is God's Son.", "ko": "예수님은 하나님의 아들이에요." }
+        {
+          "text": "Jesus is God's Son.",
+          "ko": "예수님은 하나님의 아들이에요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "Jesus", "opts": [{"text":"✝️","kr":"예수님","correct":true},{"text":"🐟","kr":"물고기","correct":false},{"text":"🌳","kr":"나무","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "God", "opts": [{"text":"👑","kr":"하나님","correct":true},{"text":"📖","kr":"책","correct":false},{"text":"🐟","kr":"물고기","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "Son", "opts": [{"text":"👦","kr":"아들","correct":true},{"text":"☀️","kr":"해","correct":false},{"text":"📖","kr":"책","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "Jesus",
+          "opts": [
+            {
+              "text": "✝️",
+              "kr": "예수님",
+              "correct": true
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "God",
+          "opts": [
+            {
+              "text": "👑",
+              "kr": "하나님",
+              "correct": true
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "Son",
+          "opts": [
+            {
+              "text": "👦",
+              "kr": "아들",
+              "correct": true
+            },
+            {
+              "text": "☀️",
+              "kr": "해",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Jesus is God's Son."
     },
     "tree": {
       "vocab": [
-        { "word": "beginning", "meaning": "시작" },
-        { "word": "Word", "meaning": "말씀" },
-        { "word": "light", "meaning": "빛" },
-        { "word": "world", "meaning": "세상" }
+        {
+          "word": "beginning",
+          "meaning": "시작"
+        },
+        {
+          "word": "Word",
+          "meaning": "말씀"
+        },
+        {
+          "word": "light",
+          "meaning": "빛"
+        },
+        {
+          "word": "world",
+          "meaning": "세상"
+        }
       ],
       "sentences": [
-        { "text": "In the beginning, there was the Word.", "ko": "맨 처음에, 말씀이 계셨어요." },
-        { "text": "The Word was with God.", "ko": "말씀은 하나님과 함께 계셨어요." },
-        { "text": "Jesus came to the world.", "ko": "예수님이 세상에 오셨어요." },
-        { "text": "He gives light to people.", "ko": "그분은 사람들에게 빛을 주세요." }
+        {
+          "text": "In the beginning, there was the Word.",
+          "ko": "맨 처음에, 말씀이 계셨어요."
+        },
+        {
+          "text": "The Word was with God.",
+          "ko": "말씀은 하나님과 함께 계셨어요."
+        },
+        {
+          "text": "Jesus came to the world.",
+          "ko": "예수님이 세상에 오셨어요."
+        },
+        {
+          "text": "He gives light to people.",
+          "ko": "그분은 사람들에게 빛을 주세요."
+        }
       ],
-      "fillBlank": { "template": "In the beginning, there was the ___.", "answer": "Word", "options": ["Word","light","world"] },
+      "fillBlank": {
+        "template": "In the beginning, there was the ___.",
+        "answer": "Word",
+        "options": [
+          "Word",
+          "light",
+          "world"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'beginning'의 뜻은?", "opts": [{"text":"시작","correct":true},{"text":"세상","correct":false},{"text":"사람들","correct":false}] },
-        { "q": "'light'의 뜻은?", "opts": [{"text":"말씀","correct":false},{"text":"빛","correct":true},{"text":"하나님","correct":false}] },
-        { "q": "'world'의 뜻은?", "opts": [{"text":"세상","correct":true},{"text":"시작","correct":false},{"text":"주다","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "The Word was with God.", "opts": [{"text":"The Word was with God.","correct":true},{"text":"The World was with God.","correct":false},{"text":"The Word came with God.","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "Jesus came to the world.", "opts": [{"text":"Jesus gave the world.","correct":false},{"text":"Jesus came to the world.","correct":true},{"text":"Jesus was in the world.","correct":false}] },
-        { "q": "💡 은 무슨 단어일까요?", "opts": [{"text":"light","correct":true},{"text":"world","correct":false},{"text":"people","correct":false}] },
-        { "q": "🌍 은 무슨 단어일까요?", "opts": [{"text":"God","correct":false},{"text":"world","correct":true},{"text":"word","correct":false}] },
-        { "q": "👑 은 무슨 단어일까요?", "opts": [{"text":"God","correct":true},{"text":"light","correct":false},{"text":"son","correct":false}] },
-        { "q": "✝️ 은 무슨 단어일까요?", "opts": [{"text":"Jesus","correct":true},{"text":"world","correct":false},{"text":"people","correct":false}] }
+        {
+          "q": "'beginning'의 뜻은?",
+          "opts": [
+            {
+              "text": "시작",
+              "correct": true
+            },
+            {
+              "text": "세상",
+              "correct": false
+            },
+            {
+              "text": "사람들",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'light'의 뜻은?",
+          "opts": [
+            {
+              "text": "말씀",
+              "correct": false
+            },
+            {
+              "text": "빛",
+              "correct": true
+            },
+            {
+              "text": "하나님",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'world'의 뜻은?",
+          "opts": [
+            {
+              "text": "세상",
+              "correct": true
+            },
+            {
+              "text": "시작",
+              "correct": false
+            },
+            {
+              "text": "주다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "The Word was with God.",
+          "opts": [
+            {
+              "text": "The Word was with God.",
+              "correct": true
+            },
+            {
+              "text": "The World was with God.",
+              "correct": false
+            },
+            {
+              "text": "The Word came with God.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Jesus came to the world.",
+          "opts": [
+            {
+              "text": "Jesus gave the world.",
+              "correct": false
+            },
+            {
+              "text": "Jesus came to the world.",
+              "correct": true
+            },
+            {
+              "text": "Jesus was in the world.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "💡 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "light",
+              "correct": true
+            },
+            {
+              "text": "world",
+              "correct": false
+            },
+            {
+              "text": "people",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🌍 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "God",
+              "correct": false
+            },
+            {
+              "text": "world",
+              "correct": true
+            },
+            {
+              "text": "word",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "👑 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "God",
+              "correct": true
+            },
+            {
+              "text": "light",
+              "correct": false
+            },
+            {
+              "text": "son",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "✝️ 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "Jesus",
+              "correct": true
+            },
+            {
+              "text": "world",
+              "correct": false
+            },
+            {
+              "text": "people",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "The Word was with God."
     },
     "fruit": {
-      "helperWords": { "beginning":"시작", "through":"~을 통해", "everything":"모든 것", "darkness":"어둠" },
+      "helperWords": {
+        "beginning": "시작",
+        "through": "~을 통해",
+        "everything": "모든 것",
+        "darkness": "어둠"
+      },
       "sentences": [
-        { "text": "Long ago, before anything was made, the Word was already there.", "ko": "아주 오래전, 아무것도 만들어지기 전부터 말씀은 이미 거기 계셨어요." },
-        { "text": "God used the Word to make everything that exists.", "ko": "하나님은 말씀을 사용해서 존재하는 모든 것을 만드셨어요." },
-        { "text": "That light keeps shining in the dark, and nothing can put it out.", "ko": "그 빛은 어둠 속에서 계속 비추고, 아무것도 그 빛을 끌 수 없어요." }
+        {
+          "text": "Long ago, before anything was made, the Word was already there.",
+          "ko": "아주 오래전, 아무것도 만들어지기 전부터 말씀은 이미 거기 계셨어요."
+        },
+        {
+          "text": "God used the Word to make everything that exists.",
+          "ko": "하나님은 말씀을 사용해서 존재하는 모든 것을 만드셨어요."
+        },
+        {
+          "text": "That light keeps shining in the dark, and nothing can put it out.",
+          "ko": "그 빛은 어둠 속에서 계속 비추고, 아무것도 그 빛을 끌 수 없어요."
+        }
       ],
       "orderQuiz": [
         "Long ago, before anything was made, the Word was already there.",
@@ -72,33 +427,143 @@
         "That light keeps shining in the dark, and nothing can put it out."
       ],
       "mixQuiz": [
-        { "q": "\"The dark can stop the light.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"God made everything through the Word.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "\"The Word did not exist in the beginning.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "'shines'와 비슷한 뜻은?", "opts": [{"text":"gives light","correct":true},{"text":"hides away","correct":false},{"text":"makes noise","correct":false}] },
-        { "q": "'existed'와 비슷한 뜻은?", "opts": [{"text":"disappeared","correct":false},{"text":"was there","correct":true},{"text":"will come","correct":false}] }
+        {
+          "q": "\"The dark can stop the light.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"God made everything through the Word.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"The Word did not exist in the beginning.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'shines'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "gives light",
+              "correct": true
+            },
+            {
+              "text": "hides away",
+              "correct": false
+            },
+            {
+              "text": "makes noise",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'existed'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "disappeared",
+              "correct": false
+            },
+            {
+              "text": "was there",
+              "correct": true
+            },
+            {
+              "text": "will come",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "하나님은 말씀을 사용해서 모든 것을 만드셨다", "template": "God used the Word ___ make everything that exists.", "answer": "to" }
+      "krEnFill": {
+        "kr": "하나님은 말씀을 사용해서 모든 것을 만드셨다",
+        "template": "God used the Word ___ make everything that exists.",
+        "answer": "to"
+      }
     },
     "forest": {
-      "helperWords": { "overcome":"이기다", "recognize":"알아보다", "receive":"받아들이다", "descent":"혈통" },
+      "helperWords": {
+        "overcome": "이기다",
+        "recognize": "알아보다",
+        "receive": "받아들이다",
+        "descent": "혈통"
+      },
       "paragraphs": [
-        { "text": "Long before the world was made, the Word was there with God. In fact, the Word was God. Every single thing that has ever been made came into being because of him; without him, not one thing exists.", "ko": "세상이 생기기 훨씬 전부터, 말씀은 하나님과 함께 계셨습니다. 사실 말씀은 곧 하나님이셨습니다. 지금까지 만들어진 모든 것은 그분을 통해 생겨났고, 그분이 없이는 아무것도 존재하지 않습니다." },
-        { "text": "A light began to shine right in the middle of the darkness, and no matter how hard the darkness tried, it could never put that light out. The Word entered the world he had made among his own people, yet they turned him away.", "ko": "어둠 한가운데서 빛이 비추기 시작했고, 어둠이 아무리 애써도 그 빛을 끌 수는 없었습니다. 말씀은 자신이 만드신 세상, 자기 백성에게로 오셨지만 그들은 그분을 외면했습니다." },
-        { "text": "But some people did welcome him and put their trust in him — and to every one of them, he gave the right to be called children of God.", "ko": "그러나 그분을 반갑게 맞이하고 신뢰한 사람들도 있었습니다. 그분은 그들 모두에게 하나님의 자녀라고 불릴 권리를 주셨습니다." }
+        {
+          "text": "Long before the world was made, the Word was there with God. In fact, the Word was God. Every single thing that has ever been made came into being because of him; without him, not one thing exists.",
+          "ko": "세상이 생기기 훨씬 전부터, 말씀은 하나님과 함께 계셨습니다. 사실 말씀은 곧 하나님이셨습니다. 지금까지 만들어진 모든 것은 그분을 통해 생겨났고, 그분이 없이는 아무것도 존재하지 않습니다."
+        },
+        {
+          "text": "A light began to shine right in the middle of the darkness, and no matter how hard the darkness tried, it could never put that light out. The Word entered the world he had made among his own people, yet they turned him away.",
+          "ko": "어둠 한가운데서 빛이 비추기 시작했고, 어둠이 아무리 애써도 그 빛을 끌 수는 없었습니다. 말씀은 자신이 만드신 세상, 자기 백성에게로 오셨지만 그들은 그분을 외면했습니다."
+        },
+        {
+          "text": "But some people did welcome him and put their trust in him — and to every one of them, he gave the right to be called children of God.",
+          "ko": "그러나 그분을 반갑게 맞이하고 신뢰한 사람들도 있었습니다. 그분은 그들 모두에게 하나님의 자녀라고 불릴 권리를 주셨습니다."
+        }
       ],
       "multiSelect": [
-        { "text": "God created everything through the Word.", "correct": true },
-        { "text": "The world recognized Jesus right away.", "correct": false },
-        { "text": "Darkness overcame the light.", "correct": false },
-        { "text": "Everyone who believed could become God's child.", "correct": true }
+        {
+          "text": "God created everything through the Word.",
+          "correct": true
+        },
+        {
+          "text": "The world recognized Jesus right away.",
+          "correct": false
+        },
+        {
+          "text": "Darkness overcame the light.",
+          "correct": false
+        },
+        {
+          "text": "Everyone who believed could become God's child.",
+          "correct": true
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"말씀(예수님)은 하나님과 함께 계셨고, 세상은 그분을 알아보지 못했지만 믿는 자들은 하나님의 자녀가 된다","correct":true},
-          {"text":"예수님은 세상에서 가장 유명한 사람이었다","correct":false},
-          {"text":"어둠이 빛보다 강해서 결국 빛을 이겼다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "말씀(예수님)은 하나님과 함께 계셨고, 세상은 그분을 알아보지 못했지만 믿는 자들은 하나님의 자녀가 된다",
+              "correct": true
+            },
+            {
+              "text": "예수님은 세상에서 가장 유명한 사람이었다",
+              "correct": false
+            },
+            {
+              "text": "어둠이 빛보다 강해서 결국 빛을 이겼다",
+              "correct": false
+            }
+          ]
+        }
       ],
       "essayQuestion": "What does \"the Word\" mean to you? (한 문장으로 답해보세요)"
     }
