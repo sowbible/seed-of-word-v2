@@ -752,7 +752,10 @@
     const dict = data.dictionary || {};
     function wrapWords(text){
       return text.split(' ').map(w => {
-        const clean = w.replace(/[.,!?"]/g,'').toLowerCase();
+        // 단어 끝/시작에 붙는 문장부호(.,!?"·:;()—-)를 지운 뒤 사전에서 찾는다.
+        // 이걸 다 지우고도 남는 게 없으면(예: 문장 사이 단독 "—") 클릭 가능한 단어로 만들지 않는다.
+        const clean = w.replace(/[.,!?"“”():;—–-]/g,'').toLowerCase();
+        if(!clean) return w;
         return `<span class="sow-lang-word" data-w="${clean}">${w}</span>`;
       }).join(' ');
     }
