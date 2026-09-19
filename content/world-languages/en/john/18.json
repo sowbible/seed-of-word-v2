@@ -203,7 +203,10 @@
     "with": "~와 함께",
     "without": "~없이",
     "world": "세상",
-    "would": "~할 것이다"
+    "would": "~할 것이다",
+    "come": "오다",
+    "power": "권력",
+    "worldly": "세상의"
   },
   "levels": {
     "sprout": {
@@ -480,8 +483,8 @@
           "ko": "군인들은 예수님을 묶어서 먼저 전직 대제사장인 안나스에게, 그다음 더 심문받도록 현직 대제사장인 가야바에게 데려갔습니다. 그동안 베드로는 조용히 뒤따라가서 바깥뜰로 슬며시 들어가, 낯선 사람들 옆에서 숯불에 손을 녹이고 있었습니다. 그날 밤 세 번이나 누군가 그를 알아보고 예수님의 제자냐고 물었고, 세 번 다 베드로는 아니라고 우겼습니다 — 세 번째 부인 직후, 예수님이 말씀하셨던 그대로 닭이 울었습니다."
         },
         {
-          "text": "By morning, the religious leaders brought Jesus to Pilate, the Roman governor, since they needed his authority to carry out an execution. Pilate questioned Jesus directly about whether he claimed to be a king, and Jesus answered that his kingdom didn't belong to this world at all — if it did, his followers would have fought to stop his arrest. Pilate couldn't find any real crime to charge him with, so he offered the crowd a choice, following a Passover custom of releasing one prisoner. Instead of choosing Jesus, though, the crowd shouted for a criminal named Barabbas to be set free instead.",
-          "ko": "아침이 되자 종교 지도자들은 처형을 집행할 권한이 필요했기에 예수님을 로마 총독 빌라도에게 데려갔습니다. 빌라도는 예수님께 왕이라고 주장하느냐고 직접 물었고, 예수님은 자신의 나라는 이 세상에 속한 것이 전혀 아니라고 대답하셨습니다 — 만약 그랬다면 제자들이 그분의 체포를 막으려 싸웠을 거라는 것이었습니다. 빌라도는 그분에게 물을 만한 실제 죄를 찾지 못해서, 유월절 관습에 따라 죄수 한 명을 풀어주는 선택권을 무리에게 주었습니다. 하지만 무리는 예수님 대신 바라바라는 범죄자를 풀어달라고 외쳤습니다."
+          "text": "By morning, the religious leaders brought Jesus to Pilate, the Roman governor, since they needed his authority to carry out an execution. Pilate questioned Jesus directly about whether he claimed to be a king, and Jesus answered that his authority didn't come from worldly power at all — if it did, his followers would have fought to stop his arrest. Pilate couldn't find any real crime to charge him with, so he offered the crowd a choice, following a Passover custom of releasing one prisoner. Instead of choosing Jesus, though, the crowd shouted for a criminal named Barabbas to be set free instead.",
+          "ko": "아침이 되자 종교 지도자들은 처형을 집행할 권한이 필요했기에 예수님을 로마 총독 빌라도에게 데려갔습니다. 빌라도는 예수님께 왕이라고 주장하느냐고 직접 물었고, 예수님은 자신의 권위는 세상의 권력에서 나온 것이 전혀 아니라고 대답하셨습니다 — 만약 그랬다면 제자들이 그분의 체포를 막으려 싸웠을 거라는 것이었습니다. 빌라도는 그분에게 물을 만한 실제 죄를 찾지 못해서, 유월절 관습에 따라 죄수 한 명을 풀어주는 선택권을 무리에게 주었습니다. 하지만 무리는 예수님 대신 바라바라는 범죄자를 풀어달라고 외쳤습니다."
         }
       ],
       "multiSelect": [
