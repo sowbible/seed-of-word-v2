@@ -1,0 +1,110 @@
+{
+  "book": "john", "chapter": 9, "language": "en", "version": "2.0",
+  "dictionary": {
+    "a":"한","able":"할 수 있는","again":"다시","all":"모두","along":"함께","already":"이미","and":"그리고",
+    "as":"~로서","ask":"물어보다","asked":"물었다","at":"~에","back":"돌아와서","be":"~이다",
+    "because":"~때문에","been":"~이었다","believe":"믿다","believed":"믿었다","birth":"출생",
+    "blind":"눈이 먼","born":"태어난","but":"그러나","called":"불렀다","came":"왔다","chance":"기회",
+    "clearly":"분명히","come":"오다","completely":"완전히","could":"할 수 있었다","day":"날","did":"~했다",
+    "discover":"발견하다","done":"~했다","down":"아래로","even":"심지어","exactly":"정확히","eyes":"눈",
+    "fault":"잘못","first":"첫 번째","followers":"제자들","for":"~을 위해","found":"찾았다",
+    "from":"~부터","frustrated":"답답해하는","gently":"부드럽게","god's":"하나님의","good":"좋은",
+    "grew":"~해졌다","had":"가지고 있었다","happened":"일어났다","hardly":"거의 ~않다","he":"그는",
+    "he'd":"그가 ~했는지","healed":"고쳤다","healing":"치유","heard":"들었다","him":"그를",
+    "himself":"그 자신","his":"그의","how":"얼마나","if":"~인지","in":"~안에","insisting":"주장하는",
+    "instead":"대신","it":"그것","jesus":"예수님","just":"단지","kept":"계속 ~했다","knelt":"무릎을 꿇었다",
+    "leaders":"지도자들","life":"삶","little":"약간의","loud":"큰 소리로","man":"남자","man's":"남자의",
+    "meanwhile":"한편","mixed":"섞었다","mud":"진흙","nearby":"근처의","neighbors":"이웃들",
+    "never":"결코 ~않다","no":"아니다","not":"~않다","noticed":"알아챘다","now":"이제","of":"~의",
+    "off":"제거된","on":"~에","once":"한 번도","or":"또는","out":"밖으로","over":"~위에",
+    "own":"자기 자신의","parents":"부모","parents'":"부모의","people":"사람들","plainly":"분명하게",
+    "point":"요점","pool":"연못","power":"능력","put":"놓았다","questioned":"질문했다","real":"진짜의",
+    "really":"정말로","religious":"종교적인","right":"바로","sabbath":"안식일","said":"말했다",
+    "see":"보다","sent":"보냈다","should":"~해야 한다","since":"~때문에","so":"그래서","some":"몇몇",
+    "something":"무언가","son":"아들","spread":"발랐다","sure":"확신하는","surprising":"놀라운",
+    "synagogue":"회당","that":"저것/그것","the":"그","then":"그다음","there":"거기","they":"그들은",
+    "this":"이것","threw":"내쫓았다","time":"시간","to":"~에게","told":"말했다","truly":"진정으로",
+    "trusted":"신뢰했다","upset":"화가 난","very":"매우","walked":"걸었다","wanted":"원했다","was":"~였다",
+    "wash":"씻다","washed":"씻었다","wasn't":"~아니었다","went":"갔다","were":"~였다","what":"무엇",
+    "when":"~할 때","who":"누구","whose":"누구의","wondered":"궁금해했다","work":"일","would":"~할 것이다"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        { "word": "blind", "meaning": "눈이 먼" },
+        { "word": "see", "meaning": "보다" }
+      ],
+      "sentences": [
+        { "text": "Jesus healed a blind man.", "ko": "예수님은 눈이 먼 사람을 고쳐주셨어요." }
+      ],
+      "quiz": [
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "blind", "opts": [{"text":"🙈","kr":"눈이 먼","correct":true},{"text":"😊","kr":"웃는","correct":false},{"text":"🏃","kr":"뛰는","correct":false}] },
+        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "see", "opts": [{"text":"👀","kr":"보다","correct":true},{"text":"😴","kr":"자는","correct":false},{"text":"🍞","kr":"빵","correct":false}] }
+      ],
+      "repeatSentence": "Jesus healed a blind man."
+    },
+    "tree": {
+      "vocab": [
+        { "word": "blind", "meaning": "눈이 먼" },
+        { "word": "healed", "meaning": "고쳤다" },
+        { "word": "see", "meaning": "보다" },
+        { "word": "Sabbath", "meaning": "안식일" }
+      ],
+      "sentences": [
+        { "text": "A man was blind from birth.", "ko": "한 남자가 태어날 때부터 눈이 멀었어요." },
+        { "text": "Jesus healed the blind man.", "ko": "예수님은 그 눈먼 사람을 고쳐주셨어요." },
+        { "text": "Now he could see.", "ko": "이제 그는 볼 수 있었어요." },
+        { "text": "It was the Sabbath day.", "ko": "그날은 안식일이었어요." }
+      ],
+      "fillBlank": { "template": "A man was ___ from birth.", "answer": "blind", "options": ["blind","sick","tired"] },
+      "mixQuiz": [
+        { "q": "'healed'의 뜻은?", "opts": [{"text":"고쳤다","correct":true},{"text":"아프게 했다","correct":false},{"text":"버렸다","correct":false}] },
+        { "q": "'Sabbath'의 뜻은?", "opts": [{"text":"안식일","correct":true},{"text":"생일","correct":false},{"text":"명절","correct":false}] },
+        { "q": "무슨 문장을 들었나요?", "listen": "Now he could see.", "opts": [{"text":"Now he could see.","correct":true},{"text":"Now he could walk.","correct":false},{"text":"Now he was blind.","correct":false}] },
+        { "q": "👀 은 무슨 단어일까요?", "opts": [{"text":"see","correct":true},{"text":"blind","correct":false},{"text":"walk","correct":false}] }
+      ],
+      "repeatSentence": "Now he could see."
+    },
+    "fruit": {
+      "helperWords": { "mud":"진흙", "pool":"연못", "wash":"씻다" },
+      "sentences": [
+        { "text": "Jesus put mud on the man's eyes.", "ko": "예수님은 그 사람의 눈에 진흙을 바르셨어요." },
+        { "text": "He told the man to wash in a pool.", "ko": "그분은 그 사람에게 연못에서 씻으라고 하셨어요." },
+        { "text": "The man washed and could see.", "ko": "그 사람은 씻고 나서 볼 수 있었어요." }
+      ],
+      "orderQuiz": [
+        "Jesus put mud on the man's eyes.",
+        "He told the man to wash in a pool.",
+        "The man washed and could see."
+      ],
+      "mixQuiz": [
+        { "q": "\"Jesus put water on the man's eyes.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
+        { "q": "\"The man washed in a pool.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
+        { "q": "'wash'와 비슷한 뜻은?", "opts": [{"text":"clean with water","correct":true},{"text":"eat food","correct":false},{"text":"go to sleep","correct":false}] }
+      ],
+      "krEnFill": { "kr": "예수님은 그의 눈에 진흙을 바르셨다", "template": "Jesus put ___ on the man's eyes.", "answer": "mud" }
+    },
+    "forest": {
+      "helperWords": { "synagogue":"회당", "believe":"믿다", "discover":"발견하다" },
+      "paragraphs": [
+        { "text": "As Jesus and his followers walked along, they noticed a man who had never been able to see, not even once since the day he was born. His followers wondered out loud whose fault it was — his own or his parents' — but Jesus said that wasn't the point at all; instead, this was a chance for people to see God's power at work. Jesus knelt down, mixed a little mud, and spread it gently over the man's eyes.", "ko": "예수님과 제자들이 함께 걸어가다가, 태어난 날부터 한 번도 앞을 본 적이 없는 한 남자를 보았습니다. 제자들은 이것이 그 사람의 잘못인지 부모의 잘못인지 소리 내어 궁금해했지만, 예수님은 그게 중요한 게 아니라 오히려 하나님의 능력이 드러날 기회라고 말씀하셨습니다. 예수님은 무릎을 꿇고 진흙을 조금 개어 그 사람의 눈에 부드럽게 발라주셨습니다." },
+        { "text": "He then sent the man to wash it off in a nearby pool. The man did exactly that, and when he came back, he could see for the very first time in his life. His neighbors could hardly believe it was really him. Meanwhile, some religious leaders grew upset because the healing had happened on a day when they believed no work should be done, so they questioned the man again and again, and even called in his parents to ask if he'd truly been born blind.", "ko": "그런 다음 예수님은 그 사람을 근처 연못에 가서 씻으라고 보내셨습니다. 그 사람은 그대로 했고, 돌아왔을 때 평생 처음으로 볼 수 있게 되었습니다. 이웃들은 그가 정말 그 사람이 맞는지 믿기 어려워했습니다. 한편 몇몇 종교 지도자들은 그 치유가 일을 하면 안 된다고 여겨지는 날에 일어났다는 사실에 화가 나서, 그 사람에게 계속 캐물었고 심지어 그의 부모까지 불러 정말 태어날 때부터 눈이 멀었는지 물었습니다." },
+        { "text": "Frustrated that the man kept insisting the healing was real and good, the leaders threw him out of the synagogue. When Jesus heard what had happened, he went and found the man himself and asked if he believed in the Son of Man. The man said he wanted to believe, so Jesus told him plainly who he was — and right there, the man knelt down and trusted him completely. Jesus then said something surprising: he had come so that the blind could see, and so that people who were so sure they could already see clearly would discover just how blind they truly were.", "ko": "그 사람이 치유가 진짜였고 좋은 일이었다고 계속 주장하자, 답답해진 지도자들은 그를 회당에서 내쫓아버렸습니다. 예수님은 이 일을 들으시고 직접 그 사람을 찾아가 인자를 믿느냐고 물으셨습니다. 그 사람이 믿고 싶다고 하자, 예수님은 자신이 누구인지 분명하게 말씀해주셨고, 그 자리에서 그 사람은 무릎을 꿇고 그분을 완전히 신뢰하게 되었습니다. 그때 예수님은 놀라운 말씀을 하셨습니다. 자신은 눈먼 사람이 보게 하고, 이미 잘 본다고 확신하는 사람들은 자신이 얼마나 눈멀었는지 깨닫게 하려고 오셨다는 것이었습니다." }
+      ],
+      "multiSelect": [
+        { "text": "The man had been blind since birth.", "correct": true },
+        { "text": "Jesus said the blindness was the man's own fault.", "correct": false },
+        { "text": "The religious leaders were upset because the healing happened on the Sabbath.", "correct": true },
+        { "text": "The man refused to believe in Jesus in the end.", "correct": false }
+      ],
+      "summaryQuiz": [
+        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
+          {"text":"예수님이 태어날 때부터 눈먼 사람을 고쳐주셨고, 그 사람은 예수님을 믿게 되었으나 지도자들은 믿지 않았다","correct":true},
+          {"text":"그 사람이 스스로 눈을 고쳤다","correct":false},
+          {"text":"지도자들이 그 사람을 곧바로 믿어주었다","correct":false}
+        ] }
+      ],
+      "essayQuestion": "Why do you think the man believed in Jesus so quickly? Write one sentence in English."
+    }
+  }
+}
