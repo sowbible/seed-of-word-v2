@@ -141,7 +141,20 @@
     "works": "작동한다",
     "worn": "지친",
     "worshiper": "예배자",
-    "you'll": "너는 ~할 것이다"
+    "you'll": "너는 ~할 것이다",
+    "be": "~이다",
+    "drank": "마셨다",
+    "first": "먼저",
+    "hottest": "가장 더운",
+    "instead": "대신",
+    "noon": "정오",
+    "part": "부분",
+    "said": "말했다",
+    "speaking": "말을 거는 것",
+    "surprised": "놀라게 했다",
+    "thirsty": "목마른",
+    "very": "매우",
+    "would": "~할 것이다"
   },
   "levels": {
     "sprout": {
@@ -334,22 +347,22 @@
       },
       "sentences": [
         {
-          "text": "Worn out from walking all day, Jesus sat down to rest beside a well.",
-          "ko": "하루 종일 걸어서 지치신 예수님은 우물가에 앉아 쉬셨어요."
+          "text": "Worn out from walking all day, Jesus sat down to rest beside a well. It was around noon, the hottest part of the day.",
+          "ko": "하루 종일 걸어서 지치신 예수님은 우물가에 앉아 쉬셨어요. 하루 중 가장 더운 정오쯤이었어요."
         },
         {
-          "text": "A Samaritan woman came to get water.",
-          "ko": "한 사마리아 여인이 물을 길으러 왔어요."
+          "text": "A Samaritan woman came to get water at that very well. Jesus surprised her by speaking to her first.",
+          "ko": "한 사마리아 여인이 바로 그 우물로 물을 길으러 왔어요. 예수님은 먼저 그녀에게 말을 걸어서 그녀를 놀라게 하셨어요."
         },
         {
-          "text": "Jesus offered her living water.",
-          "ko": "예수님은 그녀에게 생명의 물을 주겠다고 하셨어요."
+          "text": "Jesus offered her living water instead of ordinary well water. Whoever drank it, he said, would never be thirsty again.",
+          "ko": "예수님은 그녀에게 보통 우물물 대신 생명의 물을 주겠다고 하셨어요. 그 물을 마시는 사람은 다시는 목마르지 않을 거라고 하셨어요."
         }
       ],
       "orderQuiz": [
-        "Worn out from walking all day, Jesus sat down to rest beside a well.",
-        "A Samaritan woman came to get water.",
-        "Jesus offered her living water."
+        "Worn out from walking all day, Jesus sat down to rest beside a well. It was around noon, the hottest part of the day.",
+        "A Samaritan woman came to get water at that very well. Jesus surprised her by speaking to her first.",
+        "Jesus offered her living water instead of ordinary well water. Whoever drank it, he said, would never be thirsty again."
       ],
       "mixQuiz": [
         {
