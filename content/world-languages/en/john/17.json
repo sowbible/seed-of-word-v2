@@ -1,1 +1,471 @@
-
+{
+  "book": "john",
+  "chapter": 17,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "about": "~에 대해",
+    "all": "모두",
+    "also": "또한",
+    "altogether": "완전히",
+    "always": "항상",
+    "and": "그리고",
+    "apart": "떨어져",
+    "as": "~로서",
+    "asked": "구했다",
+    "asking": "구하며",
+    "authority": "권세",
+    "back": "다시",
+    "be": "~이다",
+    "because": "~때문에",
+    "become": "~하게 되다",
+    "been": "~이었다",
+    "before": "~전에",
+    "began": "시작했다",
+    "believe": "믿다",
+    "bring": "가져오다",
+    "but": "그러나",
+    "by": "~로",
+    "carrying": "수행하며",
+    "closed": "마쳤다",
+    "closely": "가깝게",
+    "come": "오다",
+    "completely": "완전히",
+    "could": "할 수 있었다",
+    "crucial": "중요한",
+    "day": "날",
+    "deepest": "가장 깊은",
+    "ends": "끝난다",
+    "even": "심지어",
+    "everyone": "모든 사람",
+    "everything": "모든 것",
+    "evil": "악",
+    "existed": "존재했다",
+    "expressing": "표현하며",
+    "eyes": "눈",
+    "father": "아버지",
+    "followed": "따랐다",
+    "followers": "제자들",
+    "followers'": "제자들의",
+    "for": "~을 위해",
+    "from": "~로부터",
+    "future": "미래의",
+    "given": "주어진",
+    "glory": "영광",
+    "god": "하나님",
+    "god's": "하나님의",
+    "had": "가지고 있었다",
+    "happen": "일어나다",
+    "he": "그는",
+    "he'd": "그가 ~했었다",
+    "heaven": "하늘",
+    "held": "지녔다",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "honor": "영광",
+    "hour": "시간",
+    "in": "~안에",
+    "include": "포함하다",
+    "instead": "대신",
+    "into": "~안으로",
+    "it": "그것",
+    "jesus": "예수님",
+    "joined": "연합된",
+    "just": "바로",
+    "keep": "지키다",
+    "kind": "종류",
+    "life": "생명",
+    "lifted": "들었다",
+    "long": "오래",
+    "looked": "바라보았다",
+    "loved": "사랑했다",
+    "men": "사람들",
+    "mentioned": "언급했다",
+    "message": "메시지",
+    "mission": "사명",
+    "much": "많이",
+    "name": "이름",
+    "never": "결코 ~않다",
+    "not": "~않다",
+    "of": "~의",
+    "offer": "주다",
+    "one": "하나",
+    "out": "밖으로",
+    "over": "~에 대해",
+    "own": "자기 자신의",
+    "people": "사람들",
+    "power": "능력",
+    "pray": "기도하다",
+    "prayed": "기도했다",
+    "prayer": "기도",
+    "present": "현재의",
+    "protect": "보호하다",
+    "pulled": "끌어내졌다",
+    "purpose": "목적",
+    "recognize": "알아보다",
+    "request": "요청",
+    "restored": "회복된",
+    "safe": "안전한",
+    "same": "같은",
+    "say": "말하다",
+    "see": "보다",
+    "sent": "보내졌다",
+    "set": "구별하다",
+    "shape": "형성하다",
+    "shared": "나누었다",
+    "shielded": "보호받은",
+    "so": "그래서",
+    "son": "아들",
+    "stay": "머물다",
+    "that": "저것/그것",
+    "the": "그",
+    "them": "그들을",
+    "then": "그다음",
+    "they": "그들은",
+    "this": "이것",
+    "through": "~을 통해",
+    "to": "~에게",
+    "together": "함께",
+    "toward": "~쪽으로",
+    "truly": "진정으로",
+    "truth": "진리",
+    "turn": "돌렸다",
+    "turned": "돌렸다",
+    "united": "연합된",
+    "up": "위로",
+    "upward": "위쪽으로",
+    "wanted": "원했다",
+    "was": "~였다",
+    "watch": "지켜보다",
+    "watching": "지켜보는",
+    "were": "~였다",
+    "what": "무엇",
+    "who": "누구",
+    "widened": "넓혔다",
+    "wish": "소원",
+    "with": "~와 함께",
+    "world": "세상",
+    "would": "~할 것이다"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "prayed",
+          "meaning": "기도했다"
+        },
+        {
+          "word": "followers",
+          "meaning": "제자들"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus prayed for his followers.",
+          "ko": "예수님은 제자들을 위해 기도하셨어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "prayed",
+          "opts": [
+            {
+              "text": "🙏",
+              "kr": "기도했다",
+              "correct": true
+            },
+            {
+              "text": "😴",
+              "kr": "잤다",
+              "correct": false
+            },
+            {
+              "text": "🍞",
+              "kr": "먹었다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "followers",
+          "opts": [
+            {
+              "text": "👥",
+              "kr": "제자들",
+              "correct": true
+            },
+            {
+              "text": "👑",
+              "kr": "왕",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus prayed for his followers."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "prayed",
+          "meaning": "기도했다"
+        },
+        {
+          "word": "protect",
+          "meaning": "보호하다"
+        },
+        {
+          "word": "one",
+          "meaning": "하나"
+        },
+        {
+          "word": "followers",
+          "meaning": "제자들"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus looked up and prayed.",
+          "ko": "예수님은 하늘을 올려다보며 기도하셨어요."
+        },
+        {
+          "text": "He prayed for his followers.",
+          "ko": "그분은 제자들을 위해 기도하셨어요."
+        },
+        {
+          "text": "Jesus asked God to protect them.",
+          "ko": "예수님은 하나님께 그들을 보호해달라고 구하셨어요."
+        },
+        {
+          "text": "He prayed that they would be one.",
+          "ko": "그분은 그들이 하나가 되기를 기도하셨어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Jesus asked God to ___ them.",
+        "answer": "protect",
+        "options": [
+          "protect",
+          "forget",
+          "test"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'protect'의 뜻은?",
+          "opts": [
+            {
+              "text": "보호하다",
+              "correct": true
+            },
+            {
+              "text": "버리다",
+              "correct": false
+            },
+            {
+              "text": "숨기다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'one'의 뜻(여기서)은?",
+          "opts": [
+            {
+              "text": "하나",
+              "correct": true
+            },
+            {
+              "text": "둘",
+              "correct": false
+            },
+            {
+              "text": "열",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "He prayed for his followers.",
+          "opts": [
+            {
+              "text": "He prayed for his followers.",
+              "correct": true
+            },
+            {
+              "text": "He taught his followers.",
+              "correct": false
+            },
+            {
+              "text": "He left his followers.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🙏 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "prayed",
+              "correct": true
+            },
+            {
+              "text": "protect",
+              "correct": false
+            },
+            {
+              "text": "one",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "He prayed that they would be one."
+    },
+    "fruit": {
+      "helperWords": {
+        "glory": "영광",
+        "protect": "보호하다",
+        "united": "연합된"
+      },
+      "sentences": [
+        {
+          "text": "Jesus lifted his eyes to heaven and began to pray. He asked the Father to bring glory to his name through everything that was about to happen.",
+          "ko": "예수님은 하늘을 향해 눈을 드시고 기도를 시작하셨어요. 그분은 아버지께 곧 일어날 모든 일을 통해 자신의 이름에 영광을 돌려달라고 구하셨어요."
+        },
+        {
+          "text": "He prayed for his followers by name, asking God to protect them and keep them safe from evil. He wanted them to stay united, just as he and the Father were united.",
+          "ko": "그분은 제자들의 이름을 부르며 기도하시며, 하나님께 그들을 보호하고 악에서 안전하게 지켜달라고 구하셨어요. 그분은 자신과 아버지가 하나이신 것처럼 그들도 하나로 연합되기를 원하셨어요."
+        },
+        {
+          "text": "Jesus also prayed for everyone who would one day believe in him because of his followers' message. He asked that all of them would become completely one.",
+          "ko": "예수님은 또한 제자들의 말을 통해 언젠가 자신을 믿게 될 모든 사람을 위해서도 기도하셨어요. 그분은 그들 모두가 완전히 하나가 되기를 구하셨어요."
+        }
+      ],
+      "orderQuiz": [
+        "Jesus lifted his eyes to heaven and began to pray. He asked the Father to bring glory to his name through everything that was about to happen.",
+        "He prayed for his followers by name, asking God to protect them and keep them safe from evil. He wanted them to stay united, just as he and the Father were united.",
+        "Jesus also prayed for everyone who would one day believe in him because of his followers' message. He asked that all of them would become completely one."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Jesus prayed only for himself.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus prayed that his followers would be protected.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'united'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "joined together",
+              "correct": true
+            },
+            {
+              "text": "separated",
+              "correct": false
+            },
+            {
+              "text": "forgotten",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "예수님은 그들이 완전히 하나가 되기를 구하셨다",
+        "template": "Jesus asked that all of them would become completely ___.",
+        "answer": "one"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "sanctify": "거룩하게 하다",
+        "unity": "하나됨",
+        "testify": "증언하다"
+      },
+      "paragraphs": [
+        {
+          "text": "Jesus lifted his eyes upward and began to pray, asking his Father to bring honor to him in this crucial hour, so that in turn he could bring honor back to the Father. He mentioned the authority he'd been given over all people, so he could offer them a life that never ends, and he asked to be restored to the glory he had shared with the Father long before the world even existed. He then turned his prayer toward the men who had followed him — asking the Father to watch over them and keep them safe by the same power that held his own name.",
+          "ko": "예수님은 눈을 위로 드시고 기도를 시작하셨습니다. 이 중요한 순간에 아버지께서 자신에게 영광을 주셔서, 자신도 다시 아버지께 영광을 돌릴 수 있게 해달라고 구하신 것입니다. 그분은 모든 사람에 대해 받으신 권세를 언급하시며 그들에게 끝나지 않는 생명을 줄 수 있게 해달라고, 또 세상이 존재하기도 전에 아버지와 함께 누렸던 영광을 회복시켜달라고 구하셨습니다. 그런 다음 그분은 자신을 따라온 사람들을 위해 기도의 방향을 돌리셨습니다 — 아버지께서 자신의 이름이 지닌 힘으로 그들을 지켜보고 안전하게 보호해달라고 구하신 것입니다."
+        },
+        {
+          "text": "He asked that they be shielded from the evil one, but not pulled out of the world altogether — instead, he wanted them sent into it, carrying out the same kind of mission he himself had been given. He prayed that God's own truth would shape and set them apart for that purpose.",
+          "ko": "그분은 그들이 악한 자로부터 보호받되, 세상에서 완전히 떠나지는 않게 해달라고 구하셨습니다 — 대신 자신이 받았던 것과 같은 사명을 가지고 세상 속으로 보내지기를 원하셨습니다. 그분은 하나님의 진리가 그 목적을 위해 그들을 빚어내고 구별해주기를 기도하셨습니다."
+        },
+        {
+          "text": "Jesus then widened his prayer to include everyone who would one day come to believe because of what his followers would say about him. His deepest request was for all of them, present and future, to be joined together so closely that the world watching them would recognize God had truly sent him and loved them just as much as he loved his own Son. He closed by expressing his wish that they would one day be with him and see the glory he had always shared with the Father.",
+          "ko": "예수님은 이제 제자들이 자신에 대해 전할 말 때문에 언젠가 믿게 될 모든 사람까지 기도의 범위를 넓히셨습니다. 그분의 가장 깊은 소원은 지금과 앞으로의 모든 믿는 자들이 너무나 긴밀하게 하나로 연합되어, 지켜보는 세상이 하나님이 정말로 그분을 보내셨고 자신의 아들을 사랑하신 것만큼 그들도 사랑하셨다는 것을 알게 되는 것이었습니다. 그분은 언젠가 그들이 자신과 함께 있으며, 아버지와 늘 함께 누려온 영광을 보게 되기를 바라며 기도를 마치셨습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Jesus prayed for his own followers by name.",
+          "correct": true
+        },
+        {
+          "text": "Jesus prayed that his followers would be removed from the world entirely.",
+          "correct": false
+        },
+        {
+          "text": "Jesus prayed for people who would believe in the future.",
+          "correct": true
+        },
+        {
+          "text": "Jesus did not care whether his followers were united.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 자신과 제자들, 그리고 앞으로 믿게 될 모든 사람을 위해 기도하시며 보호와 하나됨을 구하셨다",
+              "correct": true
+            },
+            {
+              "text": "예수님이 제자들을 위해 기도하지 않으셨다",
+              "correct": false
+            },
+            {
+              "text": "예수님이 미래의 믿는 자들은 빼고 기도하셨다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus prayed for unity among his followers? Write one sentence in English."
+    }
+  }
+}
