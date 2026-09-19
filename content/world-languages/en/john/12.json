@@ -1,0 +1,509 @@
+{
+  "book": "john",
+  "chapter": 12,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "about": "~에 대해",
+    "admitted": "인정했다",
+    "all": "모두",
+    "almost": "거의",
+    "an": "하나의",
+    "and": "그리고",
+    "argued": "논쟁했다",
+    "as": "~로서",
+    "asked": "부탁했다",
+    "bag": "주머니",
+    "be": "~이다",
+    "beautiful": "아름다운",
+    "been": "~이었다",
+    "before": "~전에",
+    "bottle": "병",
+    "branches": "나뭇가지",
+    "burial": "장례",
+    "buried": "묻힌",
+    "but": "그러나",
+    "by": "~로",
+    "can": "할 수 있다",
+    "cared": "관심을 가졌다",
+    "carried": "운반했다",
+    "city": "도시",
+    "coming": "다가오는",
+    "compared": "비유했다",
+    "complained": "불평했다",
+    "costly": "값비싼",
+    "could": "할 수 있었다",
+    "crowd": "무리",
+    "cutting": "자르는",
+    "day": "날",
+    "days": "날들",
+    "defended": "두둔했다",
+    "described": "묘사했다",
+    "die": "죽다",
+    "done": "~했다",
+    "donkey": "나귀",
+    "draw": "이끌다",
+    "each": "각각",
+    "entering": "들어오는",
+    "entire": "전체의",
+    "even": "심지어",
+    "everyone": "모든 사람",
+    "everywhere": "모든 곳",
+    "exactly": "정확히",
+    "expensive": "값비싼",
+    "explained": "설명했다",
+    "feet": "발",
+    "festival": "축제",
+    "filled": "가득 찼다",
+    "filling": "채우며",
+    "following": "따르는",
+    "for": "~을 위해",
+    "fragrance": "향기",
+    "from": "~로부터",
+    "frustration": "답답함",
+    "gone": "갔다",
+    "greece": "그리스",
+    "ground": "땅",
+    "grow": "자라다",
+    "grumbled": "투덜댔다",
+    "had": "가지고 있었다",
+    "hair": "머리카락",
+    "harvest": "수확",
+    "has": "가지고 있다",
+    "have": "가지다",
+    "he": "그는",
+    "help": "돕다",
+    "her": "그녀를",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "house": "집",
+    "huge": "거대한",
+    "humble": "겸손한",
+    "in": "~안에",
+    "instead": "대신",
+    "into": "~안으로",
+    "it": "그것",
+    "jar": "병",
+    "jerusalem": "예루살렘",
+    "jesus": "예수님",
+    "jesus's": "예수님의",
+    "judas": "유다",
+    "kind": "종류",
+    "king": "왕",
+    "larger": "더 큰",
+    "leaders": "지도자들",
+    "lifted": "들려짐",
+    "like": "~처럼",
+    "mary": "마리아",
+    "massive": "거대한",
+    "meaningful": "의미 있는",
+    "meet": "만나다",
+    "money": "돈",
+    "more": "더",
+    "much": "훨씬",
+    "next": "다음",
+    "now": "이제",
+    "of": "~의",
+    "old": "오래된",
+    "on": "~위에",
+    "other": "다른",
+    "out": "밖으로",
+    "over": "~위에",
+    "own": "자기 자신의",
+    "palm": "종려",
+    "passed": "지나갔다",
+    "passover": "유월절",
+    "people": "사람들",
+    "perfume": "향유",
+    "poor": "가난한 사람들",
+    "poured": "부었다",
+    "praise": "찬양",
+    "praises": "찬양들",
+    "prepare": "준비시키다",
+    "preparing": "준비시키며",
+    "produces": "생산한다",
+    "prophecy": "예언",
+    "rather": "~보다는",
+    "really": "실제로",
+    "religious": "종교적인",
+    "response": "대답",
+    "right": "바로",
+    "rode": "탔다",
+    "rushed": "달려갔다",
+    "said": "말했다",
+    "saying": "말하며",
+    "seed": "씨앗",
+    "seemed": "~처럼 보였다",
+    "she": "그녀는",
+    "shouted": "외쳤다",
+    "shouting": "외치며",
+    "single": "하나의",
+    "six": "여섯",
+    "skim": "빼돌리다",
+    "sky": "하늘",
+    "smell": "냄새",
+    "smelled": "냄새가 났다",
+    "sold": "팔렸다",
+    "some": "몇몇",
+    "something": "무언가",
+    "sound": "소리",
+    "spoke": "말했다",
+    "spread": "퍼졌다",
+    "surprised": "놀라게 했다",
+    "sweet": "달콤한",
+    "than": "~보다",
+    "that": "저것/그것",
+    "the": "그",
+    "them": "그들을",
+    "then": "그다음",
+    "this": "이것",
+    "to": "~에게",
+    "took": "가져갔다",
+    "toward": "~쪽으로",
+    "trees": "나무들",
+    "until": "~까지",
+    "up": "위로",
+    "visitors": "방문객들",
+    "voice": "음성",
+    "wages": "임금",
+    "warhorse": "전쟁마",
+    "was": "~였다",
+    "watching": "지켜보며",
+    "waved": "흔들었다",
+    "way": "방식",
+    "welcomed": "환영했다",
+    "what": "무엇",
+    "while": "~하는 동안",
+    "whole": "전체의",
+    "wiped": "닦았다",
+    "with": "~와 함께",
+    "word": "소식",
+    "words": "말들",
+    "world": "세상",
+    "worth": "가치가 있는",
+    "would": "~할 것이다",
+    "year's": "일 년의",
+    "young": "어린"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "donkey",
+          "meaning": "나귀"
+        },
+        {
+          "word": "king",
+          "meaning": "왕"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus rode into the city on a donkey.",
+          "ko": "예수님은 나귀를 타고 도시로 들어가셨어요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "donkey",
+          "opts": [
+            {
+              "text": "🫏",
+              "kr": "나귀",
+              "correct": true
+            },
+            {
+              "text": "🐟",
+              "kr": "물고기",
+              "correct": false
+            },
+            {
+              "text": "🐑",
+              "kr": "양",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "king",
+          "opts": [
+            {
+              "text": "👑",
+              "kr": "왕",
+              "correct": true
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus rode into the city on a donkey."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "perfume",
+          "meaning": "향유"
+        },
+        {
+          "word": "donkey",
+          "meaning": "나귀"
+        },
+        {
+          "word": "branches",
+          "meaning": "나뭇가지"
+        },
+        {
+          "word": "welcomed",
+          "meaning": "환영했다"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Mary poured perfume on Jesus's feet.",
+          "ko": "마리아가 예수님의 발에 향유를 부었어요."
+        },
+        {
+          "text": "The whole house smelled sweet.",
+          "ko": "온 집 안이 향기로 가득했어요."
+        },
+        {
+          "text": "Jesus rode into Jerusalem on a donkey.",
+          "ko": "예수님이 나귀를 타고 예루살렘에 들어가셨어요."
+        },
+        {
+          "text": "The crowd welcomed him with palm branches.",
+          "ko": "무리가 종려나무 가지로 그분을 환영했어요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Jesus rode into Jerusalem on a ___.",
+        "answer": "donkey",
+        "options": [
+          "donkey",
+          "horse",
+          "boat"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'perfume'의 뜻은?",
+          "opts": [
+            {
+              "text": "향유",
+              "correct": true
+            },
+            {
+              "text": "물",
+              "correct": false
+            },
+            {
+              "text": "빵",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'welcomed'의 뜻은?",
+          "opts": [
+            {
+              "text": "쫓아냈다",
+              "correct": false
+            },
+            {
+              "text": "환영했다",
+              "correct": true
+            },
+            {
+              "text": "무시했다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "The whole house smelled sweet.",
+          "opts": [
+            {
+              "text": "The whole house smelled sweet.",
+              "correct": true
+            },
+            {
+              "text": "The whole house was quiet.",
+              "correct": false
+            },
+            {
+              "text": "The whole house was empty.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🫏 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "donkey",
+              "correct": true
+            },
+            {
+              "text": "perfume",
+              "correct": false
+            },
+            {
+              "text": "branches",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "The crowd welcomed him with palm branches."
+    },
+    "fruit": {
+      "helperWords": {
+        "perfume": "향유",
+        "poor": "가난한 사람들",
+        "praise": "찬양"
+      },
+      "sentences": [
+        {
+          "text": "Mary took a jar of expensive perfume and poured it on Jesus's feet. She wiped his feet with her own hair, filling the house with a sweet smell.",
+          "ko": "마리아는 값비싼 향유 한 병을 가져와 예수님의 발에 부었어요. 그녀는 자기 머리카락으로 그분의 발을 닦았고, 집 안 가득 향긋한 냄새가 퍼졌어요."
+        },
+        {
+          "text": "Judas complained that the perfume could have been sold to help the poor. But Jesus said Mary had done something beautiful, preparing him for what was coming.",
+          "ko": "유다는 그 향유를 팔아서 가난한 사람들을 도왔어야 했다고 불평했어요. 하지만 예수님은 마리아가 아름다운 일을 했다고, 다가올 일을 위해 자신을 준비시킨 거라고 말씀하셨어요."
+        },
+        {
+          "text": "The next day, Jesus rode into Jerusalem on a young donkey. A huge crowd waved palm branches and shouted words of praise as he passed by.",
+          "ko": "다음 날, 예수님은 어린 나귀를 타고 예루살렘으로 들어가셨어요. 엄청난 무리가 나뭇가지를 흔들며 그분이 지나가실 때 찬양의 말을 외쳤어요."
+        }
+      ],
+      "orderQuiz": [
+        "Mary took a jar of expensive perfume and poured it on Jesus's feet. She wiped his feet with her own hair, filling the house with a sweet smell.",
+        "Judas complained that the perfume could have been sold to help the poor. But Jesus said Mary had done something beautiful, preparing him for what was coming.",
+        "The next day, Jesus rode into Jerusalem on a young donkey. A huge crowd waved palm branches and shouted words of praise as he passed by."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Judas wanted to give the money to the poor.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"The crowd welcomed Jesus with palm branches.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'complained'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "grumbled",
+              "correct": true
+            },
+            {
+              "text": "celebrated",
+              "correct": false
+            },
+            {
+              "text": "thanked",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "예수님은 어린 나귀를 타고 예루살렘에 들어가셨다",
+        "template": "Jesus rode into Jerusalem on a young ___.",
+        "answer": "donkey"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "prophecy": "예언",
+        "harvest": "수확",
+        "lifted": "들림"
+      },
+      "paragraphs": [
+        {
+          "text": "Six days before the Passover festival, Mary took an entire bottle of costly perfume — worth almost a year's wages — and poured it over Jesus's feet, then wiped them with her own hair until the whole house was filled with the fragrance. Judas grumbled that the money could have gone to the poor instead, but really he cared more about what he could skim from the money bag he carried. Jesus defended her, saying she had done something meaningful to prepare him for his coming burial.",
+          "ko": "유월절 엿새 전, 마리아는 거의 일 년치 품삯과 맞먹는 값비싼 향유 한 병을 가져와 예수님의 발에 붓고, 자기 머리카락으로 닦아내어 집 안 전체가 향기로 가득 찼습니다. 유다는 그 돈이 가난한 사람들에게 갔어야 한다고 투덜댔지만, 사실은 자신이 관리하던 돈주머니에서 얼마나 빼돌릴 수 있을지에 더 관심이 있었습니다. 예수님은 그녀를 두둔하시며, 그녀가 다가올 자신의 장례를 위해 의미 있는 일을 한 것이라고 말씀하셨습니다."
+        },
+        {
+          "text": "The next day, word spread that Jesus was entering the city, and a massive crowd rushed out to meet him, cutting branches from palm trees and shouting out praises as he rode in on a young donkey rather than a warhorse — exactly the kind of humble king an old prophecy had described. Watching all of this, some of the religious leaders admitted to each other in frustration that it seemed like the whole world was now following him.",
+          "ko": "다음 날, 예수님이 도시로 들어오고 계신다는 소식이 퍼지자 엄청난 무리가 그분을 맞으러 뛰쳐나와 종려나무 가지를 꺾고 찬양을 외쳤습니다. 그분은 전쟁마가 아닌 어린 나귀를 타고 오셨는데, 이는 옛 예언이 묘사했던 겸손한 왕의 모습 그대로였습니다. 이 모든 것을 지켜보던 몇몇 종교 지도자들은 답답한 마음에 서로 온 세상이 이제 그를 따라가는 것 같다고 인정했습니다."
+        },
+        {
+          "text": "Some visitors from Greece asked to meet Jesus, and his response surprised everyone: he compared himself to a single seed that has to be buried in the ground and die before it can grow into something that produces a much larger harvest. Right then, a voice spoke from the sky, and while the crowd argued over what the sound even was, Jesus explained that he was about to be lifted up in a way that would draw people from everywhere toward him.",
+          "ko": "그리스에서 온 몇몇 방문객들이 예수님을 만나고 싶어했는데, 그분의 대답은 모두를 놀라게 했습니다. 그분은 자신을 땅에 묻혀 죽어야만 훨씬 더 큰 열매를 맺을 수 있는 씨앗 한 알에 비유하셨습니다. 바로 그때, 하늘에서 음성이 들려왔고, 무리가 그 소리가 무엇이었는지 서로 다투는 동안 예수님은 자신이 곧 높이 들려서 온 세상 사람들을 자신에게로 이끌게 될 것이라고 설명하셨습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Judas cared more about the money bag than the poor.",
+          "correct": true
+        },
+        {
+          "text": "Jesus rode into Jerusalem on a warhorse.",
+          "correct": false
+        },
+        {
+          "text": "Jesus compared himself to a seed that must die to grow.",
+          "correct": true
+        },
+        {
+          "text": "Everyone understood the voice from the sky right away.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "마리아가 값비싼 향유를 예수님께 부었고, 예수님은 나귀를 타고 예루살렘에 겸손하게 입성하셨으며, 씨앗 비유로 자신의 죽음과 열매를 설명하셨다",
+              "correct": true
+            },
+            {
+              "text": "유다가 예수님께 향유를 선물했다",
+              "correct": false
+            },
+            {
+              "text": "예수님이 전쟁마를 타고 입성하셨다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus compared himself to a seed? Write one sentence in English."
+    }
+  }
+}
