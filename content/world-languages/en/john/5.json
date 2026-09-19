@@ -14,7 +14,13 @@
   },
   "levels": {
     "sprout": {
-      "sentences": ["Jesus healed a sick man."],
+      "vocab": [
+        { "word": "sick", "meaning": "아픈" },
+        { "word": "walk", "meaning": "걷다" }
+      ],
+      "sentences": [
+        { "text": "Jesus healed a sick man.", "ko": "예수님은 아픈 사람을 고쳐주셨어요." }
+      ],
       "quiz": [
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "sick", "opts": [{"text":"🤒","kr":"아픈","correct":true},{"text":"😊","kr":"웃는","correct":false},{"text":"🏃","kr":"뛰는","correct":false}] },
         { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "walk", "opts": [{"text":"🚶","kr":"걷다","correct":true},{"text":"😴","kr":"자다","correct":false},{"text":"🍞","kr":"빵","correct":false}] }
@@ -22,11 +28,17 @@
       "repeatSentence": "Jesus healed a sick man."
     },
     "tree": {
+      "vocab": [
+        { "word": "sick", "meaning": "아픈" },
+        { "word": "walk", "meaning": "걷다" },
+        { "word": "healed", "meaning": "고쳤다" },
+        { "word": "Sabbath", "meaning": "안식일" }
+      ],
       "sentences": [
-        "A man was sick for 38 years.",
-        "Jesus said, \"Get up and walk.\"",
-        "The man was healed.",
-        "It was the Sabbath day."
+        { "text": "A man was sick for 38 years.", "ko": "한 남자가 38년 동안 아팠어요." },
+        { "text": "Jesus said, \"Get up and walk.\"", "ko": "예수님은 \"일어나 걸어라\"고 말씀하셨어요." },
+        { "text": "The man was healed.", "ko": "그 사람은 나았어요." },
+        { "text": "It was the Sabbath day.", "ko": "그날은 안식일이었어요." }
       ],
       "fillBlank": { "template": "Jesus said, \"Get up and ___.\"", "answer": "walk", "options": ["walk","sleep","eat"] },
       "mixQuiz": [
@@ -40,14 +52,14 @@
     "fruit": {
       "helperWords": { "pool":"연못", "disabled":"장애가 있는", "authority":"권세" },
       "sentences": [
-        "There was a pool called Bethesda.",
-        "Many disabled people lay there.",
-        "Jesus asked, \"Do you want to be made well?\""
+        { "text": "There was a pool called Bethesda.", "ko": "베데스다라는 연못이 있었어요." },
+        { "text": "Many disabled people lay there.", "ko": "많은 장애가 있는 사람들이 거기 누워 있었어요." },
+        { "text": "Jesus asked him gently, \"Do you really want to get better?\"", "ko": "예수님은 그에게 부드럽게 \"정말 낫고 싶으냐?\"고 물으셨어요." }
       ],
       "orderQuiz": [
         "There was a pool called Bethesda.",
         "Many disabled people lay there.",
-        "Jesus asked, \"Do you want to be made well?\""
+        "Jesus asked him gently, \"Do you really want to get better?\""
       ],
       "mixQuiz": [
         { "q": "\"The man had been sick for 8 years.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
@@ -59,9 +71,9 @@
     "forest": {
       "helperWords": { "authority":"권세", "testimony":"증언", "resurrection":"부활" },
       "paragraphs": [
-        "Jesus said, \"My Father is always at his work, and I am working too.\" This made the Jews want to kill him even more, because he was calling God his own Father.",
-        "Jesus said, \"Truly I tell you, whoever hears my word and believes him who sent me has eternal life.\"",
-        "He also said, \"A time is coming when all who are in their graves will hear his voice and come out.\""
+        { "text": "Jesus explained that his Father never stops working, not even on the Sabbath — and since he and the Father worked together, he didn't stop either. That answer only made the religious leaders angrier, because now Jesus wasn't just breaking a Sabbath rule; he was claiming God as his own Father, which put him on equal footing with God.", "ko": "예수님은 자신의 아버지께서 안식일에도 결코 일을 멈추지 않으시며, 자신도 아버지와 함께 일한다고 설명하셨습니다. 이 대답은 종교 지도자들을 더 화나게 만들었는데, 이제 예수님이 단순히 안식일 규정을 어긴 것이 아니라 하나님을 자기 아버지라 주장함으로써 자신을 하나님과 동등하게 여기신다고 보였기 때문입니다." },
+        { "text": "Jesus made a bold promise: anyone who listens to what he says and puts their trust in the one who sent him already has life that lasts forever — they don't have to wait to be judged, because they've already crossed over from death into life.", "ko": "예수님은 담대한 약속을 하셨습니다. 그분의 말씀을 듣고 그분을 보내신 분을 신뢰하는 사람은 이미 영원히 이어지는 생명을 가지고 있으며, 심판을 기다릴 필요 없이 이미 죽음에서 생명으로 건너갔다는 것이었습니다." },
+        { "text": "He went further, saying that someday even people who had already died would hear his voice calling them and would come back to life.", "ko": "그분은 더 나아가, 언젠가는 이미 죽은 사람들조차도 자신의 음성을 듣고 다시 살아날 날이 올 것이라고 말씀하셨습니다." }
       ],
       "multiSelect": [
         { "text": "Jesus said his Father is always at work.", "correct": true },
