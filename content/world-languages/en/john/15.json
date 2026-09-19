@@ -1,1 +1,485 @@
-
+{
+  "book": "john",
+  "chapter": 15,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "able": "할 수 있는",
+    "about": "~에 대해",
+    "accomplish": "이루다",
+    "all": "모두",
+    "alone": "홀로",
+    "already": "이미",
+    "also": "또한",
+    "and": "그리고",
+    "another": "또 다른",
+    "any": "어떤",
+    "anything": "아무것도",
+    "apart": "떨어져서",
+    "as": "~로서",
+    "at": "~에서",
+    "away": "멀리",
+    "be": "~이다",
+    "bear": "맺다",
+    "because": "~때문에",
+    "been": "~이었다",
+    "beginning": "시작",
+    "behalf": "~을 대신해",
+    "belonged": "속했다",
+    "branch": "가지",
+    "branches": "가지들",
+    "but": "그러나",
+    "by": "~로",
+    "called": "불렀다",
+    "can": "할 수 있다",
+    "can't": "할 수 없다",
+    "cannot": "할 수 없다",
+    "care": "돌보다",
+    "carefully": "조심스럽게",
+    "choosing": "선택하는 것",
+    "closely": "가깝게",
+    "come": "오다",
+    "compared": "비유했다",
+    "connected": "연결된",
+    "connection": "연결",
+    "cut": "잘렸다",
+    "cutting": "잘라내며",
+    "deeper": "더 깊은",
+    "described": "묘사했다",
+    "dinner": "저녁식사",
+    "do": "하다",
+    "dries": "마른다",
+    "each": "각각",
+    "essential": "필수적인",
+    "even": "심지어",
+    "everything": "모든 것",
+    "explained": "설명했다",
+    "father": "아버지",
+    "follow": "따르다",
+    "followers": "제자들",
+    "for": "~을 위해",
+    "friends": "친구들",
+    "from": "~로부터",
+    "fruit": "열매",
+    "fruitful": "열매 맺는",
+    "gardener": "농부",
+    "give": "주다",
+    "given": "주었다",
+    "giving": "주는 것",
+    "goes": "간다",
+    "greatest": "가장 큰",
+    "grow": "자라다",
+    "had": "가지고 있었다",
+    "he": "그는",
+    "he'd": "그가 ~했었다",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "hostility": "적대감",
+    "instruction": "가르침",
+    "is": "~이다",
+    "it": "그것",
+    "it's": "그것은 ~이다",
+    "its": "그것의",
+    "jesus": "예수님",
+    "just": "단지",
+    "let": "~하게 하다",
+    "life": "생명",
+    "longer": "더 이상",
+    "love": "사랑",
+    "loved": "사랑했다",
+    "more": "더",
+    "needs": "필요로 한다",
+    "never": "결코 ~않다",
+    "no": "아니다",
+    "not": "~않다",
+    "of": "~의",
+    "off": "떨어져",
+    "on": "~에",
+    "once": "일단",
+    "one": "하나",
+    "ones": "것들",
+    "orders": "명령들",
+    "other": "다른",
+    "own": "자기 자신의",
+    "precisely": "정확히",
+    "produce": "생산하다",
+    "produces": "생산한다",
+    "promised": "약속했다",
+    "repeated": "반복했다",
+    "said": "말했다",
+    "sake": "~을 위하여",
+    "same": "같은",
+    "separated": "분리된",
+    "servants": "종들",
+    "shared": "나누었다",
+    "shown": "보여준",
+    "side": "곁",
+    "simply": "단순히",
+    "since": "~때문에",
+    "so": "그래서",
+    "someone": "누군가",
+    "spirit": "영",
+    "stay": "머물다",
+    "staying": "머무르는 것",
+    "stays": "머문다",
+    "still": "그럼에도",
+    "survive": "살아남다",
+    "takes": "취한다",
+    "testify": "증언하다",
+    "than": "~보다",
+    "that": "저것/그것",
+    "the": "그",
+    "their": "그들의",
+    "them": "그들을",
+    "themselves": "그들 스스로",
+    "then": "그다음",
+    "they": "그들은",
+    "thinking": "사고방식",
+    "thought": "생각했다",
+    "to": "~에게",
+    "told": "말했다",
+    "treat": "대하다",
+    "trimming": "다듬으며",
+    "true": "진짜의",
+    "truth": "진리",
+    "understanding": "이해",
+    "up": "위로",
+    "very": "매우",
+    "vine": "포도나무",
+    "warned": "경고했다",
+    "was": "~였다",
+    "way": "방식",
+    "while": "~하는 동안",
+    "who": "누구",
+    "why": "왜",
+    "with": "~와 함께",
+    "withers": "시든다",
+    "without": "~없이",
+    "world": "세상",
+    "world's": "세상의",
+    "would": "~할 것이다",
+    "wouldn't": "~하지 않을 것이다",
+    "your": "너의"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "vine",
+          "meaning": "포도나무"
+        },
+        {
+          "word": "fruit",
+          "meaning": "열매"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus is the true vine.",
+          "ko": "예수님은 참포도나무세요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "vine",
+          "opts": [
+            {
+              "text": "🍇",
+              "kr": "포도나무",
+              "correct": true
+            },
+            {
+              "text": "🌳",
+              "kr": "나무",
+              "correct": false
+            },
+            {
+              "text": "🌾",
+              "kr": "밀",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "fruit",
+          "opts": [
+            {
+              "text": "🍎",
+              "kr": "열매",
+              "correct": true
+            },
+            {
+              "text": "🍞",
+              "kr": "빵",
+              "correct": false
+            },
+            {
+              "text": "💧",
+              "kr": "물",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus is the true vine."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "vine",
+          "meaning": "포도나무"
+        },
+        {
+          "word": "branch",
+          "meaning": "가지"
+        },
+        {
+          "word": "fruit",
+          "meaning": "열매"
+        },
+        {
+          "word": "love",
+          "meaning": "사랑"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus is the true vine.",
+          "ko": "예수님은 참포도나무세요."
+        },
+        {
+          "text": "Stay connected to Jesus.",
+          "ko": "예수님과 연결되어 있으라."
+        },
+        {
+          "text": "A branch needs the vine.",
+          "ko": "가지는 포도나무가 필요해요."
+        },
+        {
+          "text": "Love each other.",
+          "ko": "서로 사랑하라."
+        }
+      ],
+      "fillBlank": {
+        "template": "A branch needs the ___.",
+        "answer": "vine",
+        "options": [
+          "vine",
+          "water",
+          "sun"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'branch'의 뜻은?",
+          "opts": [
+            {
+              "text": "가지",
+              "correct": true
+            },
+            {
+              "text": "뿌리",
+              "correct": false
+            },
+            {
+              "text": "꽃",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'fruit'의 뜻은?",
+          "opts": [
+            {
+              "text": "잎",
+              "correct": false
+            },
+            {
+              "text": "열매",
+              "correct": true
+            },
+            {
+              "text": "씨앗",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Stay connected to Jesus.",
+          "opts": [
+            {
+              "text": "Stay connected to Jesus.",
+              "correct": true
+            },
+            {
+              "text": "Stay away from Jesus.",
+              "correct": false
+            },
+            {
+              "text": "Stay quiet and rest.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🍇 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "vine",
+              "correct": true
+            },
+            {
+              "text": "branch",
+              "correct": false
+            },
+            {
+              "text": "fruit",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Love each other."
+    },
+    "fruit": {
+      "helperWords": {
+        "connected": "연결된",
+        "withers": "시든다",
+        "servants": "종들"
+      },
+      "sentences": [
+        {
+          "text": "Jesus compared himself to a vine and his followers to branches. A branch that stays connected to the vine can grow and produce fruit.",
+          "ko": "예수님은 자신을 포도나무에, 제자들을 가지에 비유하셨어요. 포도나무에 붙어 있는 가지는 자라서 열매를 맺을 수 있어요."
+        },
+        {
+          "text": "But a branch that is cut off from the vine cannot do anything on its own. It simply dries up and withers away.",
+          "ko": "하지만 포도나무에서 잘려나간 가지는 스스로 아무것도 할 수 없어요. 그저 말라서 시들어버려요."
+        },
+        {
+          "text": "Jesus said the greatest love is giving up your life for your friends. He then called his followers his friends, not just his servants.",
+          "ko": "예수님은 가장 큰 사랑은 친구를 위해 자기 생명을 내주는 것이라고 말씀하셨어요. 그런 다음 제자들을 단순한 종이 아니라 친구라고 부르셨어요."
+        }
+      ],
+      "orderQuiz": [
+        "Jesus compared himself to a vine and his followers to branches. A branch that stays connected to the vine can grow and produce fruit.",
+        "But a branch that is cut off from the vine cannot do anything on its own. It simply dries up and withers away.",
+        "Jesus said the greatest love is giving up your life for your friends. He then called his followers his friends, not just his servants."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"A branch cut off from the vine can still grow fruit.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus called his followers his friends.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'withers'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "dries up",
+              "correct": true
+            },
+            {
+              "text": "grows bigger",
+              "correct": false
+            },
+            {
+              "text": "turns green",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "가장 큰 사랑은 친구를 위해 생명을 내주는 것이다",
+        "template": "The greatest love is giving up your life for your ___.",
+        "answer": "friends"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "gardener": "농부",
+        "testify": "증언하다",
+        "hostility": "적대감"
+      },
+      "paragraphs": [
+        {
+          "text": "Jesus described himself as a vine and his Father as the gardener who takes care of it — cutting away any branch that never produces anything, while carefully trimming the fruitful ones so they can grow even more. He told his followers that staying closely connected to him was essential, the same way a branch can't survive, let alone bear fruit, once it's separated from the vine; apart from that connection, he said, they wouldn't be able to accomplish anything at all.",
+          "ko": "예수님은 자신을 포도나무에, 아버지를 그것을 돌보는 농부에 비유하셨습니다 — 아무것도 맺지 못하는 가지는 잘라내고, 열매 맺는 가지는 더 많이 자라도록 조심스럽게 다듬으신다는 것이었습니다. 그분은 제자들에게 자신과 가깝게 연결된 상태를 유지하는 것이 꼭 필요하다고 말씀하셨습니다. 포도나무에서 떨어진 가지가 열매는커녕 살아남을 수조차 없는 것처럼요. 그 연결이 없이는 아무것도 이룰 수 없다고 하셨습니다."
+        },
+        {
+          "text": "He then repeated the instruction he'd given them at dinner — to love one another the way he had loved them — and explained that no love goes deeper than someone choosing to give up their own life for the sake of their friends. He said he no longer thought of them as servants who simply follow orders without understanding why, but as friends, because he had shared with them everything his Father had told him.",
+          "ko": "그분은 저녁식사 때 하셨던 가르침을 다시 반복하셨습니다 — 자신이 그들을 사랑한 것처럼 서로 사랑하라는 것이었습니다 — 그리고 친구를 위해 자기 생명을 내주기로 선택하는 것보다 더 깊은 사랑은 없다고 설명하셨습니다. 그분은 더 이상 그들을 이유도 모른 채 명령만 따르는 종으로 여기지 않는다고, 아버지께 들은 모든 것을 그들과 나누었기 때문에 이제 친구로 여긴다고 말씀하셨습니다."
+        },
+        {
+          "text": "Jesus warned that the world would treat them with the same hostility it had already shown him, precisely because they no longer belonged to that world's way of thinking. Still, he promised that a Spirit of truth would come from the Father to testify on his behalf, and his followers themselves would also testify about him, since they had been by his side from the very beginning.",
+          "ko": "예수님은 세상이 이미 자신에게 보였던 것과 같은 적대감으로 그들을 대할 거라고 경고하셨습니다. 그들이 더 이상 그 세상의 사고방식에 속하지 않기 때문이라는 것이었습니다. 그럼에도 그분은 아버지로부터 진리의 영이 오셔서 자신에 대해 증언하실 거라고 약속하셨고, 제자들 자신도 처음부터 그분과 함께 있었기에 그분에 대해 증언하게 될 거라고 하셨습니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "The Father is described as the gardener who cares for the vine.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said branches can bear fruit even when separated from the vine.",
+          "correct": false
+        },
+        {
+          "text": "Jesus called his followers friends instead of servants.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said the world would love his followers just as it loved him.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 자신을 참포도나무에 비유하시며 그분과 연결된 채 머무는 것이 필수적이라 하시고, 친구를 위해 생명을 내주는 사랑을 가르치시며 세상의 미움을 경고하셨다",
+              "correct": true
+            },
+            {
+              "text": "가지가 포도나무 없이도 잘 자랐다",
+              "correct": false
+            },
+            {
+              "text": "세상이 제자들을 예수님보다 더 사랑했다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "What do you think it means to 'stay connected' to Jesus? Write one sentence in English."
+    }
+  }
+}
