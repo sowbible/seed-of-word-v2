@@ -1,60 +1,353 @@
 {
-  "book": "john", "chapter": 5, "language": "en", "version": "2.0",
+  "book": "john",
+  "chapter": 5,
+  "language": "en",
+  "version": "2.0",
   "dictionary": {
-    "jesus":"예수님","healed":"고쳤다","a":"한","sick":"아픈","man":"남자","was":"~였다","for":"~동안",
-    "years":"년","said":"말했다","get":"일어나다","up":"위로","and":"그리고","walk":"걷다","the":"그",
-    "he":"그는","picked":"들었다","his":"그의","mat":"자리","sabbath":"안식일","day":"날",
-    "pool":"연못","called":"불리는","bethesda":"베데스다","many":"많은","disabled":"장애가 있는","people":"사람들","lay":"누워있었다",
-    "there":"거기에","one":"한 사람","of":"~의","thirty":"삼십","eight":"팔","asked":"물었다",
-    "do":"하다","you":"너는","want":"원한다","to":"~하기를","be":"~이다","made":"되게","well":"건강한",
-    "jews":"유대인들","because":"~때문에","this":"이것","happened":"일어났다","on":"~에",
-    "father":"아버지","is":"~이다","always":"항상","at":"~에서","work":"일","so":"그래서","am":"~이다","i":"나는",
-    "truly":"진실로","tell":"말하다","whoever":"~하는 사람은 누구나","hears":"듣는다","my":"나의","word":"말씀",
-    "believes":"믿는다","him":"그를","sent":"보내신","me":"나를","has":"가지고 있다","eternal":"영원한","life":"생명"
+    "jesus": "예수님",
+    "healed": "고쳤다",
+    "a": "한",
+    "sick": "아픈",
+    "man": "남자",
+    "was": "~였다",
+    "for": "~동안",
+    "years": "년",
+    "said": "말했다",
+    "get": "일어나다",
+    "up": "위로",
+    "and": "그리고",
+    "walk": "걷다",
+    "the": "그",
+    "he": "그는",
+    "picked": "들었다",
+    "his": "그의",
+    "mat": "자리",
+    "sabbath": "안식일",
+    "day": "날",
+    "pool": "연못",
+    "called": "불리는",
+    "bethesda": "베데스다",
+    "many": "많은",
+    "disabled": "장애가 있는",
+    "people": "사람들",
+    "lay": "누워있었다",
+    "there": "거기에",
+    "one": "한 사람",
+    "of": "~의",
+    "thirty": "삼십",
+    "eight": "팔",
+    "asked": "물었다",
+    "do": "하다",
+    "you": "너는",
+    "want": "원한다",
+    "to": "~하기를",
+    "be": "~이다",
+    "made": "되게",
+    "well": "건강한",
+    "jews": "유대인들",
+    "because": "~때문에",
+    "this": "이것",
+    "happened": "일어났다",
+    "on": "~에",
+    "father": "아버지",
+    "is": "~이다",
+    "always": "항상",
+    "at": "~에서",
+    "work": "일",
+    "so": "그래서",
+    "am": "~이다",
+    "i": "나는",
+    "truly": "진실로",
+    "tell": "말하다",
+    "whoever": "~하는 사람은 누구나",
+    "hears": "듣는다",
+    "my": "나의",
+    "word": "말씀",
+    "believes": "믿는다",
+    "him": "그를",
+    "sent": "보내신",
+    "me": "나를",
+    "has": "가지고 있다",
+    "eternal": "영원한",
+    "life": "생명",
+    "38": "숫자 38(삼십팔)",
+    "already": "이미",
+    "angrier": "더 화난",
+    "answer": "대답",
+    "anyone": "누구든지",
+    "as": "~로서",
+    "back": "다시",
+    "better": "더 나은",
+    "bold": "담대한",
+    "breaking": "어기는",
+    "calling": "부르는 것",
+    "claiming": "주장하는 것",
+    "come": "오다",
+    "crossed": "건넜다",
+    "death": "죽음",
+    "didn't": "~하지 않았다",
+    "died": "죽었다",
+    "don't": "~하지 않는다",
+    "either": "둘 다",
+    "equal": "동등한",
+    "even": "심지어",
+    "explained": "설명하셨다",
+    "footing": "입지",
+    "forever": "영원히",
+    "from": "~로부터",
+    "further": "더 나아가",
+    "gently": "부드럽게",
+    "god": "하나님",
+    "had": "가지고 있었다",
+    "have": "가지다",
+    "hear": "듣다",
+    "in": "~안에",
+    "into": "~안으로",
+    "it": "그것",
+    "judged": "심판받는",
+    "just": "단지",
+    "lasts": "지속된다",
+    "leaders": "지도자들",
+    "listens": "듣는다",
+    "never": "결코 ~않다",
+    "not": "~않다",
+    "now": "지금",
+    "only": "오직",
+    "over": "~에 대해",
+    "own": "자기의",
+    "promise": "약속",
+    "put": "놓다",
+    "puts": "둔다",
+    "really": "정말로",
+    "religious": "종교적인",
+    "rule": "규정",
+    "saying": "말하는 것",
+    "says": "말한다",
+    "since": "~때문에",
+    "someday": "언젠가",
+    "stop": "멈추다",
+    "stops": "멈춘다",
+    "that": "저것/그것",
+    "their": "그들의",
+    "them": "그들을",
+    "they": "그들은",
+    "they've": "그들은 ~했다",
+    "together": "함께",
+    "trust": "신뢰하다",
+    "voice": "음성",
+    "wait": "기다리다",
+    "wasn't": "~아니었다",
+    "went": "갔다",
+    "what": "무엇",
+    "which": "어느 것",
+    "who": "누구",
+    "with": "~와 함께",
+    "worked": "일했다",
+    "working": "일하는 것",
+    "would": "~할 것이다"
   },
   "levels": {
     "sprout": {
       "vocab": [
-        { "word": "sick", "meaning": "아픈" },
-        { "word": "walk", "meaning": "걷다" }
+        {
+          "word": "sick",
+          "meaning": "아픈"
+        },
+        {
+          "word": "walk",
+          "meaning": "걷다"
+        }
       ],
       "sentences": [
-        { "text": "Jesus healed a sick man.", "ko": "예수님은 아픈 사람을 고쳐주셨어요." }
+        {
+          "text": "Jesus healed a sick man.",
+          "ko": "예수님은 아픈 사람을 고쳐주셨어요."
+        }
       ],
       "quiz": [
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "sick", "opts": [{"text":"🤒","kr":"아픈","correct":true},{"text":"😊","kr":"웃는","correct":false},{"text":"🏃","kr":"뛰는","correct":false}] },
-        { "q": "들려주는 단어에 맞는 그림을 골라보세요", "listen": "walk", "opts": [{"text":"🚶","kr":"걷다","correct":true},{"text":"😴","kr":"자다","correct":false},{"text":"🍞","kr":"빵","correct":false}] }
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "sick",
+          "opts": [
+            {
+              "text": "🤒",
+              "kr": "아픈",
+              "correct": true
+            },
+            {
+              "text": "😊",
+              "kr": "웃는",
+              "correct": false
+            },
+            {
+              "text": "🏃",
+              "kr": "뛰는",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "walk",
+          "opts": [
+            {
+              "text": "🚶",
+              "kr": "걷다",
+              "correct": true
+            },
+            {
+              "text": "😴",
+              "kr": "자다",
+              "correct": false
+            },
+            {
+              "text": "🍞",
+              "kr": "빵",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "Jesus healed a sick man."
     },
     "tree": {
       "vocab": [
-        { "word": "sick", "meaning": "아픈" },
-        { "word": "walk", "meaning": "걷다" },
-        { "word": "healed", "meaning": "고쳤다" },
-        { "word": "Sabbath", "meaning": "안식일" }
+        {
+          "word": "sick",
+          "meaning": "아픈"
+        },
+        {
+          "word": "walk",
+          "meaning": "걷다"
+        },
+        {
+          "word": "healed",
+          "meaning": "고쳤다"
+        },
+        {
+          "word": "Sabbath",
+          "meaning": "안식일"
+        }
       ],
       "sentences": [
-        { "text": "A man was sick for 38 years.", "ko": "한 남자가 38년 동안 아팠어요." },
-        { "text": "Jesus said, \"Get up and walk.\"", "ko": "예수님은 \"일어나 걸어라\"고 말씀하셨어요." },
-        { "text": "The man was healed.", "ko": "그 사람은 나았어요." },
-        { "text": "It was the Sabbath day.", "ko": "그날은 안식일이었어요." }
+        {
+          "text": "A man was sick for 38 years.",
+          "ko": "한 남자가 38년 동안 아팠어요."
+        },
+        {
+          "text": "Jesus said, \"Get up and walk.\"",
+          "ko": "예수님은 \"일어나 걸어라\"고 말씀하셨어요."
+        },
+        {
+          "text": "The man was healed.",
+          "ko": "그 사람은 나았어요."
+        },
+        {
+          "text": "It was the Sabbath day.",
+          "ko": "그날은 안식일이었어요."
+        }
       ],
-      "fillBlank": { "template": "Jesus said, \"Get up and ___.\"", "answer": "walk", "options": ["walk","sleep","eat"] },
+      "fillBlank": {
+        "template": "Jesus said, \"Get up and ___.\"",
+        "answer": "walk",
+        "options": [
+          "walk",
+          "sleep",
+          "eat"
+        ]
+      },
       "mixQuiz": [
-        { "q": "'healed'의 뜻은?", "opts": [{"text":"고쳤다","correct":true},{"text":"아프게 했다","correct":false},{"text":"버렸다","correct":false}] },
-        { "q": "'Sabbath'의 뜻은?", "opts": [{"text":"안식일","correct":true},{"text":"명절","correct":false},{"text":"생일","correct":false}] },
-        { "q": "무슨 문장을 들었나요?", "listen": "The man was healed.", "opts": [{"text":"The man was healed.","correct":true},{"text":"The man was sick.","correct":false},{"text":"The man was happy.","correct":false}] },
-        { "q": "🚶 은 무슨 단어일까요?", "opts": [{"text":"walk","correct":true},{"text":"sick","correct":false},{"text":"heal","correct":false}] }
+        {
+          "q": "'healed'의 뜻은?",
+          "opts": [
+            {
+              "text": "고쳤다",
+              "correct": true
+            },
+            {
+              "text": "아프게 했다",
+              "correct": false
+            },
+            {
+              "text": "버렸다",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'Sabbath'의 뜻은?",
+          "opts": [
+            {
+              "text": "안식일",
+              "correct": true
+            },
+            {
+              "text": "명절",
+              "correct": false
+            },
+            {
+              "text": "생일",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "The man was healed.",
+          "opts": [
+            {
+              "text": "The man was healed.",
+              "correct": true
+            },
+            {
+              "text": "The man was sick.",
+              "correct": false
+            },
+            {
+              "text": "The man was happy.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🚶 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "walk",
+              "correct": true
+            },
+            {
+              "text": "sick",
+              "correct": false
+            },
+            {
+              "text": "heal",
+              "correct": false
+            }
+          ]
+        }
       ],
       "repeatSentence": "The man was healed."
     },
     "fruit": {
-      "helperWords": { "pool":"연못", "disabled":"장애가 있는", "authority":"권세" },
+      "helperWords": {
+        "pool": "연못",
+        "disabled": "장애가 있는",
+        "authority": "권세"
+      },
       "sentences": [
-        { "text": "There was a pool called Bethesda.", "ko": "베데스다라는 연못이 있었어요." },
-        { "text": "Many disabled people lay there.", "ko": "많은 장애가 있는 사람들이 거기 누워 있었어요." },
-        { "text": "Jesus asked him gently, \"Do you really want to get better?\"", "ko": "예수님은 그에게 부드럽게 \"정말 낫고 싶으냐?\"고 물으셨어요." }
+        {
+          "text": "There was a pool called Bethesda.",
+          "ko": "베데스다라는 연못이 있었어요."
+        },
+        {
+          "text": "Many disabled people lay there.",
+          "ko": "많은 장애가 있는 사람들이 거기 누워 있었어요."
+        },
+        {
+          "text": "Jesus asked him gently, \"Do you really want to get better?\"",
+          "ko": "예수님은 그에게 부드럽게 \"정말 낫고 싶으냐?\"고 물으셨어요."
+        }
       ],
       "orderQuiz": [
         "There was a pool called Bethesda.",
@@ -62,31 +355,112 @@
         "Jesus asked him gently, \"Do you really want to get better?\""
       ],
       "mixQuiz": [
-        { "q": "\"The man had been sick for 8 years.\"", "opts": [{"text":"거짓","correct":true},{"text":"참","correct":false}] },
-        { "q": "\"Jesus healed the man on the Sabbath.\"", "opts": [{"text":"참","correct":true},{"text":"거짓","correct":false}] },
-        { "q": "'disabled'와 비슷한 뜻은?", "opts": [{"text":"unable to walk","correct":true},{"text":"very strong","correct":false},{"text":"very happy","correct":false}] }
+        {
+          "q": "\"The man had been sick for 8 years.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus healed the man on the Sabbath.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'disabled'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "unable to walk",
+              "correct": true
+            },
+            {
+              "text": "very strong",
+              "correct": false
+            },
+            {
+              "text": "very happy",
+              "correct": false
+            }
+          ]
+        }
       ],
-      "krEnFill": { "kr": "예수님이 '일어나 걸어가라' 말씀하셨다", "template": "Jesus said, \"Get up and ___.\"", "answer": "walk" }
+      "krEnFill": {
+        "kr": "예수님이 '일어나 걸어가라' 말씀하셨다",
+        "template": "Jesus said, \"Get up and ___.\"",
+        "answer": "walk"
+      }
     },
     "forest": {
-      "helperWords": { "authority":"권세", "testimony":"증언", "resurrection":"부활" },
+      "helperWords": {
+        "authority": "권세",
+        "testimony": "증언",
+        "resurrection": "부활"
+      },
       "paragraphs": [
-        { "text": "Jesus explained that his Father never stops working, not even on the Sabbath — and since he and the Father worked together, he didn't stop either. That answer only made the religious leaders angrier, because now Jesus wasn't just breaking a Sabbath rule; he was claiming God as his own Father, which put him on equal footing with God.", "ko": "예수님은 자신의 아버지께서 안식일에도 결코 일을 멈추지 않으시며, 자신도 아버지와 함께 일한다고 설명하셨습니다. 이 대답은 종교 지도자들을 더 화나게 만들었는데, 이제 예수님이 단순히 안식일 규정을 어긴 것이 아니라 하나님을 자기 아버지라 주장함으로써 자신을 하나님과 동등하게 여기신다고 보였기 때문입니다." },
-        { "text": "Jesus made a bold promise: anyone who listens to what he says and puts their trust in the one who sent him already has life that lasts forever — they don't have to wait to be judged, because they've already crossed over from death into life.", "ko": "예수님은 담대한 약속을 하셨습니다. 그분의 말씀을 듣고 그분을 보내신 분을 신뢰하는 사람은 이미 영원히 이어지는 생명을 가지고 있으며, 심판을 기다릴 필요 없이 이미 죽음에서 생명으로 건너갔다는 것이었습니다." },
-        { "text": "He went further, saying that someday even people who had already died would hear his voice calling them and would come back to life.", "ko": "그분은 더 나아가, 언젠가는 이미 죽은 사람들조차도 자신의 음성을 듣고 다시 살아날 날이 올 것이라고 말씀하셨습니다." }
+        {
+          "text": "Jesus explained that his Father never stops working, not even on the Sabbath — and since he and the Father worked together, he didn't stop either. That answer only made the religious leaders angrier, because now Jesus wasn't just breaking a Sabbath rule; he was claiming God as his own Father, which put him on equal footing with God.",
+          "ko": "예수님은 자신의 아버지께서 안식일에도 결코 일을 멈추지 않으시며, 자신도 아버지와 함께 일한다고 설명하셨습니다. 이 대답은 종교 지도자들을 더 화나게 만들었는데, 이제 예수님이 단순히 안식일 규정을 어긴 것이 아니라 하나님을 자기 아버지라 주장함으로써 자신을 하나님과 동등하게 여기신다고 보였기 때문입니다."
+        },
+        {
+          "text": "Jesus made a bold promise: anyone who listens to what he says and puts their trust in the one who sent him already has life that lasts forever — they don't have to wait to be judged, because they've already crossed over from death into life.",
+          "ko": "예수님은 담대한 약속을 하셨습니다. 그분의 말씀을 듣고 그분을 보내신 분을 신뢰하는 사람은 이미 영원히 이어지는 생명을 가지고 있으며, 심판을 기다릴 필요 없이 이미 죽음에서 생명으로 건너갔다는 것이었습니다."
+        },
+        {
+          "text": "He went further, saying that someday even people who had already died would hear his voice calling them and would come back to life.",
+          "ko": "그분은 더 나아가, 언젠가는 이미 죽은 사람들조차도 자신의 음성을 듣고 다시 살아날 날이 올 것이라고 말씀하셨습니다."
+        }
       ],
       "multiSelect": [
-        { "text": "Jesus said his Father is always at work.", "correct": true },
-        { "text": "The Jews were happy about Jesus's words.", "correct": false },
-        { "text": "Whoever believes has eternal life.", "correct": true },
-        { "text": "Jesus said no one would hear his voice.", "correct": false }
+        {
+          "text": "Jesus said his Father is always at work.",
+          "correct": true
+        },
+        {
+          "text": "The Jews were happy about Jesus's words.",
+          "correct": false
+        },
+        {
+          "text": "Whoever believes has eternal life.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said no one would hear his voice.",
+          "correct": false
+        }
       ],
       "summaryQuiz": [
-        { "q": "이 문단 전체를 가장 잘 요약한 것은?", "opts": [
-          {"text":"예수님이 아버지와 함께 일하신다고 말씀하시며, 자신을 믿는 자마다 영생을 얻는다고 하셨다","correct":true},
-          {"text":"유대인들이 예수님을 왕으로 세우려 했다","correct":false},
-          {"text":"병자가 스스로 일어나 걸었다","correct":false}
-        ] }
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님이 아버지와 함께 일하신다고 말씀하시며, 자신을 믿는 자마다 영생을 얻는다고 하셨다",
+              "correct": true
+            },
+            {
+              "text": "유대인들이 예수님을 왕으로 세우려 했다",
+              "correct": false
+            },
+            {
+              "text": "병자가 스스로 일어나 걸었다",
+              "correct": false
+            }
+          ]
+        }
       ],
       "essayQuestion": "How do you think the healed man felt? Write one sentence in English."
     }
