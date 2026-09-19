@@ -113,7 +113,17 @@
     "what": "무엇",
     "who": "누구",
     "whole": "전체의",
-    "just": "그냥"
+    "just": "그냥",
+    "along": "함께",
+    "as": "~한 대로",
+    "did": "~했다",
+    "exactly": "정확히",
+    "like": "~처럼",
+    "request": "부탁",
+    "seemed": "~처럼 보였다",
+    "so": "그래서",
+    "strange": "이상한",
+    "they": "그들은"
   },
   "levels": {
     "sprout": {
@@ -306,22 +316,22 @@
       },
       "sentences": [
         {
-          "text": "Jesus went to a wedding in Cana of Galilee.",
-          "ko": "예수님은 갈릴리 가나에서 열린 결혼식에 가셨어요."
+          "text": "Jesus went to a wedding in Cana of Galilee. His mother and his followers went along with him.",
+          "ko": "예수님은 갈릴리 가나에서 열린 결혼식에 가셨어요. 그분의 어머니와 제자들도 함께 갔어요."
         },
         {
-          "text": "When the wine ran out, his mother asked for his help.",
-          "ko": "포도주가 떨어지자, 그분의 어머니가 도움을 요청했어요."
+          "text": "Partway through the celebration, the wine ran out. So his mother came to Jesus and asked him to help.",
+          "ko": "잔치 도중에 포도주가 떨어졌어요. 그래서 어머니가 예수님께 와서 도와달라고 부탁하셨어요."
         },
         {
-          "text": "Jesus told the servants to fill the jars with water.",
-          "ko": "예수님은 하인들에게 항아리에 물을 채우라고 하셨어요."
+          "text": "Jesus told the servants to fill six stone jars with water. Even though it seemed like a strange request, they did exactly as he said.",
+          "ko": "예수님은 하인들에게 돌항아리 여섯 개에 물을 채우라고 하셨어요. 이상한 부탁처럼 보였지만, 그들은 그분이 말한 대로 정확히 했어요."
         }
       ],
       "orderQuiz": [
-        "Jesus went to a wedding in Cana of Galilee.",
-        "When the wine ran out, his mother asked for his help.",
-        "Jesus told the servants to fill the jars with water."
+        "Jesus went to a wedding in Cana of Galilee. His mother and his followers went along with him.",
+        "Partway through the celebration, the wine ran out. So his mother came to Jesus and asked him to help.",
+        "Jesus told the servants to fill six stone jars with water. Even though it seemed like a strange request, they did exactly as he said."
       ],
       "mixQuiz": [
         {
