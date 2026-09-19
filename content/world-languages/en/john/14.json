@@ -1,1 +1,507 @@
-
+{
+  "book": "john",
+  "chapter": 14,
+  "language": "en",
+  "version": "2.0",
+  "dictionary": {
+    "a": "한",
+    "abandon": "버리다",
+    "about": "~에 대해",
+    "actually": "실제로",
+    "admitted": "인정했다",
+    "afraid": "두려운",
+    "ahead": "먼저",
+    "already": "이미",
+    "also": "또한",
+    "and": "그리고",
+    "answered": "대답했다",
+    "anxious": "불안한",
+    "anyone": "누구든지",
+    "anything": "아무것도",
+    "ask": "요청하다",
+    "asked": "물었다",
+    "at": "~에",
+    "back": "다시",
+    "be": "~이다",
+    "because": "~때문에",
+    "become": "~하게 되다",
+    "before": "~전에",
+    "behind": "뒤에",
+    "better": "더 나은",
+    "but": "그러나",
+    "by": "~로",
+    "clear": "분명한",
+    "closely": "가깝게",
+    "come": "오다",
+    "coming": "다가오는",
+    "could": "할 수 있었다",
+    "couldn't": "할 수 없었다",
+    "direction": "방향",
+    "disciples": "제자들",
+    "do": "하다",
+    "else": "다른",
+    "enough": "충분한",
+    "even": "심지어",
+    "every": "모든",
+    "everyone": "모든 사람",
+    "except": "~을 제외하고",
+    "explained": "설명했다",
+    "father": "아버지",
+    "father's": "아버지의",
+    "fend": "스스로 살아가다",
+    "followers": "제자들",
+    "for": "~을 위해",
+    "forever": "영원히",
+    "fragile": "깨지기 쉬운",
+    "gently": "부드럽게",
+    "get": "~하게 만들다",
+    "gift": "선물",
+    "give": "주다",
+    "gives": "준다",
+    "glad": "기쁜",
+    "god": "하나님",
+    "going": "가는 것",
+    "gone": "떠난",
+    "had": "가지고 있었다",
+    "happened": "일어났다",
+    "he": "그는",
+    "headed": "향하는",
+    "hearts": "마음들",
+    "helper": "도우미",
+    "him": "그를",
+    "himself": "그 자신",
+    "his": "그의",
+    "hold": "유지하다",
+    "house": "집",
+    "how": "어떻게",
+    "idea": "생각",
+    "if": "만약",
+    "in": "~안에",
+    "inside": "안에",
+    "is": "~이다",
+    "it": "그것",
+    "itself": "그 자체",
+    "jesus": "예수님",
+    "joined": "연결된",
+    "just": "단지",
+    "know": "알다",
+    "leave": "떠나다",
+    "leaving": "떠나는 것",
+    "left": "남겨진",
+    "let": "~하게 하다",
+    "life": "생명",
+    "like": "~처럼",
+    "live": "살다",
+    "love": "사랑",
+    "loved": "사랑했다",
+    "made": "만들었다",
+    "matter": "상관없이",
+    "meant": "의미했다",
+    "more": "더",
+    "need": "필요하다",
+    "needed": "필요했다",
+    "never": "결코 ~않다",
+    "no": "아니다",
+    "nobody": "아무도 ~않다",
+    "not": "~않다",
+    "nothing": "아무것도",
+    "obedience": "순종",
+    "of": "~의",
+    "offers": "제공한다",
+    "once": "일단",
+    "or": "또는",
+    "orphans": "고아들",
+    "out": "밖으로",
+    "peace": "평안",
+    "permanently": "영구적으로",
+    "philip": "빌립",
+    "place": "장소",
+    "pointed": "지적했다",
+    "prepare": "준비하다",
+    "promised": "약속했다",
+    "reach": "이르다",
+    "ready": "준비된",
+    "real": "진정한",
+    "reality": "실체",
+    "reason": "이유",
+    "reassured": "안심시켰다",
+    "receive": "받아들이다",
+    "recognize": "알아보다",
+    "road": "길",
+    "room": "자리",
+    "see": "보다",
+    "seen": "보았다",
+    "send": "보내다",
+    "sensing": "느끼며",
+    "shown": "보여진",
+    "shows": "보여준다",
+    "simply": "단순히",
+    "since": "~때문에",
+    "so": "그래서",
+    "someone": "누군가",
+    "something": "무언가",
+    "source": "근원",
+    "stay": "머물다",
+    "steady": "안정적인",
+    "than": "~보다",
+    "that": "저것/그것",
+    "the": "그",
+    "their": "그들의",
+    "them": "그들을",
+    "themselves": "그들 스스로",
+    "then": "그다음",
+    "there": "거기",
+    "they": "그들은",
+    "things": "것들",
+    "this": "이것",
+    "thomas": "도마",
+    "though": "~이지만",
+    "thought": "생각했다",
+    "through": "~을 통해",
+    "to": "~에게",
+    "together": "함께",
+    "told": "말했다",
+    "troubled": "근심하는",
+    "truly": "진정으로",
+    "truth": "진리",
+    "two": "둘",
+    "unlike": "~와 다른",
+    "very": "매우",
+    "was": "~였다",
+    "wasn't": "~아니었다",
+    "way": "길",
+    "well": "잘",
+    "were": "~였다",
+    "what": "무엇",
+    "when": "~할 때",
+    "which": "어느",
+    "who": "누구",
+    "whom": "누구를",
+    "will": "~할 것이다",
+    "with": "~와 함께",
+    "words": "말들",
+    "world": "세상",
+    "worry": "걱정하다",
+    "would": "~할 것이다",
+    "your": "너의"
+  },
+  "levels": {
+    "sprout": {
+      "vocab": [
+        {
+          "word": "way",
+          "meaning": "길"
+        },
+        {
+          "word": "afraid",
+          "meaning": "두려운"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Jesus is the way to God.",
+          "ko": "예수님은 하나님께 이르는 길이세요."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "way",
+          "opts": [
+            {
+              "text": "🛤️",
+              "kr": "길",
+              "correct": true
+            },
+            {
+              "text": "🌙",
+              "kr": "밤",
+              "correct": false
+            },
+            {
+              "text": "📖",
+              "kr": "책",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "들려주는 단어에 맞는 그림을 골라보세요",
+          "listen": "afraid",
+          "opts": [
+            {
+              "text": "😨",
+              "kr": "두려운",
+              "correct": true
+            },
+            {
+              "text": "😊",
+              "kr": "기쁜",
+              "correct": false
+            },
+            {
+              "text": "😴",
+              "kr": "자는",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus is the way to God."
+    },
+    "tree": {
+      "vocab": [
+        {
+          "word": "troubled",
+          "meaning": "근심하는"
+        },
+        {
+          "word": "way",
+          "meaning": "길"
+        },
+        {
+          "word": "truth",
+          "meaning": "진리"
+        },
+        {
+          "word": "peace",
+          "meaning": "평안"
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Do not let your hearts be troubled.",
+          "ko": "너희 마음에 근심하지 말라."
+        },
+        {
+          "text": "Jesus is the way, the truth, and the life.",
+          "ko": "예수님은 길이요 진리요 생명이세요."
+        },
+        {
+          "text": "Jesus will send a helper.",
+          "ko": "예수님이 도우미를 보내주실 거예요."
+        },
+        {
+          "text": "Jesus gives his peace.",
+          "ko": "예수님이 자신의 평안을 주세요."
+        }
+      ],
+      "fillBlank": {
+        "template": "Jesus is the way, the truth, and the ___.",
+        "answer": "life",
+        "options": [
+          "life",
+          "world",
+          "book"
+        ]
+      },
+      "mixQuiz": [
+        {
+          "q": "'troubled'의 뜻은?",
+          "opts": [
+            {
+              "text": "근심하는",
+              "correct": true
+            },
+            {
+              "text": "기쁜",
+              "correct": false
+            },
+            {
+              "text": "배고픈",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'peace'의 뜻은?",
+          "opts": [
+            {
+              "text": "전쟁",
+              "correct": false
+            },
+            {
+              "text": "평안",
+              "correct": true
+            },
+            {
+              "text": "소음",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "무슨 문장을 들었나요?",
+          "listen": "Jesus will send a helper.",
+          "opts": [
+            {
+              "text": "Jesus will send a helper.",
+              "correct": true
+            },
+            {
+              "text": "Jesus will send a letter.",
+              "correct": false
+            },
+            {
+              "text": "Jesus will leave forever.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "🛤️ 은 무슨 단어일까요?",
+          "opts": [
+            {
+              "text": "way",
+              "correct": true
+            },
+            {
+              "text": "truth",
+              "correct": false
+            },
+            {
+              "text": "peace",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "repeatSentence": "Jesus gives his peace."
+    },
+    "fruit": {
+      "helperWords": {
+        "troubled": "근심하는",
+        "prepare": "준비하다",
+        "helper": "도우미"
+      },
+      "sentences": [
+        {
+          "text": "Jesus told his followers not to let their hearts be troubled, even though he was about to leave them. He promised he was going to prepare a place for them in his Father's house.",
+          "ko": "예수님은 자신이 곧 떠나실 것임에도, 제자들에게 마음에 근심하지 말라고 말씀하셨어요. 그분은 아버지의 집에 그들을 위한 자리를 마련하러 가신다고 약속하셨어요."
+        },
+        {
+          "text": "Thomas asked how they could know the way there. Jesus answered that he himself was the way, the truth, and the life.",
+          "ko": "도마는 그곳으로 가는 길을 어떻게 알 수 있는지 물었어요. 예수님은 자신이 바로 그 길이요 진리요 생명이라고 대답하셨어요."
+        },
+        {
+          "text": "Jesus promised to send a helper who would stay with them forever. He also promised to leave them a peace unlike anything the world could give.",
+          "ko": "예수님은 영원히 그들과 함께 있을 도우미를 보내주겠다고 약속하셨어요. 그분은 또한 세상이 줄 수 있는 것과는 다른 평안을 그들에게 남겨주겠다고 약속하셨어요."
+        }
+      ],
+      "orderQuiz": [
+        "Jesus told his followers not to let their hearts be troubled, even though he was about to leave them. He promised he was going to prepare a place for them in his Father's house.",
+        "Thomas asked how they could know the way there. Jesus answered that he himself was the way, the truth, and the life.",
+        "Jesus promised to send a helper who would stay with them forever. He also promised to leave them a peace unlike anything the world could give."
+      ],
+      "mixQuiz": [
+        {
+          "q": "\"Jesus told them to be troubled and afraid.\"",
+          "opts": [
+            {
+              "text": "거짓",
+              "correct": true
+            },
+            {
+              "text": "참",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "\"Jesus said he is the way, the truth, and the life.\"",
+          "opts": [
+            {
+              "text": "참",
+              "correct": true
+            },
+            {
+              "text": "거짓",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "q": "'helper'와 비슷한 뜻은?",
+          "opts": [
+            {
+              "text": "someone who supports you",
+              "correct": true
+            },
+            {
+              "text": "someone who ignores you",
+              "correct": false
+            },
+            {
+              "text": "someone who leaves you",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "krEnFill": {
+        "kr": "예수님은 도우미를 보내주겠다고 약속하셨다",
+        "template": "Jesus promised to send a ___.",
+        "answer": "helper"
+      }
+    },
+    "forest": {
+      "helperWords": {
+        "advocate": "보혜사",
+        "orphans": "고아들",
+        "obedience": "순종"
+      },
+      "paragraphs": [
+        {
+          "text": "Sensing how anxious his followers had become at the thought of him leaving, Jesus told them there was no need to worry — his Father's house had more than enough room for everyone, and he was going ahead simply to get things ready before coming back for them. When Thomas admitted he had no idea which direction Jesus was even headed, Jesus answered that he himself was the road they needed, the reality behind every truth, and the very source of life — nobody could reach the Father except by going through him. Philip then asked to be shown the Father, and Jesus gently pointed out that anyone who had truly seen him had already seen the Father, since the two of them were so closely joined together.",
+          "ko": "제자들이 자신이 떠난다는 생각에 불안해하는 것을 느끼신 예수님은, 걱정할 필요 없다고 말씀하셨습니다 — 아버지의 집에는 모두를 위한 넉넉한 자리가 있고, 자신은 그저 그들을 위해 준비하러 먼저 가서 다시 데리러 오실 거라고 하셨습니다. 도마가 예수님이 어느 방향으로 가시는지조차 모르겠다고 하자, 예수님은 자신이 바로 그들에게 필요한 길이요, 모든 진리의 실체이며, 생명의 근원 그 자체라고 대답하셨습니다 — 자신을 통하지 않고는 아무도 아버지께 이를 수 없다는 것이었습니다. 빌립이 아버지를 보여달라고 부탁하자, 예수님은 자신을 진정으로 본 사람은 이미 아버지를 본 것이라고, 둘이 그토록 가깝게 하나로 연결되어 있기 때문이라고 부드럽게 말씀해주셨습니다."
+        },
+        {
+          "text": "Jesus promised that once he was gone, he would ask the Father to send someone else to stay with them permanently — a helper the world couldn't recognize or receive, but whom the disciples would know well because that helper would actually live inside them. He reassured them he wasn't going to abandon them like orphans left to fend for themselves; he would come back to them in a way the world could never see.",
+          "ko": "예수님은 자신이 떠난 후 아버지께 부탁드려 영원히 그들과 함께 머물 또 다른 분을 보내주시게 하겠다고 약속하셨습니다 — 세상은 알아보지도 받아들이지도 못하지만, 제자들은 그분이 실제로 자기 안에 사시게 될 것이기에 잘 알게 될 도우미였습니다. 그분은 자신이 그들을 스스로 알아서 살아가야 하는 고아처럼 버려두지 않을 거라고 안심시키셨습니다. 세상은 결코 볼 수 없는 방식으로 그들에게 다시 오시겠다는 것이었습니다."
+        },
+        {
+          "text": "Jesus explained that real love shows itself through obedience, not just words. He then left them with a gift of peace, but made clear it was nothing like the fragile peace the world offers — this peace could hold steady no matter what happened, so there was no reason for them to be troubled or afraid. He even told them that if they truly loved him, they would be glad he was going to the Father, because it meant something even better was coming.",
+          "ko": "예수님은 진정한 사랑이 말뿐 아니라 순종으로 드러난다고 설명하셨습니다. 그런 다음 그들에게 평안이라는 선물을 남기셨는데, 이는 세상이 주는 깨지기 쉬운 평안과는 전혀 다른 것이라고 분명히 하셨습니다 — 이 평안은 무슨 일이 있어도 흔들리지 않기에, 근심하거나 두려워할 이유가 없다는 것이었습니다. 그분은 심지어 그들이 자신을 진정으로 사랑한다면, 자신이 아버지께 가는 것을 기뻐할 거라고 말씀하셨습니다. 그것이 훨씬 더 좋은 일이 다가온다는 뜻이었기 때문입니다."
+        }
+      ],
+      "multiSelect": [
+        {
+          "text": "Jesus said his Father's house has enough room for everyone.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said no one needed him to reach the Father.",
+          "correct": false
+        },
+        {
+          "text": "Jesus promised to send a helper who would live inside his followers.",
+          "correct": true
+        },
+        {
+          "text": "Jesus said his peace was exactly like the world's peace.",
+          "correct": false
+        }
+      ],
+      "summaryQuiz": [
+        {
+          "q": "이 문단 전체를 가장 잘 요약한 것은?",
+          "opts": [
+            {
+              "text": "예수님은 떠나심을 앞두고 제자들을 위로하시며 자신이 길이요 진리요 생명이라 하시고, 도우미를 보내겠다 약속하시며 세상과 다른 평안을 주셨다",
+              "correct": true
+            },
+            {
+              "text": "제자들이 예수님을 떠나기로 했다",
+              "correct": false
+            },
+            {
+              "text": "도마가 길을 정확히 알고 있었다",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "essayQuestion": "Why do you think Jesus's peace is different from the world's peace? Write one sentence in English."
+    }
+  }
+}
