@@ -414,6 +414,9 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-lang-quiz-opt:hover:not(:disabled){border-color:var(--amber);}
 .sow-lang-quiz-opt.correct{background:var(--amber);border-color:var(--amber);color:#fff;}
 .sow-lang-quiz-opt.wrong{background:var(--clay-tint);border-color:var(--clay);color:var(--clay);}
+.sow-lang-quiz-opt-kr,.sow-lang-opt-kr{font-size:11px;font-weight:600;opacity:.7;margin-left:3px;}
+.sow-lang-quiz-opt.correct .sow-lang-opt-kr,.sow-lang-quiz-opt.wrong .sow-lang-opt-kr{opacity:.85;}
+.sow-lang-quiz-feedback{font-size:var(--fs-xs);font-weight:700;color:var(--clay);margin-top:8px;min-height:16px;}
 .sow-lang-quiz-opt.emoji{font-size:22px;padding:10px 16px;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .sow-lang-emoji-kr{font-size:var(--fs-sm);font-weight:700;color:var(--ink-soft);}
 .sow-lang-quiz-opt.emoji.correct .sow-lang-emoji-kr,.sow-lang-quiz-opt.emoji.wrong .sow-lang-emoji-kr{color:#fff;}
