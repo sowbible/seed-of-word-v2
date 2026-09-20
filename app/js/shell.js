@@ -932,7 +932,7 @@
           };
           wrap.appendChild(b);
         });
-        if(listen) speak(listen, 0.6);
+        // 문제가 뜨자마자 자동으로 소리가 나던 부분을 제거 — 이제 "🔊 다시 듣기" 버튼을 눌러야만 재생된다
       }
       draw();
     }
