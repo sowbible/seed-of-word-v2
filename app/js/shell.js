@@ -894,21 +894,41 @@
       function draw(){
         if(idx >= questions.length){ box.innerHTML = `<div class="sow-lang-quiz-done">🌱 다 풀었어요!</div>`; return; }
         const { q, opts, listen } = questions[idx];
+        const shuffledOpts = shuffleArr(opts); // 매 문제마다 선택지 순서를 섞어서, 정답이 항상 같은 자리에 오지 않게 한다
+        let wrongCount = 0;
         box.innerHTML = `<div class="sow-lang-quiz-progress">${idx+1} / ${questions.length}</div>
           <div class="sow-lang-quiz-q">${q}</div>
           ${listen ? `<button class="sow-lang-btn-listen" style="margin-bottom:8px;">🔊 다시 듣기</button>` : ''}
-          <div class="sow-lang-quiz-opts"></div>`;
+          <div class="sow-lang-quiz-opts"></div>
+          <div class="sow-lang-quiz-feedback"></div>`;
         if(listen) box.querySelector('.sow-lang-btn-listen').onclick = () => speak(listen, 0.6);
         const wrap = box.querySelector('.sow-lang-quiz-opts');
-        opts.forEach(o => {
+        const feedback = box.querySelector('.sow-lang-quiz-feedback');
+        shuffledOpts.forEach(o => {
           const b = document.createElement('button');
           b.className = 'sow-lang-quiz-opt' + (emojiMode ? ' emoji' : '');
-          b.innerHTML = emojiMode && o.kr ? `<span>${o.text}</span><span class="sow-lang-emoji-kr">${o.kr}</span>` : o.text;
+          b.innerHTML = emojiMode && o.kr ? `<span>${o.text}</span><span class="sow-lang-emoji-kr">${o.kr}</span>` : formatOptLabel(o.text);
           b.onclick = () => {
-            wrap.querySelectorAll('.sow-lang-quiz-opt').forEach(x=>x.disabled=true);
-            b.classList.add(o.correct?'correct':'wrong');
-            if(!o.correct){ [...wrap.children].find((x,i)=>opts[i].correct).classList.add('correct'); }
-            setTimeout(()=>{ idx++; draw(); }, 800);
+            if(b.disabled) return;
+            if(o.correct){
+              wrap.querySelectorAll('.sow-lang-quiz-opt').forEach(x=>x.disabled=true);
+              b.classList.add('correct');
+              feedback.textContent = '';
+              setTimeout(()=>{ idx++; draw(); }, 800);
+            } else {
+              wrongCount++;
+              b.classList.add('wrong');
+              b.disabled = true; // 틀린 선택지는 다시 못 고르게, 나머지는 계속 시도 가능
+              if(wrongCount < 2){
+                feedback.textContent = '다시 한번 살펴보세요';
+              } else {
+                wrap.querySelectorAll('.sow-lang-quiz-opt').forEach(x=>x.disabled=true);
+                const correctBtn = [...wrap.children].find((x,i)=>shuffledOpts[i].correct);
+                if(correctBtn) correctBtn.classList.add('correct');
+                feedback.textContent = '';
+                setTimeout(()=>{ idx++; draw(); }, 1200);
+              }
+            }
           };
           wrap.appendChild(b);
         });
@@ -917,7 +937,21 @@
       draw();
     }
 
-    function shuffleArr(a){ return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]); }
+    function shuffleArr(a){
+      const arr = a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
+      // 항목이 2개 이상인데 우연히 원래 순서 그대로 섞였으면, 앞의 두 개만 바꿔서 "안 섞인 것처럼" 보이지 않게 한다
+      if(arr.length > 1 && arr.every((v,i)=>v===a[i])){
+        [arr[0], arr[1]] = [arr[1], arr[0]];
+      }
+      return arr;
+    }
+
+    // "True(참)", "False(거짓)"처럼 "단어(한글)" 형태의 선택지 텍스트에서, 괄호 안 한글만 작게 표시
+    function formatOptLabel(text){
+      const m = /^(.*?)(\([^)]+\))\s*$/.exec(text);
+      if(!m) return text;
+      return `${m[1]}<span class="sow-lang-opt-kr">${m[2]}</span>`;
+    }
 
     function stageLabel(text){ const d=document.createElement('div'); d.className='sow-lang-stage-label'; d.textContent=text; return d; }
     function sectionLabel(text){ const d=document.createElement('div'); d.className='sow-lang-section-label'; d.textContent=text; return d; }
@@ -1032,7 +1066,8 @@
         p.appendChild(sectionLabel('🇰🇷→🇺🇸 한글 보고 빈칸 채우기'));
         const kf = LV.fruit.krEnFill;
         const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card';
-        qbox.innerHTML = `<div class="sow-lang-quiz-q">"${kf.kr}"<br>${kf.template.replace('___', '<input class="sow-lang-fillin">')}</div>
+        const fillinWidth = Math.max(56, kf.answer.length * 13 + 24); // 정답 글자 수에 맞춰 빈칸 폭을 늘리거나 줄임
+        qbox.innerHTML = `<div class="sow-lang-quiz-q">"${kf.kr}"<br>${kf.template.replace('___', `<input class="sow-lang-fillin" style="width:${fillinWidth}px">`)}</div>
           <button class="sow-lang-btn-check">확인</button><div class="sow-lang-fillin-result"></div>`;
         qbox.querySelector('.sow-lang-btn-check').onclick = () => {
           const val = qbox.querySelector('.sow-lang-fillin').value.trim().toLowerCase();
@@ -1088,8 +1123,42 @@
         p.appendChild(stageLabel('③ 표현 — 영어로 써보세요'));
         const qbox = document.createElement('div'); qbox.className='sow-lang-quiz-card';
         qbox.innerHTML = `<div class="sow-lang-quiz-q">${LV.forest.essayQuestion}</div>
-          <textarea class="sow-lang-essay" placeholder="Type your answer here..."></textarea>`;
+          <textarea class="sow-lang-essay" placeholder="Type your answer here..."></textarea>
+          <div class="sow-lang-record-row" style="margin-top:10px;">
+            <button type="button" class="sow-lang-btn-record">🎙️ 답변 녹음하기</button>
+            <button type="button" class="sow-lang-btn-play" disabled>▶️ 내 목소리 듣기</button>
+          </div>
+          <div class="sow-lang-record-status">글로 써도 되고, 말로 녹음해서 답해도 좋아요</div>`;
         p.appendChild(qbox);
+
+        // 답변 녹음 — 정답을 맞히는 용도가 아니라 자유롭게 말한 답을 녹음/재생만 해준다 (기존 recordCard와 같은 방식)
+        const essayRecBtn = qbox.querySelector('.sow-lang-btn-record');
+        const essayPlayBtn = qbox.querySelector('.sow-lang-btn-play');
+        const essayStatus = qbox.querySelector('.sow-lang-record-status');
+        let essayRecorder, essayChunks = [], essayBlobUrl = null, essayRecording = false;
+        essayRecBtn.onclick = async () => {
+          if(!essayRecording){
+            try{
+              const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+              essayChunks = [];
+              essayRecorder = new MediaRecorder(stream);
+              essayRecorder.ondataavailable = e => essayChunks.push(e.data);
+              essayRecorder.onstop = () => {
+                essayBlobUrl = URL.createObjectURL(new Blob(essayChunks, { type: 'audio/webm' }));
+                essayPlayBtn.disabled = false;
+                essayStatus.textContent = '녹음 완료! "내 목소리 듣기"를 눌러보세요';
+                stream.getTracks().forEach(t => t.stop());
+              };
+              essayRecorder.start(); essayRecording = true;
+              essayRecBtn.textContent = '⏹️ 녹음 끝내기'; essayRecBtn.classList.add('recording');
+              essayStatus.textContent = '녹음 중이에요... 답을 말해보세요';
+            }catch(err){ essayStatus.textContent = '마이크 권한이 필요해요 — 브라우저에서 허용해주세요'; }
+          } else {
+            essayRecorder.stop(); essayRecording = false;
+            essayRecBtn.textContent = '🎙️ 답변 녹음하기'; essayRecBtn.classList.remove('recording');
+          }
+        };
+        essayPlayBtn.onclick = () => { if(essayBlobUrl) new Audio(essayBlobUrl).play(); };
       }
     }
 
