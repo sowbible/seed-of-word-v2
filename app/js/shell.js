@@ -546,14 +546,14 @@
       `</div>
       <div id="sow-vocab-quiz-slot"></div>`;
     // 퀴즈는 누르지 않아도 바로 보인다 — 어휘 목록을 본 다음 자연스럽게 이어서 복습하도록.
-    runVocabQuiz(container.querySelector('#sow-vocab-quiz-slot'), data.relatedWords);
+    runVocabQuiz(container.querySelector('#sow-vocab-quiz-slot'), data.relatedWords, null, real.book, real.chapter);
   }
 
   /* ---------- 낱말 퀴즈 — 새 콘텐츠 없이 오늘의 어휘 5개를 그대로 재활용 ----------
      새 단어(정답) + 같은 날 다른 단어 중 2개(오답)를 섞어서 3지선다를 만든다.
      점수/등수는 안 보여준다 — "비교보다 기록"(1절 원칙 5)과 같은 이유로,
      맞았는지 틀렸는지 그 자리에서만 확인하고 넘어가는 가벼운 복습용이다. */
-  function runVocabQuiz(container, words, theme){
+  function runVocabQuiz(container, words, theme, book, step){
     if(!words || words.length < 2){ return; } // 오답을 만들 단어가 부족하면 조용히 생략
     const heading = document.createElement('div');
     heading.className = theme === 'blue' ? 'sow-quiz-heading sow-quiz-heading-blue' : 'sow-quiz-heading';
@@ -569,6 +569,8 @@
     function drawQuestion(){
       if(idx >= words.length){
         quizWrap.innerHTML = `<div class="sow-quiz-done">🌱 오늘 어휘 ${words.length}개 다 풀어봤어요!</div>`;
+        // 낱말 퀴즈를 끝까지 풀었을 때만 "오늘의 활동"으로 기록 — 테마로 한자 관련어휘/일반 어휘를 구분
+        window.SOWLogActivity?.(theme === 'blue' ? 'hanja' : 'vocab', book, step);
         return;
       }
       const correct = words[idx];
@@ -646,7 +648,7 @@
       // 한자 퀴즈도 어휘 퀴즈랑 똑같은 로직을 재활용한다 — 새 콘텐츠 없이, 이미 있는 관련 어휘로 3지선다를 만든다.
       // runVocabQuiz는 {word, shortDesc} 모양을 기대하므로, meaning을 shortDesc로 매핑해서 넘긴다.
       const quizWords = h.relatedWords.map(w => ({ word: w.word, shortDesc: w.meaning }));
-      runVocabQuiz(container.querySelector('#sow-hanja-quiz-slot'), quizWords, 'blue');
+      runVocabQuiz(container.querySelector('#sow-hanja-quiz-slot'), quizWords, 'blue', real.book, real.chapter);
     }
 
     if(window.HanziWriter){
@@ -676,7 +678,10 @@
             width: 180, height: 180, padding: 8, showOutline: true
           });
           quizWriter.quiz({
-            onComplete: () => { msg.textContent = `참 잘 썼어요, ${h.character}! 🈶`; }
+            onComplete: () => {
+              msg.textContent = `참 잘 썼어요, ${h.character}! 🈶`;
+              window.SOWLogActivity?.('hanja', real.book, real.chapter);
+            }
           });
         }
         startQuiz();
@@ -712,6 +717,13 @@
         container.querySelectorAll('.sow-discussion-item').forEach(item => item.classList.remove('active'));
         input.closest('.sow-discussion-item').classList.add('active');
       });
+    });
+    // 답변을 쓰고 입력창 밖으로 포커스를 옮기면(작성을 마치면) 오늘의 활동으로 기록
+    const writingTextarea = container.querySelector('.sow-writing-textarea');
+    writingTextarea?.addEventListener('blur', () => {
+      if(writingTextarea.value.trim().length > 5){
+        window.SOWLogActivity?.('writing', real.book, real.chapter);
+      }
     });
   }
 
@@ -892,7 +904,11 @@
     function renderMCQuiz(box, questions, emojiMode){
       let idx = 0;
       function draw(){
-        if(idx >= questions.length){ box.innerHTML = `<div class="sow-lang-quiz-done">🌱 다 풀었어요!</div>`; return; }
+        if(idx >= questions.length){
+          box.innerHTML = `<div class="sow-lang-quiz-done">🌱 다 풀었어요!</div>`;
+          window.SOWLogActivity?.('language', real.book, real.chapter);
+          return;
+        }
         const { q, opts, listen } = questions[idx];
         const shuffledOpts = shuffleArr(opts); // 매 문제마다 선택지 순서를 섞어서, 정답이 항상 같은 자리에 오지 않게 한다
         let wrongCount = 0;
