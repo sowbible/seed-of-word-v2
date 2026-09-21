@@ -570,7 +570,9 @@
       if(idx >= words.length){
         quizWrap.innerHTML = `<div class="sow-quiz-done">🌱 오늘 어휘 ${words.length}개 다 풀어봤어요!</div>`;
         // 낱말 퀴즈를 끝까지 풀었을 때만 "오늘의 활동"으로 기록 — 테마로 한자 관련어휘/일반 어휘를 구분
-        window.SOWLogActivity?.(theme === 'blue' ? 'hanja' : 'vocab', book, step);
+        const _type = theme === 'blue' ? 'hanja' : 'vocab';
+        window.SOWLogActivity?.(_type, book, step);
+        window.SOWActivityLog?.markToday({ type: _type, book, step });
         return;
       }
       const correct = words[idx];
@@ -681,6 +683,7 @@
             onComplete: () => {
               msg.textContent = `참 잘 썼어요, ${h.character}! 🈶`;
               window.SOWLogActivity?.('hanja', real.book, real.chapter);
+              window.SOWActivityLog?.markToday({ type: 'hanja', book: real.book, step: real.chapter });
             }
           });
         }
@@ -718,13 +721,8 @@
         input.closest('.sow-discussion-item').classList.add('active');
       });
     });
-    // 답변을 쓰고 입력창 밖으로 포커스를 옮기면(작성을 마치면) 오늘의 활동으로 기록
-    const writingTextarea = container.querySelector('.sow-writing-textarea');
-    writingTextarea?.addEventListener('blur', () => {
-      if(writingTextarea.value.trim().length > 5){
-        window.SOWLogActivity?.('writing', real.book, real.chapter);
-      }
-    });
+    // 글쓰기 저장/기록은 persist.js가 자동저장 시점에 알아서 처리한다
+    // (Supabase entries 동기화 + 로컬 달력 태깅 둘 다) — 여기서 따로 훅 안 걸어도 된다.
   }
 
   async function renderKoreanWriting(container, real){
@@ -907,6 +905,7 @@
         if(idx >= questions.length){
           box.innerHTML = `<div class="sow-lang-quiz-done">🌱 다 풀었어요!</div>`;
           window.SOWLogActivity?.('language', real.book, real.chapter);
+          window.SOWActivityLog?.markToday({ type: 'language', book: real.book, step: real.chapter });
           return;
         }
         const { q, opts, listen } = questions[idx];
