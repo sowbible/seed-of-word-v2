@@ -6,6 +6,11 @@
    v2(2026-08-29): "💾 저장" 버튼(session-toolbar.js)이 즉시 저장을
    요청할 수 있도록 flush()를 추가. 저장이 실제로 일어날 때마다
    window.SOWActivityLog.markToday()를 호출해서 달력에 반영한다.
+
+   v3: 저장 키가 어떤 "종류"(묵상/글쓰기)인지 구분해서 markToday에
+   함께 넘기도록 확장 — 달력에서 종류별 아이콘을 보여주기 위함.
+   글쓰기(korean:{book}:{step}:writing)도 이제 Supabase entries에
+   동기화된다 — 예전엔 묵상(5토막 키)만 대상이라 빠져 있었다.
    ========================================================= */
 (function(){
   const registry = [];
@@ -29,12 +34,27 @@
     }catch(_){ return null; }
   }
 
+  /* 저장 키를 보고 "이게 뭔지"(종류 + Supabase에 보낼 때 쓸 parts)를 판단한다.
+     - 묵상: meditation:{trackId}:{book}:{step}:{promptId} (5토막)
+     - 글쓰기: korean:{book}:{step}:writing (4토막, 마지막이 'writing') */
+  function classifyKey(key){
+    const parts = key.split(':');
+    if(parts[0] === 'meditation' && parts.length >= 5){
+      return { type: 'meditation', trackId: parts[1], book: parts[2], step: parts[3], syncParts: parts };
+    }
+    if(parts[0] === 'korean' && parts.length === 4 && parts[3] === 'writing'){
+      return { type: 'writing', trackId: null, book: parts[1], step: parts[2], syncParts: ['korean', 'writing', parts[1], parts[2], 'writing'] };
+    }
+    return { type: null, trackId: null, book: null, step: null, syncParts: null };
+  }
+
   function enhance(el){
     if(!el || el.dataset.sowPersistEnhanced === '1') return;
     const key = el.dataset.persistKey;
     if(!key) return;
     el.dataset.sowPersistEnhanced = '1';
     const storeKey = 'sow.field.' + key;
+    const info = classifyKey(key);
 
     const saved = readSaved(storeKey);
     if(saved && saved.value && !el.value) el.value = saved.value;
@@ -65,24 +85,21 @@
       }catch(_){}
       refresh();
       if(el.value && el.value.trim()){
-        // key 형식: {moduleId}:{trackId}:{book}:{step}:{fieldId} — 성경묵상 기록이면
-        // 그날 걸음(책/장/코스)까지 활동 로그에 남겨서, 달력에서 그 날짜를 누르면
-        // 바로 그 걸음으로 이동할 수 있게 한다.
-        const parts = key.split(':');
-        if(parts.length >= 4 && parts[0] === 'meditation'){
-          window.SOWActivityLog?.markToday({ trackId: parts[1], book: parts[2], step: parts[3] });
+        // 로컬 달력용 활동 로그 — 묵상/글쓰기 둘 다 종류(type)를 같이 남긴다.
+        // book/step이 있으면(묵상/글쓰기 둘 다 있음) 달력에서 그 걸음으로 이동 가능.
+        if(info.type){
+          window.SOWActivityLog?.markToday({ type: info.type, trackId: info.trackId, book: info.book, step: info.step });
         } else {
           window.SOWActivityLog?.markToday();
         }
         // 성경지도(reading-map.js)가 "지금 화면에 뜬 실제 장이 방금 저장됐다"는 걸 알 수 있게 신호만 보낸다.
-        // 어떤 장인지는 각 렌더러가 미리 SOWReadingMap.setCurrentChapters()로 등록해둔다.
         document.dispatchEvent(new CustomEvent('sow:saved'));
-        // 로그인 상태면 Supabase에도 같이 저장 (SUPABASE_SETUP.md 연동 후 활성화됨).
-        // 로그인 안 했으면 SOWSyncEntry 내부에서 조용히 스킵 — 로컬 저장은 이미 됐으니 문제없음.
-        if(parts.length >= 5 && parts[0] === 'meditation' && window.SOWSyncEntry){
+        // 로그인 상태면 Supabase(entries)에도 같이 저장 — 묵상 + 글쓰기 둘 다.
+        // 로그인 안 했으면 SOWSyncEntry 내부에서 조용히 스킵.
+        if(info.syncParts && window.SOWSyncEntry){
           let shareable = false;
           try{ shareable = localStorage.getItem('sow.share.' + key) === '1'; }catch(_){}
-          window.SOWSyncEntry(parts, el.value, shareable);
+          window.SOWSyncEntry(info.syncParts, el.value, shareable);
         }
       }
     }
