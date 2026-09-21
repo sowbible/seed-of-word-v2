@@ -3,43 +3,68 @@
    성경묵상 화면(어떤 코스든)에 공통으로 붙는 개인 기록 영역.
 
    v3(2026-08-29): "📅 달력" 하나뿐이던 것을 "📅 달력 / 🗺️ 성경지도" 두 뷰로
-   확장했다. 성경지도는 실제로 읽은 성경 장(章)에 도장을 찍듯 표시한다 —
-   읽은 장 데이터는 reading-map.js가 관리(sow.read.chapters).
+   확장했다. 성경지도는 실제로 읽은 성경 장(章)에 도장을 찍듯 표시한다.
 
-   활동 기록(sow.activity.dates)은 이 파일이 아니라 persist.js가 채운다
-   (입력이 저장될 때마다 markToday(detail) 호출) — 이 파일은 그 로그를
-   읽어서 보여주고, 클릭했을 때 이동시키는 쪽만 담당한다.
+   v4: 달력이 활동 종류(묵상/글쓰기/어휘/한자/언어)를 이모지로 구분해서
+   보여주고, 로그인 상태면 Supabase에서 그 달 기록을 불러와 묵상/글쓰기
+   전문을 모달로 보여준다. 로그인 안 했으면 예전처럼 로컬(localStorage)
+   기록만으로 "완료 표시 + 클릭 시 그 걸음으로 이동"까지만 동작한다.
    ========================================================= */
 (function(){
   const ACTIVITY_KEY = 'sow.activity.dates';
   const WEEKDAYS = ['일','월','화','수','목','금','토'];
+  const TYPE_EMOJI = { meditation:'📝', writing:'✏️', vocab:'📖', hanja:'🈶', language:'🌍' };
+  const TYPE_LABEL = { meditation:'묵상', writing:'글쓰기', vocab:'어휘', hanja:'한자', language:'언어' };
 
   function pad2(n){ return String(n).padStart(2,'0'); }
   function dateKey(d){ return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`; }
   function base(){ return (window.SOW_CONTEXT && window.SOW_CONTEXT.basePath) || ''; }
+  function uniq(arr){ return [...new Set(arr)]; }
 
   function readActivity(){
     try{ return JSON.parse(localStorage.getItem(ACTIVITY_KEY) || '{}'); }catch(_){ return {}; }
   }
-  /* detail = { trackId, book, step } — 성경묵상 기록일 때만 넘어온다.
-     detail이 없으면(국어 등 다른 모듈 기록) 그냥 true로만 표시 — 클릭 이동은 안 됨. */
+
+  /* detail = { type, trackId, book, step } — type이 있으면 그 종류로 태깅해서 쌓는다.
+     같은 날 여러 종류를 하면(예: 묵상도 쓰고 어휘도 풀고) types 배열에 같이 모인다.
+     detail이 없으면(옛날 형식과의 호환용) 그냥 표시만 되는 항목으로 남는다. */
   function markToday(detail){
     try{
       const log = readActivity();
       const key = dateKey(new Date());
-      const existing = log[key];
-      if(detail){
-        log[key] = { done: true, ...detail };
+      const existing = normalizeEntry(log[key]);
+      if(detail && detail.type){
+        log[key] = {
+          types: uniq([...(existing?.types || []), detail.type]),
+          trackId: detail.trackId || existing?.trackId || null,
+          book: detail.book || existing?.book || null,
+          step: detail.step || existing?.step || null
+        };
       } else if(!existing){
-        log[key] = true;
+        log[key] = { types: [], trackId: null, book: null, step: null }; // "뭔가 했다"만 표시, 아이콘은 없음
       }
       localStorage.setItem(ACTIVITY_KEY, JSON.stringify(log));
     }catch(_){}
   }
+
+  /* 예전 저장 형식(boolean true, 또는 {done,trackId,book,step})도 새 형식으로 읽어준다 */
+  function normalizeEntry(raw){
+    if(!raw) return null;
+    if(raw.types) return raw; // 이미 새 형식
+    if(raw === true) return { types: [], trackId: null, book: null, step: null };
+    if(typeof raw === 'object'){
+      // 예전엔 묵상만 detail을 남겼으니, book/step이 있으면 묵상으로 간주
+      return { types: raw.book ? ['meditation'] : [], trackId: raw.trackId || null, book: raw.book || null, step: raw.step || null };
+    }
+    return null;
+  }
+
   window.SOWActivityLog = { readActivity, markToday, dateKey };
 
   /* ---------- 📅 달력 ---------- */
-  function buildMonthHtml(viewDate, activity){
+  /* dataMap: { 'YYYY-MM-DD': { types:[...], book, step, trackId, journalEntries?:[...] } }
+     journalEntries가 있으면(=Supabase에서 불러온 경우) 날짜를 눌렀을 때 상세 모달을 띄운다. */
+  function buildMonthHtml(viewDate, dataMap){
     const y = viewDate.getFullYear(), m = viewDate.getMonth();
     const first = new Date(y, m, 1);
     const daysInMonth = new Date(y, m+1, 0).getDate();
@@ -48,11 +73,22 @@
     for(let i=0;i<first.getDay();i++) cells += `<div class="sow-cal-cell empty"></div>`;
     for(let d=1; d<=daysInMonth; d++){
       const str = `${y}-${pad2(m+1)}-${pad2(d)}`;
-      const entry = activity[str];
-      const done = !!entry;
-      const clickable = done && typeof entry === 'object' && entry.book && entry.step;
+      const entry = dataMap[str];
       const isToday = str === todayStr;
-      cells += `<div class="sow-cal-cell${done?' done':''}${clickable?' clickable':''}${isToday?' today':''}" data-date="${str}">${d}${done?'<span class="sow-cal-dot"></span>':''}</div>`;
+      if(!entry){
+        cells += `<div class="sow-cal-cell${isToday?' today':''}"><span class="sow-cal-daynum">${d}</span></div>`;
+        continue;
+      }
+      const types = entry.types || [];
+      const hasJournal = !!(entry.journalEntries && entry.journalEntries.length) || types.includes('meditation') || types.includes('writing');
+      const clickable = !!(entry.journalEntries) || (entry.book && entry.step);
+      const badgeIcons = types.slice(0,3).map(t => `<span class="sow-cal-badge">${TYPE_EMOJI[t] || '•'}</span>`).join('');
+      const more = types.length > 3 ? `<span class="sow-cal-badge-more">+${types.length-3}</span>` : '';
+      cells += `<div class="sow-cal-cell done${clickable?' clickable':''}${isToday?' today':''}" data-date="${str}">
+        ${hasJournal ? `<span class="sow-cal-journal-mark">📝</span>` : ''}
+        <span class="sow-cal-daynum">${d}</span>
+        <div class="sow-cal-badges">${badgeIcons}${more}</div>
+      </div>`;
     }
     return `
       <div class="sow-cal-head">
@@ -62,12 +98,18 @@
       </div>
       <div class="sow-cal-weekdays">${WEEKDAYS.map(w => `<span>${w}</span>`).join('')}</div>
       <div class="sow-cal-grid">${cells}</div>
-      <p class="sow-cal-legend"><span class="sow-cal-dot"></span> 기록을 남긴 날 · 눌러서 그날 묵상 보기</p>`;
+      <div class="sow-cal-legend-row">
+        <span class="sow-cal-legend">📝 묵상</span>
+        <span class="sow-cal-legend">✏️ 글쓰기</span>
+        <span class="sow-cal-legend">📖 어휘</span>
+        <span class="sow-cal-legend">🈶 한자</span>
+        <span class="sow-cal-legend">🌍 언어</span>
+      </div>`;
   }
 
   /* 기록된 날짜를 눌렀을 때 그날의 걸음(책/장)으로 이동 */
   function navigateToEntry(entry){
-    if(!entry || typeof entry !== 'object' || !entry.book || !entry.step) return;
+    if(!entry || !entry.book || !entry.step) return;
     try{
       if(entry.trackId){
         localStorage.setItem('sow.track.meditation', entry.trackId);
@@ -83,20 +125,125 @@
     location.href = url.toString();
   }
 
+  /* 날짜 상세 모달 — 그날 묵상/글쓰기 전문 + 나머지 활동 아이콘 목록.
+     journalEntries가 없는(=로그인 안 해서 로컬 데이터만 있는) 경우엔 모달 대신 바로 이동시킨다. */
+  function openDayModal(dateStr, entry){
+    const overlay = document.createElement('div');
+    overlay.className = 'sow-modal-overlay';
+
+    const journalEntries = entry.journalEntries || [];
+    const journalHtml = journalEntries.length
+      ? journalEntries.map(e => `
+          <div class="sow-day-modal-journal">
+            <div class="sow-day-modal-journal-label">${e.prompt_id === 'writing' ? '✏️ 글쓰기' : '📝 묵상'} — ${e.book || ''} ${e.step || ''}장</div>
+            <div class="sow-day-modal-journal-text">${(e.value || '').replace(/</g,'&lt;')}</div>
+          </div>`).join('')
+      : `<div class="sow-day-modal-empty">이 날은 남긴 글이 없어요</div>`;
+
+    const otherTypes = (entry.types || []).filter(t => t !== 'meditation' && t !== 'writing');
+    const activityHtml = otherTypes.length
+      ? otherTypes.map(t => `<div class="sow-day-modal-activity"><span class="e">${TYPE_EMOJI[t] || '•'}</span> ${TYPE_LABEL[t] || t} 완료</div>`).join('')
+      : '';
+
+    const goBtn = (entry.book && entry.step)
+      ? `<button type="button" class="sow-bible-view-btn" data-goto style="margin-top:12px;width:100%;">그날 본문으로 가기</button>`
+      : '';
+
+    overlay.innerHTML = `<div class="sow-modal-card">
+      <div class="sow-modal-head">${dateStr}<button type="button" data-close>✕</button></div>
+      <div class="sow-day-modal-activities">${activityHtml}</div>
+      ${journalHtml}
+      ${goBtn}
+    </div>`;
+    overlay.querySelector('[data-close]').onclick = () => overlay.remove();
+    overlay.querySelector('[data-goto]')?.addEventListener('click', () => navigateToEntry(entry));
+    overlay.onclick = (e) => { if(e.target === overlay) overlay.remove(); };
+    document.body.appendChild(overlay);
+  }
+
   function buildInlineCalendar(container){
-    const activity = readActivity();
     let view = new Date();
-    function draw(){
-      container.innerHTML = buildMonthHtml(view, activity);
+    let dataMap = {};       // 로컬 기준(항상 있음) — 비로그인 폴백
+    let supaMap = null;     // Supabase 기준(로그인 시에만, 달 바뀔 때마다 다시 불러옴)
+    let loadingMonth = null;
+
+    function localDataForMonth(){
+      const activity = readActivity();
+      const out = {};
+      Object.keys(activity).forEach(k => {
+        const n = normalizeEntry(activity[k]);
+        if(n) out[k] = n;
+      });
+      return out;
+    }
+
+    async function loadSupabaseForView(){
+      if(!window.SOWAuth || !window.SOWFetchCalendarData) return null;
+      const session = await window.SOWAuth.getSession();
+      if(!session || !session.user) return null;
+      const y = view.getFullYear(), m = view.getMonth() + 1;
+      const start = `${y}-${pad2(m)}-01`;
+      const end = `${y}-${pad2(m)}-${pad2(new Date(y, m, 0).getDate())}`;
+      const monthTag = start;
+      loadingMonth = monthTag;
+      const byDate = await window.SOWFetchCalendarData(start, end);
+      if(loadingMonth !== monthTag) return null; // 그 사이 달이 또 바뀌었으면 이 결과는 버린다
+      // 로컬 log와 같은 모양으로 변환: journalEntries는 그대로 들고, types는 journalEntries + activities에서 뽑는다
+      const merged = {};
+      Object.keys(byDate).forEach(dateStr => {
+        const row = byDate[dateStr];
+        const types = uniq([
+          ...row.journalEntries.map(e => e.prompt_id === 'writing' ? 'writing' : 'meditation'),
+          ...row.activities
+        ]);
+        const last = row.journalEntries[row.journalEntries.length - 1];
+        merged[dateStr] = {
+          types,
+          book: last?.book || null,
+          step: last?.step || null,
+          trackId: null,
+          journalEntries: row.journalEntries
+        };
+      });
+      return merged;
+    }
+
+    async function draw(){
+      dataMap = localDataForMonth();
+      container.innerHTML = buildMonthHtml(view, dataMap);
+      wireCellHandlers();
+
+      // Supabase 데이터가 있으면(로그인 상태) 덮어써서 다시 그린다 — 전문 보기가 가능해짐
+      const fresh = await loadSupabaseForView();
+      if(fresh){
+        supaMap = fresh;
+        // 로컬에만 있고 Supabase엔 없는 날짜(동기화 전 항목 등)는 로컬 값을 그대로 살려둔다
+        const combined = { ...dataMap, ...supaMap };
+        container.innerHTML = buildMonthHtml(view, combined);
+        dataMap = combined;
+        wireCellHandlers();
+      }
+    }
+
+    function wireCellHandlers(){
       container.querySelectorAll('[data-nav]').forEach(btn => {
         btn.onclick = () => { view = new Date(view.getFullYear(), view.getMonth() + Number(btn.dataset.nav), 1); draw(); };
       });
       container.querySelectorAll('.sow-cal-cell.clickable').forEach(cell => {
-        cell.onclick = () => navigateToEntry(activity[cell.dataset.date]);
+        cell.onclick = () => {
+          const entry = dataMap[cell.dataset.date];
+          if(!entry) return;
+          if(entry.journalEntries){
+            openDayModal(cell.dataset.date, entry); // Supabase 데이터 있음 — 전문 모달
+          } else {
+            navigateToEntry(entry); // 로컬 폴백 — 바로 그 걸음으로 이동
+          }
+        };
       });
     }
+
     draw();
-    return { refresh: () => { Object.assign(activity, readActivity()); draw(); } };
+    return { refresh: () => draw() };
   }
 
   /* ---------- 🗺️ 성경지도 ---------- */
