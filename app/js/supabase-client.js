@@ -55,4 +55,66 @@
       console.error('[SOW] Supabase 동기화 중 오류:', e);
     }
   };
+
+  /* ---------- 활동 로그: 어휘/한자/언어/글쓰기 "완료" 이벤트 하나 남기기 ----------
+     묵상처럼 텍스트 전문이 필요 없는, "오늘 이 활동을 했다"는 사실만 기록한다.
+     하루에 같은 type은 한 줄만 남도록 (user_id, date, type) 유니크 제약으로 upsert —
+     여러 번 다시 풀어도 그날 이모지가 중복되지 않는다.
+     type: 'vocab' | 'hanja' | 'language' | 'writing' */
+  window.SOWLogActivity = async function(type, book, step){
+    try{
+      const session = await window.SOWAuth.getSession();
+      if(!session || !session.user) return; // 로그인 안 했으면 조용히 스킵
+      const today = new Date().toISOString().slice(0, 10); // 기기 로컬 기준 YYYY-MM-DD
+      const { error } = await client.from('activity_log').upsert({
+        user_id: session.user.id,
+        date: today,
+        type,
+        book: book || null,
+        step: (step === undefined || step === null) ? null : step
+      }, { onConflict: 'user_id,date,type' });
+      if(error) console.error('[SOW] 활동 로그 저장 실패:', error.message);
+    }catch(e){
+      console.error('[SOW] 활동 로그 기록 중 오류:', e);
+    }
+  };
+
+  /* ---------- 달력 화면용: 이번 달(또는 지정 범위) 기록을 한 번에 불러오기 ----------
+     묵상(entries, value가 있는 것)과 활동 로그(activity_log)를 합쳐서
+     날짜별로 묶어 돌려준다. SOWSessionToolbar 같은 달력 렌더러가 이걸 불러 쓰면 된다.
+     반환 형태: { "2026-09-20": { journalEntries: [...], activities: ["vocab","hanja"] }, ... } */
+  window.SOWFetchCalendarData = async function(startDate, endDate){
+    const session = await window.SOWAuth.getSession();
+    if(!session || !session.user) return {};
+
+    const [{ data: entries, error: e1 }, { data: acts, error: e2 }] = await Promise.all([
+      client.from('entries')
+        .select('book, step, prompt_id, value, created_at')
+        .eq('user_id', session.user.id)
+        .gte('created_at', startDate)
+        .lte('created_at', endDate)
+        .not('value', 'is', null),
+      client.from('activity_log')
+        .select('date, type, book, step')
+        .eq('user_id', session.user.id)
+        .gte('date', startDate)
+        .lte('date', endDate)
+    ]);
+    if(e1) console.error('[SOW] entries 조회 실패:', e1.message);
+    if(e2) console.error('[SOW] activity_log 조회 실패:', e2.message);
+
+    const byDate = {};
+    function bucket(dateStr){
+      if(!byDate[dateStr]) byDate[dateStr] = { journalEntries: [], activities: [] };
+      return byDate[dateStr];
+    }
+    (entries || []).forEach(row => {
+      const d = row.created_at.slice(0, 10);
+      bucket(d).journalEntries.push(row);
+    });
+    (acts || []).forEach(row => {
+      bucket(row.date).activities.push(row.type);
+    });
+    return byDate;
+  };
 })();
