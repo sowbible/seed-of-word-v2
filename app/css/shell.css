@@ -502,6 +502,17 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-compact-nav-label b{color:var(--ink);}
 .sow-compact-nav-jump{flex:none;background:none;border:none;font-size:16px;cursor:pointer;padding:2px 4px;}
 
+/* ---------- "완성된 콘텐츠" 칩 — 국어/언어 콘텐츠가 채워진 책으로 바로 이동 ---------- */
+.sow-ready-books-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:6px 4px 14px;}
+.sow-ready-books-label{font-size:var(--fs-2xs);font-weight:700;color:var(--ink-soft);white-space:nowrap;}
+.sow-ready-book-chip{
+  font-family:inherit;font-size:var(--fs-2xs);font-weight:700;padding:5px 12px;
+  border-radius:99px;border:1px solid var(--sprout);background:var(--sprout-tint);color:var(--ink);
+  cursor:pointer;transition:var(--ease);
+}
+.sow-ready-book-chip:hover{background:var(--sprout);color:#fff;}
+.sow-ready-book-chip.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+
 /* ---------- 입력 저장/초기화 바 ---------- */
 .sow-persist-bar{display:flex;align-items:center;gap:12px;margin-top:8px;min-height:16px;}
 .sow-persist-status{font-size:var(--fs-2xs);color:var(--sprout);font-weight:700;}
