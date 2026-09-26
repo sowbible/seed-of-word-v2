@@ -835,6 +835,15 @@
       u.lang = 'en-US'; u.rate = rate || 0.6;
       speechSynthesis.cancel(); speechSynthesis.speak(u);
     }
+    // 브라우저마다 MediaRecorder가 실제로 지원하는 오디오 형식이 달라서(특히 아이폰 사파리는
+    // webm을 아예 못 만듦), 지원되는 형식 중 하나를 순서대로 찾아 넘겨준다. 하나도 안 맞으면
+    // 브라우저 기본값을 그대로 쓰게 빈 객체를 준다.
+    function pickRecorderOptions(){
+      if(!window.MediaRecorder || !MediaRecorder.isTypeSupported) return {};
+      const candidates = ['audio/webm', 'audio/mp4', 'audio/ogg', 'audio/wav'];
+      const found = candidates.find(t => { try{ return MediaRecorder.isTypeSupported(t); }catch(_){ return false; } });
+      return found ? { mimeType: found } : {};
+    }
     function wireWordTaps(scopeEl){
       scopeEl.querySelectorAll('.sow-lang-word').forEach(el => {
         el.onclick = () => {
@@ -1216,10 +1225,10 @@
             try{
               const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
               essayChunks = [];
-              essayRecorder = new MediaRecorder(stream);
-              essayRecorder.ondataavailable = e => essayChunks.push(e.data);
+              essayRecorder = new MediaRecorder(stream, pickRecorderOptions());
+              essayRecorder.ondataavailable = e => { if(e.data && e.data.size > 0) essayChunks.push(e.data); };
               essayRecorder.onstop = () => {
-                essayBlobUrl = URL.createObjectURL(new Blob(essayChunks, { type: 'audio/webm' }));
+                essayBlobUrl = URL.createObjectURL(new Blob(essayChunks, { type: essayRecorder.mimeType || 'audio/webm' }));
                 essayPlayBtn.disabled = false;
                 essayStatus.textContent = '녹음 완료! "내 목소리 듣기"를 눌러보세요';
                 stream.getTracks().forEach(t => t.stop());
@@ -1256,10 +1265,12 @@
           try{
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             chunks = [];
-            recorder = new MediaRecorder(stream);
-            recorder.ondataavailable = e => chunks.push(e.data);
+            recorder = new MediaRecorder(stream, pickRecorderOptions());
+            recorder.ondataavailable = e => { if(e.data && e.data.size > 0) chunks.push(e.data); };
             recorder.onstop = () => {
-              blobUrl = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' }));
+              // Blob에는 실제로 녹음된 형식(recorder.mimeType)을 그대로 붙여야 재생이 된다 —
+              // 브라우저마다(특히 아이폰 사파리) webm이 아닌 다른 형식으로 녹음되기 때문.
+              blobUrl = URL.createObjectURL(new Blob(chunks, { type: recorder.mimeType || 'audio/webm' }));
               playBtn.disabled = false;
               status.textContent = '녹음 완료! "내 목소리 듣기"를 눌러보세요';
               stream.getTracks().forEach(t => t.stop());
