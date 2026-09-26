@@ -1,7 +1,10 @@
 /* =========================================================
-   SOW Auth Widget — 이메일 매직링크 로그인 UI
-   상단 네비 바로 아래에 붙는다. 로그인 전엔 이메일 입력창,
+   SOW Auth Widget — 로그인 UI (이메일 매직링크 + 구글 로그인)
+   상단 네비 바로 아래에 붙는다. 로그인 전엔 이메일 입력창 + 구글 버튼,
    로그인 후엔 "OO님 · 로그아웃"으로 바뀐다.
+
+   v2: 구글 로그인 버튼 추가 — 이메일 발송이 없어서 매직링크의
+   "시간당 발송 제한"과 무관하게 한 번 클릭으로 바로 로그인된다.
    ========================================================= */
 (function(){
   function render(container){
@@ -15,6 +18,10 @@
         container.querySelector('[data-act="logout"]').onclick = () => window.SOWAuth.signOut();
       } else {
         container.innerHTML = `<div class="sow-auth-bar">
+          <button type="button" class="sow-auth-btn sow-auth-btn-google" data-act="google">
+            <span class="sow-auth-google-icon">G</span> 구글로 로그인
+          </button>
+          <div class="sow-auth-divider"><span>또는</span></div>
           <input type="email" class="sow-auth-email" placeholder="이메일로 로그인 (기록을 서버에 저장하려면)">
           <button type="button" class="sow-auth-btn" data-act="login">로그인 링크 받기</button>
           <span class="sow-auth-msg"></span>
@@ -31,6 +38,13 @@
         };
         container.querySelector('[data-act="login"]').onclick = submit;
         emailInput.onkeydown = (e) => { if(e.key === 'Enter'){ e.preventDefault(); submit(); } };
+
+        container.querySelector('[data-act="google"]').onclick = async () => {
+          if(!window.SOWAuth?.signInWithGoogle){ msg.textContent = '구글 로그인을 불러오지 못했어요'; return; }
+          const { error } = await window.SOWAuth.signInWithGoogle();
+          if(error) msg.textContent = '오류: ' + error.message;
+          // 성공하면 구글 로그인 화면으로 바로 이동하므로, 여기서 더 할 일은 없다.
+        };
       }
     }
     draw();
