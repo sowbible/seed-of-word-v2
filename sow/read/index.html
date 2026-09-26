@@ -26,6 +26,15 @@
   document.write('<link rel="apple-touch-icon" href="' + window.SOW_BASE_PATH + '/app/icons/apple-touch-icon.png">');
   document.write('<link rel="icon" type="image/png" sizes="32x32" href="' + window.SOW_BASE_PATH + '/app/icons/favicon-32.png">');
   document.write('<link rel="icon" type="image/png" sizes="16x16" href="' + window.SOW_BASE_PATH + '/app/icons/favicon-16.png">');
+  /* PWA — 서비스워커 등록. 오프라인에서도 최소한은 뜨게 하고,
+     브라우저가 "홈 화면에 추가" 배너를 띄우려면 서비스워커가 반드시 있어야 한다. */
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register(window.SOW_BASE_PATH + '/sw.js').catch(function(err){
+        console.error('[SOW] 서비스워커 등록 실패:', err);
+      });
+    });
+  }
 </script>
 </head>
 <body>
