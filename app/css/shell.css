@@ -189,6 +189,11 @@ body.sow-drawer-open .sow-drawer-overlay{opacity:1;pointer-events:auto;}
 .sow-auth-btn{font-family:inherit;font-size:var(--fs-sm);font-weight:700;padding:9px 12px;border-radius:10px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap;transition:var(--ease);width:100%;}
 .sow-auth-btn:hover{background:var(--sprout);border-color:var(--sprout);}
 .sow-auth-msg{font-size:var(--fs-2xs);color:var(--sprout);font-weight:600;}
+.sow-auth-btn-google{background:#fff;color:var(--ink);border-color:var(--line);display:flex;align-items:center;justify-content:center;gap:8px;}
+.sow-auth-btn-google:hover{background:var(--sprout-tint);border-color:var(--sprout);}
+.sow-auth-google-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#4285F4;color:#fff;font-size:11px;font-weight:800;flex:none;}
+.sow-auth-divider{display:flex;align-items:center;gap:8px;margin:2px 0;color:var(--ink-soft);font-size:var(--fs-2xs);}
+.sow-auth-divider::before,.sow-auth-divider::after{content:'';flex:1;height:1px;background:var(--line);}
 
 /* ---------- 데스크톱(1024px 이상): 늘 보이는 좌측 사이드바 + 넓어진 본문 ---------- */
 @media (min-width: 1024px){
