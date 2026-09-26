@@ -308,7 +308,7 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 /* 한자 따라쓰기: 사용자가 그리는 획 두께 — HanziWriter가 인라인 style로 stroke-width를
    지정하므로(JS drawingWidth 옵션, 기본 4px) CSS만으로는 !important가 있어야 이긴다.
    더 두껍게 하고 싶으면 아래 값을 올리면 됨(예: 9px, 10px). */
-.sow-hanzi-canvas svg path{stroke-width:7px !important;}
+.sow-hanzi-canvas svg path{stroke-width:11px !important;}
 .sow-hanzi-btn{font-family:inherit;font-size:var(--fs-sm);font-weight:700;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:var(--ease);}
 .sow-hanzi-btn:hover{border-color:var(--sprout);background:var(--sprout-tint);}
 .sow-hanzi-quiz-msg{margin-top:10px;font-size:var(--fs-base);font-weight:700;color:var(--sprout);min-height:20px;}
