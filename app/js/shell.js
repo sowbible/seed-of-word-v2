@@ -132,6 +132,34 @@
      (파일이 실제 있는지 서버에 매번 물어보는 대신, 직접 관리하는 목록 — 더 간단하고 안전) */
   const READY_BOOKS = ['john'];
 
+  /* ---------- 모듈간 이동 링크 — 지금 보고 있는 모듈만 빼고 나머지로 가는 버튼들 ----------
+     성경묵상/국어/언어/성경관련 지식 화면 맨 아래에 공통으로 붙는다.
+     지금 보고 있는 책/장은 그대로 유지한 채 모듈만 바뀐다. */
+  function renderModuleCrossLinks(container, excludeModuleId){
+    if(!state.moduleRegistry) return;
+    const targets = state.moduleRegistry.filter(m => m.id !== excludeModuleId);
+    if(!targets.length) return;
+    const linkRow = document.createElement('div');
+    linkRow.className = 'sow-module-links';
+    targets.forEach(m => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'sow-module-link-btn';
+      btn.innerHTML = `<span>${m.icon}</span> ${pickLabel(m.label)} 보러가기`;
+      btn.onclick = () => {
+        state.activeModule = m.id;
+        if(m.id === 'meditation') state.activeSub.meditation = 'steps'; // 묵상으로 갈 땐 그룹 화면 말고 걸음 화면으로
+        const url = new URL(location.href);
+        url.searchParams.set('module', m.id);
+        history.replaceState(null, '', url);
+        window.SOWRenderNav?.();
+        renderModulePanel(document.getElementById('sow-main'));
+      };
+      linkRow.appendChild(btn);
+    });
+    container.appendChild(linkRow);
+  }
+
   /* ---------- followsTrackOf 모듈용 안내 배지 — "성경묵상 코스를 따라가고 있어요" ---------- */
   /* ---------- 압축된 한 줄 네비게이션 바 ----------
      예전엔 "지금 코스" 배지 / "이전·다음 걸음" / "본문 바로 가기"가 세 줄로 따로 있었는데,
@@ -1393,27 +1421,8 @@
           groupLink.onclick = () => { state.activeSub.meditation = 'overview'; renderModulePanel(main); };
           linkRow.appendChild(groupLink);
 
-          // 지금 보고 있는 책/장을 그대로 유지한 채, 국어/언어 화면으로 바로 넘어간다.
-          [
-            { id: 'korean', icon: '🔥', label: '국어' },
-            { id: 'world-languages', icon: '🌍', label: '언어' }
-          ].forEach(m => {
-            const meta = state.moduleRegistry.find(x => x.id === m.id);
-            if(!meta) return;
-            const btn = document.createElement('button');
-            btn.className = 'sow-voice-btn';
-            btn.style.cssText = 'background:var(--clay);';
-            btn.textContent = `${m.icon} ${m.label} 보러가기`;
-            btn.onclick = () => {
-              state.activeModule = m.id;
-              const url = new URL(location.href);
-              url.searchParams.set('module', m.id);
-              history.replaceState(null, '', url);
-              window.SOWRenderNav?.();
-              renderModulePanel(main);
-            };
-            linkRow.appendChild(btn);
-          });
+          // 지금 보고 있는 책/장을 그대로 유지한 채, 다른 모듈(국어/언어/성경관련 지식)로 바로 넘어간다.
+          renderModuleCrossLinks(bodyWrap, 'meditation');
         }catch(_){
           renderStepNotReady(bodyWrap);
         }
@@ -1456,6 +1465,8 @@
       } else {
         await SUB_RENDERERS[moduleId][activeSub](body, real);
       }
+      // 지금 보고 있는 책/장을 유지한 채, 다른 모듈로 바로 넘어갈 수 있게
+      renderModuleCrossLinks(body, moduleId);
     }catch(_){
       renderStepNotReady(body);
     }
@@ -1483,6 +1494,18 @@
     });
     document.getElementById('sow-drawer-overlay')?.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeDrawer(); });
+
+    // ---------- 오른쪽 아래 "위로 가기" 버튼 — 화면을 어느 정도 내렸을 때만 나타난다 ----------
+    const scrollTopBtn = document.createElement('button');
+    scrollTopBtn.type = 'button';
+    scrollTopBtn.className = 'sow-scroll-top-btn';
+    scrollTopBtn.setAttribute('aria-label', '맨 위로');
+    scrollTopBtn.textContent = '↑';
+    scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.appendChild(scrollTopBtn);
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+    }, { passive: true });
 
     const registry = await fetchJSON('/content/_module-registry.json');
     state.moduleRegistry = registry.modules.sort((a,b)=>a.order-b.order);
