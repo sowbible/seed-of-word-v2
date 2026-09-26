@@ -1125,7 +1125,7 @@
         const slot = qbox.querySelector('.sow-lang-order-slot'), pool = qbox.querySelector('.sow-lang-order-pool');
         let placed = [];
         shuffleArr(LV.fruit.orderQuiz).forEach(s => {
-          const chip = document.createElement('div'); chip.className='sow-lang-order-chip'; chip.textContent = s.slice(0,20)+'...';
+          const chip = document.createElement('div'); chip.className='sow-lang-order-chip'; chip.textContent = s;
           chip.onclick = () => {
             if(chip.classList.contains('placed')) return;
             chip.classList.add('placed');
@@ -1291,13 +1291,15 @@
 
   /* ---------- 성경관련 지식 ---------- */
   async function renderExplore(container, real, subId){
-    const data = await fetchJSON(`/content/explore/${subId}/${real.book}/${real.chapter}.json`);
+    // 장(chapter) 단위가 아니라 책(book) 전체 단위로 콘텐츠를 찾는다 — 시대 배경/인물/지도는
+    // 장마다 달라지는 게 아니라 책 전체에 걸친 내용이라, 장별로 쪼개면 오히려 부자연스럽다.
+    const data = await fetchJSON(`/content/explore/${subId}/${real.book}.json`);
     let html = '';
     if(subId === 'map'){
       html += `<div class="sow-empty-note" style="border-style:solid;font-style:normal;">🗺️ ${data.mapNote || ''}</div>`;
-      html += (data.locations || []).map(l => `<div class="sow-card sow-item-card"><div class="e">📍</div><div><h4>${l.name || l.title}</h4><p>${l.desc}</p></div></div>`).join('');
+      html += (data.locations || []).map(l => `<div class="sow-card sow-item-card"><div class="e">📍</div><div><h4>${l.name || l.title}</h4>${l.chapter ? `<div class="sub">${l.chapter}</div>` : ''}<p>${l.desc}</p></div></div>`).join('');
     } else {
-      html += (data.items || []).map(item => `<div class="sow-card sow-item-card"><div class="e">${item.icon}</div><div><h4>${item.title}</h4><div class="sub">${item.subtitle}</div><p>${item.desc}</p></div></div>`).join('');
+      html += (data.items || []).map(item => `<div class="sow-card sow-item-card"><div class="e">${item.icon}</div><div><h4>${item.title}</h4><div class="sub">${item.chapter ? `${item.chapter}장 · ` : ''}${item.subtitle}</div><p>${item.desc}</p></div></div>`).join('');
     }
     container.innerHTML = html;
   }
