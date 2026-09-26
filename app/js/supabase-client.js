@@ -29,6 +29,12 @@
       email,
       options: { emailRedirectTo: location.origin + location.pathname }
     }),
+    /* 구글 로그인 — 클릭하면 구글 로그인 화면으로 이동했다가, 승인하면 이 페이지로 돌아오면서 자동 로그인된다.
+       이메일 발송이 없어서 매직링크의 "시간당 발송 제한"과 전혀 무관하다. */
+    signInWithGoogle: () => client.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: location.origin + location.pathname }
+    }),
     signOut: () => client.auth.signOut()
   };
 
