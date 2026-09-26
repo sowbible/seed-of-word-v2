@@ -218,7 +218,7 @@
             // daily-chapter 트랙은 걸음 번호가 곧 "성경 전체 장 순서"라, 책 1장으로 결정론적으로 이동할 수 있다.
             try{ localStorage.setItem('sow.track.meditation', 'daily-chapter'); }catch(_){}
             const targetStep = flatChapterIndex(lib2, chip.dataset.book, 1);
-            navigateToStep(targetStep);
+            navigateToStep(targetStep, chip.dataset.book);
           };
         });
       }catch(_){ /* 라이브러리 못 불러오면 칩 없이 조용히 넘어감 */ }
@@ -233,7 +233,7 @@
         onChange: (newBook, newChapter) => {
           const flatIdx = flatChapterIndex(library, newBook, newChapter);
           const targetStep = trackMeta.yearPlan ? yearPlanDayForFlatIndex(flatIdx) : flatIdx;
-          navigateToStep(targetStep);
+          navigateToStep(targetStep, newBook);
         }
       });
       bar.querySelector('.sow-compact-nav-jump').onclick = () => jumper.toggle();
@@ -342,9 +342,10 @@
     }
     return idx || 1;
   }
-  function navigateToStep(newStep, moduleId){
+  function navigateToStep(newStep, book, moduleId){
     const url = new URL(location.href);
     url.searchParams.set('step', newStep);
+    if(book) url.searchParams.set('book', book); // 책이 바뀌는 이동(예: 완성된 콘텐츠 칩)일 때만 book도 같이 바꾼다
     url.searchParams.set('module', moduleId || state.activeModule || 'meditation');
     location.href = url.toString();
   }
