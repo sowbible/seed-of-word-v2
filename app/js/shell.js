@@ -126,6 +126,12 @@
     main.prepend(bar);
   }
 
+  /* ---------- 국어/언어(세계 언어) 콘텐츠가 실제로 채워진 책 ----------
+     새 책 콘텐츠를 다 채우실 때마다 이 배열에 book id만 한 줄 추가하면,
+     압축 네비바 아래 "완성된 콘텐츠" 칩에 자동으로 나타난다.
+     (파일이 실제 있는지 서버에 매번 물어보는 대신, 직접 관리하는 목록 — 더 간단하고 안전) */
+  const READY_BOOKS = ['john'];
+
   /* ---------- followsTrackOf 모듈용 안내 배지 — "성경묵상 코스를 따라가고 있어요" ---------- */
   /* ---------- 압축된 한 줄 네비게이션 바 ----------
      예전엔 "지금 코스" 배지 / "이전·다음 걸음" / "본문 바로 가기"가 세 줄로 따로 있었는데,
@@ -163,6 +169,32 @@
       };
     });
     main.appendChild(bar);
+
+    // "완성된 콘텐츠" 칩 — READY_BOOKS에 있는 책만, 국어/언어 콘텐츠가 준비됐다는 걸
+    // 한눈에 보여주고 눌러서 그 책 1장으로 바로 이동시켜준다. (성경묵상/국어/언어/지식 어디서든 공통으로 뜬다)
+    if(READY_BOOKS.length){
+      try{
+        const lib2 = library || await fetchJSON('/content/bible/_library.json');
+        const all2 = [...lib2.oldTestament.books, ...lib2.newTestament.books];
+        const readyRow = document.createElement('div');
+        readyRow.className = 'sow-ready-books-row';
+        readyRow.innerHTML = `<span class="sow-ready-books-label">✅ 완성된 콘텐츠</span>` +
+          READY_BOOKS.map(bid => {
+            const b = all2.find(x => x.id === bid);
+            const isCurrent = real && real.book === bid;
+            return `<button type="button" class="sow-ready-book-chip${isCurrent ? ' active' : ''}" data-book="${bid}">${b ? b.shortKo : bid}</button>`;
+          }).join('');
+        main.appendChild(readyRow);
+        readyRow.querySelectorAll('[data-book]').forEach(chip => {
+          chip.onclick = () => {
+            // daily-chapter 트랙은 걸음 번호가 곧 "성경 전체 장 순서"라, 책 1장으로 결정론적으로 이동할 수 있다.
+            try{ localStorage.setItem('sow.track.meditation', 'daily-chapter'); }catch(_){}
+            const targetStep = flatChapterIndex(lib2, chip.dataset.book, 1);
+            navigateToStep(targetStep);
+          };
+        });
+      }catch(_){ /* 라이브러리 못 불러오면 칩 없이 조용히 넘어감 */ }
+    }
 
     if(showJumperToggle && real && library){
       const jumperSlot = document.createElement('div');
