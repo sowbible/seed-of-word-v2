@@ -289,6 +289,14 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-hanja-card .origin{background:var(--sprout-tint);padding:10px 12px;border-radius:var(--radius-sm);}
 .sow-hanja-meta{font-size:var(--fs-xs);color:var(--ink-soft);font-weight:600;margin-bottom:8px;}
 
+/* 좁은 화면(휴대폰 세로)에서는 한자 큰 글자 + 설명이 가로로 나란히 있으면
+   설명 쪽 폭이 너무 좁아져서 글자가 한 자씩 줄바꿈되니, 세로로 쌓이게 바꾼다. */
+@media (max-width: 640px){
+  .sow-hanja-card{flex-direction:column;align-items:center;}
+  .sow-hanja-char-big{width:150px;height:150px;}
+  .sow-hanja-char-fallback{font-size:100px;}
+}
+
 /* ---------- 한자 획순 보기 / 써보기 (HanziWriter) ---------- */
 .sow-hanzi-row{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;}
 .sow-hanzi-row .sow-hanzi-writer-card{flex:1;min-width:200px;margin-top:0;}
