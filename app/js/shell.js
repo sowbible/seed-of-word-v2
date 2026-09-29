@@ -820,8 +820,23 @@
     });
     container.querySelector('[data-close]').onclick = () => container.querySelector('#sow-lang-popup').classList.remove('show');
 
+    // 언어마다 다른 음성합성 언어코드 — 지금까지 영어(en-US)만 있어서 하드코딩되어 있었다.
+    const LANG_TTS = { english: 'en-US', chinese: 'zh-CN' };
+    const ttsLang = LANG_TTS[langId] || 'en-US';
+    const isChinese = langId === 'chinese';
+
     const dict = data.dictionary || {};
     function wrapWords(text){
+      if(isChinese){
+        // 중국어는 띄어쓰기가 없어서(我爱你) 영어처럼 스페이스로 못 자르고, 한자 한 글자씩 자른다.
+        // 사전에 병음(py)이 있으면 <ruby>로 글자 위에 항상 표시한다(3장 "항상 표시" 방식으로 결정됨).
+        return text.split('').map(ch => {
+          if(!/[\u4e00-\u9fff]/.test(ch)) return ch; // 한자가 아닌 문자(구두점 등)는 그대로 통과
+          const entry = dict[ch];
+          const py = entry && typeof entry === 'object' ? entry.py : '';
+          return `<span class="sow-lang-word sow-lang-han" data-w="${ch}"><ruby>${ch}${py ? `<rt>${py}</rt>` : ''}</ruby></span>`;
+        }).join('');
+      }
       return text.split(' ').map(w => {
         // 단어 끝/시작에 붙는 문장부호(.,!?"·:;()—-)를 지운 뒤 사전에서 찾는다.
         // 이걸 다 지우고도 남는 게 없으면(예: 문장 사이 단독 "—") 클릭 가능한 단어로 만들지 않는다.
@@ -833,7 +848,7 @@
     function speak(text, rate){
       if(!window.speechSynthesis) return;
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US'; u.rate = rate || 0.6;
+      u.lang = ttsLang; u.rate = rate || 0.6;
       speechSynthesis.cancel(); speechSynthesis.speak(u);
     }
     // 브라우저마다 MediaRecorder가 실제로 지원하는 오디오 형식이 달라서(특히 아이폰 사파리는
@@ -849,8 +864,12 @@
       scopeEl.querySelectorAll('.sow-lang-word').forEach(el => {
         el.onclick = () => {
           const w = el.dataset.w;
-          container.querySelector('#sow-lang-popup-word').textContent = w;
-          container.querySelector('#sow-lang-popup-mean').textContent = dict[w] || '(뜻 준비중)';
+          const entry = dict[w];
+          // 영어는 사전값이 그냥 문자열(뜻)이고, 중국어는 {py, mean} 객체라 형태가 다르다.
+          const mean = entry && typeof entry === 'object' ? (entry.mean || '(뜻 준비중)') : (entry || '(뜻 준비중)');
+          const headWord = (isChinese && entry && entry.py) ? `${w} (${entry.py})` : w;
+          container.querySelector('#sow-lang-popup-word').textContent = headWord;
+          container.querySelector('#sow-lang-popup-mean').textContent = mean;
           container.querySelector('#sow-lang-popup').classList.add('show');
           speak(w);
         };
@@ -860,14 +879,22 @@
       const words = cardEl.querySelectorAll('.sow-lang-word');
       if(!window.speechSynthesis) return;
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US'; u.rate = rate || 0.65;
+      u.lang = ttsLang; u.rate = rate || 0.65;
       u.onboundary = (e) => {
         if(e.name !== 'word') return;
         words.forEach(w => w.classList.remove('speaking'));
-        // 이 지점(charIndex) 앞에 완성된 단어가 몇 개인지 세면, 그게 바로 "지금 읽는 단어"의 인덱스다.
-        // (예전엔 여기서 -1을 해서 하이라이트가 항상 한 단어씩 뒤에서 따라가는 버그가 있었다)
-        const before = text.slice(0, e.charIndex).trim();
-        const idx = before === '' ? 0 : before.split(/\s+/).length;
+        // 영어는 "이 지점 앞에 완성된 단어가 몇 개인지"로 인덱스를 세고,
+        // 중국어는 띄어쓰기가 없어서 대신 "이 지점 앞에 나온 한자가 몇 글자인지"로 센다.
+        let idx;
+        if(isChinese){
+          const before = text.slice(0, e.charIndex);
+          idx = (before.match(/[\u4e00-\u9fff]/g) || []).length;
+        } else {
+          const before = text.slice(0, e.charIndex).trim();
+          // 이 지점(charIndex) 앞에 완성된 단어가 몇 개인지 세면, 그게 바로 "지금 읽는 단어"의 인덱스다.
+          // (예전엔 여기서 -1을 해서 하이라이트가 항상 한 단어씩 뒤에서 따라가는 버그가 있었다)
+          idx = before === '' ? 0 : before.split(/\s+/).length;
+        }
         if(words[idx]) words[idx].classList.add('speaking');
       };
       u.onend = () => words.forEach(w => w.classList.remove('speaking'));
@@ -887,7 +914,7 @@
       card.className = 'sow-lang-sentence-card' + (alwaysShowTranslation ? ' always-translated' : '');
 
       const p = document.createElement('p');
-      p.className = 'sow-lang-sentence-text' + (big ? ' big' : '');
+      p.className = 'sow-lang-sentence-text' + (big ? ' big' : '') + (isChinese ? ' zh' : '');
       p.innerHTML = wrapWords(text);
 
       const listenBtn = document.createElement('button');
@@ -1454,9 +1481,9 @@
 
     const body = document.createElement('div');
     main.appendChild(body);
-    // 언어(world-languages)는 지금 영어만 콘텐츠가 있어서, 언어 선택 탭 자체를 안 보여준다.
-    // 나중에 다른 언어도 채워지면 이 조건을 없애고 다시 노출하면 된다.
-    if(moduleId !== 'world-languages'){
+    // 언어(world-languages)는 콘텐츠 있는 언어가 하나뿐일 땐 고를 필요가 없어서 탭을 숨긴다.
+    // 언어가 2개 이상(예: 중국어 추가)이 되면 자동으로 다시 나타난다.
+    if(!(moduleId === 'world-languages' && submodules.length <= 1)){
       const subtabs = document.createElement('div');
       subtabs.className = 'sow-subtabs';
       submodules.forEach(s => {
