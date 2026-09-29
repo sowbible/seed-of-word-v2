@@ -383,6 +383,18 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-lang-sentence-card{background:var(--paper-warm);border:1px solid var(--line-warm);border-radius:10px;padding:14px 16px;margin:0 auto 8px;max-width:640px;}
 .sow-lang-sentence-text{font-size:19px;line-height:1.95;font-weight:600;margin:0;}
 .sow-lang-sentence-text.big{font-size:var(--fs-2xl);}
+/* 중국어는 한자 위에 병음이 항상 얹히므로, 줄 사이 공간을 넉넉히 띄워서 위 줄 병음과 안 겹치게 한다 */
+.sow-lang-sentence-text.zh{line-height:2.7;}
+
+/* ---------- 중국어 한자 + 병음(ruby) — 한자 위에 병음이 작게 항상 보이는 방식 ---------- */
+.sow-lang-han{font-size:1.05em;}
+.sow-lang-han ruby{ruby-position:over;ruby-align:center;}
+.sow-lang-han rt{
+  font-size:11px;font-weight:700;color:var(--amber);
+  font-family:'Pretendard', system-ui, sans-serif; /* 병음 로마자는 한자용 글꼴 대신 일반 글꼴로 */
+  letter-spacing:0;user-select:none;
+}
+.sow-lang-han.speaking rt{color:#fff;}
 
 /* ---------- 우리말 해석: 레벨별 기본값 + 탭투리빌 ----------
    왕초급처럼 바로 보여줘야 하는 카드는 .sow-lang-sentence-card에
