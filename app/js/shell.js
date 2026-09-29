@@ -821,9 +821,9 @@
     container.querySelector('[data-close]').onclick = () => container.querySelector('#sow-lang-popup').classList.remove('show');
 
     // 언어마다 다른 음성합성 언어코드 — 지금까지 영어(en-US)만 있어서 하드코딩되어 있었다.
-    const LANG_TTS = { english: 'en-US', chinese: 'zh-CN' };
+    const LANG_TTS = { english: 'en-US', zh: 'zh-CN', ja: 'ja-JP', 'ko-for-foreigners': 'ko-KR' };
     const ttsLang = LANG_TTS[langId] || 'en-US';
-    const isChinese = langId === 'chinese';
+    const isChinese = langId === 'zh';
 
     const dict = data.dictionary || {};
     function wrapWords(text){
