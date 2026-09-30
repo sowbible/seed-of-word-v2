@@ -1169,7 +1169,7 @@
       if(LV.sprout.repeatSentence){
         p.appendChild(stageLabel('③ 표현 — 따라 말해보세요'));
         p.appendChild(sectionLabel('🔀 문장 순서 맞추기'));
-        p.appendChild(wordOrderSentenceQuiz(LV.sprout.repeatSentence));
+        p.appendChild(wordOrderSentenceQuiz(LV.sprout.repeatSentence, LV.sprout.vocab));
         p.appendChild(recordCard('sprout', LV.sprout.repeatSentence));
       }
     }
@@ -1213,7 +1213,7 @@
       if(LV.tree.repeatSentence){
         p.appendChild(stageLabel('③ 표현 — 따라 말해보세요'));
         p.appendChild(sectionLabel('🔀 문장 순서 맞추기'));
-        p.appendChild(wordOrderSentenceQuiz(LV.tree.repeatSentence));
+        p.appendChild(wordOrderSentenceQuiz(LV.tree.repeatSentence, LV.tree.vocab));
         p.appendChild(recordCard('tree', LV.tree.repeatSentence));
       }
     }
@@ -1361,11 +1361,30 @@
     /* ---------- 따라읽기 녹음 카드 (레벨별로 key 구분) ---------- */
     /* ---------- 단어 순서 맞추기 — 대표 문장 하나를 단어(중국어는 글자) 단위로 섞어서 원래 순서로 맞추는 문제 ----------
        콘텐츠를 새로 안 만들고, 이미 있는 repeatSentence(왕초급/초급의 "따라 말하기" 문장)를 그대로 재활용한다. */
-    function wordOrderSentenceQuiz(sentText){
+    /* 중국어는 띄어쓰기가 없어서, 오늘의 어휘(vocab)에 있는 단어(예: 耶稣, 上帝)는
+       한 덩어리로 붙여서 잘라내고, 나머지는 한 글자씩 자른다 — 정식 형태소 분석기 없이
+       "이미 아는 단어" 목록을 활용하는 방식(긴 단어부터 먼저 매칭). */
+    function tokenizeChineseWithVocab(text, vocabList){
+      const knownWords = (vocabList || [])
+        .map(v => v.word)
+        .filter(w => w && /^[\u4e00-\u9fff]+$/.test(w))
+        .sort((a, b) => b.length - a.length);
+      const hanOnly = text.replace(/[^\u4e00-\u9fff]/g, '');
+      const result = [];
+      let i = 0;
+      while(i < hanOnly.length){
+        const hit = knownWords.find(w => hanOnly.startsWith(w, i));
+        if(hit){ result.push(hit); i += hit.length; }
+        else{ result.push(hanOnly[i]); i += 1; }
+      }
+      return result;
+    }
+
+    function wordOrderSentenceQuiz(sentText, vocabList){
       const box = document.createElement('div'); box.className = 'sow-lang-quiz-card';
       const clean = sentText.replace(/[。！？.!?]\s*$/, '');
       const tokens = isChinese
-        ? clean.split('').filter(c => /[\u4e00-\u9fff]/.test(c))
+        ? tokenizeChineseWithVocab(clean, vocabList)
         : clean.split(' ').filter(Boolean);
       box.innerHTML = `<div class="sow-lang-quiz-q">문장을 순서대로 눌러 완성해보세요 <button type="button" class="sow-lang-btn-listen" style="font-size:16px;">🔊</button></div>
         <div class="sow-lang-order-slot"></div><div class="sow-lang-order-pool"></div>
