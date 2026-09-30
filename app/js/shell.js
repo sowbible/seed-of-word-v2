@@ -1373,14 +1373,20 @@
       box.querySelector('.sow-lang-btn-listen').onclick = () => speak(sentText, 0.6);
       const slot = box.querySelector('.sow-lang-order-slot'), pool = box.querySelector('.sow-lang-order-pool');
       const result = box.querySelector('.sow-lang-fillin-result');
-      pool.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;';
+      // 기존 .sow-lang-order-slot/-pool 클래스는 중급의 "긴 문장" 순서 맞추기용(세로 나열)이라,
+      // 짧은 단어를 나열하는 여기서는 가로(행)로 흐르도록 인라인으로 덮어쓴다.
+      const rowStyle = 'display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;align-items:flex-start;';
+      slot.style.cssText = rowStyle + 'min-height:44px;';
+      pool.style.cssText = rowStyle;
       let placed = [];
       shuffleArr(tokens).forEach(tok => {
         const chip = document.createElement('div'); chip.className = 'sow-lang-order-chip'; chip.textContent = tok;
+        chip.style.cssText = 'width:auto;flex:none;';
         chip.onclick = () => {
-          if(chip.classList.contains('placed')) return;
-          chip.classList.add('placed');
-          const pc = document.createElement('span'); pc.className = 'sow-lang-order-chip placed'; pc.style.cssText = 'display:inline-block;margin:2px;'; pc.textContent = tok;
+          if(chip.dataset.used) return;
+          chip.dataset.used = '1';
+          chip.style.display = 'none'; // 클릭한 단어는 풀에서 사라지고(숨김), 슬롯에만 보이게
+          const pc = document.createElement('span'); pc.className = 'sow-lang-order-chip placed'; pc.style.cssText = 'width:auto;flex:none;'; pc.textContent = tok;
           slot.appendChild(pc); placed.push(tok);
           if(placed.length === tokens.length){
             const ok = placed.join(isChinese ? '' : ' ') === tokens.join(isChinese ? '' : ' ');
