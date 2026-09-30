@@ -528,6 +528,70 @@
   }
 
   /* ---------- 성경묵상: 그룹 (정적 UI 문구만 — 실 데이터는 Supabase 연동 후) ---------- */
+  /* ---------- 성경묵상: 말씀 퀴즈 배지 (로컬 저장만 — 서버 테이블 안 씀, 가볍게) ----------
+     "이 장 퀴즈를 끝까지 풀었다"는 사실 하나만 브라우저에 기록한다. 점수/등수는 저장 안 함. */
+  function getQuizBadges(){
+    try{ return JSON.parse(localStorage.getItem('sow.quizBadges') || '{}'); }catch(_){ return {}; }
+  }
+  function awardQuizBadge(book, chapter){
+    const badges = getQuizBadges();
+    badges[`${book}-${chapter}`] = true;
+    try{ localStorage.setItem('sow.quizBadges', JSON.stringify(badges)); }catch(_){}
+    return Object.keys(badges).length;
+  }
+
+  /* ---------- 성경묵상: 말씀 퀴즈 — "했다/안했다" 체크 아니고 자유롭게 풀어보는 추가 코너 ----------
+     지금은 요한복음만 콘텐츠가 있고, 다른 책은 준비중 안내만 보여준다(언어/국어와 같은 확장 전략). */
+  async function renderMeditationQuiz(container, real){
+    let data;
+    try{
+      data = await fetchJSON(`/content/meditation/quiz/${real.book}/${real.chapter}.json`);
+    }catch(_){
+      container.innerHTML = `<div class="sow-card" style="text-align:center;">
+        <div style="font-size:26px;">🎲</div>
+        <h4 style="margin:8px 0 4px;">이 장은 아직 퀴즈가 준비되지 않았어요</h4>
+        <p style="font-size:13px;color:var(--forest-soft);">지금은 요한복음부터 채우고 있어요. 요한복음으로 가서 해보세요!</p>
+      </div>`;
+      return;
+    }
+    const badges = getQuizBadges();
+    const badgeCount = Object.keys(badges).length;
+    container.innerHTML = `<h2 class="sow-section-title serif">🎲 말씀 퀴즈</h2>
+      <p style="font-size:13.5px;color:var(--ink-soft);margin:-14px 0 18px;">오늘 읽은 본문 내용을 가볍게 확인해봐요. 점수는 안 보여줘요 — 그냥 재미로!</p>
+      <div id="sow-med-quiz-target"></div>`;
+    const target = container.querySelector('#sow-med-quiz-target');
+    let idx = 0;
+    function draw(){
+      if(idx >= data.questions.length){
+        const newCount = awardQuizBadge(real.book, real.chapter);
+        target.innerHTML = `<div class="sow-quiz-done">🎉 오늘 말씀 퀴즈 완료! 배지를 모았어요 🎖️<br>
+          <span style="font-size:12.5px;font-weight:600;">지금까지 모은 배지: ${newCount}개</span></div>`;
+        return;
+      }
+      const q = data.questions[idx];
+      target.innerHTML = `<div class="sow-quiz-card">
+        <div class="sow-quiz-progress">${idx+1} / ${data.questions.length}</div>
+        <p class="sow-quiz-question">${q.q}</p>
+        <div class="sow-quiz-options">${q.opts.map((o,i) => `<button type="button" class="sow-quiz-opt" data-i="${i}">${o}</button>`).join('')}</div>
+        <div class="sow-quiz-feedback"></div>
+      </div>`;
+      const feedback = target.querySelector('.sow-quiz-feedback');
+      target.querySelectorAll('.sow-quiz-opt').forEach(btn => {
+        btn.onclick = () => {
+          if(btn.disabled) return;
+          target.querySelectorAll('.sow-quiz-opt').forEach(b => b.disabled = true);
+          const isCorrect = Number(btn.dataset.i) === q.answer;
+          btn.classList.add(isCorrect ? 'correct' : 'wrong');
+          if(!isCorrect) target.querySelector(`[data-i="${q.answer}"]`)?.classList.add('correct');
+          feedback.innerHTML = `${isCorrect ? '🎉 정답이에요!' : '괜찮아요, 다음 문제로 가볼까요?'}
+            <button type="button" class="sow-quiz-next">다음 →</button>`;
+          feedback.querySelector('.sow-quiz-next').onclick = () => { idx++; draw(); };
+        };
+      });
+    }
+    draw();
+  }
+
   const GROUP_TABS = [
     { id: 'overview', icon: '🗺️' },
     { id: 'found-god', icon: '💛' },
@@ -1515,8 +1579,29 @@
           groupLink.onclick = () => { state.activeSub.meditation = 'overview'; renderModulePanel(main); };
           linkRow.appendChild(groupLink);
 
+          const quizLink = document.createElement('button');
+          quizLink.className = 'sow-voice-btn';
+          quizLink.style.cssText = 'background:var(--amber);';
+          quizLink.textContent = '🎲 말씀 퀴즈 풀어보기';
+          quizLink.onclick = () => { state.activeSub.meditation = 'quiz'; renderModulePanel(main); };
+          linkRow.appendChild(quizLink);
+
           // 지금 보고 있는 책/장을 그대로 유지한 채, 다른 모듈(국어/언어/성경관련 지식)로 바로 넘어간다.
           renderModuleCrossLinks(bodyWrap, 'meditation');
+        }catch(_){
+          renderStepNotReady(bodyWrap);
+        }
+      } else if(activeSub === 'quiz'){
+        try{
+          const real = await resolveRealChapter(trackId);
+          await renderMeditationQuiz(bodyWrap, real);
+          const backBtn = document.createElement('button');
+          backBtn.type = 'button';
+          backBtn.className = 'sow-track-change-btn';
+          backBtn.style.cssText = 'margin-top:14px;';
+          backBtn.textContent = '← 오늘의 말씀으로 돌아가기';
+          backBtn.onclick = () => { state.activeSub.meditation = 'steps'; renderModulePanel(main); };
+          bodyWrap.appendChild(backBtn);
         }catch(_){
           renderStepNotReady(bodyWrap);
         }
