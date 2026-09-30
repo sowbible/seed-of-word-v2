@@ -1101,6 +1101,8 @@
       }
       if(LV.sprout.repeatSentence){
         p.appendChild(stageLabel('③ 표현 — 따라 말해보세요'));
+        p.appendChild(sectionLabel('🔀 문장 순서 맞추기'));
+        p.appendChild(wordOrderSentenceQuiz(LV.sprout.repeatSentence));
         p.appendChild(recordCard('sprout', LV.sprout.repeatSentence));
       }
     }
@@ -1143,6 +1145,8 @@
       }
       if(LV.tree.repeatSentence){
         p.appendChild(stageLabel('③ 표현 — 따라 말해보세요'));
+        p.appendChild(sectionLabel('🔀 문장 순서 맞추기'));
+        p.appendChild(wordOrderSentenceQuiz(LV.tree.repeatSentence));
         p.appendChild(recordCard('tree', LV.tree.repeatSentence));
       }
     }
@@ -1288,10 +1292,45 @@
     }
 
     /* ---------- 따라읽기 녹음 카드 (레벨별로 key 구분) ---------- */
+    /* ---------- 단어 순서 맞추기 — 대표 문장 하나를 단어(중국어는 글자) 단위로 섞어서 원래 순서로 맞추는 문제 ----------
+       콘텐츠를 새로 안 만들고, 이미 있는 repeatSentence(왕초급/초급의 "따라 말하기" 문장)를 그대로 재활용한다. */
+    function wordOrderSentenceQuiz(sentText){
+      const box = document.createElement('div'); box.className = 'sow-lang-quiz-card';
+      const clean = sentText.replace(/[。！？.!?]\s*$/, '');
+      const tokens = isChinese
+        ? clean.split('').filter(c => /[\u4e00-\u9fff]/.test(c))
+        : clean.split(' ').filter(Boolean);
+      box.innerHTML = `<div class="sow-lang-quiz-q">문장을 순서대로 눌러 완성해보세요 <button type="button" class="sow-lang-btn-listen" style="font-size:16px;">🔊</button></div>
+        <div class="sow-lang-order-slot"></div><div class="sow-lang-order-pool"></div>
+        <div class="sow-lang-fillin-result"></div>`;
+      box.querySelector('.sow-lang-btn-listen').onclick = () => speak(sentText, 0.6);
+      const slot = box.querySelector('.sow-lang-order-slot'), pool = box.querySelector('.sow-lang-order-pool');
+      const result = box.querySelector('.sow-lang-fillin-result');
+      pool.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;';
+      let placed = [];
+      shuffleArr(tokens).forEach(tok => {
+        const chip = document.createElement('div'); chip.className = 'sow-lang-order-chip'; chip.textContent = tok;
+        chip.onclick = () => {
+          if(chip.classList.contains('placed')) return;
+          chip.classList.add('placed');
+          const pc = document.createElement('span'); pc.className = 'sow-lang-order-chip placed'; pc.style.cssText = 'display:inline-block;margin:2px;'; pc.textContent = tok;
+          slot.appendChild(pc); placed.push(tok);
+          if(placed.length === tokens.length){
+            const ok = placed.join(isChinese ? '' : ' ') === tokens.join(isChinese ? '' : ' ');
+            slot.style.borderColor = ok ? 'var(--amber)' : 'var(--clay)';
+            result.textContent = ok ? '💛 정확해요!' : '순서가 조금 달라요, 다시 도전해보고 싶으면 새로고침해보세요';
+            result.style.color = ok ? 'var(--sage)' : 'var(--clay)';
+          }
+        };
+        pool.appendChild(chip);
+      });
+      return box;
+    }
+
     function recordCard(key, sentText){
       const card = document.createElement('div'); card.className = 'sow-lang-record-card';
       card.innerHTML = `<div class="sow-lang-record-title">🎙️ 문장을 듣고 따라 읽어보세요</div>
-        <p class="sow-lang-record-sentence">${sentText}</p>
+        <p class="sow-lang-record-sentence">${sentText} <button type="button" class="sow-lang-btn-listen" style="font-size:18px;">🔊</button></p>
         <div class="sow-lang-record-row">
           <button class="sow-lang-btn-record">🎙️ 녹음 시작</button>
           <button class="sow-lang-btn-play" disabled>▶️ 내 목소리 듣기</button>
@@ -1300,6 +1339,7 @@
       const recBtn = card.querySelector('.sow-lang-btn-record');
       const playBtn = card.querySelector('.sow-lang-btn-play');
       const status = card.querySelector('.sow-lang-record-status');
+      card.querySelector('.sow-lang-record-sentence .sow-lang-btn-listen').onclick = () => speak(sentText, 0.6);
       let recorder, chunks = [], blobUrl = null, recording = false;
       recBtn.onclick = async () => {
         if(!recording){
