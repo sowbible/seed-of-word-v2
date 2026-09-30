@@ -569,10 +569,13 @@
         return;
       }
       const q = data.questions[idx];
+      // 원래 순서 그대로면 정답이 항상 첫 번째로 나와서, 인덱스를 같이 들고 섞는다
+      let shuffled = q.opts.map((text, i) => ({ text, isAnswer: i === q.answer }));
+      shuffled = shuffled.map(v => [Math.random(), v]).sort((a,b) => a[0]-b[0]).map(v => v[1]);
       target.innerHTML = `<div class="sow-quiz-card">
         <div class="sow-quiz-progress">${idx+1} / ${data.questions.length}</div>
         <p class="sow-quiz-question">${q.q}</p>
-        <div class="sow-quiz-options">${q.opts.map((o,i) => `<button type="button" class="sow-quiz-opt" data-i="${i}">${o}</button>`).join('')}</div>
+        <div class="sow-quiz-options">${shuffled.map((o,i) => `<button type="button" class="sow-quiz-opt" data-i="${i}" data-correct="${o.isAnswer}">${o.text}</button>`).join('')}</div>
         <div class="sow-quiz-feedback"></div>
       </div>`;
       const feedback = target.querySelector('.sow-quiz-feedback');
@@ -580,9 +583,9 @@
         btn.onclick = () => {
           if(btn.disabled) return;
           target.querySelectorAll('.sow-quiz-opt').forEach(b => b.disabled = true);
-          const isCorrect = Number(btn.dataset.i) === q.answer;
+          const isCorrect = btn.dataset.correct === 'true';
           btn.classList.add(isCorrect ? 'correct' : 'wrong');
-          if(!isCorrect) target.querySelector(`[data-i="${q.answer}"]`)?.classList.add('correct');
+          if(!isCorrect) target.querySelector(`[data-correct="true"]`)?.classList.add('correct');
           feedback.innerHTML = `${isCorrect ? '🎉 정답이에요!' : '괜찮아요, 다음 문제로 가볼까요?'}
             <button type="button" class="sow-quiz-next">다음 →</button>`;
           feedback.querySelector('.sow-quiz-next').onclick = () => { idx++; draw(); };
