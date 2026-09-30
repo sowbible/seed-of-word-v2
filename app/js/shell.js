@@ -1284,9 +1284,27 @@
         hb.innerHTML = '💡 ' + Object.entries(LV.forest.helperWords).map(([w,m]) => `<b>${w}</b>(${m})`).join(' · ');
         p.appendChild(hb);
       }
+      // 고급은 문단이 길어서 병음이 계속 다 보이면 지저분해 보이니, 기본은 숨기고
+      // 버튼으로 켜고 끌 수 있게 한다(중국어일 때만 — 영어는 병음 자체가 없어서 해당 없음).
+      const paraWrap = document.createElement('div');
+      if(isChinese){
+        paraWrap.className = 'sow-lang-hide-py';
+        const pyToggle = document.createElement('button');
+        pyToggle.type = 'button';
+        pyToggle.className = 'sow-lang-btn-check';
+        pyToggle.style.cssText = 'margin-bottom:10px;';
+        pyToggle.textContent = '👁️ 병음 보기';
+        pyToggle.onclick = () => {
+          const showing = paraWrap.classList.toggle('sow-lang-show-py');
+          paraWrap.classList.toggle('sow-lang-hide-py', !showing);
+          pyToggle.textContent = showing ? '🙈 병음 숨기기' : '👁️ 병음 보기';
+        };
+        p.appendChild(pyToggle);
+      }
+      p.appendChild(paraWrap);
       LV.forest.paragraphs.forEach(s => {
         const card = sentenceCard(s, 0.72);
-        p.appendChild(card);
+        paraWrap.appendChild(card);
       });
       p.appendChild(stageLabel('② 이해 확인'));
       if(LV.forest.multiSelect && LV.forest.multiSelect.length){
