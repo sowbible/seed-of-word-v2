@@ -386,6 +386,11 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 /* 중국어는 한자 위에 병음이 항상 얹히므로, 줄 사이 공간을 넉넉히 띄워서 위 줄 병음과 안 겹치게 한다 */
 .sow-lang-sentence-text.zh{line-height:2.7;}
 
+/* ---------- 고급 전용: 병음 보이기/숨기기 토글 ---------- */
+.sow-lang-hide-py rt{display:none;}
+.sow-lang-hide-py .sow-lang-sentence-text.zh{line-height:1.95;} /* 병음 숨겼을 땐 줄간격도 다시 좁게 */
+
+
 /* ---------- 중국어 한자 + 병음(ruby) — 한자 위에 병음이 작게 항상 보이는 방식 ---------- */
 .sow-lang-han{font-size:1.05em;}
 .sow-lang-han ruby{ruby-position:over;ruby-align:center;}
