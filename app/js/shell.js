@@ -1401,10 +1401,13 @@
     function wordOrderSentenceQuiz(sentText, vocabList){
       const box = document.createElement('div'); box.className = 'sow-lang-quiz-card';
       const clean = sentText.replace(/[。！？.!?]\s*$/, '');
-      const tokens = isChinese
+      const baseTokens = isChinese
         ? tokenizeChineseWithVocab(clean, vocabList)
         : clean.split(' ').filter(Boolean);
-      box.innerHTML = `<div class="sow-lang-quiz-q">문장을 순서대로 눌러 완성해보세요 <button type="button" class="sow-lang-btn-listen" style="font-size:16px;">🔊</button></div>
+      box.innerHTML = `<div class="sow-lang-quiz-q">문장을 순서대로 눌러 완성해보세요
+          <button type="button" class="sow-lang-btn-listen" style="font-size:16px;">🔊</button>
+          <button type="button" class="sow-lang-btn-listen sow-lang-order-reset" style="font-size:16px;" title="다시 섞기">🔄</button>
+        </div>
         <div class="sow-lang-order-slot"></div><div class="sow-lang-order-pool"></div>
         <div class="sow-lang-fillin-result"></div>`;
       box.querySelector('.sow-lang-btn-listen').onclick = () => speak(sentText, 0.6);
@@ -1415,25 +1418,51 @@
       const rowStyle = 'display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;align-items:flex-start;';
       slot.style.cssText = rowStyle + 'min-height:44px;';
       pool.style.cssText = rowStyle;
-      let placed = [];
-      shuffleArr(tokens).forEach(tok => {
-        const chip = document.createElement('div'); chip.className = 'sow-lang-order-chip'; chip.textContent = tok;
-        chip.style.cssText = 'width:auto;flex:none;';
-        chip.onclick = () => {
-          if(chip.dataset.used) return;
-          chip.dataset.used = '1';
-          chip.style.display = 'none'; // 클릭한 단어는 풀에서 사라지고(숨김), 슬롯에만 보이게
-          const pc = document.createElement('span'); pc.className = 'sow-lang-order-chip placed'; pc.style.cssText = 'width:auto;flex:none;'; pc.textContent = tok;
-          slot.appendChild(pc); placed.push(tok);
-          if(placed.length === tokens.length){
-            const ok = placed.join(isChinese ? '' : ' ') === tokens.join(isChinese ? '' : ' ');
-            slot.style.borderColor = ok ? 'var(--amber)' : 'var(--clay)';
-            result.textContent = ok ? '💛 정확해요!' : '순서가 조금 달라요, 다시 도전해보고 싶으면 새로고침해보세요';
-            result.style.color = ok ? 'var(--sage)' : 'var(--clay)';
-          }
+
+      let placed = []; // { tok, poolChip } — poolChip을 들고 있어야 슬롯에서 뺄 때 원래 자리로 되돌릴 수 있다
+
+      function checkDone(){
+        if(placed.length === baseTokens.length){
+          const ok = placed.map(p => p.tok).join(isChinese ? '' : ' ') === baseTokens.join(isChinese ? '' : ' ');
+          slot.style.borderColor = ok ? 'var(--amber)' : 'var(--clay)';
+          result.textContent = ok ? '💛 정확해요!' : '순서가 조금 달라요, 슬롯의 단어를 눌러 빼거나 🔄로 다시 섞어보세요';
+          result.style.color = ok ? 'var(--sage)' : 'var(--clay)';
+        } else {
+          result.textContent = '';
+          slot.style.borderColor = '';
+        }
+      }
+
+      function placeChip(poolChip, tok){
+        poolChip.style.display = 'none'; // 클릭한 단어는 풀에서 사라지고(숨김), 슬롯에만 보이게
+        poolChip.dataset.used = '1';
+        const pc = document.createElement('span'); pc.className = 'sow-lang-order-chip placed'; pc.style.cssText = 'width:auto;flex:none;'; pc.textContent = tok;
+        pc.onclick = () => { // 슬롯에 놓인 단어를 다시 누르면 풀로 되돌아간다
+          pc.remove();
+          poolChip.style.display = '';
+          poolChip.dataset.used = '';
+          placed = placed.filter(p => p.poolChip !== poolChip);
+          checkDone();
         };
-        pool.appendChild(chip);
-      });
+        slot.appendChild(pc);
+        placed.push({ tok, poolChip });
+        checkDone();
+      }
+
+      function buildPool(order){
+        pool.innerHTML = ''; slot.innerHTML = ''; placed = [];
+        result.textContent = ''; slot.style.borderColor = '';
+        order.forEach(tok => {
+          const chip = document.createElement('div'); chip.className = 'sow-lang-order-chip'; chip.textContent = tok;
+          chip.style.cssText = 'width:auto;flex:none;';
+          chip.onclick = () => { if(!chip.dataset.used) placeChip(chip, tok); };
+          pool.appendChild(chip);
+        });
+      }
+
+      buildPool(shuffleArr(baseTokens));
+      box.querySelector('.sow-lang-order-reset').onclick = () => buildPool(shuffleArr(baseTokens));
+
       return box;
     }
 
