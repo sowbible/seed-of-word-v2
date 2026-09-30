@@ -480,8 +480,8 @@ main.sow-main{max-width:760px;margin:0 auto;padding:28px 20px 60px;}
 .sow-lang-essay{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;font-family:inherit;font-size:var(--fs-sm);min-height:60px;resize:vertical;margin-top:4px;}
 
 .sow-lang-record-card{background:var(--amber-tint);border:1px solid var(--amber);border-radius:var(--radius);padding:15px;margin-top:6px;}
-.sow-lang-record-title{font-size:var(--fs-xs);font-weight:800;color:var(--amber);margin-bottom:8px;}
-.sow-lang-record-sentence{font-size:19px;font-weight:700;margin:0 0 12px;line-height:1.6;}
+.sow-lang-record-title{font-size:15px;font-weight:800;color:var(--amber);margin-bottom:8px;}
+.sow-lang-record-sentence{font-size:22px;font-weight:700;margin:0 0 12px;line-height:1.6;}
 .sow-lang-record-row{display:flex;gap:8px;margin-bottom:8px;}
 .sow-lang-btn-record{flex:1;background:var(--clay);color:#fff;border:none;border-radius:99px;padding:10px;font-size:var(--fs-sm);font-weight:700;cursor:pointer;}
 .sow-lang-btn-record.recording{background:var(--alert-deep);animation:sow-lang-pulse 1s infinite;}
