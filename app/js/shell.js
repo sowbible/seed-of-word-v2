@@ -821,7 +821,7 @@
     container.querySelector('[data-close]').onclick = () => container.querySelector('#sow-lang-popup').classList.remove('show');
 
     // 언어마다 다른 음성합성 언어코드 — 지금까지 영어(en-US)만 있어서 하드코딩되어 있었다.
-    const LANG_TTS = { english: 'en-US', zh: 'zh-CN', ja: 'ja-JP', 'ko-for-foreigners': 'ko-KR' };
+    const LANG_TTS = { en: 'en-US', zh: 'zh-CN', ja: 'ja-JP', 'ko-for-foreigners': 'ko-KR' };
     const ttsLang = LANG_TTS[langId] || 'en-US';
     const isChinese = langId === 'zh';
 
@@ -1006,14 +1006,27 @@
           return;
         }
         const { q, opts, listen } = questions[idx];
+        // listen 필드가 따로 없어도, 문제 안에 통째로 목표어 문장이 들어있거나("..." 형태)
+        // '단어'의 뜻은? 처럼 홑따옴표로 감싼 단어가 있으면 그걸 읽어준다 — mixQuiz(참/거짓, 단어뜻)에도 듣기 버튼이 뜨게 하려는 것.
+        let listenText = listen || null;
+        if(!listenText){
+          const stripped = q.replace(/^["“]|["”]$/g, '');
+          const isPureTarget = isChinese ? /^[\u4e00-\u9fff\s，。！？、（）—－·]+$/.test(stripped) : /^[A-Za-z0-9\s.,!?'"();:\-]+$/.test(stripped);
+          if(isPureTarget && stripped !== q.trim() /* 실제로 따옴표가 있었을 때만(참/거짓 문장형) */){
+            listenText = stripped;
+          } else {
+            const m = q.match(/'([^']+)'/); // '단어'의 뜻은? 패턴에서 단어만 추출
+            if(m) listenText = m[1];
+          }
+        }
         const shuffledOpts = shuffleArr(opts); // 매 문제마다 선택지 순서를 섞어서, 정답이 항상 같은 자리에 오지 않게 한다
         let wrongCount = 0;
         box.innerHTML = `<div class="sow-lang-quiz-progress">${idx+1} / ${questions.length}</div>
           <div class="sow-lang-quiz-q">${q}</div>
-          ${listen ? `<button class="sow-lang-btn-listen" style="margin-bottom:8px;">🔊 다시 듣기</button>` : ''}
+          ${listenText ? `<button class="sow-lang-btn-listen" style="margin-bottom:8px;">🔊 ${listen ? '다시 듣기' : '들어보기'}</button>` : ''}
           <div class="sow-lang-quiz-opts"></div>
           <div class="sow-lang-quiz-feedback"></div>`;
-        if(listen) box.querySelector('.sow-lang-btn-listen').onclick = () => speak(listen, 0.6);
+        if(listenText) box.querySelector('.sow-lang-btn-listen').onclick = () => speak(listenText, 0.6);
         const wrap = box.querySelector('.sow-lang-quiz-opts');
         const feedback = box.querySelector('.sow-lang-quiz-feedback');
         shuffledOpts.forEach(o => {
