@@ -733,6 +733,30 @@
     drawQuestion();
   }
 
+  /* ---------- 획순 애니메이션: "지금 그리는 획"만 빨간색, 그 획이 끝나면 검정으로 ----------
+     HanziWriter 자체엔 이 기능이 없어서, 획이 하나씩 SVG에 새로 그려질 때마다
+     MutationObserver로 감지해서 방금 나온 획만 빨간색으로 바꿔주고, 그다음 획이
+     나오는 순간 이전 획을 다시 검정으로 되돌린다(타이밍이 안 맞아도 항상 자동 보정됨). */
+  function wireActiveStrokeHighlight(targetEl){
+    let prevPath = null;
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(m => {
+        m.addedNodes.forEach(node => {
+          if(node.tagName === 'path'){
+            if(prevPath) prevPath.style.stroke = '#1a1a1a';
+            node.style.stroke = '#E6007E';
+            prevPath = node;
+          }
+        });
+      });
+    });
+    observer.observe(targetEl, { childList: true, subtree: true });
+    return {
+      // 애니메이션이 한 번 끝날 때마다 호출 — 마지막 획을 검정으로 되돌리고, 다음 번 "다시보기"를 위해 초기화만 한다(observer는 계속 살아있음)
+      onDone: () => { if(prevPath) prevPath.style.stroke = '#1a1a1a'; prevPath = null; }
+    };
+  }
+
   async function renderKoreanHanja(container, real){
     const data = await fetchJSON(`/content/korean/hanja/${real.book}/${real.chapter}.json`);
     const h = data.hanja;
@@ -787,7 +811,8 @@
       headerTarget.innerHTML = '';
       try{
         const headerWriter = HanziWriter.create(headerTarget, h.character, {
-          width: 208, height: 208, padding: 6, showOutline: true
+          width: 208, height: 208, padding: 6, showOutline: true,
+          strokeColor: '#1a1a1a', outlineColor: '#D9D9D9', radicalColor: '#8A3F26'
         });
         headerWriter.showCharacter();
       }catch(_){ headerTarget.innerHTML = `<span class="sow-hanja-char-fallback">${h.character}</span>`; }
@@ -795,17 +820,20 @@
       if(h.hasAnimation){
         const animWriter = HanziWriter.create('sow-hanzi-anim-target', h.character, {
           width: 180, height: 180, padding: 8, showOutline: true,
-          strokeAnimationSpeed: 1, delayBetweenStrokes: 300
+          strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
+          strokeColor: '#1a1a1a', outlineColor: '#D9D9D9', radicalColor: '#8A3F26'
         });
-        animWriter.animateCharacter();
-        container.querySelector('#sow-hanzi-replay').onclick = () => animWriter.animateCharacter();
+        const highlight = wireActiveStrokeHighlight(container.querySelector('#sow-hanzi-anim-target'));
+        animWriter.animateCharacter({ onComplete: () => highlight.onDone() });
+        container.querySelector('#sow-hanzi-replay').onclick = () => animWriter.animateCharacter({ onComplete: () => highlight.onDone() });
       }
       if(h.hasWritingPractice){
         const msg = container.querySelector('.sow-hanzi-quiz-msg');
         function startQuiz(){
           msg.textContent = '';
           const quizWriter = HanziWriter.create('sow-hanzi-quiz-target', h.character, {
-            width: 180, height: 180, padding: 8, showOutline: true
+            width: 180, height: 180, padding: 8, showOutline: true,
+            strokeColor: '#1a1a1a', outlineColor: '#D9D9D9'
           });
           quizWriter.quiz({
             onComplete: () => {
