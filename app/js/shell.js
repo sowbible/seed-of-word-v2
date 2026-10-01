@@ -921,16 +921,84 @@
     const isChinese = langId === 'zh';
 
     const dict = data.dictionary || {};
+
+    // 이 장(chapter) 전체에서 쓰인 "오늘의 어휘"를 모은다 — 왕초급/초급은 배열(vocab),
+    // 중급/고급은 객체(helperWords) 형태라 서로 합쳐서 하나의 목록으로 만든다.
+    // 탭했을 때 팝업/문장 순서 맞추기에서 "이 단어는 다른 단계에서 이미 배운 단어구나"를
+    // 알아보고 통째로 묶어주기 위한 것 — 지금 보고 있는 단계의 어휘만 참고하면,
+    // 예를 들어 2장 왕초급엔 "耶稣"가 안 나와 있어서(1장에서 이미 배웠으므로) 놓치게 된다.
+    const allVocabWords = [];
+    if(LV.sprout?.vocab) allVocabWords.push(...LV.sprout.vocab);
+    if(LV.tree?.vocab) allVocabWords.push(...LV.tree.vocab);
+    if(LV.fruit?.helperWords) Object.entries(LV.fruit.helperWords).forEach(([word, meaning]) => allVocabWords.push({ word, meaning }));
+    if(LV.forest?.helperWords) Object.entries(LV.forest.helperWords).forEach(([word, meaning]) => allVocabWords.push({ word, meaning }));
+
+    // 사전에 "(음역자...)"라고 표시된 글자(인명·지명 표기용 한자, 예: 耶/稣/约/翰)는
+    // 이 장의 어휘 목록에 없어도, 연속으로 나오면 항상 하나로 묶는다 — 이름을 한 글자씩
+    // 쪼개서 보여주면 뜻을 알 길이 없으니까.
+    function isTransliterationChar(ch){
+      const entry = dict[ch];
+      return !!(entry && typeof entry === 'object' && entry.mean && entry.mean.includes('음역자'));
+    }
+    // 중국어 문장을 "단어" 단위로 자른다 — 띄어쓰기가 없어서, 정식 형태소 분석기 대신
+    // ① 이 장의 어휘 목록(긴 단어 우선), ② 음역자 연속 구간, 이 두 가지로 묶고
+    // 둘 다 해당 안 되면 한 글자씩(조사/동사 등은 원래 한 글자가 단위인 경우가 많음).
+    function tokenizeChineseText(text){
+      const knownWords = allVocabWords
+        .map(v => v.word).filter(w => w && /^[\u4e00-\u9fff]+$/.test(w))
+        .sort((a, b) => b.length - a.length);
+      const hanOnly = text.replace(/[^\u4e00-\u9fff]/g, '');
+      const result = [];
+      let i = 0;
+      while(i < hanOnly.length){
+        const vocabHit = knownWords.find(w => hanOnly.startsWith(w, i));
+        if(vocabHit){ result.push(vocabHit); i += vocabHit.length; continue; }
+        if(isTransliterationChar(hanOnly[i])){
+          let j = i;
+          while(j < hanOnly.length && isTransliterationChar(hanOnly[j])) j++;
+          result.push(hanOnly.slice(i, j)); i = j; continue;
+        }
+        result.push(hanOnly[i]); i += 1;
+      }
+      return result;
+    }
+    // 묶인 단어(예: 耶稣)의 뜻을 찾는다 — 이 장 어휘 목록에 있으면 그 뜻을, 없으면(예: 2장의 耶稣처럼
+    // 다른 장에서 이미 배운 이름) 글자 하나하나의 사전 뜻을 이어붙여서 대략적인 뜻이라도 보여준다.
+    function lookUpWordMeaning(word){
+      const vocabHit = allVocabWords.find(v => v.word === word);
+      if(vocabHit) return vocabHit.meaning;
+      if(word.length === 1){
+        const entry = dict[word];
+        return entry && typeof entry === 'object' ? entry.mean : null;
+      }
+      const parts = [...word].map(ch => {
+        const entry = dict[ch];
+        return entry && typeof entry === 'object' ? entry.mean.replace(/\(음역자[^)]*\)/,'').trim() : '';
+      }).filter(Boolean);
+      return parts.length ? `(인명/지명) ${parts.join(' ')}`.trim() : '(뜻 준비중)';
+    }
     function wrapWords(text){
       if(isChinese){
-        // 중국어는 띄어쓰기가 없어서(我爱你) 영어처럼 스페이스로 못 자르고, 한자 한 글자씩 자른다.
-        // 사전에 병음(py)이 있으면 <ruby>로 글자 위에 항상 표시한다(3장 "항상 표시" 방식으로 결정됨).
-        return text.split('').map(ch => {
-          if(!/[\u4e00-\u9fff]/.test(ch)) return ch; // 한자가 아닌 문자(구두점 등)는 그대로 통과
-          const entry = dict[ch];
-          const py = entry && typeof entry === 'object' ? entry.py : '';
-          return `<span class="sow-lang-word sow-lang-han" data-w="${ch}"><ruby>${ch}${py ? `<rt>${py}</rt>` : ''}</ruby></span>`;
-        }).join('');
+        // 중국어는 띄어쓰기가 없어서(我爱你) 영어처럼 스페이스로 못 자르고, 대신 어휘 목록/음역자
+        // 연속 구간을 기준으로 "단어" 단위로 묶는다(tokenizeChineseText). 묶인 단어(예: 耶稣)는
+        // 통째로 하나의 탭 영역이 되고, 병음은 각 글자 위에 계속 하나씩 표시된다(<ruby>).
+        const tokens = tokenizeChineseText(text);
+        let hanIdx = 0; // 원문에서 한자가 아닌 문자(구두점 등)를 제자리에 끼워 넣기 위한 포인터
+        const chars = [...text];
+        let out = '';
+        tokens.forEach(tok => {
+          // tok 앞에 있던 구두점/공백을 먼저 그대로 출력한다
+          while(hanIdx < chars.length && !/[\u4e00-\u9fff]/.test(chars[hanIdx])){ out += chars[hanIdx]; hanIdx++; }
+          const inner = [...tok].map(ch => {
+            const entry = dict[ch];
+            const py = entry && typeof entry === 'object' ? entry.py : '';
+            return `<ruby>${ch}${py ? `<rt>${py}</rt>` : ''}</ruby>`;
+          }).join('');
+          out += `<span class="sow-lang-word sow-lang-han" data-w="${tok}">${inner}</span>`;
+          hanIdx += tok.length;
+        });
+        while(hanIdx < chars.length){ out += chars[hanIdx]; hanIdx++; } // 끝에 남은 구두점(마침표 등)
+        return out;
       }
       return text.split(' ').map(w => {
         // 단어 끝/시작에 붙는 문장부호(.,!?"·:;()—-)를 지운 뒤 사전에서 찾는다.
@@ -959,10 +1027,16 @@
       scopeEl.querySelectorAll('.sow-lang-word').forEach(el => {
         el.onclick = () => {
           const w = el.dataset.w;
-          const entry = dict[w];
-          // 영어는 사전값이 그냥 문자열(뜻)이고, 중국어는 {py, mean} 객체라 형태가 다르다.
-          const mean = entry && typeof entry === 'object' ? (entry.mean || '(뜻 준비중)') : (entry || '(뜻 준비중)');
-          const headWord = (isChinese && entry && entry.py) ? `${w} (${entry.py})` : w;
+          let mean, headWord;
+          if(isChinese){
+            mean = lookUpWordMeaning(w);
+            const py = [...w].map(ch => { const e = dict[ch]; return e && typeof e === 'object' ? e.py : ''; }).filter(Boolean).join(' ');
+            headWord = py ? `${w} (${py})` : w;
+          } else {
+            const entry = dict[w];
+            mean = entry || '(뜻 준비중)';
+            headWord = w;
+          }
           container.querySelector('#sow-lang-popup-word').textContent = headWord;
           container.querySelector('#sow-lang-popup-mean').textContent = mean;
           container.querySelector('#sow-lang-popup').classList.add('show');
@@ -1410,27 +1484,14 @@
     /* 중국어는 띄어쓰기가 없어서, 오늘의 어휘(vocab)에 있는 단어(예: 耶稣, 上帝)는
        한 덩어리로 붙여서 잘라내고, 나머지는 한 글자씩 자른다 — 정식 형태소 분석기 없이
        "이미 아는 단어" 목록을 활용하는 방식(긴 단어부터 먼저 매칭). */
-    function tokenizeChineseWithVocab(text, vocabList){
-      const knownWords = (vocabList || [])
-        .map(v => v.word)
-        .filter(w => w && /^[\u4e00-\u9fff]+$/.test(w))
-        .sort((a, b) => b.length - a.length);
-      const hanOnly = text.replace(/[^\u4e00-\u9fff]/g, '');
-      const result = [];
-      let i = 0;
-      while(i < hanOnly.length){
-        const hit = knownWords.find(w => hanOnly.startsWith(w, i));
-        if(hit){ result.push(hit); i += hit.length; }
-        else{ result.push(hanOnly[i]); i += 1; }
-      }
-      return result;
-    }
+    // (단어 순서 맞추기 퀴즈도 위에서 만든 tokenizeChineseText를 그대로 재사용한다 —
+    //  음역자 자동 묶기까지 포함된 더 똑똑한 버전이라 따로 함수를 안 둔다.)
 
     function wordOrderSentenceQuiz(sentText, vocabList){
       const box = document.createElement('div'); box.className = 'sow-lang-quiz-card';
       const clean = sentText.replace(/[。！？.!?]\s*$/, '');
       const baseTokens = isChinese
-        ? tokenizeChineseWithVocab(clean, vocabList)
+        ? tokenizeChineseText(clean)
         : clean.split(' ').filter(Boolean);
       box.innerHTML = `<div class="sow-lang-quiz-q">문장을 순서대로 눌러 완성해보세요
           <button type="button" class="sow-lang-btn-listen" style="font-size:16px;">🔊</button>
