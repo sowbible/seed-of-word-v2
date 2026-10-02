@@ -1360,7 +1360,25 @@
         hb.innerHTML = '💡 ' + Object.entries(LV.fruit.helperWords).map(([w,m]) => `<b>${w}</b>(${m})`).join(' · ');
         p.appendChild(hb);
       }
-      LV.fruit.sentences.forEach(s => p.appendChild(sentenceCard(s, 0.68)));
+      // 중급도 고급과 같은 이유로 — 문단이 여러 개라 병음이 계속 다 보이면 지저분하니,
+      // 기본은 숨기고 버튼으로 켜고 끌 수 있게 한다(중국어일 때만).
+      const fruitParaWrap = document.createElement('div');
+      if(isChinese){
+        fruitParaWrap.className = 'sow-lang-hide-py';
+        const pyToggle = document.createElement('button');
+        pyToggle.type = 'button';
+        pyToggle.className = 'sow-lang-btn-check';
+        pyToggle.style.cssText = 'margin-bottom:10px;';
+        pyToggle.textContent = '👁️ 병음 보기';
+        pyToggle.onclick = () => {
+          const showing = fruitParaWrap.classList.toggle('sow-lang-show-py');
+          fruitParaWrap.classList.toggle('sow-lang-hide-py', !showing);
+          pyToggle.textContent = showing ? '🙈 병음 숨기기' : '👁️ 병음 보기';
+        };
+        p.appendChild(pyToggle);
+      }
+      p.appendChild(fruitParaWrap);
+      LV.fruit.sentences.forEach(s => fruitParaWrap.appendChild(sentenceCard(s, 0.68)));
       p.appendChild(stageLabel('② 이해 확인'));
       if(LV.fruit.orderQuiz && LV.fruit.orderQuiz.length){
         p.appendChild(sectionLabel('🔀 문장 순서 맞추기'));
